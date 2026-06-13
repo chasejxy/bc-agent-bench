@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_unknown_customer_intervention_resolution",
+  "outcome_id": "intervention_unresolved",
+  "test_cases": [
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "A cooperative, neutral sender not recognized as an existing customer requests a quote for both a valid catalog item and a non-catalog item, triggering an intervention due to unresolved customer identity and an unresolvable item reference.",
+      "sender_name": "Unknown Sender 2",
+      "sender_email": "unknown.sender2@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender2@external.test",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Playlandia Colorful Play Mat\r\n- Deluxe Kids Activity Tunnel\r\n\r\nPlease provide pricing and availability for both. Let me know if you need any additional information from my side.\r\n\r\nBest regards,\r\nUnknown Sender 2"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "A polite quote request from an unknown sender, including at least one item that does not match the available catalog, triggering intervention due to unresolved customer identity and non-catalog item reference.",
+      "sender_name": "Unknown Sender 18",
+      "sender_email": "unknown.sender18@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender18@external.test",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Playlandia Colorful Play Mat\r\n- Deluxe Kids Activity Table\r\n- WonderWagon Electric Train\r\n\r\nPlease let me know if you need any further information from my side. Thank you for your assistance.\r\n\r\nBest regards,\r\nUnknown Sender 18"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "A cooperative unknown sender requests a quote for both a catalog item and a non-catalog item, triggering an intervention due to the unresolved customer identity and the unresolvable product reference.",
+      "sender_name": "Unknown Sender 8",
+      "sender_email": "unknown.sender8@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender8@external.test",
+        "subject": "Quote Request for Toy Items",
+        "body": "Hi there,\r\n\r\nI’d like to get a quote for the following:\r\n- MagicToyland Adventure Doll\r\n- Playlandia Deluxe Castle Set\r\n\r\nLet me know if you need any more info from my side. Thanks!\r\n\r\nBest,\r\nUnknown Sender 8\r\n\r\nBest regards,\r\nUnknown Sender 8"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unknown sender requests quote with non-catalog item",
+      "description": "A quote request is submitted by an unknown sender, including a non-catalog item that cannot be resolved, triggering an intervention.",
+      "sender_name": "Unknown Sender 15",
+      "sender_email": "unknown.sender15@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender15@external.test",
+        "subject": "Need a Quote ASAP",
+        "body": "Send me a quote for the following, and make it quick:\r\n\r\n- 2 WonderWagon Electric Train\r\n- 1 Deluxe Play Tunnel Set\r\n- 5 T-Shirts\r\n\r\nDon’t waste time with back-and-forth. I expect pricing right away.\r\n\r\nUnknown Sender 15\r\n\r\nBest regards,\r\nUnknown Sender 15"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Unknown Sender 16",
+      "description": "An uncooperative customer requests a quote for items, including a non-catalog product, from an unknown sender address.",
+      "sender_name": "Unknown Sender 16",
+      "sender_email": "unknown.sender16@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender16@external.test",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for the following:\r\n- AdventureCraft Building Blocks\r\n- Deluxe Playhouse Kit\r\n- Soda - Medium\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nUnknown Sender 16"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "An unknown sender requests a quote including both a valid catalog item and a non-catalog item, triggering an intervention due to unresolved customer identity and an unresolvable product reference.",
+      "sender_name": "Unknown Sender 15",
+      "sender_email": "unknown.sender15@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender15@external.test",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- Generic Golden T-Shirt\r\n- Deluxe Office Chair\r\n\r\nLet me know if you need anything else from my side.\r\n\r\nBest regards,\r\nUnknown Sender 15"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Unknown Sender 20",
+      "description": "An uncooperative customer from an unknown sender requests a quote, including at least one item that does not match the catalog, triggering intervention.",
+      "sender_name": "Unknown Sender 20",
+      "sender_email": "unknown.sender20@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender20@external.test",
+        "subject": "Quote Request",
+        "body": "Hi, can you send me a quote for the following? I need a Rug and also the Super Deluxe Toy Puzzle (not sure if you have that). Let me know the prices. Thanks, Unknown Sender 20\r\n\r\nBest regards,\r\nUnknown Sender 20"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unknown Sender 9 - Uncooperative Quote Request with Non-Catalog Item",
+      "description": "An uncooperative, impatient customer requests a quote from an unknown sender, including at least one item that cannot be matched to the catalog, triggering intervention.",
+      "sender_name": "Unknown Sender 9",
+      "sender_email": "unknown.sender9@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender9@external.test",
+        "subject": "Need a Quote ASAP",
+        "body": "Just send me a quote for the following:\r\n- 2 WonderWagon Electric Train\r\n- 1 Playlandia Deluxe Play Tunnel\r\n- 3 T-Shirt\r\nDon’t waste time asking for details. I need this fast.\r\n\r\nUnknown Sender 9\r\n\r\nBest regards,\r\nUnknown Sender 9"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Unknown Sender 5 - Quote Request with Non-Catalog Item",
+      "description": "A concise quote request from an unknown sender, including a non-catalog item that cannot be resolved, triggering intervention.",
+      "sender_name": "Unknown Sender 5",
+      "sender_email": "unknown.sender5@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender5@external.test",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for the following:\r\n- SmartToys Building Blocks\r\n- Playlandia Deluxe Train Set\r\n\r\nBest regards,\r\nUnknown Sender 5"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "A concise and polite quote request is submitted by an unknown sender, including a non-catalog item that cannot be resolved, triggering intervention.",
+      "sender_name": "Unknown Sender 16",
+      "sender_email": "unknown.sender16@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender16@external.test",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following:\r\n- WonderWagon Bicycle\r\n- Deluxe Picnic Basket Set\r\n\r\nBest regards,\r\nUnknown Sender 16"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Unknown sender requests quote including non-catalog item",
+      "description": "A brief quote request from an unknown sender, including one catalog item and one non-catalog item, triggering intervention due to both unknown customer and unresolvable product reference.",
+      "sender_name": "Unknown Sender 11",
+      "sender_email": "unknown.sender11@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender11@external.test",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for the WonderWash Washing Machine and also for a SuperClean Dryer? Thanks,\r\n\r\nUnknown Sender 11\r\n\r\nBest regards,\r\nUnknown Sender 11"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unknown sender requests quote with non-catalog item",
+      "description": "A brief, impatient quote request from an unknown sender, including a non-catalog item that cannot be resolved, triggering intervention.",
+      "sender_name": "Unknown Sender 7",
+      "sender_email": "unknown.sender7@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender7@external.test",
+        "subject": "Need a quote ASAP",
+        "body": "Quote me for 2 WonderWagon Pull-Along Train and 1 Deluxe Toy Storage Chest. Don't waste time, just send the quote.\r\n\r\nBest regards,\r\nUnknown Sender 7"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Unknown Sender 11",
+      "description": "A verbose, neutral customer email from an unknown sender requesting a quote, including at least one item that cannot be resolved to the catalog, thus triggering intervention.",
+      "sender_name": "Unknown Sender 11",
+      "sender_email": "unknown.sender11@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender11@external.test",
+        "subject": "Quote Request for Multiple Items",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for a selection of products for an upcoming event. I am not sure if you require any specific account information, but please let me know if you need further details about my organization or background. For the quote, please include the following:\r\n\r\n- 2 units of Pizza (please specify available options if there are differences)\r\n- 1 set of MagicToyland Fairy Doll\r\n- 1 pack of Eco-Friendly Napkins (we need compostable napkins, preferably in bulk)\r\n- 3 bottles of Soda - Medium\r\n\r\nIf you have any minimum order requirements or need additional information, please advise. I look forward to your response and a detailed quotation.\r\n\r\nBest regards,\r\nUnknown Sender 11"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose unknown sender quote request with intervention trigger",
+      "description": "A verbose, polite quote request from an unknown sender, including detailed context and a mix of catalog and non-catalog items. The request contains at least one item that cannot be matched to the available catalog, triggering an intervention due to unresolved customer identity and unresolvable item reference.",
+      "sender_name": "Unknown Sender 8",
+      "sender_email": "unknown.sender8@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender8@external.test",
+        "subject": "Request for Quote – Product Details and Context",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am reaching out from an external organization and would like to request a quote for several items, as we are planning to expand our inventory for an upcoming event. I am not sure if my contact details are already registered in your system, so please let me know if you require any additional information about our company or the purchasing process.\r\n\r\nFor the quote, please include:\r\n- 2 units of Rug (we are interested in both decorative and utility types, so please advise on available options)\r\n- 1 set of SmartToys Jigsaw Puzzle Set\r\n- 3 packs of EcoFresh Cleaning Wipes (this is a new product we heard about, but I could not locate it in your catalog; please confirm availability)\r\n- 5 T-Shirts (preferably in assorted colors)\r\n\r\nIf you need further details regarding our organization or the event, I am happy to provide more context. Thank you in advance for your assistance, and I look forward to your reply.\r\n\r\nBest regards,\r\nUnknown Sender 8"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request from unknown sender with non-catalog item",
+      "description": "A verbose, informal email from an unknown sender requesting a quote for both catalog and non-catalog items. The request includes extra context and a product that cannot be mapped to the available catalog, triggering an intervention.",
+      "sender_name": "Unknown Sender 9",
+      "sender_email": "unknown.sender9@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender9@external.test",
+        "subject": "Quote Request for Several Items (New Customer Inquiry)",
+        "body": "Hey there,\r\n\r\nHope you’re having a good day! I’m reaching out because I’d like to get a quote for a few things for an upcoming event we’re organizing. I’m not sure if you have my info on file yet, as this is my first time contacting your team, but I’ve heard good things about your service from a colleague who ordered recently.\r\n\r\nHere’s what I’m looking for:\r\n- 3 x T-Shirt (I saw you have a few different ones, but just the regular T-Shirt is fine for now)\r\n- 2 x WonderWagon Electric Train (these are for a kids’ activity area)\r\n- 1 x Deluxe Picnic Basket Set (this is the main item we need for our VIP guests—please include this in the quote)\r\n\r\nIf you need any more details from me or if you need to set up an account, just let me know what info you need. I’m happy to provide whatever’s required to get things moving. Thanks a lot for your help!\r\n\r\nBest,\r\nUnknown Sender 9\r\n\r\nBest regards,\r\nUnknown Sender 9"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose quote request from unknown sender with non-catalog item",
+      "description": "A verbose, impatient customer requests a quote for several items, including one that does not exist in the catalog, triggering an intervention due to both the unknown sender and the non-catalog item reference.",
+      "sender_name": "Unknown Sender 20",
+      "sender_email": "unknown.sender20@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender20@external.test",
+        "subject": "Quote Request – Urgent Response Needed",
+        "body": "Hello,\r\n\r\nI need a quote as soon as possible for the following items. Please do not waste my time with unnecessary delays, as I have already waited long enough for a response from your company. I am not sure why your quoting process is so slow, but I expect this to be handled promptly.\r\n\r\nHere is my list:\r\n- WonderWagon Bicycle (quantity: 2)\r\n- Generic Trousers (quantity: 5)\r\n- Playlandia Deluxe Playhouse (quantity: 1)\r\n\r\nIf you need any further information, you should have asked for it earlier. I expect a detailed quote including pricing, availability, and delivery timelines. Please reply quickly.\r\n\r\nBest regards,\r\nUnknown Sender 20"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Unknown Sender 1",
+      "description": "An unknown sender requests a quote for several items, including a product that does not exist in the catalog, triggering intervention due to unresolved customer identity and non-catalog item reference.",
+      "sender_name": "Unknown Sender 1",
+      "sender_email": "unknown.sender1@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender1@external.test",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nI'd like to request a quote for the following:\r\n- WonderWagon Pull-Along Train\r\n- Playlandia Colorful Play Mat\r\n- Deluxe Toy Storage Bin (as mentioned in your last promo)\r\n\r\nPlease let me know pricing and availability. Thank you.\r\n\r\nBest regards,\r\nUnknown Sender 1"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Unknown Sender 20",
+      "description": "A polite quote request from an unknown sender referencing a non-catalog item, triggering intervention due to unresolved customer identity.",
+      "sender_name": "Unknown Sender 20",
+      "sender_email": "unknown.sender20@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender20@external.test",
+        "subject": "Quote Request for Items",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following:\r\n- 2 T-Shirts (same as the ones you quoted last month)\r\n- 1 Blueberry Juice (please include this in the quote)\r\n\r\nBest regards,\r\nUnknown Sender 20"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Unknown Sender 13",
+      "description": "An unknown sender requests a quote for items, including at least one product that does not match the available catalog, triggering intervention.",
+      "sender_name": "Unknown Sender 13",
+      "sender_email": "unknown.sender13@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender13@external.test",
+        "subject": "Quote Request for Toys and Accessories",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following? I need the WonderWagon Electric Train and also the Playlandia Deluxe Play Tunnel (the same one we discussed last month). If you could include pricing for both, that would be great.\r\n\r\nBest regards,\r\nUnknown Sender 13"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unknown Sender 13",
+      "description": "An impatient, context-dependent customer requests a quote for items, including a non-catalog product, from an unknown sender email. The request triggers intervention due to unresolved customer identity and an unresolvable item reference.",
+      "sender_name": "Unknown Sender 13",
+      "sender_email": "unknown.sender13@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender13@external.test",
+        "subject": "Quote Needed ASAP",
+        "body": "Can you send me a quote for the WonderWagon Electric Train and the Deluxe Playhouse Kit? I need this sorted quickly, so don't waste time with unnecessary questions. You should have my details from previous threads. Get back to me soon.\r\n\r\nUnknown Sender 13\r\n\r\nBest regards,\r\nUnknown Sender 13"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Unknown Sender 12",
+      "description": "A goal-directed unknown sender requests a quote for catalog and non-catalog items, triggering intervention due to unresolved customer identity and an unresolvable item reference.",
+      "sender_name": "Unknown Sender 12",
+      "sender_email": "unknown.sender12@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender12@external.test",
+        "subject": "Quote Request for Office Supplies and Apparel",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 10 T-Shirts\r\n- 5 units of the MultiGrip Power Drill\r\n- 3 Screwdrivers (Item No: AITEM-0041)\r\n\r\nPlease include pricing and availability. Let me know if you need any additional information.\r\n\r\nBest regards,\r\nUnknown Sender 12"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request from Unknown Sender with Non-Catalog Item",
+      "description": "A goal-directed, polite customer requests a quote for several items, including one that does not exist in the catalog. The sender is unknown and cannot be resolved to an existing customer, triggering intervention.",
+      "sender_name": "Unknown Sender 18",
+      "sender_email": "unknown.sender18@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender18@external.test",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- Rug (please provide pricing for this item)\r\n- JoySprout Toy Car Set\r\n- Deluxe Wooden Train Set\r\n\r\nIf you need any further information, please let me know. Thank you for your assistance.\r\n\r\nBest regards,\r\nUnknown Sender 18"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Unknown Sender 6",
+      "description": "A goal-directed, informal quote request from an unknown sender, including at least one item that cannot be matched to the catalog, triggering intervention.",
+      "sender_name": "Unknown Sender 6",
+      "sender_email": "unknown.sender6@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender6@external.test",
+        "subject": "Quote Request for Toys and Accessories",
+        "body": "Hi there,\r\n\r\nI’d like to get a quote for the following:\r\n- JoySprout Toy Bicycle\r\n- Playlandia Deluxe Play Tent\r\n- WonderWagon Pull-Along Train\r\n\r\nPlease include pricing and availability. Let me know if you need anything else from me.\r\n\r\nBest regards,\r\nUnknown Sender 6"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_unknown_customer_intervention_resolution__intervention_unresolved__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unknown sender requests quote for catalog and non-catalog items",
+      "description": "A direct, impatient quote request from an unknown sender, including both a valid catalog item and a non-catalog item that cannot be resolved, triggering intervention.",
+      "sender_name": "Unknown Sender 9",
+      "sender_email": "unknown.sender9@external.test",
+      "sender_type": "unknown_but_plausible_sender",
+      "initial_turn": {
+        "from_": "unknown.sender9@external.test",
+        "subject": "Need a Quote ASAP",
+        "body": "I need a quote right away for the following:\r\n- 10 T-Shirts\r\n- 5 packs of UltraGrip Safety Gloves\r\nDon't waste time with back-and-forth, just send me the quote.\r\n\r\nUnknown Sender 9\r\n\r\nBest regards,\r\nUnknown Sender 9"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

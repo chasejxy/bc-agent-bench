@@ -1,0 +1,1879 @@
+scenarios:
+
+  - scenario_id: quote_request_create
+    intent: request_quote
+    domain: quote
+    capability: interpret_request_and_create_quote
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_initial
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a new sales quote for one or more products.
+      The system must correctly interpret the requested item(s),
+      including quantity, unit of measure, and optional identifying details such as
+      variant, attributes, item reference, or unit expressions embedded in natural language.
+      The system must also support large multi-line quote requests, repeated item lines,
+      mixed item reference styles, and large quantities. If enough information is available,
+      the system creates a sales quote directly. Otherwise, the system may ask for clarification
+      before the quote can be created.
+
+    generation_constraints:
+
+      clarification_gap_scope: initial_turn
+      clarification_gap_types:
+        - missing_variant
+        - missing_attribute_value
+        - missing_quantity
+        - missing_uom
+        - partial_product_name
+        - missing_bundle_option
+        - missing_exact_item_mapping
+        - ambiguous_color_split
+        - context_dependent_reference
+
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - unresolved_unknown_item
+        - no_catalog_match_for_all_requested_items
+        - unsafe_or_unprocessable_initial_quote_request
+
+      number_of_requested_items:
+        min: 1
+        max: 20
+
+      item_reference_style:
+        - product_name
+        - item_number
+        - item_number_only_reference
+        - description_with_attributes
+        - description_with_implicit_attributes
+        - description_with_variant
+        - description_with_implicit_variant
+        - mixed_description_and_item_number
+
+      item_resolution_patterns:
+        - exact_item_reference     
+        - item_number_based_resolution
+        - mixed_name_and_item_number_resolution
+        - attribute_based_item_disambiguation
+        - same_base_description_with_different_attributes
+        - combined_description_and_attributes_identify_unique_item
+        - variant_based_item_disambiguation
+        - same_base_item_with_different_variants
+
+      item_details:
+        - quantity_specified
+        - uom_specified
+        - variant_specified
+        - attribute_values_specified
+        - variant_values_may_be_explicit_or_implicit
+        - variant_may_be_optional
+
+      variant_resolution_patterns:
+        - explicit_variant_selection
+        - implicit_variant_in_description
+        - semantic_variant_inference
+        - optional_variant_not_specified
+        - same_base_item_with_different_variants
+
+      variant_reference_style:
+        - explicit_variant_code
+        - explicit_variant_label
+        - natural_language_variant_description
+        - synonym_or_semantic_variant_reference
+        - omitted_variant_for_optional_variant_items
+
+      uom_resolution_patterns:
+        - explicit_unit_of_measure
+        - implicit_unit_of_measure_in_description
+        - singular_and_plural_uom_forms
+        - uom_synonym_normalization
+        - mixed_base_and_alternate_uoms
+        - repeated_item_with_different_uoms
+
+      uom_reference_style:
+        - standard_uom_code
+        - natural_language_uom
+        - abbreviated_uom
+        - synonym_uom
+
+      request_patterns:
+        - direct_quote_request
+        - quote_request_requiring_clarification
+        - large_multi_item_quote_request
+        - repeated_item_lines_in_single_request
+        - mixed_item_reference_styles_in_single_request
+        - verbose_or_terse_multi_line_request
+
+      quantity_parsing_patterns:
+        - ascending_or_non_uniform_quantities
+        - large_integer_quantities
+        - repeated_item_with_different_quantities
+        - quantity_must_be_bound_to_the_correct_line_item
+
+      delivery_requirement_patterns:
+        - requested_delivery_date_specified
+        - requested_delivery_date_expressed_in_natural_language
+
+      line_parsing_behavior:
+        - preserve_each_requested_line_as_a_separate_quote_line
+        - repeated_items_may_appear_multiple_times
+        - repeated_items_should_not_be_merged_unless_explicitly_required
+        - quantities_must_be_parsed_per_line
+        - item_reference_may_mix_description_and_item_number
+
+      clarification_behavior:
+        - clarification_may_be_required_before_quote_creation
+        - customer_follow_up_may_supply_missing_quote_details
+
+      follow_up_grounding:
+        - customer_follow_up_should_be_grounded_in_the_previous_soa_clarification
+        - customer_follow_up_should_supply_missing_details_requested_by_soa
+        - customer_follow_up_should_preserve_thread_context
+
+    variants:
+      - outcome_id: quote_created
+        description: |
+          The request contains enough valid information and the system creates a quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          The request is ambiguous or incomplete, so the system asks the customer for clarification.
+        expected:
+          allowQuote: false
+          clarification_email: true
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: intervention_required
+        description: |
+          The request cannot proceed safely in the initial quote-creation step and requires intervention.
+        expected:
+          allowQuote: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_update_requested
+    intent: update_quote
+    domain: quote
+    capability: update_existing_quote
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_then_update
+    prerequisites:
+      requires_existing_quote: true
+      requires_existing_order: false
+
+    goal: |
+      The customer first requests a sales quote for one or more items.
+      After the quote has been created, the customer sends a follow-up email
+      requesting an update to that existing quote, such as changing quantity,
+      replacing an item, adding a line, removing a line, or replacing the
+      requested item set. The system must identify the existing quote, apply
+      the requested changes, and generate an updated quote.
+
+    generation_constraints:
+
+      clarification_gap_scope: follow_up_turn
+      clarification_gap_types:
+        - ambiguous_line_reference
+        - missing_update_target
+        - missing_new_value
+        - missing_replacement_item
+        - missing_new_quantity
+        - ambiguous_add_remove_instruction
+
+      initial_request:
+        number_of_requested_items:
+          min: 1
+          max: 5
+
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1
+        - turn_2_customer_reply_must_request_changes_to_the_existing_quote_not_start_a_new_quote_request
+        - turn_2_customer_reply_should_preserve_thread_context
+
+      update_actions:
+        - change_quantity
+        - replace_item
+        - add_item
+        - remove_item
+        - replace_entire_requested_set
+        - mixed_line_updates
+
+      response_behavior:
+        - identify_existing_quote_from_thread_context
+        - apply_requested_quote_updates
+        - return_updated_quote
+        - preserve_unchanged_lines_when_applicable
+
+    variants:
+      - outcome_id: quote_updated
+        description: |
+          The system successfully identifies the existing quote and applies the requested update.
+        expected:
+          allowQuote: true
+          quotes_updated: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          The system cannot safely apply the requested update because the update request is ambiguous.
+        expected:
+          allowQuote: false
+          clarification_email: true
+          quotes_updated: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_review_update
+    intent: update_quote
+    domain: quote
+    capability: update_quote_in_review
+    interaction_mode: multi_turn_email
+    workflow_template: quote_review_then_update
+    prerequisites:
+      requires_existing_quote: true
+      requires_existing_order: false
+
+    goal: |
+      The customer requests updates to item quantity, unit of measure,
+      or similar editable details during the review step of the quote.
+      The system must apply the reviewed updates before generating
+      the final quote.
+
+    generation_constraints:
+      clarification_gap_scope: follow_up_turn
+      clarification_gap_types:
+        - ambiguous_line_reference
+        - missing_new_quantity
+        - missing_new_uom
+        - missing_edit_target
+        - ambiguous_edit_instruction
+
+    variants:
+      - outcome_id: quote_updated
+        description: |
+          The reviewed quote is updated successfully before finalization.
+        expected:
+          allowQuote: true
+          quotes_updated: true
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          The requested review update is ambiguous and requires clarification.
+        expected:
+          allowQuote: false
+          clarification_email: true
+          quotes_updated: false
+          userIntervention: false
+
+  - scenario_id: quote_rejected
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: quote_lifecycle_termination
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_then_not_approved
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer first requests a quote and receives it.
+      In a later email, the customer indicates that the quote is not approved,
+      should not proceed, should be held for later, or is otherwise not accepted
+      for conversion into a sales order. The system must recognize that the quote
+      lifecycle should not continue to sales order creation and must keep the quote
+      without creating an order.
+
+    generation_constraints:
+      request_flow:
+        - turn_1_quote_request
+        - turn_2_quote_not_approved
+
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1
+        - turn_2_customer_reply_should_reject_decline_or_defer_the_existing_quote
+        - turn_2_customer_reply_should_preserve_thread_context
+
+      rejection_patterns:
+        - explicit_rejection
+        - too_expensive_or_not_acceptable
+        - not_confirmed_do_not_proceed
+        - hold_for_later_or_pending_review
+
+      response_behavior:
+        - create_quote_in_turn_1
+        - do_not_create_sales_order_after_non_approval
+        - preserve_existing_quote_state
+
+    variants:
+      - outcome_id: quote_rejected
+        description: |
+          The customer does not approve the quote, so the system keeps the quote
+          unchanged and does not create a sales order.
+        expected:
+          allowQuote: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_approved_to_order
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: quote_to_order_conversion
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_then_approve_to_order
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer first requests a sales quote for one or more items.
+      After the quote is created and sent, the customer confirms or approves
+      that quote in a follow-up email. The system must recognize the approval,
+      associate it with the previously created quote, and convert the quote
+      into a sales order.
+
+    generation_constraints:
+      request_flow:
+        - turn_1_quote_request
+        - turn_2_quote_approval
+
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1
+        - turn_2_customer_reply_should_confirm_or_approve_the_existing_quote
+        - turn_2_customer_reply_should_preserve_thread_context
+
+      response_behavior:
+        - create_quote_in_turn_1
+        - create_sales_order_after_customer_approval
+        - preserve_quote_lines_when_creating_order
+
+    variants:
+      - outcome_id: order_created
+        description: |
+          The customer approves the previously created quote and the system
+          creates a sales order from it.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+  - scenario_id: quote_to_order_lifecycle
+    intent: lifecycle_management
+    domain: quote
+    capability: lifecycle_management_with_order_immutability
+    interaction_mode: email
+    customer_turns:
+      min: 3
+      max: 4
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_update_approve_then_block_order_update
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+    per_turn_expected_data: true
+
+    goal: |
+      The customer requests a quote, may update the quote in a follow-up email,
+      later confirms the quote to create a sales order, and then sends another
+      follow-up request to modify the finalized sales order. The system must apply
+      supported updates while the request is still in the quote stage, but must
+      enforce order immutability after sales order creation and block any requested
+      updates to the finalized order.
+
+    generation_constraints:
+
+      intervention_manifest_scope: follow_up_turn
+      intervention_trigger_types:
+        - post_order_update_not_supported
+        - finalized_order_immutability_enforced
+        - blocked_existing_order_modification
+
+      request_flow:
+        - turn_1_quote_request
+        - optional_turn_2_quote_update
+        - quote_approval_to_order_creation
+        - post_order_update_request
+
+      follow_up_grounding:
+        - quote_update_turn_must_be_grounded_in_the_quote_created_by_soa_in_the_previous_turn
+        - quote_update_turn_must_modify_existing_quote_content_not_start_a_new_quote_request
+        - order_approval_turn_must_be_grounded_in_the_latest_quote_state_created_or_updated_by_soa
+        - post_order_update_turn_must_be_grounded_in_the_sales_order_created_by_soa
+        - post_order_update_turn_must_request_changes_to_the_existing_order_not_start_a_new_order
+        - all_follow_up_messages_should_preserve_thread_context_and_previously_confirmed_items
+
+      quote_update_actions:
+        - change_quantity
+        - replace_item
+        - add_item
+        - remove_item
+
+      post_order_update_actions:
+        - change_quantity
+        - replace_item
+        - add_item
+        - remove_item
+
+      response_behavior:
+        - create_quote_in_initial_turn
+        - apply_supported_quote_update_before_order_creation
+        - create_sales_order_after_customer_confirmation
+        - reject_or_block_post_order_edit_request
+        - preserve_existing_sales_order_state
+        - request_user_intervention_when_order_edit_is_not_supported
+
+    variants:
+      - outcome_id: order_update_blocked
+        description: |
+          The system allows supported updates while the request is still a quote,
+          creates the sales order after customer confirmation, and blocks any
+          invalid update request to the finalized sales order while keeping the
+          existing order unchanged.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+  - scenario_id: quote_request_capable_to_promise_option_selection
+    intent: request_quote
+    domain: quote
+    capability: availability_and_shipment_evaluation
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 3
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_then_confirm_shipment_option
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for an item or product category that may not
+      be immediately available, or may match multiple valid item or shipment options.
+      The system should evaluate availability and earliest shipment feasibility,
+      present suitable options to the customer, and create the quote only after the
+      customer confirms which item or shipment option to proceed with.
+
+    generation_constraints:
+      clarification_gap_scope: initial_turn
+      clarification_gap_types:
+        - ambiguous_item_selection
+        - ambiguous_shipment_option
+        - ambiguous_availability_preference
+        - multiple_candidate_item_match
+        - missing_requested_date_for_option_selection
+
+      request_patterns:
+        - ambiguous_item_without_requested_date
+        - multiple_candidate_items
+        - unavailable_today_but_available_later
+        - multiple_available_items_same_family
+        - available_today_options_only
+
+      fulfillment_context:
+        - availability_must_be_evaluated
+        - candidate_items_may_have_different_available_dates
+        - only_currently_available_items_may_be_offered_in_initial_response_when_appropriate
+        - quote_is_created_only_after_customer_selection
+
+      follow_up_grounding:
+        - customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1
+        - customer_follow_up_must_select_from_previously_offered_options
+        - customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items
+        - customer_follow_up_should_preserve_thread_context
+
+      response_behavior:
+        - no_quote_created_in_first_response
+        - suggest_matching_items_or_shipment_options
+        - include_availability_or_earliest_shipment_dates_when_relevant
+        - create_quote_after_customer_selection
+        - no_sales_order_creation_before_quote_confirmation
+
+    variants:
+      - outcome_id: clarification_required
+        description: |
+          The system asks the customer to confirm an item, shipment, or availability option
+          before creating the quote.
+        expected:
+          allowQuote: false
+          clarification_email: true
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: quote_created
+        description: |
+          After the customer confirms the preferred item or availability option,
+          the system creates the quote.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: sales_order_created
+        description: |
+          After the quote is created and later confirmed by the customer,
+          the system creates a sales order.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+  - scenario_id: quote_request_capable_to_promise_direct_quote
+    intent: request_quote
+    domain: quote
+    capability: availability_and_shipment_evaluation
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_with_requested_shipment_date
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote and provides a requested shipment timing
+      that is sufficiently clear for capable-to-promise evaluation.
+      If the requested quantity can be fulfilled by the requested date,
+      the system should create the quote directly in the initial response
+      without requiring an additional shipment-option confirmation step.
+
+    generation_constraints:
+      request_patterns:
+        - explicit_requested_date
+        - requested_date_allows_fulfillment
+        - direct_quote_possible
+      fulfillment_context:
+        - capable_to_promise_enabled
+        - shipment_date_must_be_derived_from_customer_request
+        - quote_can_be_created_in_first_response
+      response_behavior:
+        - create_quote_immediately
+        - attach_quote_or clearly_state_quote_created
+        - no_pre_quote_clarification_step
+        - allow_order_creation_after_customer_confirmation
+
+    variants:
+      - outcome_id: quote_created
+        description: |
+          The requested date is feasible, so the system directly creates
+          a quote in the first response.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: sales_order_created
+        description: |
+          After the customer confirms the directly created quote,
+          the system creates a sales order.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+  - scenario_id: quote_update_capable_to_promise
+    intent: revise_quote
+    domain: quote
+    capability: availability_and_shipment_re_evaluation
+    interaction_mode: email
+    customer_turns:
+      min: 3
+      max: 4
+    conversation_mode: runtime_grounded
+    workflow_template: revise_quote_after_capable_to_promise_check
+    prerequisites:
+      requires_existing_quote: true
+      requires_existing_order: false
+
+    goal: |
+      The customer first requests a quote and the system creates it based on the
+      original request. After the quote has been created, the customer asks for a
+      change such as increasing quantity or changing fulfillment expectations.
+      The system must re-evaluate availability and shipment feasibility using
+      capable-to-promise logic, update the quote if possible, and either proceed
+      directly or request confirmation when the revised shipment timing differs
+      from the original expectation.
+
+    generation_constraints:
+
+      clarification_gap_scope: follow_up_turn
+      clarification_gap_types:
+        - missing_revised_shipment_preference
+        - ambiguous_quantity_change
+        - ambiguous_fulfillment_preference
+        - missing_confirmation_of_new_shipment_date
+
+      request_patterns:
+        - quantity_increase_after_quote_creation
+        - post_quote_change_request
+        - revised_quantity_may_affect_shipment_date
+      fulfillment_context:
+        - capable_to_promise_enabled
+        - existing_quote_must_be_updated
+        - revised_availability_or_shipment_date_must_be_recomputed
+      response_behavior:
+        - update_existing_quote_when_possible
+        - if_new_shipment_date_needed_then_request_confirmation
+        - create_sales_order_only_after_final_customer_confirmation
+
+    variants:
+      - outcome_id: quote_updated
+        description: |
+          The revised customer request can be accommodated and the existing quote
+          is updated accordingly.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          The revised request changes the shipment feasibility, so the system
+          asks the customer to confirm the new shipment date or fulfillment option
+          before finalizing the revised quote or creating the order.
+        expected:
+          allowQuote: true
+          clarification_email: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: sales_order_created
+        description: |
+          After the customer confirms the revised quote or revised shipment option,
+          the system creates a sales order.
+        expected:
+          allowQuote: true
+          clarification_email: false
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+  - scenario_id: quote_request_with_alternate_shipping
+    intent: request_quote
+    domain: quote
+    capability: alternate_shipping_address_parsing
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_shipping_override
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote and specifies a shipping address that differs
+      from the default sell-to address. The system must determine whether the requested
+      shipping destination matches an existing alternate shipping address in the system
+      or represents a new custom shipping address, and then apply the correct ship-to
+      address when creating the quote.
+
+    generation_constraints:
+
+      clarification_gap_scope: initial_turn
+      clarification_gap_types:
+        - incomplete_shipping_address
+        - ambiguous_shipping_location_reference
+        - missing_address_component
+        - unclear_alternate_ship_to_target
+
+      request_patterns:
+        - quote_request_with_explicit_shipping_address
+        - quote_request_with_location_based_shipping_reference
+
+      shipping_override_patterns:
+        - full_address_matches_existing_alternate_shipping_address
+        - full_address_creates_custom_shipping_address
+        - natural_language_reference_to_saved_alternate_shipping_address
+
+      sender_context:
+        - request_from_customer
+        - request_from_contact
+
+      shipping_address_resolution:
+        - alternate_shipping_address_match_by_full_address
+        - alternate_shipping_address_match_by_location_reference
+        - custom_shipping_address_when_no_saved_match_exists
+
+      response_behavior:
+        - create_quote_with_shipping_override
+        - ship_to_address_must_reflect_resolved_override
+        - default_sell_to_address_must_not_be_used_when_valid_override_is_present
+
+    variants:
+      - outcome_id: quote_created_with_alternate_shipping
+        description: |
+          The requested shipping destination matches an existing alternate shipping
+          address, so the quote is created using that alternate ship-to address.
+        expected:
+          allowQuote: true
+          attachments: true
+          quotes: true
+          sales_orders: false
+          clarification_email: false
+          userIntervention: false
+
+      - outcome_id: quote_created_with_custom_shipping
+        description: |
+          The requested shipping destination does not match an existing alternate
+          shipping address, so the quote is created using a custom ship-to address
+          parsed from the email.
+        expected:
+          allowQuote: true
+          attachments: true
+          quotes: true
+          sales_orders: false
+          clarification_email: false
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          The shipping address is incomplete or ambiguous and must be clarified
+          before the quote can be created safely.
+        expected:
+          allowQuote: false
+          attachments: false
+          clarification_email: true
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_request_contact_resolution
+    intent: request_quote
+    domain: quote
+    capability: resolve_customer_identity
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_with_contact_resolution
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote, but customer identity cannot be determined
+      solely from a simple contact-name match. The system must resolve the correct
+      customer using available identity signals such as sender email address,
+      contact records, and signature or company information in the email body
+      before creating the quote.
+
+    generation_constraints:
+    
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - ambiguous_customer_identity
+        - unresolved_contact_to_customer_mapping
+        - conflicting_identity_signals
+
+      identity_resolution_patterns:
+        - same_contact_name_across_multiple_customers
+        - sender_email_disambiguates_customer
+        - same_contact_name_and_same_email_across_customers
+        - signature_contains_company_name_for_disambiguation
+      request_behavior:
+        - quote_request_for_one_or_more_items
+      response_behavior:
+        - create_quote_when_customer_can_be_resolved
+        - require_intervention_when_customer_cannot_be_resolved_safely
+
+    variants:
+      - outcome_id: quote_created
+        description: |
+          The system correctly resolves the customer identity and creates the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: intervention_required
+        description: |
+          The system cannot safely determine the correct customer and requests user intervention.
+        expected:
+          allowQuote: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_approved_to_order_cross_contact_resolution
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: resolve_customer_across_multiple_contact_emails
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_then_approve_from_alternate_contact
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer initially requests a quote from one contact email address,
+      and a later follow-up approval is sent from a different email address that
+      still belongs to the same person or customer context. The system must
+      correctly associate the follow-up email with the existing quote and the
+      correct customer, then create the sales order after approval.
+
+    generation_constraints:
+
+      intervention_manifest_scope: follow_up_turn
+      intervention_trigger_types:
+        - alternate_contact_identity_not_safely_resolved
+        - ambiguous_follow_up_customer_context
+        - cross_contact_quote_linking_failure
+
+      identity_resolution_patterns:
+        - initial_quote_request_from_primary_contact_email
+        - quote_approval_from_alternate_contact_email
+        - same_person_or_same_customer_in_follow_up
+        - follow_up_must_be_linked_to_existing_quote
+      response_behavior:
+        - create_quote_in_initial_turn
+        - create_sales_order_after_follow_up_approval
+        - preserve_customer_assignment_across_turns
+
+    variants:
+      - outcome_id: order_created
+        description: |
+          The system correctly associates the follow-up approval with the same
+          customer and existing quote, and creates the sales order.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+      - outcome_id: intervention_required
+        description: |
+          The system cannot safely determine whether the follow-up email belongs
+          to the same customer context and requires user intervention.
+        expected:
+          allowQuote: false
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_request_template_selection
+    intent: request_quote
+    domain: quote
+    capability: customer_template_selection
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_with_template_selection
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      A contact or person requests a sales quote, but the system must first determine
+      which customer template should be used to create the corresponding customer context.
+      If exactly one suitable customer template is available, the system should select it
+      automatically and create the quote. If multiple templates are possible, the system
+      should request assistance to choose the correct template before proceeding.
+      After the quote is created, a later approval email may convert the quote into a sales order.
+
+    generation_constraints:
+
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - multiple_customer_templates_available
+        - template_selection_not_resolvable_automatically
+
+      sender_context:
+        - sender_is_contact_or_person
+        - no_existing_customer_required_at_start
+      customer_template_resolution:
+        - single_matching_template
+        - multiple_matching_templates
+      response_behavior:
+        - auto_select_template_when_unique
+        - request_intervention_when_multiple_templates_exist
+        - create_quote_after_template_resolution
+        - allow_sales_order_creation_after_follow_up_confirmation
+
+    variants:
+      - outcome_id: quote_created_with_intervention
+        description: |
+          Multiple customer templates are possible, so the system requires user
+          assistance to select the correct template before creating the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+      - outcome_id: quote_created
+        description: |
+          Exactly one suitable customer template is available, so the system
+          automatically selects it and creates the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: sales_order_created
+        description: |
+          After the quote is created using the resolved customer template,
+          the customer confirms it in a follow-up email and the system creates a sales order.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+  - scenario_id: quote_request_with_review_and_send_controls
+    intent: request_quote
+    domain: quote
+    capability: configuration_driven_quote_processing
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_review_and_send_controls
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for available items and the system creates the quote.
+      Depending on the configured workflow settings, the system may stop immediately,
+      request quote record review, request quote email review, or both, without creating
+      a sales order.
+
+    generation_constraints:
+      configuration_flags:
+        - requestQuoteReview_on_or_off
+        - sendQuote_on_or_off
+        - createOrderFromQuote_false
+        - requestOrderReview_false
+      fulfillment_context:
+        - requested_items_are_available
+        - no_clarification_required
+      response_behavior:
+        - create_quote
+        - optional_quote_record_review
+        - optional_quote_email_review
+        - no_sales_order_creation
+
+    variants:
+      - outcome_id: quote_created_no_review_no_send
+        description: |
+          The system creates the quote and stops without requesting any review
+          and without sending the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: quote_created_with_record_review
+        description: |
+          The system creates the quote and requests quote record review before proceeding.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+      - outcome_id: quote_created_with_email_review
+        description: |
+          The system creates the quote and requests review of the outgoing quote email.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+      - outcome_id: quote_created_with_record_and_email_review
+        description: |
+          The system creates the quote and requests both quote record review
+          and quote email review.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_request_then_order_creation_after_customer_confirmation
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: configuration_driven_quote_to_order_conversion
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_send_then_confirm_order_creation
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for available items. The system creates the quote
+      and, depending on configuration, may request quote review and quote email review.
+      If quote sending is enabled and quote-to-order conversion is enabled, the customer
+      later confirms the quote in a follow-up email and the system creates a sales order.
+      Depending on configuration, the order step may also require order review.
+
+    generation_constraints:
+      configuration_flags:
+        - sendQuote_true
+        - createOrderFromQuote_true
+        - requestQuoteReview_on_or_off
+        - requestOrderReview_on_or_off
+      fulfillment_context:
+        - requested_items_are_available
+        - no_clarification_required
+      response_behavior:
+        - create_quote_in_first_turn
+        - optional_quote_record_review
+        - optional_quote_email_review
+        - create_order_after_customer_confirmation
+        - optional_order_record_review
+        - order_email_review_or_send_step_present
+
+    variants:
+      - outcome_id: sales_order_created
+        description: |
+          The system creates the quote first and, after customer confirmation,
+          creates the sales order without requiring order review.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+      - outcome_id: sales_order_created_with_quote_review
+        description: |
+          The system requests quote review before the quote stage is completed,
+          then creates the sales order after customer confirmation.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+      - outcome_id: sales_order_created_with_order_review
+        description: |
+          The system creates the order after customer confirmation and requests
+          order review before finalizing the order step.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+  - scenario_id: quote_request_direct_order_pipeline_without_quote_send
+    intent: request_quote
+    domain: quote
+    capability: direct_order_pipeline_without_quote_sending
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_then_direct_order_pipeline_without_quote_send
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for available items, but quote sending is disabled
+      while quote-to-order conversion is enabled. In this configuration, the system may
+      create the quote and continue directly into the order pipeline within the same turn.
+      Depending on configuration, the system may request quote review, order review,
+      or both before stopping.
+
+    generation_constraints:
+      configuration_flags:
+        - sendQuote_false
+        - createOrderFromQuote_true
+        - requestQuoteReview_on_or_off
+        - requestOrderReview_on_or_off
+      fulfillment_context:
+        - requested_items_are_available
+        - no_clarification_required
+      response_behavior:
+        - create_quote
+        - create_order_in_same_turn
+        - optional_quote_record_review
+        - optional_order_record_review
+        - order_email_review_or_send_step_present
+
+    variants:
+      - outcome_id: sales_order_created
+        description: |
+          The system creates the quote and proceeds directly to sales order creation
+          in the same turn without requesting additional review.
+        expected:
+          allowOrder: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+
+      - outcome_id: sales_order_created_with_quote_review
+        description: |
+          The system requests quote review and still proceeds through the direct
+          order pipeline in the same turn.
+        expected:
+          allowOrder: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+      - outcome_id: sales_order_created_with_order_review
+        description: |
+          The system creates the order in the same turn and requests order review
+          before the order step is finalized.
+        expected:
+          allowOrder: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+      - outcome_id: sales_order_created_with_quote_and_order_review
+        description: |
+          The system requests both quote review and order review while proceeding
+          through the direct order pipeline in the same turn.
+        expected:
+          allowOrder: true
+          quotes: true
+          sales_orders: true
+          userIntervention: true
+
+  - scenario_id: quote_request_availability_based_item_selection
+    intent: request_quote
+    domain: quote
+    capability: resolve_requested_item_by_availability
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_availability_based_item_selection
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for an item using a broad or ambiguous item name
+      that may match multiple candidate items. The system must evaluate which candidate
+      items can satisfy the requested quantity and create the quote using the uniquely
+      suitable available item when one exists.
+
+    generation_constraints:
+
+      clarification_gap_scope: initial_turn
+      clarification_gap_types:
+        - ambiguous_item_name
+        - ambiguous_candidate_item_selection
+        - insufficient_item_identity_for_availability_resolution
+
+      request_patterns:
+        - ambiguous_item_name
+        - requested_quantity_specified
+        - multiple_matching_items
+      fulfillment_context:
+        - multiple_candidates_have_different_available_quantities
+        - exactly_one_candidate_can_fulfill_requested_quantity
+      response_behavior:
+        - resolve_item_using_availability
+        - create_quote_without_clarification
+        - no_user_intervention
+
+    variants:
+      - outcome_id: quote_created
+        description: |
+          Exactly one matching item can fulfill the requested quantity, so the system
+          selects it and creates the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: clarification_required
+        description: |
+          No single matching item can be selected safely based on availability alone,
+          so the system asks for clarification.
+        expected:
+          allowQuote: false
+          clarification_email: true
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_request_with_availability_intervention
+    intent: request_quote
+    domain: quote
+    capability: resolve_item_availability_with_intervention
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_availability_intervention
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for an item that is not currently available
+      for quoting. The system must trigger an intervention. The quote may proceed
+      only if the intervention actually fixes the item-availability issue, for
+      example by applying a supported suggestion or by following additional user
+      instructions that result in an updated available state.
+
+    generation_constraints:
+      request_patterns:
+        - requested_item_initially_unavailable
+        - known_customer_quote_request
+
+      intervention_modes:
+        - continue_without_fix
+        - suggestion_item_available
+        - additional_instruction_with_manual_fix
+
+      intervention_grounding:
+        source_of_truth: post_intervention_item_availability_state
+        applies_to:
+          - final_quote
+          - final_email
+        overwrite_rules:
+          - quote_creation_allowed_only_if_item_availability_issue_is_fixed
+          - continue_or_resume_without_fix_must_not_create_quote
+          - suggestion_or_instruction_must_be_supported_by_actual_state_change
+          - final_quote_and_email_must_reflect_post_intervention_state
+
+      response_behavior:
+        - trigger_intervention_when_item_is_unavailable
+        - do_not_create_quote_if_availability_remains_unresolved
+        - create_quote_after_intervention_resolves_availability
+
+    variants:
+      - outcome_id: intervention_unresolved
+        description: |
+          The requested item remains unavailable after intervention handling,
+          so the system does not create the quote.
+        expected:
+          allowQuote: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+
+      - outcome_id: quote_created_after_intervention_resolution
+        description: |
+          The intervention resolves the availability issue, so the system creates
+          the quote using the post-intervention state.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: localized_inquiry_quote_order_lifecycle
+    intent: lifecycle_management
+    domain: quote
+    capability: localized_item_translation_and_quote_lifecycle
+    interaction_mode: email
+    customer_turns:
+      min: 3
+      max: 3
+    conversation_mode: runtime_grounded
+    workflow_template: inquiry_availability_then_localized_quote_then_order
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer first inquires about item availability, then requests a quote,
+      and finally confirms the quote to create an order. The system must localize
+      item descriptions and email language according to the customer or contact
+      language settings. If the language is the default English language, item
+      descriptions remain untranslated. If a supported non-English language is set,
+      the system must use translated item descriptions consistently across the
+      availability response, quote response, and order response.
+
+    generation_constraints:
+      localization_context:
+        - customer_or_contact_language_controls_output_language
+        - default_english_keeps_base_item_descriptions
+        - supported_non_english_languages_use_translated_item_descriptions
+        - email_language_and_region_follow_customer_language
+      request_flow:
+        - turn_1_is_availability_inquiry
+        - turn_2_is_quote_request_based_on_previous_reply
+        - turn_3_is_order_confirmation
+      follow_up_grounding:
+        - customer_follow_up_must_reference_items_offered_in_previous_soa_reply
+        - customer_follow_up_should_use_same_language_as_previous_exchange
+        - quote_and_order_emails_must_preserve_localized_item_descriptions
+      fulfillment_context:
+        - requested_items_are_available
+        - no_clarification_required
+        - no_user_intervention_required
+
+    variants:
+      - outcome_id: default_language_lifecycle_completed
+        description: |
+          The customer language is English, so item descriptions remain in the base
+          language and the inquiry, quote, and order lifecycle completes successfully.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+          localizedItems: false
+          emailLocalized: true
+
+      - outcome_id: translated_language_lifecycle_completed
+        description: |
+          The customer language is a supported non-English language, so translated
+          item descriptions are used consistently in the inquiry response, quote,
+          and order lifecycle.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: true
+          userIntervention: false
+          localizedItems: true
+          emailLocalized: true
+
+  - scenario_id: quote_request_with_review_step_update
+    intent: request_quote
+    domain: quote
+    capability: apply_review_step_updates_before_final_quote
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_review_step_update
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a sales quote, but before the final quote is generated,
+      the request is adjusted during an internal review or discard step. The system
+      must apply the reviewed updates, such as changing quantity, unit of measure,
+      or interpreted line details, and ensure that the final quote and outgoing email
+      reflect the updated values rather than the original customer wording.
+
+    generation_constraints:
+      request_patterns:
+        - single_turn_quote_request
+        - quote_request_requires_review_step_adjustment
+
+      discard_step_behavior:
+        - discard_step_may_be_triggered
+        - reviewed_values_become_source_of_truth
+        - original_requested_values_must_not_be_used_in_final_output
+
+      review_step_updates:
+        - change_quantity
+        - change_unit_of_measure
+        - normalize_requested_line_values
+        - discard_original_interpreted_values
+
+      review_grounding:
+        source_of_truth: reviewed_values
+        applies_to:
+          - final_quote
+          - final_email
+        overwrite_rules:
+          - reviewed_quantity_overrides_requested_quantity
+          - reviewed_uom_overrides_requested_uom
+          - reviewed_lines_override_initial_interpreted_lines
+          - original_customer_request_values_must_not_override_reviewed_values
+
+      response_behavior:
+        - create_quote_after_review_step_update
+        - final_quote_must_reflect_reviewed_values
+        - final_email_must_reflect_reviewed_values
+        - no_additional_customer_turn_required
+        - no_user_intervention_required
+
+    variants:
+      - outcome_id: quote_created_with_review_step_update
+        description: |
+          The request is updated during the review or discard step and the final
+          quote is created using the reviewed values. The outgoing email must also
+          reflect the reviewed values rather than the original request.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_request_unknown_customer_intervention_resolution
+    intent: request_quote
+    domain: quote
+    capability: resolve_unknown_customer_after_intervention
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_unknown_customer_with_intervention_resolution
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote, but the sender cannot initially be resolved
+      to a known customer. The system must trigger an intervention. The quote may
+      proceed only if the intervention actually resolves the unknown-customer issue
+      (for example by creating or associating the customer). Simply continuing or
+      resuming without fixing the root cause must not create a quote.
+
+    generation_constraints:
+      request_patterns:
+        - quote_request_from_unknown_sender
+        - sender_not_resolved_to_existing_customer
+        - valid_quote_request_with_unresolved_customer_identit
+
+      intervention_modes:
+        - continue_without_fix
+        - suggestion_customer_added
+        - customer_created_before_resume
+
+      intervention_grounding:
+        source_of_truth: post_intervention_customer_resolution_state
+        applies_to:
+          - final_quote
+          - final_email
+        overwrite_rules:
+          - quote_creation_allowed_only_if_customer_resolution_issue_is_fixed
+          - continue_or_resume_without_fix_must_not_create_quote
+          - customer_creation_or_resolution_must_be_reflected_in_final_state
+
+      response_behavior:
+        - trigger_intervention_when_sender_is_unknown
+        - do_not_create_quote_if_customer_is_still_unknown
+        - create_quote_only_after_customer_is_resolved
+
+    variants:
+      - outcome_id: intervention_unresolved
+        description: |
+          The sender remains unresolved after intervention handling, so the system
+          does not create a quote.
+        expected:
+          allowQuote: false
+          quotes: false         
+          attachments: false
+          clarification_email: false
+          sales_orders: false
+          userIntervention: true
+
+      - outcome_id: quote_created_after_intervention_resolution
+        description: |
+          The unknown-customer issue is resolved during intervention handling,
+          so the system proceeds to create the quote.
+        expected:
+          allowQuote: true
+          quotes: true       
+          attachments: true
+          clarification_email: false
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_request_attribute_clarification
+    intent: request_quote
+    domain: quote
+    capability: clarify_attribute_based_item_selection_before_quote
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: request_quote_with_attribute_clarification
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote for items whose exact identification depends on
+      attributes such as color, material, or other distinguishing properties.
+      If the initially requested attributes are missing, unavailable, ambiguous,
+      or do not match the available catalog options, the system must first send a
+      clarification response listing valid attribute-based options. The customer
+      then clarifies the request based on the system response, and the system
+      creates the quote using the correctly resolved items.
+
+    generation_constraints:
+
+      clarification_gap_scope: initial_turn
+      clarification_gap_types:
+        - missing_attribute_value
+        - unavailable_attribute_value
+        - ambiguous_attribute_combination
+        - partial_attribute_description
+        - base_description_without_required_attribute
+
+      request_patterns:
+        - quote_request_for_items_with_shared_base_description
+        - same_description_but_different_attributes
+        - requested_attributes_missing_or_unavailable
+        - requested_attribute_combination_not_available
+        - attribute_based_item_disambiguation_required
+
+      item_reference_style:
+        - base_description_only
+        - description_with_partial_attributes
+        - description_with_unavailable_attributes
+        - description_with_explicit_attributes_after_clarification
+
+      clarification_behavior:
+        - first_turn_must_not_create_quote
+        - system_must_list_available_attribute_based_options
+        - clarification_response_may_list_available_colors_materials_or_item_variants     
+        - clarification_response_may_explain_that_no_exact_attribute_match_exists
+        - clarification_response_may_offer_available_alternative_attribute_options
+        - quote_creation_happens_only_after_customer_clarification
+
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1
+        - turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options
+        - turn_2_customer_reply_should_preserve_thread_context
+        - turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed
+
+      item_resolution_patterns:
+        - attribute_based_item_disambiguation
+        - same_base_description_with_different_attributes
+        - combined_description_and_attributes_identify_unique_item
+
+      response_behavior:
+        - no_quote_created_in_first_response
+        - clarification_email_lists_valid_attribute_options
+        - create_quote_after_customer_clarification
+        - final_quote_and_email_must_reflect_clarified_attributes
+
+    variants:
+      - outcome_id: clarification_required
+        description: |
+          The initial request does not identify the attribute-based items precisely
+          enough, so the system sends a clarification response listing valid options.
+        expected:
+          allowQuote: false
+          attachments: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: quote_created
+        description: |
+          After the customer clarifies the requested attribute-based items using the
+          options provided in the previous system response, the system creates the quote.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: direct_order_request
+    intent: request_order
+    domain: quote
+    capability: process_direct_order_request
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: direct_order_request
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer sends a direct order request rather than first requesting a quote.
+      The request may include quantities, delivery timing, PO number, or product details.
+      The email is business-relevant and must not be annotated as unsupported.
+
+    generation_constraints:
+      request_patterns:
+        - direct_order_intent
+        - direct_purchase_request
+        - order_request_with_delivery_date
+        - order_request_with_po_number
+
+      response_behavior:
+        - do_not_create_annotation
+        - continue_normal_business_processing
+
+    variants:
+      - outcome_id: order_request_received
+        description: |
+          The request is a valid business-relevant direct order request and must not be annotated.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_request_from_historical_order_context
+    intent: request_quote
+    domain: quote
+    capability: create_quote_from_historical_order_context
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: quote_request_from_historical_context
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote based on a historical order context, such as
+      the last order placed by a company, the last order from a given month, or a
+      previously known company order. The request is business-relevant and must not
+      be annotated as unsupported.
+
+    generation_constraints:
+      request_patterns:
+        - repeat_previous_order_request
+        - historical_order_reference
+        - company_specific_previous_order_reference
+        - month_or_time_based_order_reference
+
+      response_behavior:
+        - do_not_create_annotation
+        - continue_normal_business_processing
+
+    variants:
+      - outcome_id: historical_quote_request_received
+        description: |
+          The request is a valid business-relevant quote request based on historical context
+          and must not be annotated.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_approval_from_existing_quote_context
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: approve_existing_quote_to_order
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: approve_existing_quote_to_order
+    prerequisites:
+      requires_existing_quote: true
+      requires_existing_order: false
+
+    goal: |
+      The customer sends an approval or confirmation for a previously existing quote.
+      The request is business-relevant and must not be annotated as unsupported.
+
+    generation_constraints:
+      request_patterns:
+        - order_confirmation_from_existing_quote
+        - approve_previous_quote
+
+      response_behavior:
+        - do_not_create_annotation
+        - continue_normal_business_processing
+
+    variants:
+      - outcome_id: quote_approval_received
+        description: |
+          The message is a valid quote approval from an existing quote context and must not be annotated.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: quote_request_with_unknown_item_handling
+    intent: request_quote
+    domain: quote
+    capability: handle_quote_request_with_unknown_items
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_unknown_items
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote, but one or more requested items are not found
+      in the system. If none of the requested items can be resolved, the system must
+      request user intervention and must not create a quote. If some requested items
+      are known but others are not found, the system should inform the customer that
+      the unknown items are not carried, but should not create a quote until the
+      request is clarified or corrected.
+
+    generation_constraints:
+
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - no_catalog_match_for_all_requested_items
+        - completely_unresolved_item_set
+
+      request_patterns:
+        - quote_request_for_unknown_item
+        - quote_request_for_multiple_unknown_items
+        - quote_request_with_mixed_known_and_unknown_items
+
+      item_resolution_patterns:
+        - no_catalog_match_for_requested_item
+        - partial_catalog_match_for_quote_request
+
+      response_behavior:
+        - do_not_create_quote_when_requested_items_are_unresolved
+        - explain_unavailable_or_unknown_requested_items
+        - request_user_intervention_when_no_requested_items_can_be_resolved
+        - no_attachments
+
+    variants:
+      - outcome_id: unknown_items_reported
+        description: |
+          Some requested items are not found in the system, while at least one
+          requested item is known. The system informs the customer about the
+          unavailable items and does not create a quote.
+        expected:
+          allowQuote: false
+          attachments: false
+          clarification_email: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+      - outcome_id: intervention_required
+        description: |
+          None of the requested items can be resolved, so the system requests
+          user intervention and does not create a quote.
+        expected:
+          allowQuote: false
+          attachments: false
+          clarification_email: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+
+  - scenario_id: quote_update_with_conversational_memory
+    intent: update_quote
+    domain: quote
+    capability: update_quote_using_conversational_memory
+    interaction_mode: email
+    customer_turns:
+      min: 3
+      max: 3
+    conversation_mode: runtime_grounded
+    workflow_template: quote_or_inquiry_then_memory_based_quote_update
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer interacts over multiple turns and later refers to previously
+      mentioned or previously quoted items using conversational shorthand such as
+      "one of each", "remove one", "add another", or "actually I want X instead".
+      The system must use the relevant conversational context to resolve the intended
+      items and update the quote correctly.
+
+    generation_constraints:
+      request_flow:
+        - initial_quote_request_or_product_information_inquiry
+        - quote_created_or_item_set_established
+        - follow_up_quote_update_using_conversational_memory
+
+      follow_up_grounding:
+        - later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items
+        - customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another
+        - quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text
+        - thread_context_must_be_preserved
+
+      update_actions:
+        - replace_item
+        - change_quantity
+        - add_item
+        - remove_item
+        - restore_previously_mentioned_item
+        - use_one_of_each_over_previous_item_set
+
+      response_behavior:
+        - create_or_update_quote_using_conversational_context
+        - preserve_relevant_prior_items_when_customer_refers_to_them_implictly
+        - do_not_create_annotation
+
+    variants:
+      - outcome_id: quote_updated_from_memory
+        description: |
+          The system successfully uses conversational memory to interpret the customer's
+          shorthand follow-up request and updates the quote accordingly.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: true
+          attachments: true
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+

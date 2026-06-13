@@ -1,0 +1,702 @@
+{
+  "scenario_id": "quote_approved_to_order",
+  "outcome_id": "order_created",
+  "test_cases": [
+    {
+      "case_id": "quote_approved_to_order__order_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Sarah Johnson",
+      "description": "Cooperative customer requests a quote for several catalog items in a neutral, professional style. The initial email establishes the quote request context, without expressing approval or confirmation yet.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Request for Sales Quote",
+        "body": "Hello,\r\n\r\nI would like to request a sales quote for the following items:\r\n\r\n- 2 units of SmartToys Fast Car Set\r\n- 3 T-Shirts (please specify available colors and sizes)\r\n- 1 WonderWagon Electric Train\r\n\r\nPlease let me know if you need any additional information to prepare the quote.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Cooperative Quote Request for Toys and Apparel",
+      "description": "A recognized customer politely requests a quote for several catalog items, establishing context for a later quote approval and order conversion.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Request for Sales Quote – Toys and Apparel",
+        "body": "Dear Sales Team,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- MagicToyland Fairy Doll\r\n- T-Shirt (could you please let me know which styles or colors are available?)\r\n- JoySprout Toy Bicycle\r\n\r\nIf you need any additional information from me, please let me know. Thank you very much for your assistance.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Quote Request for Toys and T-Shirts",
+      "description": "Larry King requests a quote for several items, specifying some details and leaving the T-Shirt line ambiguous due to multiple catalog matches. This sets up the context for a follow-up approval after the quote is created.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote request for toys and t-shirts",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for the following?\r\n\r\n- 10 SmartToys Educational Puzzle\r\n- 15 T-Shirt\r\n- 5 WonderWagon Pull-Along Train\r\n\r\nLet me know if you need any more info. Thanks!\r\n\r\nBest,\r\nLarry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Cooperative customer requests quote for multiple items, impatient tone",
+      "description": "A cooperative but impatient customer from Fresh HelloFoods requests a sales quote for several catalog items. The email is curt and direct, reflecting impatience, but provides clear item references. The initial turn establishes the quote request, setting up for a follow-up approval after the quote is created.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the following: 50 Bananas, 30 Watermelons, and 10 boxes of Kalamata Olives. Don't waste time, just get this done quickly.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request with Uncooperative Persona",
+      "description": "Tom Martinez requests a quote for several items, but provides incomplete information for one of the requested products, reflecting an uncooperative persona. The email is neutral in tone and does not provide all necessary details for the quote, requiring clarification from the SOA.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Request for Quote",
+        "body": "Please send me a quote for the following: T-Shirt, Pizza, and also the Rug. Let me know what you need.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe - Initial Quote Request for Toys and Apparel",
+      "description": "German Cafe requests a quote for several items, including a toy and T-Shirts, but does not specify which T-Shirt variant is desired, requiring clarification from the SOA before the quote can be created.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Request for Quote: Toy and T-Shirts",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- T-Shirt (please include pricing for T-Shirts; we need 10 units)\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative Quote Request for Multiple Items",
+      "description": "Larry King, using an informal and uncooperative style, requests a quote for several catalog items but omits a key detail for one of them, requiring the SOA to clarify before proceeding.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Need a quote",
+        "body": "Hey, can you send me a quote for a T-Shirt, Pizza, and one of those Rugs? Just need pricing and availability. Thanks.\r\n\r\n-Larry\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Jakob Kuhs requests a quote for multiple items with ambiguous pizza selection",
+      "description": "Jakob Kuhs, an uncooperative and impatient customer, requests a quote for several items. He asks for 'Pizza' without specifying which variant, despite multiple pizzas being available in the catalog. The ambiguity requires the SOA to clarify which pizza is intended before creating the quote.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote request",
+        "body": "Send me a quote for Pizza, a Screwdriver (AITEM-0041), and Soda - Medium. Make it quick. Jakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request for food and beverage items",
+      "description": "A concise customer email from Fresh HelloFoods requesting a quote for several catalog items, using brief wording and minimal context. The initial turn establishes the quote request, with no approval action yet.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote request",
+        "body": "Please send a quote for the following:\r\n- Watermelon\r\n- Soda - Medium\r\n- Apples\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise Quote Request for Multiple Items",
+      "description": "A brief and polite initial email from Jakob Kuhs requesting a quote for several catalog items, establishing the context for a follow-up approval.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nCould you please send me a quote for the following:\r\n- WonderWagon Bicycle\r\n- T-Shirt (please include all available options)\r\n- Rug\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise Quote Request for Multiple Items",
+      "description": "A brief, informal email from Dunder Mifflin requesting a quote for several catalog items, using minimal context and direct wording.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need a quote",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following?\r\n- WonderWagon Bicycle\r\n- T-Shirt (need 10, mix of sizes)\r\n- Rug\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Rude/Impatient Quote Request for Toys and Pizza",
+      "description": "A brief and impatient quote request from German Cafe for a toy set and pizza, establishing context for later quote approval.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Need quote ASAP",
+        "body": "Send me a quote for SmartToys Jigsaw Puzzle Set and Pizza. Don't waste time, just reply quickly.\r\n\r\nGerman Cafe\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose Quote Request for Multiple Toys and Apparel",
+      "description": "A detailed, context-rich initial email from WonderToys Co. requesting a quote for several items, with explanations and extra context, in a neutral tone. Sets up for a follow-up approval after the quote is provided.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Request for Sales Quote: Toys and Apparel for Upcoming Promotion",
+        "body": "Hello,\r\n\r\nI am reaching out on behalf of WonderToys Co. as we are preparing for our upcoming spring promotional campaign and would like to request a formal sales quote for several items from your catalog. We are particularly interested in products that have performed well in the educational and play categories, as well as some apparel options for our staff and event giveaways. Please see the list below:\r\n\r\n1. SmartyToys Educational Puzzle – We would like pricing for 25 units. This item has been popular in our previous campaigns, and we are considering it again for our educational outreach kits.\r\n2. T-Shirt – We noticed there are several T-Shirt listings in your catalog. Could you please provide a quote for 40 T-Shirts? We are looking for a mix of sizes suitable for adults, but we are not sure which of the T-Shirt options (AITEM-0022, AITEM-0023, AITEM-0024, or AITEM-0025) would be most appropriate for event staff. Please advise or include details for each if possible.\r\n3. JoySprout Toy Car Set – 15 units. This is intended for our interactive play stations at the event.\r\n\r\nIf you require any additional information to prepare the quote, please let us know. We would appreciate receiving the quote at your earliest convenience so we can finalize our event planning and move forward with the order process as soon as possible.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose Quote Request for Multiple Items",
+      "description": "A detailed and polite initial quote request from Fresh HelloFoods, listing several catalog items with context and rationale for each selection.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Request for Sales Quote – Multiple Items for Upcoming Promotion",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are preparing for an upcoming promotional event at Fresh HelloFoods and would like to request a formal sales quote for a selection of items from your catalog. To ensure we have the necessary products in stock and can plan our marketing accordingly, could you please provide pricing and availability for the following:\r\n\r\n1. T-Shirt – We noticed you have several T-Shirt options listed (e.g., AITEM-0022, AITEM-0023, AITEM-0024, AITEM-0025). We are interested in stocking a variety, but could you please quote us for \"T-Shirt\" in general? We are open to your recommendations on which model(s) would be most suitable for a family-friendly grocery store setting.\r\n\r\n2. Pizza (Item No: AITEM-0050) – Please include pricing for 20 units. This is for our prepared foods section, and we are particularly interested in any details regarding shelf life or storage requirements.\r\n\r\n3. Green Pepper (Item No: AITEM-1006) – We would like a quote for 50 units, as this is a staple in our produce section.\r\n\r\nIf you need any additional information to prepare the quote, please let us know. We appreciate your assistance and look forward to your detailed response so we can move forward with our planning.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request for multiple items with context",
+      "description": "A verbose customer requests a quote for several catalog items, providing extra context and explanations, in an informal tone. The email sets up the business context for a later quote approval, as required by the scenario.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Looking for a quote on a few items for our upcoming event",
+        "body": "Hey there,\r\n\r\nHope you're doing well! I'm reaching out because we're organizing a small community event next month and need to get a quote for a few things. I want to make sure we have everything lined up in advance, so I figured I'd start with a quote to get an idea of the costs and availability.\r\n\r\nHere's what we're looking for:\r\n- 2 JoySprout Toy Bicycles (these will be used as prizes for the kids' games)\r\n- 3 T-Shirts (we'll use these for volunteers, but I'm not sure which of the T-Shirt options would be best for this purpose, so please let me know what you recommend or if you need more info)\r\n- 1 WonderWash Washing Machine (for our event clean-up crew)\r\n- 5 Mango (for the snack table)\r\n\r\nIf you need any more details, just let me know! Looking forward to your quote so we can get things moving.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request for Multiple Items",
+      "description": "A verbose and impatient customer from French Cafe requests a quote for several items, providing excessive context and expressing frustration with previous delays. The email includes detailed explanations and a list of requested products, reflecting the verbose persona and rude/impatient tone.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote Request – Please Respond Quickly This Time",
+        "body": "Hello,\r\n\r\nI am reaching out yet again because your team has been incredibly slow in responding to our previous quote requests, which is frankly unacceptable given our tight schedule. We need to finalize our order for the upcoming event at French Cafe, and I really hope you can actually get this right without wasting more of our time.\r\n\r\nHere’s what we need quoted:\r\n- 10 units of the SmartToys Jigsaw Puzzle Set. This is for our kids’ corner, and we need them ASAP.\r\n- 15 T-Shirts. I don’t care which model you quote, but make sure they’re suitable for staff uniforms. You have several T-Shirts listed, so just pick the ones that fit a standard cafe staff look (and don’t ask me for more details, you should know what works).\r\n- 2 Rasta Drip Coffee Makers for our barista station.\r\n\r\nIf you need more info, don’t bother calling—just email back. I expect a quote by end of day, and I don’t want any more delays.\r\n\r\nFrench Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request for Toys and Apparel",
+      "description": "Julie Smith requests a quote for several items, referencing specific catalog products and relying on standard business context. She does not approve or confirm any quote yet, as the approval will occur in a follow-up email.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote – Toy and Apparel Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 10 units of the SmartToys Building Blocks\r\n- 5 T-Shirts (please include available options)\r\n- 3 JoySprout Toy Car Sets\r\n\r\nLet me know if you need any additional information.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Quote for Toys and T-Shirts",
+      "description": "Jean Dupont requests a quote for several items, referring to one item in a way that depends on SOA clarification, establishing context for a follow-up approval.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request for Toy Sets and T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items for our upcoming event?\r\n\r\n- 5 sets of the SmartToys Jigsaw Puzzle Set\r\n- 10 T-Shirts (the ones you offered last time)\r\n- 2 WonderWagon Electric Train\r\n\r\nIf you need any further details, please let me know. Thank you in advance for your assistance.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Bakery Supplies",
+      "description": "German Bakery requests a quote for several items, referencing some products by context and using informal, context-dependent language.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Need a quote for a few items",
+        "body": "Hi there,\r\n\r\nCan you send us a quote for the following?\r\n- Rasta Coffee Beans (need a couple of bags)\r\n- That pizza you quoted us on last time (the usual one)\r\n- Also, a box of Mango\r\n\r\nLet me know if you need more info. Thanks!\r\n\r\nBest,\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Requesting Quote for Multiple Items (Context-Dependent, Impatient)",
+      "description": "Michael Reyes requests a quote for several items, using context-dependent references and an impatient tone. The email sets up the context for a follow-up approval after the quote is created.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Can you send me a quote for the Playlandia Colorful Play Mat and the T-Shirt? I need this quickly, so don't waste time with unnecessary details. Just get me the numbers for those, and make sure it's the same T-Shirt as last time. Waiting.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Goal-Directed Quote Request for Toys and Apparel",
+      "description": "A customer requests a quote for several catalog items, clearly stating the products and quantities, using a neutral and direct business style. The initial turn establishes the quote request context for later approval.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Request for Sales Quote: Toy Sets and Apparel",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 2 sets of GiggleGear Action Figures Set\r\n- 1 JoySprout Toy Car Set\r\n- 3 T-Shirts (please specify available styles or models)\r\n\r\nPlease include pricing and availability details. Let me know if you need any additional information.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Goal-Directed Quote Request for Multiple Items",
+      "description": "A recognized customer politely requests a quote for several catalog items, clearly stating the products and quantities desired. The initial turn establishes the quote request context for later approval.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Request for Sales Quote",
+        "body": "Dear Sales Team,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 10 units of WonderWagon Electric Train\r\n- 5 units of Rasta Coffee Grinder\r\n- 20 T-Shirts (please specify available colors and sizes)\r\n\r\nPlease let me know if you need any additional information. Thank you for your assistance.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Fresh HelloFoods requests quote for multiple items",
+      "description": "A goal-directed, informal quote request from Fresh HelloFoods for several catalog items, establishing context for later quote approval and order creation.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request for Pizza, Mango, and Soda",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the following items?\r\n- Pizza (we're looking at both AITEM-0050 and AITEM-0052, but not sure which one fits our needs best—can you include both options?)\r\n- Mango (AITEM-0072), 20 units\r\n- Soda (Medium), 15 bottles\r\n\r\nLet me know if you need any more info. Thanks!\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_approved_to_order__order_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Goal-Directed Quote Request with Impatient Tone",
+      "description": "Rachel Green requests a quote for several items, expressing impatience and directness. The email establishes the context for a quote creation, setting up for a follow-up approval and order conversion.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Need Quote ASAP",
+        "body": "I need a quote for the following, and please don't waste my time with unnecessary questions:\r\n\r\n- SmartToys Fast Car Set\r\n- T-Shirt (You have several, just quote me for the T-Shirt. I don't care which one, but make it quick.)\r\n- WonderWash Washing Machine\r\n\r\nGet back to me fast.\r\n\r\nRachel Green\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1",
+          "turn_2_customer_reply_should_confirm_or_approve_the_existing_quote",
+          "turn_2_customer_reply_should_preserve_thread_context"
+        ]
+      }
+    }
+  ]
+}

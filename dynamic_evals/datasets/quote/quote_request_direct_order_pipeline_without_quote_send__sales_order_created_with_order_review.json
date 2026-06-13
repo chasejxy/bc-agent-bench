@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_direct_order_pipeline_without_quote_send",
+  "outcome_id": "sales_order_created_with_order_review",
+  "test_cases": [
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Toytopia Quote Request for Toys and Apparel",
+      "description": "Toytopia requests a quote for several catalog items, establishing the context for a direct quote-to-order pipeline with order review. The initial email is clear and cooperative, listing specific items from the available catalog.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request for Toy and Apparel Items",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- WonderWagon Electric Train\r\n- SmartToys Educational Puzzle\r\n- Generic Golden T-Shirt (please include both adult and child sizes if available)\r\n\r\nPlease let us know if you need any additional information from our side. Looking forward to your response.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe - Initial Quote Request for Cafe Supplies",
+      "description": "A polite, cooperative customer from German Cafe requests a quote for several available items, establishing the context for a direct order pipeline. The initial turn does not trigger intervention or ambiguity, and all items are clearly specified from the catalog.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Request for Quote - Cafe Supplies",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to request a quote for the following items for our cafe:\r\n\r\n- Rasta Coffee Grinder\r\n- Rasta Coffee Beans\r\n- WonderWash Washing Machine\r\n- Rug (Item No: AITEM-0032)\r\n\r\nPlease let us know if you need any additional information from our side. We look forward to your response.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Cooperative quote request for toys and clothing",
+      "description": "A cooperative customer requests a quote for several catalog items, using informal language and explicit context. The initial email establishes the business context and requests specific items, without ambiguity or intervention triggers.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote request for toys and clothing",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for a few items for our upcoming event. Can you include:\r\n- 2 SmartToys Fast Car Sets\r\n- 3 T-Shirts (AITEM-0025)\r\n- 1 Playlandia Colorful Play Mat\r\n\r\nLet me know if you need any more info from me. Thanks!\r\n\r\nJean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Cooperative customer requests quote for available items in impatient tone",
+      "description": "A cooperative but impatient customer from Super Retail requests a quote for several available items, establishing the context for a direct order pipeline. The email is curt and businesslike, but not abusive.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request – Need Immediate Processing",
+        "body": "I need a quote ASAP for the following: 2 Playlandia Colorful Play Mats, 5 Generic Trousers, and 1 WonderWash Washing Machine. Don’t waste time with unnecessary back-and-forth. Just get this moving and let me know what you need from me to finalize the order.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Uncooperative Quote Request for Multiple Items",
+      "description": "Sarah Johnson, an uncooperative customer, requests a quote for several catalog items in a direct and minimal style, providing only the necessary context for the quote/order process to begin.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for the following: 2 Pizza, 1 Rasta Drip Coffee Maker, and 5 T-Shirt. Let me know what else you need.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Toys and Apparel",
+      "description": "Julie Smith requests a quote for several catalog items, establishing the context for a direct order pipeline with order review. The email is polite and direct, reflecting an uncooperative persona who may not fully engage in later clarifications.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote – Toy and Apparel Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- WonderWagon Electric Train\r\n- T-Shirt (please include a couple of these)\r\n- SmartToys Jigsaw Puzzle Set\r\n\r\nLet me know if you need anything else from my side.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative Quote Request for Multiple Items",
+      "description": "KCF Sports requests a quote for several catalog items in an informal, direct style, providing only the necessary context. The request is straightforward, with no ambiguity or intervention triggers, and sets up the context for a direct quote-to-order pipeline with order review.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Need a quote for a few items",
+        "body": "Hey,\r\n\r\nCan you send me a quote for these:\r\n- Rasta Coffee Beans\r\n- WonderWagon Electric Train\r\n- T-Shirt (AITEM-0024)\r\n\r\nLet me know what you need from me.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative, Rude/Impatient Quote Request for Direct Order Pipeline",
+      "description": "A recognized customer sends a curt, impatient email requesting a quote for available items. The email is direct and slightly rude, establishing the business context for a quote and order pipeline, but does not trigger any intervention or clarification in the initial turn.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for the following: 2 Generic Jeans, 1 WonderWash Washing Machine, and 3 T-Shirts. Don’t waste time with unnecessary details. Just get this done quickly.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "German Bakery requests quote for bakery supplies",
+      "description": "A concise, neutral quote request from German Bakery for available catalog items, establishing context for direct order pipeline with order review.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Request",
+        "body": "Please send a quote for the following: 10 Pizza, 5 Soda - Large, and 3 WonderWash Washing Machine. Thanks.\r\n\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise polite quote request for toys and clothing",
+      "description": "A concise and polite customer email requesting a quote for two catalog items, establishing context for a direct order pipeline with order review.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following:\r\n- SmartyToys Educational Puzzle\r\n- T-Shirt (Item No: AITEM-0022)\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise quote request for available items",
+      "description": "A concise, informal quote request from Mario Adams for several catalog items, establishing context for a direct order pipeline with order review.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for 2 WonderWash Washing Machines and 3 Soda - Large? Thanks, Mario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Quote Request for Order Pipeline",
+      "description": "A brief, impatient quote request from Playlandia for available items, establishing context for direct order pipeline with order review.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for 10 Playlandia Colorful Play Mats and 5 WonderWagon Bicycles. Don’t waste time, I need this processed quickly.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote request for bakery supplies and toys",
+      "description": "A verbose customer from French Bakery requests a quote for several catalog items, providing detailed context and rationale for the selection. The email establishes the business context and item requirements, setting up for a direct order pipeline with order review in the follow-up.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote: Bakery Supplies and Toy Selection",
+        "body": "Hello,\r\n\r\nWe are preparing for our upcoming spring event at French Bakery and would like to request a quote for a selection of items that will be used both for our bakery display and as gifts for children attending the event. We have carefully reviewed your catalog and identified several products that fit our needs:\r\n\r\n- Pizza (we noticed multiple variants in your catalog, and we are interested in both classic and vegetarian options; please advise on available choices)\r\n- Soda - Medium (for beverage service)\r\n- WonderWagon Pull-Along Train (as a featured toy for our gift bags)\r\n- Organic Carrot (for our bakery recipes)\r\n- Rasta Coffee Beans (for our coffee bar)\r\n\r\nIf there are any bundle options or volume discounts available for these items, please include those details in the quote. We are aiming to finalize our order as soon as possible, so please let us know if you require any additional information from our side.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request for multiple catalog items",
+      "description": "A verbose and polite customer requests a quote for several catalog items, providing extra context and explanations. The initial turn establishes the business context and item list, without introducing ambiguity or intervention triggers.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Quote: Multiple Items for Upcoming Store Promotion",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am reaching out on behalf of Super Retail to request a quote for several items that we are planning to feature in our upcoming promotional event. We are aiming to refresh our inventory and would appreciate your assistance in providing pricing and availability details for the following products:\r\n\r\n- WonderWagon Bicycle (we are interested in 5 units for our children's section)\r\n- Pizza (please quote for both AITEM-0050 and AITEM-0051, as we are considering offering a variety)\r\n- SmartToys Building Blocks (10 units, as these are consistently popular with our customers)\r\n- Generic Jeans (20 units, for our apparel department)\r\n\r\nIf there are any special offers or bulk pricing options available, kindly include those details as well. We are looking to finalize our order soon, so a prompt response would be greatly appreciated.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request for multiple items with informal tone",
+      "description": "A verbose, informal email from German Bakery requesting a quote for several catalog items, providing extra context and explanations, but not yet triggering any intervention or ambiguity. The email sets up the business context for a direct quote-to-order workflow.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Looking for a quote on a few items for our next event",
+        "body": "Hey there,\r\n\r\nHope you’re having a good day! This is German Bakery reaching out—we’re planning for our upcoming summer event and want to get a quote for a few things we’ll need. We’ve worked with you before and always appreciated how smooth the process is, so I’m hoping this will be just as easy.\r\n\r\nHere’s what we’re looking for:\r\n- 10 x Pizza (we usually go with the classic, but let us know if you need more details)\r\n- 12 x Soda - Medium (these are always a hit with our team)\r\n- 8 x T-Shirt (we’re thinking of using these for staff uniforms, so if there are color options, please let us know what’s available)\r\n\r\nIf you need any more info from our side, just ask! We’d like to move quickly on this, so as soon as you can get us a quote, that would be awesome. Also, if there’s anything else you recommend for events like ours, feel free to suggest it.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose and Impatient Quote Request for Multiple Items",
+      "description": "A verbose, slightly rude customer from French Cafe requests a quote for several catalog items, providing excessive context and expressing impatience.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Need a Quote ASAP – Multiple Items for Urgent Order",
+        "body": "Hello,\r\n\r\nLet me get straight to the point because I don't have time for endless back-and-forth. We need a quote immediately for the following items, and I expect this to be handled quickly, not in days. We're restocking for a high-traffic weekend, and delays are not acceptable. Please quote:\r\n\r\n- 10x WonderWagon Pull-Along Train\r\n- 5x Rasta Espresso Machine\r\n- 12x T-Shirt (and before you ask, yes, I mean the 'T-Shirt' from your catalog, but I see multiple listings – just quote for the standard T-Shirt you offer, and don't make this complicated)\r\n- 20x Soda - Medium\r\n\r\nI expect a prompt response. If you need anything else, ask now, not later. Don't waste my time with unnecessary formalities.\r\n\r\nFrench Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "WonderToys Co. quote request for toys and puzzles",
+      "description": "A context-dependent customer from WonderToys Co. requests a quote for several catalog items, referencing prior context for one item and listing others explicitly. The initial turn establishes the business context for the quote and order pipeline.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request for Toy Items",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- Please include the same building blocks set we discussed previously.\r\n- 2 units of the MagicToyland Adventure Doll\r\n- 3 units of SmartToys Jigsaw Puzzle Set\r\n\r\nLet me know if you need any additional information.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Toys and Apparel",
+      "description": "The customer politely requests a quote for several items, referencing prior context for one of the selections, in a way that is context-dependent and courteous.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Request for Quote on Toy and Apparel Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 2 WonderWagon Pull-Along Train\r\n- 3 T-Shirts (same type as last time)\r\n- 1 SmartToys Building Blocks\r\n\r\nLet me know if you need any additional details. Thank you very much for your assistance.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Julie Smith",
+      "description": "Julie Smith requests a quote for several catalog items, referencing prior context and using informal, context-dependent wording.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote request for toys and drinks",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the same Soda (medium size) we discussed last week, plus two MagicToyland Fairy Dolls? Also, I’d like to add a couple of T-Shirts (the usual ones we order). Let me know if you need anything else from me.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "French Cafe - Context-Dependent, Rude/Impatient Quote Request",
+      "description": "A context-dependent, impatient quote request from French Cafe, referencing prior context and requesting available items without restating all details explicitly.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote request – as discussed",
+        "body": "Just send me the quote for the items we talked about last time. I need the Generic Jeans and the T-Shirt (the one you mentioned, not the other). Make it quick, please. French Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Request Quote for Multiple Items - Direct Order Pipeline",
+      "description": "A goal-directed customer requests a quote for several available catalog items, establishing a clear business context for a direct order pipeline workflow. The initial turn is clear and professional, setting up the scenario for the system to create a quote and proceed to order review.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Request for Quote – Immediate Order Processing",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items, and if possible, proceed directly to order processing:\r\n\r\n- Rasta Coffee Beans (2 units)\r\n- WonderWagon Pull-Along Train (1 unit)\r\n- T-Shirt (please include options for available sizes and colors)\r\n\r\nPlease let me know if you need any additional information to process this request.\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Goal-Directed Quote Request for Toys and Rug",
+      "description": "A polite, clear quote request from Tom Martinez for several catalog items, establishing the context for a direct order pipeline with order review.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for Toy Sets and Rug",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- JoySprout Toy Car Set\r\n- SmartToys Building Blocks\r\n- Rug (please quote the available options)\r\n\r\nPlease let me know if you need any additional information from my side. Thank you for your assistance.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Quote Request for Direct Order Pipeline (Informal)",
+      "description": "Jakob Kuhs requests a quote for specific catalog items in a clear, informal style, establishing the context for a direct order pipeline with order review. The initial turn does not trigger intervention or clarification.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Request for T-Shirts and WonderWagon Bicycle",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for the following items:\r\n- 10 T-Shirts (AITEM-0022)\r\n- 1 WonderWagon Bicycle\r\n\r\nPlease let me know what the next steps are for placing the order once the quote is ready.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_direct_order_pipeline_without_quote_send__sales_order_created_with_order_review__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Goal-Directed Quote Request for Direct Order Pipeline (Rude/Impatient)",
+      "description": "Emily Parker sends a curt and impatient email requesting a quote for several catalog items, making her goal to proceed quickly and directly into the order pipeline clear. The email establishes the business context and lists the requested items without ambiguity, reflecting the goal-directed persona and rude/impatient tone.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Need Quote ASAP – Proceed to Order",
+        "body": "I need a quote for the following, and I want this processed as an order right away. Don’t waste time with unnecessary steps.\r\n\r\n- WonderWagon Electric Train\r\n- SmartToys Building Blocks\r\n- Pizza (AITEM-0051)\r\n\r\nGet this done quickly.\r\n\r\nEmily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

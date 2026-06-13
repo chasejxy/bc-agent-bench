@@ -1,0 +1,36 @@
+{
+  "scenario_id": "quote_request_attribute_clarification",
+  "outcome_id": "clarification_required",
+  "test_cases": [
+    {
+      "case_id": "quote_request_attribute_clarification__clarification_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for T-Shirts and Rugs with Ambiguous Attribute Details",
+      "description": "A verbose customer requests a quote for several T-Shirts and Rugs, but does not specify required attributes such as color or size for the T-Shirts, and only partially describes the Rugs, leading to ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Request for Quote: T-Shirts and Rugs – Attribute Details Needed",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for a selection of items for our upcoming event. We are looking to purchase several T-Shirts and Rugs, but I want to make sure we get the right variants for our needs. Specifically:\r\n\r\n- For the T-Shirts, we need 30 units. However, I am not sure which colors or sizes are available in your catalog, so please advise on the options. We are hoping for a mix of colors, but the main priority is to have a variety suitable for both adults and children.\r\n\r\n- Regarding Rugs, we would like to order 5 units. We are interested in something durable and suitable for high-traffic areas, but I am not certain which types or sizes you offer. Please let me know what options are available for this category.\r\n\r\nIf you could provide details on the available attributes (such as color, size, material, etc.) for these items, that would be very helpful. Once I have that information, I can clarify our preferences and quantities for each variant.\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    }
+  ]
+}

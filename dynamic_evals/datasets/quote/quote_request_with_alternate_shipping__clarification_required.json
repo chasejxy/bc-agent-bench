@@ -1,0 +1,256 @@
+{
+  "scenario_id": "quote_request_with_alternate_shipping",
+  "outcome_id": "clarification_required",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address",
+      "description": "Customer requests a quote for several catalog items and specifies an alternate shipping address, but the address is incomplete and requires clarification before the quote can be processed.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Need Quote – Ship to Different Location",
+        "body": "I need a quote ASAP for the following:\r\n- 10x WonderWagon Pull-Along Train\r\n- 5x SmartToys Building Blocks\r\n\r\nDon’t ship to our usual address. Send this order to our warehouse in Springfield. That’s the one we used last quarter. You should have it on file. Just get this moving and let me know the total.\r\n\r\nTom Martinez\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Julie Smith",
+      "description": "Julie requests a quote for several items and specifies an alternate shipping address, but the address is incomplete and ambiguous, requiring clarification before the quote can be created.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote Request – Ship to Alternate Location",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following:\r\n- WonderWagon Bicycle\r\n- Generic Jeans\r\n- Rasta Coffee Beans\r\n\r\nPlease ship these to our warehouse in Denver instead of the usual address. The warehouse is on Broadway, near the intersection with 6th Ave. Let me know if you need anything else.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping",
+      "description": "Sarah Johnson requests a quote for several items and specifies an alternate shipping location, but the address is incomplete and ambiguous, requiring clarification before the quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Need Quote ASAP – Ship to Alternate Location",
+        "body": "I need a quote for the following:\r\n- 2 Rasta Espresso Machines\r\n- 10 T-Shirts\r\n\r\nDon’t ship to my usual address. Send it to our warehouse in Springfield. You should have that on file. Make this quick.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Tom Martinez (Home)",
+      "description": "A concise, polite quote request for two items, specifying an alternate shipping address that is missing a key detail and requires clarification.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request - Alternate Shipping",
+        "body": "Hello,\r\n\r\nPlease send me a quote for:\r\n- 2 SmartToys Fast Car Sets\r\n- 1 Rug (AITEM-0031)\r\n\r\nShip to my alternate address: 45 Oakwood, Springfield. Thanks.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Maxo Mart",
+      "description": "Concise quote request for items with an ambiguous alternate shipping address reference.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Request - Ship to Alternate Location",
+        "body": "Hi, please send me a quote for 2 WonderWagon Electric Trains and 5 JoySprout Toy Car Sets. Ship to our warehouse in Springfield instead of the usual address. Thanks, Maxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address",
+      "description": "A concise, impatient customer requests a quote for specific items and tries to override the shipping address, but the alternate shipping location is referenced ambiguously, requiring clarification before the quote can be created.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Need Quote – Ship to Warehouse",
+        "body": "Quote me 10 WonderWagon Bicycles and 5 Playlandia Colorful Play Mats. Don’t send to our usual address—ship to our warehouse in Springfield instead. Get this done quickly.\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose quote request with ambiguous alternate shipping address",
+      "description": "A verbose, impatient customer requests a quote for several catalog items and specifies an alternate shipping address, but the address is incomplete and ambiguous, requiring clarification before the quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Request for Quote – Ship to Alternate Address",
+        "body": "Hello,\r\n\r\nI need a quote ASAP for the following items:\r\n- 2x WonderWagon Bicycle\r\n- 5x T-Shirt (Item No: AITEM-0023)\r\n- 1x Rasta Espresso Machine\r\n\r\nPlease do NOT ship to my usual billing address. I want these delivered to our warehouse in Springfield. You should have this location on file, but just in case, it's the one near the old industrial park. I don't have the full street address handy right now, but it's the Springfield warehouse we've used before. If you need more info, check your records or let me know, but I expect you to figure this out quickly.\r\n\r\nI need this quote today. Don't waste time with unnecessary steps.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address Reference",
+      "description": "The customer requests a quote for several catalog items and specifies an alternate shipping address using a vague location reference, requiring clarification before the quote can be created.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Need Quote – Ship to Warehouse",
+        "body": "I need a quote for the following ASAP:\r\n- 10x WonderWagon Electric Train\r\n- 5x Rug (the one we usually get)\r\n\r\nAnd don’t send this to our main address. Ship it to the warehouse, like last time. You should have it on file. Don’t make me repeat all the details again.\r\n\r\nMaxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Sarah Johnson",
+      "description": "A goal-directed customer requesting a quote for several catalog items and specifying an alternate shipping address, but the address is incomplete and requires clarification.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request – Alternate Shipping Address",
+        "body": "Hi there,\r\n\r\nI'd like a quote for the following:\r\n- 2 WonderWagon Pull-Along Train\r\n- 5 Organic Carrot\r\n\r\nPlease ship to our warehouse in Springfield (the one near the river). Let me know if you need more info about the address.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__clarification_required__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address",
+      "description": "A goal-directed, impatient customer requests a quote for several catalog items and specifies an alternate shipping address, but the address is incomplete and ambiguous, requiring clarification before the quote can be created.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Need Quote ASAP – Ship to Alternate Location",
+        "body": "Send me a quote for the following:\r\n- 10 Rug\r\n- 5 WonderWagon Pull-Along Train\r\n\r\nDo NOT ship to our usual address. I want these delivered to our warehouse in Springfield. That’s the one near the highway, not the downtown spot. Get this sorted quickly.\r\n\r\nMaxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

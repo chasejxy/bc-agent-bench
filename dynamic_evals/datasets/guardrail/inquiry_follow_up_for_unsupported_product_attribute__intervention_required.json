@@ -1,0 +1,678 @@
+{
+  "scenario_id": "inquiry_follow_up_for_unsupported_product_attribute",
+  "outcome_id": "intervention_required",
+  "test_cases": [
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Product Inquiry for Toy and Apparel Items",
+      "description": "The customer initiates a standard product inquiry, asking for availability and details about a few catalog items. The email establishes context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Inquiry About Toy and Apparel Products",
+        "body": "Hello,\r\n\r\nI am interested in learning more about a few of your products. Could you please provide me with details on the following items, including availability and any relevant specifications?\r\n\r\n- JoySprout Toy Car Set\r\n- T-Shirt (please let me know what options are available)\r\n- Playlandia Colorful Play Mat\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Julie Smith",
+      "description": "Julie Smith, a recognized customer, sends a polite inquiry to establish context about available products before following up with a request for an unsupported product attribute.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Inquiry About Available Toy Products",
+        "body": "Hello,\r\n\r\nI am interested in learning more about your toy selection. Could you please provide details on the types of building blocks and train sets you currently offer? I am considering placing an order and would appreciate any information you can share about these items.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Jakob Kuhs - Initial Product Inquiry",
+      "description": "Jakob Kuhs sends an informal inquiry to ask about available T-Shirts and Rugs, establishing the context for a later follow-up about unsupported product attributes.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quick question about T-Shirts and Rugs",
+        "body": "Hi there,\r\n\r\nI'm looking to get some T-Shirts and Rugs for our shop. Could you let me know which styles or options you have available for both? If you have any info on sizes or materials, that would be great too.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Sarah Johnson",
+      "description": "Cooperative customer sends an impatient inquiry about product availability, establishing context for a later follow-up about an unsupported attribute.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quick Availability Check – T-Shirts and Jeans",
+        "body": "I need to know ASAP which T-Shirts and Generic Jeans you actually have in stock. Send me the details right away, please. Don’t waste time with anything else.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Product Availability Inquiry - Dunder Mifflin",
+      "description": "The customer, Dunder Mifflin, sends an initial inquiry about the availability of several products from the catalog, establishing context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Product Availability Inquiry",
+        "body": "Hello,\r\n\r\nCan you let me know if you have the following items in stock and provide some details on them?\r\n- Rasta Coffee Beans\r\n- T-Shirt\r\n- WonderWagon Pull-Along Train\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Playlandia initial inquiry about toy products",
+      "description": "The customer politely requests information about toy products, establishing context for a later follow-up about an unsupported attribute.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Inquiry about Toy Products Availability",
+        "body": "Hello,\r\n\r\nCould you please provide details on the toy products you currently have available, especially any building block sets and dolls? I am interested in learning more about your options for these categories.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Super Retail - Initial Product Inquiry",
+      "description": "The customer initiates a product inquiry, establishing context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Product info request",
+        "body": "Hi, can you send me details about the T-Shirts you have available? Also, I’d like to know more about your olives selection. Thanks.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Product Inquiry – Uncooperative, Impatient",
+      "description": "The customer sends a curt, impatient inquiry about product availability, establishing context for a later follow-up about an unsupported attribute.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Need Info on T-Shirts and Jeans",
+        "body": "Just tell me if you have any T-Shirts and Generic Jeans in stock. Don't waste my time with extra details. Reply quickly.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise initial product inquiry for available toys",
+      "description": "A concise customer email from Larry King asking about available toy products, establishing context for a later follow-up about unsupported product attributes.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Toy Product Availability Inquiry",
+        "body": "Hi, Can you send me a list of toy products you currently offer? Thanks, Larry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Playlandia - Concise Polite Product Inquiry",
+      "description": "A concise and polite initial inquiry from Playlandia asking about availability and details for specific catalog items, setting up context for a later follow-up about unsupported product attributes.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Inquiry about Play Mat and Building Blocks",
+        "body": "Hello,\r\n\r\nCould you please provide availability and pricing for the Playlandia Colorful Play Mat and SmartToys Building Blocks?\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise product inquiry for available T-Shirts and bicycles",
+      "description": "A concise, informal initial inquiry from Jim Schrute asking about available T-Shirts and bicycles, establishing context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "T-Shirts and Bicycles Availability?",
+        "body": "Hi, Can you tell me which T-Shirts and bicycles you have in stock right now? Thanks, Jim\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Product Inquiry for Rugs",
+      "description": "A concise, impatient customer requests information about available rugs, establishing context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Need info on your rugs",
+        "body": "Send me details and pricing for the rugs you have. Make it quick.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Product Availability Inquiry for Bakery Menu Planning",
+      "description": "A verbose customer email from French Bakery inquiring about the availability and details of several catalog items for potential inclusion in their menu, establishing context for a later follow-up about a product attribute not present in the system data.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Inquiry Regarding Product Availability and Details for Menu Planning",
+        "body": "Dear Sales Team,\r\n\r\nI am reaching out on behalf of French Bakery as we are currently in the process of updating our menu and are exploring new product options to offer our customers. To ensure we select the most suitable items, I would appreciate your assistance in providing detailed information regarding the availability and any relevant specifications for several products listed in your catalog.\r\n\r\nSpecifically, could you please confirm whether the following items are currently available for order, and if so, provide any pertinent details such as packaging, minimum order quantities, or lead times?\r\n\r\n- Pizza (I noticed there are a few variants: AITEM-0050, AITEM-0051, and AITEM-0052; could you clarify the differences between these, and which are available?)\r\n- Soda - Small (AITEM-0060)\r\n- Kalamata Olive (AITEM-1005)\r\n- WonderWash Washing Machine (AITEM-0100)\r\n- T-Shirt (I see several entries: AITEM-0022, AITEM-0023, AITEM-0024, AITEM-0025, and Generic Golden T-Shirt AITEM-0019; could you explain how these differ and which are suitable for staff uniforms?)\r\n\r\nIf there are any brochures, product sheets, or additional documentation available for these items, please include them as well. We are particularly interested in understanding any distinguishing features or options that might help us make an informed decision.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Lyn Ventures - Initial Product Inquiry for Catalog Items",
+      "description": "A verbose, polite customer email from Lyn Ventures initiating a detailed inquiry about several catalog items, establishing context for a later follow-up regarding unsupported product attributes.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Inquiry Regarding Product Availability and Details",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. My name is Lyn, and I am reaching out on behalf of Lyn Ventures as we are currently reviewing options for an upcoming project. We are interested in obtaining more information about several items listed in your catalog, specifically regarding their availability and any relevant specifications that you can provide.\r\n\r\nCould you please confirm the current stock status and provide any available details for the following products?\r\n\r\n- WonderWagon Bicycle\r\n- SmartToys Jigsaw Puzzle Set\r\n- Generic Golden T-Shirt\r\n- Rasta Drip Coffee Maker\r\n\r\nIf there are any additional product brochures or technical sheets for these items, kindly include those as well. We are particularly interested in understanding the features and any standard options that may be available for each.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose initial inquiry about product availability and details",
+      "description": "Julie Smith, using an informal and verbose style, sends an initial inquiry to establish context about available products and their basic details, setting up for a later follow-up about an unsupported attribute.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Looking for info on kids bikes and toy sets",
+        "body": "Hi there,\r\n\r\nI hope you’re having a good day! I’m reaching out because I’m interested in getting some new items for our upcoming kids’ event, and I wanted to check what you have available. Specifically, I’m looking at bicycles for children and toy car sets—could you let me know which models you currently carry, and if you have any basic info on them like recommended age range or any standout features? If there are any bundle deals or related accessories, feel free to mention those too. I’d appreciate a bit of detail so I can figure out what might work best for our group.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Product Inquiry for Catalog Items",
+      "description": "A verbose and impatient customer initiates a detailed inquiry about available catalog items, establishing context for a later follow-up about unsupported product attributes.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Request for Detailed Information on Available Products",
+        "body": "Hello,\r\n\r\nI need to get a comprehensive overview of your current product offerings, specifically those that are available for immediate purchase or shipment. Please provide me with a full list of items, including any relevant details such as product names, item numbers, and whatever specifications you have on hand. I don't want to waste time digging through your website or catalog myself, so make sure you include everything that's actually in stock and ready to go. If there are any variations or options for things like T-Shirts, Pizza, or WonderWash Washing Machine, I expect you to clarify those as well. Don't leave out anything important, and please respond promptly.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Fresh HelloFoods - Initial Product Inquiry",
+      "description": "The customer initiates a product inquiry, establishing context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Inquiry About Available Produce Items",
+        "body": "Hello,\r\n\r\nWe are looking to update our produce offerings and would like to know which types of carrots and peppers you currently have available. Could you please provide details on the varieties and any relevant specifications?\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Context-Dependent Inquiry About Available T-Shirts",
+      "description": "A context-dependent, polite customer inquiry establishing interest in available T-Shirts, setting up for a later follow-up about an unsupported attribute.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Inquiry about T-Shirts availability",
+        "body": "Hello,\r\n\r\nI’m interested in purchasing some T-Shirts. Could you please let me know which types or styles you currently have available?\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Inquiry About Toy Product Availability",
+      "description": "The customer from Toytopia is starting a new email thread to ask about the availability and details of a specific toy product, using a context-dependent and informal style. This sets up the context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quick question about your toy selection",
+        "body": "Hi there,\r\n\r\nWe’re looking to add some new toys to our store and wanted to check what you have available from your current lineup. Could you send us details on the WonderWagon Pull-Along Train and the SmartToys Building Blocks? Also, if you have any info on your best-selling puzzles, that’d be great too.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "French Bakery - Initial Inquiry About Toy Products",
+      "description": "A context-dependent, impatient customer from French Bakery requests information about toy products, establishing context for a later follow-up about unsupported product attributes.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Need info on toy sets ASAP",
+        "body": "Send me details and pricing for your toy sets, especially the SmartToys Jigsaw Puzzle Set and the MagicToyland Adventure Doll. I don't have time for back-and-forth, so make it quick. French Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Inquiry About Available T-Shirts and Puzzles",
+      "description": "The customer requests information about available T-Shirts and puzzles, establishing the context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Inquiry About T-Shirts and Puzzle Products",
+        "body": "Hello,\r\n\r\nI am interested in purchasing some T-Shirts and also looking for puzzle products suitable for children. Could you please provide me with details on the available T-Shirts and any puzzles you have in stock?\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Initial Product Availability Inquiry for Toys and T-Shirts",
+      "description": "Chevy Toys reaches out to inquire about the availability and options for several catalog items, establishing a clear context for a later follow-up regarding a product attribute not present in the system data.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Inquiry About Toy and T-Shirt Availability",
+        "body": "Hello,\r\n\r\nI am interested in learning more about a few of your products for an upcoming event. Could you please provide information on the availability and options for the following items?\r\n\r\n- GiggleGear Action Figures Set\r\n- MagicToyland Fairy Doll\r\n- T-Shirt (I noticed there are a few T-Shirt listings; could you clarify what options are available?)\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Inquiry About Toy Availability",
+      "description": "The customer from WonderToys Co. is reaching out to ask about the availability and details of several toys, establishing context for a later follow-up about a product attribute not present in the system data.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Looking for Toy Availability and Info",
+        "body": "Hi there,\r\n\r\nWe’re planning a new promotion and are interested in a few of your toys. Could you let us know if you have the following available and share some basic details?\r\n\r\n- MagicToyland Fairy Doll\r\n- JoySprout Toy Car Set\r\n- AdventureCraft Building Blocks\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_follow_up_for_unsupported_product_attribute__intervention_required__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Product Availability Inquiry for Toys and Apparel",
+      "description": "The customer from Toytopia sends a direct and impatient inquiry about the availability and details of several products, establishing the context for a later follow-up about an unsupported product attribute.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Need Details and Availability on Toys and T-Shirts",
+        "body": "Send me the current availability and pricing for the following: WonderWagon Pull-Along Train, SmartToys Fast Car Set, and all T-Shirt options you have. I don't have time for back-and-forth, so include all relevant details in your reply. Respond quickly.\r\n\r\n-Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "ask_for_unsupported_product_attribute",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data"
+        ]
+      }
+    }
+  ]
+}

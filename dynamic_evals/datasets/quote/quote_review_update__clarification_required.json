@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_review_update",
+  "outcome_id": "clarification_required",
+  "test_cases": [
+    {
+      "case_id": "quote_review_update__clarification_required__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Requesting Quote Review Update for Existing Quote",
+      "description": "Julie Smith initiates a request to update an existing quote, providing clear context and referencing the review step, but does not yet specify the ambiguous update that will require clarification in a later follow-up.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request to Update Quote During Review",
+        "body": "Hello,\r\n\r\nWe are currently reviewing the quote you provided and would like to request some updates to the items listed before finalizing. Please let me know what information you need from our side to proceed with the changes.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Dunder Mifflin - Establish Quote Review Context",
+      "description": "The customer politely establishes the context for reviewing a quote and requests assistance, setting up for a later ambiguous update request.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Review Request",
+        "body": "Dear Sales Team,\r\n\r\nWe have received the quote for our recent inquiry and would like to review some of the details before finalizing. Could you please advise on the process for making adjustments to item quantities or units of measure? We want to ensure everything is correct before proceeding.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Requesting Quote Review and Update",
+      "description": "The customer initiates a request to review and update an existing quote, establishing the context for a later ambiguous update request.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Need to Review and Update Our Quote",
+        "body": "Hi there,\r\n\r\nWe received the quote you sent over and would like to review a few details before finalizing. Can you let us know the best way to request some changes to item quantities and possibly the unit of measure? Please confirm what info you need from us to get started.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Request to Review and Update Quote Items",
+      "description": "The customer, Anders Nielsen, is reviewing a quote and requests updates to item quantities and/or units of measure. The initial email establishes the context for a quote review and signals that changes are needed, but does not yet introduce ambiguity or missing details. The ambiguity will be introduced in a later follow-up.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Need to Review and Update Quote Items",
+        "body": "Hi,\r\n\r\nI’m reviewing the quote you sent and need to make some changes to the items and quantities before we proceed. Please let me know what you need from me to update the quote quickly. I don’t have time for unnecessary back and forth, so let’s get this sorted fast.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "quote_review_update_uncooperative_neutral_initial_context",
+      "description": "Jakob Kuhs requests a review of his quote and establishes the context for potential updates, without yet specifying ambiguous update instructions. The initial turn sets up the scenario for later clarification gaps.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Review Request",
+        "body": "Hello,\r\n\r\nI received the quote for my recent request. Before you finalize it, I need to review a few details and possibly make some changes to the quantities or units for certain items. Please let me know how I can proceed with the review and update process.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe - Establish Quote Review Context",
+      "description": "The customer initiates a polite email to establish the context for reviewing and updating their existing quote, without yet specifying ambiguous update instructions. This sets up the scenario for a later ambiguous update request.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote Review Request",
+        "body": "Dear Sales Team,\r\n\r\nWe have received the quote for our recent inquiry and would like to review some of the details before finalizing. Please let us know the process for making adjustments to item quantities or units of measure if needed.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative quote review update request (informal)",
+      "description": "The customer, Larry King, initiates a quote review update in an informal tone, establishing context for the quote review but not yet introducing ambiguity. The ambiguity will appear in a later follow-up turn.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote review – need to make some changes",
+        "body": "Hey, I got the quote you sent over and I need to update a few things before we finalize. Can you let me know what info you need from me to make edits? Thanks.\r\n\r\nLarry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Review Update Request - Context Establishment",
+      "description": "An uncooperative and impatient customer requests a review of their quote and signals that they want to make changes, but does not yet specify the ambiguous update that will require clarification in a later follow-up.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Need to Review and Change My Quote",
+        "body": "I need to look over the quote you sent and make some changes. Send me the details ASAP so I can get this sorted. Don't make me wait around for this.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote review update request",
+      "description": "A concise customer email establishing context for a quote review update, without introducing ambiguity in the initial turn.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Quote review update needed",
+        "body": "Hi, I’m reviewing the quote you sent. I need to make some changes to a few items. Please let me know the process for updating quantities or units. Thanks, Jim Schrute\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise polite quote review update request",
+      "description": "A concise and polite customer email from Lyn Ventures requesting a quote review update, establishing context for later clarification.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Review Update Request",
+        "body": "Hello,\r\n\r\nI am reviewing the quote you sent and would like to request some updates to the item details. Please let me know the process for making changes to quantities or units of measure.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Review Update Request - Establishing Context",
+      "description": "The customer is initiating a quote review update process, establishing context for a later ambiguous update request.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Need to review and update our quote",
+        "body": "Hi,\r\n\r\nWe'd like to review our current quote and make some changes to a few items. Can you send over the latest version so we can check the details and let you know what needs updating?\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Quote Review Update Request",
+      "description": "A concise and impatient customer requests a review of their quote and signals intent to update items, establishing context for later ambiguous update instructions.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Need to review quote ASAP",
+        "body": "Send me the quote details. I need to make some changes before you finalize. Don't waste time.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote review update request – context establishment",
+      "description": "A verbose customer email from Fresh Foods North Europe, establishing context for a quote review update. The customer provides detailed background and requests a review of the quote, but does not yet introduce ambiguity or unclear update instructions. The ambiguity will appear in a later follow-up turn.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Quote Review and Update for Existing Quote",
+      "description": "The customer, Michael Reyes, is requesting to review and update an existing quote. He provides detailed context and background, setting up for a later ambiguous update request.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Request to Review and Update My Existing Quote",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am writing to request a review of the quote I recently received from your team. Before proceeding to finalize the order, I would like to discuss a few potential adjustments to some of the items listed, particularly regarding quantities and possibly the unit of measure for certain products.\r\n\r\nTo provide some background, our team is currently reassessing our inventory needs for the upcoming quarter, and as such, there may be some changes required to the original quote. I want to ensure that the final version accurately reflects our updated requirements.\r\n\r\nCould you please confirm the process for making these adjustments? Once I have your guidance, I will send over the specific details for the items that need to be updated.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote review update request (context establishment)",
+      "description": "A verbose customer email establishing context for a quote review update, setting up for later ambiguous update instructions.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Review – Requesting Some Changes",
+        "body": "Hi there,\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Rude/Impatient Quote Review Update Request",
+      "description": "A verbose and impatient customer email from Michael Reyes, establishing context for a quote review update and expressing dissatisfaction with the process, but not yet introducing ambiguity. The ambiguity will be introduced in a later follow-up turn.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Quote Review – Need Changes ASAP",
+        "body": "Hi,\r\n\r\nI’m looking over the quote you sent for our recent request, and frankly, I’m not impressed with how slow this process has been. I need to make some changes to the items and quantities before you finalize anything. Please confirm that you actually received my quote and let me know what the next steps are for updating it. I don’t want to waste more time going back and forth, so make sure you’re ready to process my updates quickly.\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Context-Dependent Quote Review Update Request",
+      "description": "A context-dependent customer initiates a quote review update, referencing prior quote details and establishing context for later ambiguous update instructions.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Hello,\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Review Update - Context-Dependent, Polite",
+      "description": "A context-dependent, polite customer requests a review of their quote and signals intent to update some items, relying on prior thread context without restating all details explicitly.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Review Request",
+        "body": "Hello,\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Context-Dependent Quote Review Update Request",
+      "description": "The customer initiates a quote review update by referencing prior context and requests changes without specifying all details, setting up for ambiguity in a later follow-up turn.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Quote Review – Need a Few Changes",
+        "body": "Hi there,\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Context-Dependent, Rude/Impatient Quote Review Update Request",
+      "description": "Sarah Johnson, relying on prior thread context and using impatient, curt language, initiates a quote review update request. She references the quote without restating item details, setting up for a later ambiguous update instruction.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Review – Need Changes ASAP",
+        "body": "I got your quote. It’s not what I asked for. Can you fix it already? Let me know what you need from me so we can get this sorted. Sarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Goal-Directed Neutral Initial Quote Review Update Request",
+      "description": "A recognized customer initiates a quote review update request, clearly stating the intent to review and update specific items, but does not yet introduce ambiguity. The email establishes context for a follow-up clarification.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Review Update Request",
+        "body": "Hello,\r\n\r\nI am reviewing the quote you sent for our recent inquiry. I would like to request some updates to the item quantities and possibly the units of measure for a few products. Please let me know the process for submitting these changes, and if you need any additional information from my side before proceeding.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Goal-Directed Polite Customer Requests Quote Review Update",
+      "description": "A recognized customer politely requests a review of their quote and asks for updates, establishing context for later clarification.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Request to Review and Update Quote",
+        "body": "Dear Sales Team,\r\n\r\nI am writing to review the quote you prepared for my recent request. Before finalizing, I would like to make some updates to the item quantities and possibly adjust the unit of measure for a few products. Please let me know the best way to proceed so I can provide the necessary details.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Quote Review Update Request (Informal)",
+      "description": "A recognized customer initiates a quote review update request in an informal, direct style, establishing context for later ambiguous update instructions.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Reviewing my quote – need to make some changes",
+        "body": "Hi there,\r\n\r\nI just got the quote and I want to make a few updates before finalizing. Can you let me know what info you need from me to adjust quantities or units for some items? I’ll send the details once I hear back.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__clarification_required__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Lyn Ventures - Initial Quote Review Update Request",
+      "description": "A goal-directed, impatient customer requests a quote review update, establishing context for later ambiguous instructions.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Review Update Needed",
+        "body": "I need to make some changes to the quote you sent for Lyn Ventures. Please let me know what details you need from me so we can get this sorted quickly. I don't have time for delays, so reply ASAP with what you need to update quantities or units.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

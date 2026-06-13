@@ -1,0 +1,702 @@
+{
+  "scenario_id": "inquiry_then_quote_request",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Inquiry About Toy Bicycles and Train Sets",
+      "description": "The customer requests product information about available toy bicycles and train sets, establishing context for a later quote request.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Inquiry: Toy Bicycles and Train Sets",
+        "body": "Hello,\r\n\r\nWe are interested in learning more about your selection of toy bicycles and train sets. Could you please provide details on the different models, features, and pricing for these categories?\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe - Initial Product Inquiry for Coffee Equipment",
+      "description": "A cooperative and polite customer from German Cafe initiates an inquiry about coffee-related equipment, seeking information about available coffee makers and grinders before proceeding to a quote request in a later follow-up.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Inquiry: Coffee Makers and Grinders for Cafe",
+        "body": "Dear Sales Team,\r\n\r\nWe are looking to expand our coffee equipment selection at German Cafe. Could you please provide information on the coffee makers and grinders you currently offer? Details on available models, features, and pricing would be appreciated.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Julie Smith",
+      "description": "Julie Smith sends an informal inquiry asking for information about available toy trains and toy bicycles, establishing context for a later quote request.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Looking for Toy Trains and Bicycles",
+        "body": "Hi there,\r\n\r\nI’m interested in getting some info on your toy trains and toy bicycles. Could you send me details on what you have in stock, including any variations or sets? I’d like to see options before placing an order.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Chevy Toys - Initial Toy Product Inquiry",
+      "description": "Chevy Toys sends an impatient, curt inquiry about available toy products, establishing the context for a follow-up quote request.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Send me your toy products list ASAP",
+        "body": "I don't have time to dig through your site. Just send me a list of all the toy items you carry, preferably with item numbers and prices if possible. Need this quickly so I can decide what to order. Chevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "German Bakery - Initial Product Inquiry for Quote Request",
+      "description": "The customer initiates an inquiry about a group of items, setting up context for a follow-up quote request. The email is direct and neutral, reflecting an uncooperative persona by providing only the minimum information needed.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Inquiry: Available Types of Pizza and Soda",
+        "body": "Hello,\r\n\r\nPlease send me information about the different types of pizza and soda you offer, including available sizes and any relevant details. I will follow up with a quote request once I have the information.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Emily Parker",
+      "description": "Emily Parker, a recognized customer from Playlandia, sends a polite inquiry requesting product information about toy building blocks and play mats, establishing context for a later quote request.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Product Information Request: Toy Building Blocks and Play Mats",
+        "body": "Hello,\r\n\r\nI am interested in learning more about your selection of toy building blocks and play mats. Could you please provide details on the available options, including any relevant specifications or features?\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative Inquiry About Toy Bicycles",
+      "description": "Tom Martinez (Home) sends an informal, somewhat vague inquiry about toy bicycles, not specifying brand or model, and does not provide much context or detail. The email is direct and lacks cooperative clarification, fitting the uncooperative persona and informal tone.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Toy bikes info?",
+        "body": "Hi, Can you send me details about the toy bicycles you have? Thanks, Tom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Inquiry About Toy Products",
+      "description": "Julie Smith sends a curt, impatient inquiry about available toy products, providing minimal context and showing little willingness to elaborate.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Send me info on your toy products",
+        "body": "Just send me a list of all the toys you have. I don't have time to go through your catalog myself. Make it quick.\r\n\r\nJulie Smith\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise product inquiry for quote workflow",
+      "description": "A concise customer requests information about available bicycles, setting up for a follow-up quote request.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Bicycle options",
+        "body": "Please send me details and pricing for your available bicycles.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Bakery Product Inquiry – Request for Information",
+      "description": "A concise and polite initial inquiry from French Bakery requesting information about available T-Shirts and Rugs, without specifying models or variants.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Inquiry about T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nCould you please send me information on the T-Shirts and Rugs you offer? We are considering adding these to our shop and would like to know the available options and details.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise Inquiry About Olives and Peppers",
+      "description": "A concise, informal initial inquiry from Mr. Fresh Foods asking for available olive and pepper products, setting up for a follow-up quote request.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Olives and Peppers Info?",
+        "body": "Hi, Can you send me a list of the olive and pepper products you have? Thanks, Mr. Fresh Foods\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Product Inquiry for Toys",
+      "description": "A brief, impatient inquiry from a recognized customer requesting information about available toy products, establishing context for a follow-up quote request.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Send me your toy options",
+        "body": "List all the toy products you have. Don't waste my time with anything else.\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose initial inquiry about building blocks and toy puzzles",
+      "description": "Michael Reyes initiates a detailed inquiry regarding available building blocks and toy puzzles, providing context about his needs and requesting product information before proceeding to a quote request in a follow-up turn.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Inquiry Regarding Building Blocks and Toy Puzzle Products",
+        "body": "Hello,\r\n\r\nMy name is Michael Reyes, and I am reaching out from Toytopia. We are currently preparing for an upcoming event and are interested in sourcing a selection of building block sets and toy puzzles suitable for children ages 4 to 10. Could you please provide detailed information about the building blocks and puzzle products you offer, including any variations, recommended age ranges, and notable features? If there are multiple options within these categories, I would appreciate a summary of the differences to help us make an informed decision. Once I review your product offerings, I will follow up with a request for a quote.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Initial Inquiry About Toy Products for Office Event",
+      "description": "A verbose and polite customer from Dunder Mifflin requests detailed information about available toy products suitable for a company event, asking for product details, options, and recommendations.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Inquiry: Toy Products for Upcoming Office Event",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. My name is Dunder Mifflin, and I am reaching out on behalf of our office as we are in the process of organizing a family-friendly event for our employees and their children. We are interested in exploring your range of toy products, as we would like to provide engaging and age-appropriate entertainment options during the event.\r\n\r\nCould you please provide me with detailed information about the toy items you currently have available? Specifically, we are interested in products such as building blocks, puzzles, dolls, toy vehicles, and any other items that are popular for group activities or suitable for a variety of age groups. It would be helpful if you could include product names, brief descriptions, age recommendations, and any bundle or set options that might be available. If you have any suggestions for best-sellers or items that are particularly well-received at similar events, I would appreciate your recommendations as well.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Toy Category Inquiry - Verbose, Informal",
+      "description": "Sarah Johnson, writing in a verbose and informal style, sends an initial inquiry asking for information about toy products, providing extra context and background to set up a future quote request.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Looking for info on your toy selection",
+        "body": "Hey there,\r\n\r\nHope you’re having a good day! I’m reaching out because I’m helping organize a local kids’ event next month and we’re looking to put together some fun gift bags. I noticed on your website that you carry a bunch of toys, but there isn’t a ton of detail about what’s actually available, especially when it comes to the different types of toy sets or puzzles you might have in stock.\r\n\r\nCould you send me a list or some info about the toy products you currently offer? I’m especially interested in things like building blocks, puzzles, and maybe any train or car sets you have. If you could include any details about age ranges or if certain items are more popular for group activities, that would be super helpful. I want to make sure we pick things that are both fun and suitable for a range of ages (probably 4-10 years old).\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Product Inquiry for Quote Request Scenario",
+      "description": "A verbose and impatient customer initiates a detailed product information inquiry about a category of items, setting up context for a later quote request. The email is written in a curt, slightly rude tone, but includes extra context and explanation.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Need Info on Your Toy Car Sets ASAP",
+        "body": "Hi,\r\n\r\nI don't have time to dig through your entire catalog, so just send me a list of all the toy car sets you carry. I need specifics—brand, item numbers, and any variations you have. If there are bundles or sets with accessories, include those details too. And please don't waste my time with anything unrelated to toy cars. I want to review options quickly and move on to a quote, so make your reply thorough and clear.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Michael Reyes",
+      "description": "Context-dependent customer initiates a product information inquiry about toy bicycles, relying on thread context for follow-up quote request.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Inquiry about Toy Bicycles",
+        "body": "Hello,\r\n\r\nI'm interested in learning more about the toy bicycles you offer. Could you please provide details on the available models, features, and pricing?\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Initial Inquiry About Rugs and T-Shirts",
+      "description": "Mario Adams inquires about available options for rugs and t-shirts, seeking product details before requesting a quote in a later follow-up.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Inquiry About Rugs and T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide me with information on the different types of rugs and t-shirts you have available? I am interested in learning about the options, sizes, and any distinguishing features for each. This will help me decide which ones to include in my upcoming order.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Inquiry About Toy Puzzles",
+      "description": "The customer asks for information about available toy puzzles, using a casual and context-dependent style.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Looking for Toy Puzzles",
+        "body": "Hey there,\r\n\r\nWe’re interested in adding some new toy puzzles to our store lineup. Can you send over details on the different puzzle options you have available right now? Just looking for anything in the toy puzzle category—brands, types, age ranges, whatever you’ve got.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Jim Schrute - Initial Toy Inquiry",
+      "description": "Jim Schrute sends an impatient, context-dependent inquiry about toy products, establishing the thread for a later quote request.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Send me info on your toy sets",
+        "body": "I don't have time to dig through your site. Just send me details on the toy sets you carry—especially anything with cars or building blocks. Make it quick.\r\n\r\nJim Schrute\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Inquiry About Toy Product Options",
+      "description": "Sarah Johnson initiates a product information inquiry, asking for details about available toy sets suitable for children. She is clear and direct in her request, aiming to gather information before making a purchase decision.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Inquiry About Toy Sets for Children",
+        "body": "Hello,\r\n\r\nI am interested in learning more about the toy sets you offer that are suitable for children. Could you please provide me with information on the different options available, including any building block sets, puzzles, or vehicle-themed toys? Details on recommended age ranges and key features would be appreciated.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Initial Inquiry About Toy Trains and Bicycles",
+      "description": "The customer initiates an inquiry requesting information about available toy trains and bicycles, seeking details to help select items for a quote in a later follow-up.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Inquiry: Toy Trains and Bicycles Information Request",
+        "body": "Hello,\r\n\r\nWe are interested in expanding our toy selection and would like to know more about the toy trains and bicycles you offer. Could you please provide details on the different models, features, and pricing for your toy trains and bicycles? This will help us decide which items to include in our next order.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Product Inquiry for Quote Request",
+      "description": "Sarah Johnson initiates a clear, informal inquiry about available toy products, establishing context for a later quote request. The email is direct and references the customer's goal to receive product information before proceeding.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Looking for Toy Product Info",
+        "body": "Hi there,\r\n\r\nI'm interested in getting some info on the toy products you carry—especially any building blocks, puzzles, or car sets. Could you send me a list of what's available, including any details or options for those categories?\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "inquiry_then_quote_request__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Inquiry About Toy Train Products",
+      "description": "Jakob Kuhs sends a direct and impatient inquiry requesting information about available toy train products, aiming to quickly move toward a quote in the next turn.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Need Info on Toy Trains – Respond Quickly",
+        "body": "I don't have time to dig through your catalog. Just send me a list of all the toy trains you have in stock, with basic details and prices. Make it quick so I can decide what to order.\r\n\r\nJakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_listed_in_previous_soa_reply",
+          "customer_follow_up_must_select_from_previously_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    }
+  ]
+}

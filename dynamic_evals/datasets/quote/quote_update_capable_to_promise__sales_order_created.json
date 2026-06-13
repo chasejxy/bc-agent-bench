@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_update_capable_to_promise",
+  "outcome_id": "sales_order_created",
+  "test_cases": [
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "KCF Sports",
+      "description": "Cooperative customer requests a quote for multiple catalog items, establishing the initial context for a later quantity increase and shipment update.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Request for Quote: Toy Sets and Play Mat",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- 10 units of SmartToys Fast Car Set\r\n- 5 units of WonderWagon Pull-Along Train\r\n- 3 units of Playlandia Colorful Play Mat\r\n\r\nPlease include estimated shipment dates and any relevant details. Let us know if you need further information.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Toytopia requests quote revision for increased quantity",
+      "description": "Toytopia initiates a request to revise an existing quote by increasing the quantity of a previously quoted item, setting up the context for capable-to-promise re-evaluation and shipment update in the follow-up turn.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Request to Revise Existing Quote",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Toytopia - Initial Quote Request for Toys",
+      "description": "Toytopia initiates a quote request for several toy products, establishing the business context for a future quote revision. The email uses an informal tone and cooperative persona, referencing available catalog items and setting up the scenario for later quantity or fulfillment changes.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request for Toy Products",
+        "body": "Hi there,\r\n\r\nWe’d like to get a quote for the following items:\r\n- JoySprout Toy Bicycle (2 units)\r\n- AdventureCraft Building Blocks (5 units)\r\n- GiggleGear Action Figures Set (3 units)\r\n\r\nPlease include shipping details and estimated delivery times. Let me know if you need any more info from our side.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Toytopia - Request to Increase Quantity on Existing Quote",
+      "description": "The customer from Toytopia initiates a request to revise an existing quote by increasing the quantity of a previously quoted item. The email is curt and impatient, reflecting the rude/impatient tone, but establishes the business context without ambiguity. The customer expects the quote to be updated and does not provide revised shipment preferences or confirmation yet, as required by the scenario.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Need to Update Quote – Increase Quantity",
+        "body": "I need to increase the quantity for the WonderWagon Pull-Along Train from our existing quote. Let me know how fast you can get this done. Don’t make me wait for another round of paperwork. Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Jakob Kuhs",
+      "description": "Jakob requests a quote for several catalog items, establishing the initial context for a later quantity increase and shipment revision. The email is neutral and direct, reflecting an uncooperative persona who provides only the necessary information.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- JoySprout Toy Bicycle\r\n- Pizza (Item No: AITEM-0050)\r\n- Rasta Coffee Beans\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Rachel Green revises quote with quantity increase request",
+      "description": "Rachel Green, a recognized valid customer, politely requests a revision to her existing quote by asking to increase the quantity of a previously quoted item. She does not specify shipment preferences or confirm any revised shipment date, leaving those details for clarification in later turns.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Request to Update Quote – Quantity Adjustment",
+        "body": "Hello,\r\n\r\nI’d like to revise my existing quote. Please increase the quantity for the WonderWagon Bicycle. Let me know if you need anything else from me.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Quote Request for Cafe Supplies",
+      "description": "German Cafe requests a quote for several items to establish the initial quote context before any revisions or quantity changes are made.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Need a Quote for Some Items",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following?\r\n- 10x Rug\r\n- 5x WonderWagon Bicycle\r\n- 20x Soda - Small\r\n\r\nLet me know if you need anything else from my side.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Toytopia",
+      "description": "Initial customer email requesting a quote for several items, establishing context for later quantity increase and shipment revision.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Requesting Quote for Toy Items",
+        "body": "Send me a quote for the following: 10 Kiddie Quest Bicycles, 15 GiggleGear Action Figures Sets, and 20 T-Shirts. Make it quick, I don't have time for delays. Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Danish Pastry revises quote for increased quantity",
+      "description": "The customer requests a change to an existing quote, asking to increase the quantity of a previously quoted item. The email is concise and neutral, establishing the context for a quote revision. Clarification gaps such as shipment preference or confirmation of new shipment date are reserved for later turns.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Request to update quote",
+        "body": "Please update my existing quote to increase the quantity of Soda - Medium. Let me know if this affects delivery timing.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Quote for Toy Items",
+      "description": "The customer initiates a request for a quote on several catalog items, establishing the context for a later quantity increase and shipment re-evaluation.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Request for Toy Products",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- 5 WonderWagon Pull-Along Train\r\n- 10 SmartToys Building Blocks\r\n- 8 MagicToyland Fairy Doll\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Tom Martinez",
+      "description": "Concise customer requests a quote for several items using informal tone, establishing context for later quantity increase and shipment revision.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for 10 WonderWagon Pull-Along Trains and 5 AdventureCraft Building Blocks? Thanks, Tom\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Dunder Mifflin - Initial Quote Request",
+      "description": "A concise, impatient initial quote request from Dunder Mifflin, establishing the context for a later quantity increase and shipment change.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request - WonderWagon Bicycle and Pizza",
+        "body": "Send me a quote for 10 WonderWagon Bicycles and 20 Pizza. Make it quick.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote revision request after initial quote creation",
+      "description": "A verbose customer requests a revision to an existing quote, providing detailed context and referencing a quantity increase, setting up the scenario for capable-to-promise re-evaluation and further clarification in follow-up turns.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request to Revise Existing Quote – Quantity Adjustment Needed",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Quote Revision for Increased Quantity",
+      "description": "The customer, German Cafe, initiates a request to revise an existing quote by increasing the quantity of a previously quoted item. The email provides detailed context about the original quote and the need for an update, in line with the verbose and polite persona and tone. The initial turn establishes the business context and sets up for a follow-up clarification regarding shipment timing or fulfillment preferences.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Request to Revise Existing Quote – Quantity Update Needed",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. Thank you for providing us with the initial quote for our recent inquiry. We have reviewed the details and, after further discussion with our team, we would like to request a revision to the quote you prepared for German Cafe (reference: our quote # if needed for tracking).\r\n\r\nSpecifically, we would like to increase the quantity of the WonderWagon Pull-Along Train that was included in the original quote. Our demand for this item has grown due to an upcoming event, and we want to ensure we have sufficient stock on hand. Could you please update the quote to reflect the new quantity? If you need any additional information from our side to proceed, please let us know.\r\n\r\nWe appreciate your assistance and look forward to your updated proposal.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose informal quote revision request for increased quantity",
+      "description": "A verbose, informal customer email from Fresh HelloFoods requesting a quote for several catalog items, establishing context for a later quantity increase and shipment revision. The initial turn does not include ambiguous or under-specified lines, but sets up the business context for a follow-up change request.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request for Multiple Items",
+        "body": "Hi there,\r\n\r\nHope you’re having a good day! We’d like to get a quote for a few items for our upcoming event. Here’s what we’re looking for:\r\n\r\n- Pizza (Item No: AITEM-0052), 10 units\r\n- Soda - Medium (Item No: AITEM-0061), 20 units\r\n- Apples (Item No: AITEM-0070), 15 units\r\n\r\nIf you need any extra info about our delivery address or timing, just let me know. We’re planning to finalize the order pretty quickly, so please let us know about availability and shipment options when you send the quote. Thanks in advance!\r\n\r\nBest,\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "German Bakery requests quote revision for increased quantity",
+      "description": "The customer, German Bakery, initiates a request to revise an existing quote by asking for an increased quantity of a catalog item. The email is verbose and impatient, establishing the business context and referencing the original quote, but does not yet specify revised shipment preferences or confirm any new shipment dates. The request sets up the scenario for capable-to-promise re-evaluation and further clarification in follow-up turns.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Need to Update Quote – Increase Quantity",
+        "body": "Hello,\r\n\r\nThis is German Bakery. I already received your quote for the WonderWash Washing Machine (Item No: AITEM-0100), but after reviewing our needs, it turns out we require more units than originally planned. Please update the quote to reflect a higher quantity for this item. I don't have time to go through the whole process again, so just make the necessary changes and let me know what the new numbers look like. Also, I expect this won't cause any unnecessary delays—our timeline is tight and I need clarity fast. If you need any info from me, ask directly and don't waste time.\r\n\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Anders Nielsen",
+      "description": "Customer requests a quote for several catalog items, referencing prior context and using context-dependent wording. The initial turn establishes the business context for a later quantity increase and shipment revision.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quote Request for Product Order",
+        "body": "Hi,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- WonderWagon Pull-Along Train\r\n- Pizza (the same one as last time)\r\n- T-Shirt (AITEM-0023)\r\n\r\nLet me know if you need any further details. Looking forward to your reply.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Rachel Green",
+      "description": "Rachel Green, a recognized customer from WonderToysCo, politely requests a revision to her existing quote, referencing prior context and using context-dependent phrasing.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Request to Revise Existing Quote",
+        "body": "Hello,\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Mario Adams",
+      "description": "Mario Adams initiates a quote revision request after an initial quote has been created, referencing the prior quote context and requesting a change in quantity for one of the items. The email is informal and context-dependent, relying on the previous thread rather than restating all details.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Need to update the quote",
+        "body": "Hi there,\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Requesting Quote for Toy Items",
+      "description": "The customer requests a quote for several toy items, referencing the context-dependent persona by not restating all details explicitly and using a curt, impatient tone.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Need Quote – Toy Items",
+        "body": "Can you send me a quote for the same Adventure Doll as last time, plus 2 of the SmartToys Fast Car Set and 1 JoySprout Toy Bicycle? Please get this done quickly.\r\n\r\nAnders Nielsen\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Super Retail requests quote revision for increased quantity",
+      "description": "The customer, Super Retail, initiates a request to revise an existing quote by increasing the quantity of a previously quoted item. The email is clear and direct, establishing the business context and the intended action, but does not yet specify revised shipment preferences or confirmation of new shipment dates. This sets up the scenario for capable-to-promise re-evaluation and further clarification in follow-up turns.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Request to Update Quote – Increased Quantity",
+        "body": "Hello,\r\n\r\nWe recently received a quote for WonderWagon Electric Train. We would like to revise the quote to increase the quantity for this item. Please advise on the updated availability and shipment timing based on the new quantity.\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Playlandia - Initial Quote Request for Toy Products",
+      "description": "Playlandia initiates a quote request for several toy items, establishing the business context for a future quantity increase and shipment update.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Request for Quote – Toy Products",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- WonderWagon Electric Train\r\n- AdventureCraft Building Blocks\r\n- JoySprout Toy Bicycle\r\n\r\nPlease include pricing and estimated shipment dates for each item. If you need any additional information, let me know.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Chevy Toys revises quote request for quantity increase",
+      "description": "Chevy Toys initiates a quote revision by requesting an increase in quantity for one item, establishing the context for a capable-to-promise check and shipment re-evaluation. The initial email sets up the business context and does not yet specify revised shipment preferences or confirmation, leaving those for follow-up turns.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Need to update quote for WonderWagon Bicycle",
+        "body": "Hi there,\r\n\r\nWe received your quote for the WonderWagon Bicycle and would like to make a change. Can you update the quote to reflect a higher quantity for this item? Let me know what you need from us to get this revised.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_update_capable_to_promise__sales_order_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Maxo Mart revises quote for increased quantity",
+      "description": "The customer requests an update to an existing quote, asking for a quantity increase for a specific item. The email is direct and impatient, establishing the business context and the intended action, but does not yet clarify revised shipment preferences or confirm the new shipment date.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Need to update my quote ASAP",
+        "body": "I already have a quote for WonderWagon Bicycle, but I need to increase the quantity. Update the quote and let me know if this changes anything with delivery. Don’t waste time—just get it done.\r\n\r\nMaxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 3,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

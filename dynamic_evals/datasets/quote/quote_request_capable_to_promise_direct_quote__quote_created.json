@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_capable_to_promise_direct_quote",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Explicit Shipment Date",
+      "description": "The customer requests a quote for several catalog items and specifies a clear requested shipment date, enabling the system to create a quote immediately if the requested date is feasible.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Quote and Shipment by July 10",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 10 units of Pizza\r\n- 5 units of Soda - Large\r\n- 2 units of WonderWash Washing Machine\r\n\r\nPlease provide pricing and confirm if these can be shipped to us by July 10th.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Dunder Mifflin - Quote Request for Multiple Items with Requested Shipment Date",
+      "description": "A cooperative and polite customer requests a quote for several catalog items, specifying a clear shipment date for capable-to-promise evaluation.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request for Multiple Items - Shipment by July 15",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- 10 units of Generic Golden T-Shirt\r\n- 5 units of WonderWash Washing Machine\r\n- 3 units of Rug (Item No: AITEM-0032)\r\n\r\nPlease let us know if you can fulfill this order with shipment by July 15, 2024. If you require any additional information, feel free to reach out.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lanesra Merchs Inc.",
+      "description": "A cooperative customer from Lanesra Merchs Inc. requests a quote for specific catalog items, providing a clear requested shipment date and quantities, using an informal tone.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request - Needed by July 15th",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the following items? We need them delivered by July 15th:\r\n\r\n- 10 WonderWagon Pull-Along Train\r\n- 5 SmartToys Building Blocks\r\n- 20 T-Shirts (any of your available styles)\r\n\r\nLet me know if you need anything else from me!\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Toytopia requests quote with explicit shipment date",
+      "description": "A cooperative but impatient customer from Toytopia requests a quote for two catalog items, specifying a shipment date that allows fulfillment. The email is curt and direct, with no unnecessary pleasantries.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Need Quote ASAP – Ship by June 20",
+        "body": "I need a quote for the following, and I want everything shipped by June 20:\r\n- 10 units of SmartToys Building Blocks\r\n- 5 WonderWagon Bicycles\r\nSend the quote quickly. Don’t waste time with unnecessary questions.\r\n\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Uncooperative customer requests quote with explicit shipment date",
+      "description": "Mario Adams requests a quote for several catalog items, specifying a shipment date. The request is direct and neutral, with minimal context and no unnecessary details. The customer does not elaborate or provide extra information unless prompted.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request – Needed by July 15",
+        "body": "Please send me a quote for the following:\r\n\r\n- 2 WonderWagon Electric Train\r\n- 5 T-Shirt\r\n- 1 Rasta Coffee Grinder\r\n\r\nI need everything shipped by July 15. Let me know if you can do that.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jakob Kuhs requests quote with explicit shipment date",
+      "description": "A recognized customer requests a quote for two catalog items with a clear shipment date. The request is direct, polite, and uncooperative in style, providing only the necessary information without extra context.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Request – Delivery by June 20",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n\r\n- 40 units of Pizza (AITEM-0050)\r\n- 25 T-Shirts\r\n\r\nI need these shipped so they arrive by June 20.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Cafe requests quote for olives and pizza with explicit shipment date",
+      "description": "German Cafe sends an informal, somewhat uncooperative email requesting a quote for two items, specifying a shipment date. The request is direct and lacks extra context, reflecting the persona. The email comes from the recognized sender.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote request – olives and pizza",
+        "body": "Hi,\r\n\r\nCan you send me a quote for 20kg of Kalamata Olive and 10 Pizza (AITEM-0051)? Need them shipped by July 10th.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Request with Explicit Ship Date",
+      "description": "An uncooperative and impatient customer requests a quote for multiple catalog items, specifying a required shipment date and providing minimal context.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for 10 WonderWagon Pull-Along Train and 5 T-Shirt. I need everything shipped by July 15th. Don't waste time with back-and-forth, just get it done.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with explicit shipment date",
+      "description": "Sarah Johnson requests a quote for two catalog items, specifying a clear shipment date. The request is brief and direct, matching the concise persona and neutral tone. The requested date allows fulfillment, so the SOA can create the quote immediately.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request – WonderWagon Bicycle and Rasta Espresso Machine",
+        "body": "Please send a quote for 3 WonderWagon Bicycles and 2 Rasta Espresso Machines. Need shipment by July 15. Thanks.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Tom Martinez",
+      "description": "A concise and polite quote request for two catalog items with a clear shipment date.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request – WonderWash Washing Machine & Rug",
+        "body": "Hello,\r\n\r\nPlease send me a quote for 2 WonderWash Washing Machines and 3 Rugs, shipped by July 10th. Thank you.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "KCF Sports requests quote with shipment date",
+      "description": "A concise, informal quote request from KCF Sports for two catalog items, specifying a shipment date that allows capable-to-promise evaluation and direct quote creation.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request - Needed by July 15",
+        "body": "Hi, can you send a quote for 20 Playlandia Colorful Play Mats and 10 Rug (AITEM-0030)? Need delivery by July 15. Thanks, KCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "German Cafe requests quote with explicit shipment date",
+      "description": "A concise, impatient quote request from German Cafe specifying items and a clear shipment date, expecting immediate action.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for 10 WonderWash Washing Machines and 5 Rasta Coffee Grinders. I need them shipped by June 20th. Don’t waste time with unnecessary questions.\r\n\r\nGerman Cafe\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Gabriel Henry",
+      "description": "Verbose customer requests a quote for multiple catalog items, provides detailed context, and specifies a shipment date that allows fulfillment.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Request for Multiple Items – Shipment Needed by July 15th",
+        "body": "Hello,\r\n\r\nI am reaching out to request a formal quote for several items listed in your catalog, as we are preparing for an upcoming event and need to ensure timely delivery. Please see the details below:\r\n\r\n1. T-Shirt (Item No: AITEM-0024) – 50 units\r\n2. Pizza (Item No: AITEM-0050) – 20 units\r\n3. WonderWagon Pull-Along Train (Item No: AITEM-0001) – 5 units\r\n\r\nWe require shipment to be completed no later than July 15th, as our event is scheduled for July 20th and we need a few days for setup and distribution. If possible, please include any relevant information regarding lead times, shipping options, and payment terms in your quote. If you need any additional details from my side, let me know.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Danish Pastry - Detailed Quote Request with Shipment Date",
+      "description": "A verbose and polite customer requests a quote for multiple catalog items, specifying a clear shipment date and providing extra context.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Request for Multiple Items with Requested Shipment Date",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am writing on behalf of Danish Pastry to request a formal quote for several items listed in your catalog. We are preparing for an upcoming event and would appreciate your assistance in evaluating availability and shipment timing. Please see the details below:\r\n\r\n1. Generic Golden T-Shirt – We would like to order 40 units.\r\n2. SmartToys Fast Car Set – Please quote for 15 sets.\r\n3. Rug – We are interested in 5 units of the Rug, preferably the larger size if available. If there are multiple options, please let us know.\r\n\r\nOur requested shipment date is July 15, 2024. This date is important for our event planning, so please confirm if the items can be delivered by then. If you require any additional information or clarification, please let me know.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with explicit shipment date",
+      "description": "A verbose customer from Fresh HelloFoods requests a quote for several catalog items, provides extra context about their needs, and specifies a requested shipment date that is feasible for capable-to-promise evaluation. The email is informal and detailed, reflecting the persona and tone.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request for Upcoming Event – Delivery Needed by July 15",
+        "body": "Hi there,\r\n\r\nI hope you’re having a good week! We’re planning for a summer event at our main location and need to get a quote for a few items to make sure we’re covered. We’d like everything delivered by July 15th, as that’s when our prep starts. If possible, please include any info about bulk pricing or delivery options.\r\n\r\nHere’s what we’re looking for:\r\n- 10 cases of Apples (we’re aiming for fresh stock, so please confirm if you can supply this quantity)\r\n- 5 units of Kalamata Olive (Item No: AITEM-1005)\r\n- 6 Watermelons\r\n- 12 bottles of Soda - Large\r\n\r\nIf you need any more details from our side, just let me know. We’re hoping to finalize this quickly, so a quote with availability and pricing would be great.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request with Explicit Shipment Date",
+      "description": "A verbose and impatient customer requests a quote for multiple catalog items, specifying a clear shipment date and providing extra context and commentary.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need Quote ASAP – Ship by June 20th",
+        "body": "I need a quote immediately, and please don't waste my time with unnecessary back-and-forth. For our upcoming summer promotion, I require the following items, and they must be ready to ship no later than June 20th. This is a hard deadline, so I expect you to confirm if you can actually deliver on time.\r\n\r\n- 10 units of WonderWagon Bicycle\r\n- 5 units of JoySprout Toy Car Set (make sure these are the standard ones, not any special edition—I don't have time to deal with surprises)\r\n- 12 T-Shirts (I see several T-Shirts in your catalog, but you don't make it clear which is which—just quote me for the regular T-Shirt, not the generic one, unless that's the only option)\r\n\r\nIf you can't meet the shipment date, let me know immediately. Otherwise, send me the quote right away so I can get this approved. I don't want to repeat myself or clarify basic things that should be obvious from your catalog.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for WonderWagon Pull-Along Train and Play Mat",
+      "description": "Emily Parker requests a quote for two catalog items with a specific shipment date, referencing prior context for the Play Mat and providing all necessary details for capable-to-promise evaluation.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request – WonderWagon Pull-Along Train & Play Mat",
+        "body": "Hi,\r\n\r\nCould you please provide a quote for 10 units of the WonderWagon Pull-Along Train and 5 units of the Playlandia Colorful Play Mat? I’d like these shipped by July 15th. For the Play Mat, please use the same specifications as last time.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Fresh HelloFoods - Context-Dependent Quote Request with Explicit Shipment Date",
+      "description": "A context-dependent customer requests a quote for several items, referencing prior context for one item, and specifies a shipment date that allows capable-to-promise evaluation. The request is polite and professional.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request for Upcoming Shipment",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items for delivery by July 15th?\r\n\r\n- Pizza (same type as last time, 20 units)\r\n- Green Olive (10 units)\r\n- Soda - Medium (15 units)\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Explicit Shipment Date",
+      "description": "The customer requests a quote for specific catalog items and provides a clear requested shipment date, referencing a previous context for one of the items.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Need a Quote for a Few Items (Ship by June 28)",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following? I need everything shipped to arrive by June 28th if possible:\r\n\r\n- Another WonderWash Washing Machine (same as last time)\r\n- 3 T-Shirts (like the ones we ordered before)\r\n- 1 SmartToys Building Blocks set\r\n\r\nLet me know if you need anything else from me. Thanks!\r\n\r\nTom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Request for Multiple Items with Explicit Shipment Date",
+      "description": "A context-dependent customer requests a quote for several catalog items, referencing prior context for item selection, and specifies a shipment date. The tone is impatient and curt.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Need Quote ASAP - Ship by June 20",
+        "body": "Just send me a quote for the same T-Shirts as last time (3 units), Generic Jeans (2 units), and a Rug (1 unit). I need everything shipped by June 20. Please don't waste time with extra questions—just get it done.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Fresh HelloFoods requests quote with explicit shipment date",
+      "description": "A goal-directed customer from Fresh HelloFoods requests a quote for specific catalog items and provides a clear requested shipment date, enabling direct quote creation.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request for Apples and Mango - Shipment by July 10",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- Apples: 200 kg\r\n- Mango: 150 kg\r\n\r\nPlease confirm if you can ship these quantities by July 10, 2024. If possible, include delivery charges in the quote.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Goal-Directed Quote Request with Explicit Shipment Date",
+      "description": "A customer requests a quote for two catalog items, specifying the desired quantities and an explicit shipment date, using clear and courteous language. The request is direct and provides all necessary information for capable-to-promise evaluation, enabling the SOA to create the quote immediately.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote Request for WonderWagon Bicycle and SmartToys Building Blocks – Shipment by July 15",
+        "body": "Dear Sales Team,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- WonderWagon Bicycle, quantity: 2\r\n- SmartToys Building Blocks, quantity: 3\r\n\r\nIf possible, please arrange shipment by July 15. Kindly let me know if these items can be fulfilled by that date, and please provide the quote details.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Jim Schrute",
+      "description": "Goal-directed customer requests a quote for specific items with an explicit shipment date, using informal tone.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Quote Request - Needed by July 15",
+        "body": "Hey there,\r\n\r\nCan you send me a quote for the following?\r\n- 10 SmartToys Building Blocks\r\n- 5 WonderWagon Pull-Along Train\r\n\r\nI need these shipped by July 15. Let me know if that's doable and what the pricing looks like.\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_direct_quote__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Direct Quote Request with Explicit Shipment Date",
+      "description": "A goal-directed, impatient customer requests a quote for specific items and demands shipment by a clear date, expecting an immediate quote response.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need Quote ASAP – Ship by May 30",
+        "body": "I don't have time for back and forth. Send me a quote for the following, and make sure it can ship by May 30:\r\n\r\n- 10 WonderWagon Electric Train\r\n- 25 T-Shirt (AITEM-0023)\r\n- 15 Soda - Large\r\n\r\nDon't delay. Get this done and send the quote right away.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_alternate_shipping",
+  "outcome_id": "quote_created_with_custom_shipping",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address Provided)",
+      "description": "The customer requests a quote for specific items and asks for shipping to a new address, but the shipping address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Request for Quote – Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- 2x WonderWagon Bicycle\r\n- 1x SmartToys Jigsaw Puzzle Set\r\n\r\nPlease ship this order to our new branch in Springfield. The address is 1457 Oak Street, Springfield. Let me know if you need any additional details.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "Emily Parker requests a quote for two catalog items and specifies a shipping address that does not match any saved alternate shipping address. The shipping address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request – Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- 3 units of the JoySprout Toy Car Set\r\n- 2 units of MagicToyland Adventure Doll\r\n\r\nPlease ship these to our new branch location at 45 Maple Avenue, Springfield. This is not our usual address, so please make sure the quote reflects this shipping destination.\r\n\r\nLet me know if you need any additional information.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "Mario Adams requests a quote for two catalog items and specifies a shipping address that does not match any saved alternate shipping address. The provided shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request - Shipping to New Address",
+        "body": "Hi there,\r\n\r\nI'd like a quote for the following:\r\n- 2 WonderWagon Pull-Along Trains\r\n- 1 Playlandia Colorful Play Mat\r\n\r\nPlease ship these to our new warehouse in Springfield, IL. The address is: 1550 Commerce Blvd, Springfield, IL. (It's not our usual shipping location.)\r\n\r\nLet me know if you need anything else!\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "The customer requests a quote for several items and specifies a shipping address that does not match any existing alternate shipping address. The provided shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Need Quote ASAP – Ship to New Address",
+        "body": "I need a quote for the following: 10 SmartToys Fast Car Sets, 15 MagicToyland Adventure Dolls, and 20 Generic Golden T-Shirts. Do NOT ship to our usual address. Send everything to our new warehouse in Lyon, Rue de la Gare. That's all you need. Get back to me quickly.\r\n\r\nFrench Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Custom Shipping Address (Uncooperative, Neutral)",
+      "description": "The customer requests a quote for several catalog items and specifies a shipping address that does not match any known alternate shipping address. The shipping address is incomplete, requiring clarification before the quote can be created. The customer's communication style is uncooperative, providing only partial information.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote Request – Shipping to New Location",
+        "body": "Please send me a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- Rasta Coffee Beans\r\n- Rug\r\n\r\nShip these to our new branch in Lyon. The address is: 12 Rue des Fleurs, Lyon. That should be enough for delivery.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Custom Shipping Address (Uncooperative, Polite)",
+      "description": "Rachel Green requests a quote for several items and specifies a shipping address that is incomplete, requiring clarification before a quote can be created. The request is polite but does not provide all necessary shipping details, reflecting an uncooperative persona.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Quote Request – Shipping to Alternate Address",
+        "body": "Hello,\r\n\r\nI’d like a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Building Blocks\r\n- Rug (AITEM-0030)\r\n\r\nPlease ship this order to our warehouse in Brooklyn. Let me know if you need anything else.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Custom Shipping Address (Uncooperative, Informal)",
+      "description": "The customer requests a quote for several catalog items and provides an incomplete custom shipping address, requiring clarification before the quote can be created. The customer's style is informal and uncooperative, offering only partial address details.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need a quote & ship to different address",
+        "body": "Hey, can you send me a quote for 2 Pizza (the regular kind) and a Rug? Also, don’t ship to our usual place—send it to our warehouse in Scranton instead. Address is: 1725 Slough Ave, Scranton. Let me know what you need. Thanks,\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Impatient Shipping Address Ambiguity",
+      "description": "An uncooperative and impatient customer requests a quote for several catalog items and demands shipping to a location that is under-specified, omitting key address details. The SOA cannot safely create the quote without clarification on the shipping address.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Need a Quote ASAP – Ship Elsewhere",
+        "body": "I need a quote for the following, and don't waste my time with back-and-forth:\r\n- 2x WonderWagon Pull-Along Train\r\n- 5x Rasta Coffee Beans\r\n- 1x T-Shirt (AITEM-0023)\r\nShip this to our event space in Lyon, not the usual address. You should have it on file or figure it out. Just get this done quickly.\r\n\r\nFrench Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with incomplete custom shipping address",
+      "description": "A brief quote request for specific catalog items, with a shipping address override that is missing a required component, requiring clarification before the quote can be created.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request – Ship to Alternate Address",
+        "body": "Please send a quote for the following:\r\n- 10 WonderWagon Bicycles\r\n- 5 JoySprout Toy Car Sets\r\nShip to: 1200 Maple Ave, Suite 300, Springfield. Thanks.\r\n\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address Provided)",
+      "description": "A concise and polite customer requests a quote for a specific product and provides a shipping address that does not match any saved alternate shipping address, but the address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Request for Quote – Alternate Shipping",
+        "body": "Hello,\r\n\r\nPlease send me a quote for 2 WonderWash Washing Machines. Ship to: 1450 Maple Avenue, Suite 200. Thank you.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Custom Shipping Address (Concise, Informal)",
+      "description": "A concise, informal quote request for several catalog items, specifying a shipping address that does not match any saved alternate shipping location. The shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Need a quote + ship to new address",
+        "body": "Hi, can you send me a quote for 10 MagicToyland Fairy Dolls and 5 Rasta Coffee Grinders? Please ship to our new branch in Berlin, near Alexanderplatz. Thanks, German Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Custom Shipping Address (Concise, Rude/Impatient)",
+      "description": "A concise, impatient customer requests a quote for specific items and provides an incomplete shipping address that does not match any saved alternate shipping address, triggering a clarification gap.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Need Quote ASAP – Ship Elsewhere",
+        "body": "Quote me for 2 WonderWagon Electric Trains and 1 Rug. Ship to our warehouse in Springfield, near the old mill. Don’t use the usual address. Mario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote request with custom shipping address (incomplete address)",
+      "description": "A verbose customer requests a quote for several catalog items and specifies a shipping address that does not match any existing alternate shipping address. The provided shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quote Request for Multiple Items with Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for several products for our upcoming event. Please see the list below:\r\n\r\n- 10 units of WonderWagon Bicycle\r\n- 15 T-Shirts (please use the style from item AITEM-0024)\r\n- 5 Rasta Coffee Grinders\r\n\r\nFor this order, I would like the shipment to be sent to our Copenhagen event location rather than our usual office address. The address is:\r\n\r\nCopenhagen Event Hall, 2100 Copenhagen\r\n\r\nThis is not our standard shipping address, and I am not sure if you have it on file. If you need any additional information about the location, please let me know. We expect delivery to arrive at the venue before the event date, so timely processing would be appreciated.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request with custom shipping address (missing component)",
+      "description": "A verbose customer requests a quote for several catalog items and specifies a shipping address that does not match any existing alternate shipping address, but omits a required address component, triggering clarification.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Quote Request – Please Ship to Alternate Address",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am reaching out to request a quote for the following items:\r\n\r\n- 2 units of WonderWagon Bicycle\r\n- 1 Rug (Item No: AITEM-0030)\r\n- 5 Mango\r\n\r\nI would like these items shipped to a different address than our usual one. Please use the following shipping address for this quote:\r\n\r\nAttn: Jim Schrute\r\nLyn Ventures\r\nSuite 210\r\nScranton, PA\r\n\r\nThis is not our default shipping address, but it is where we need this particular order delivered. If you require any additional details or clarification regarding the address, please let me know. I want to ensure the quote reflects this alternate shipping destination.\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with custom shipping address (incomplete address)",
+      "description": "A verbose customer requests a quote for several catalog items and specifies a shipping address that does not match any saved alternate shipping address. The provided shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Request - Shipping to Alternate Location",
+        "body": "Hey there,\r\n\r\nI’d like to get a quote for a few items for our upcoming event. Here’s what I need:\r\n- 10 T-Shirts (Item No: AITEM-0022)\r\n- 5 WonderWagon Bicycles\r\n- 2 Pizza (Item No: AITEM-0051)\r\n\r\nFor shipping, please don’t use our usual address. We need these delivered to our pop-up booth at the Riverside Market. The address is: Riverside Market, Main Street, Riverside. I’m not sure if you already have this location saved for us, but it’s where we’ll be set up next week. If you need more details, let me know, but this is the spot we always use for our pop-ups.\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Jean Dupont",
+      "description": "Verbose, impatient quote request for SmartToys Building Blocks and explicit shipping address with missing component.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request - SmartToys Building Blocks, Urgent Shipping Override",
+        "body": "Hello,\r\n\r\nI need a quote for 20 units of SmartToys Building Blocks. Please make sure you include all taxes and fees, and specify the lead time clearly, because I don't have time to chase for details later. This is for a special event, so I need the order shipped to a different address than usual. Send it to our bakery's new branch at 14 Rue de la Boulangerie, Lyon. That's the address, and don't use the default one you have on file. If you need more info, just ask, but honestly, I expect you to figure it out. Also, confirm if you can deliver there without delays.\r\n\r\nJean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address Provided)",
+      "description": "The customer requests a quote for catalog items and specifies a shipping address that does not match any saved alternate shipping address, but the address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request – Ship to Alternate Address",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following:\r\n- 10 units of SmartToys Building Blocks\r\n- 5 units of WonderWagon Pull-Along Train\r\n\r\nWe need this shipped to our new distribution site in Riverdale, 221 Oak Street. Use the Riverdale location as the shipping address for this order.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Chevy Toys - Quote Request with Custom Shipping Address",
+      "description": "Chevy Toys requests a quote for several catalog items and specifies a shipping address that does not match any saved alternate shipping address. The shipping address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request – Shipping to Alternate Location",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- 2 x WonderWagon Electric Train\r\n- 5 x SmartToys Building Blocks\r\n- 10 x Generic Golden T-Shirt\r\n\r\nWe need these shipped to our new warehouse in Springfield. The address is: 123 Main Street, Springfield. Please use this location for delivery instead of our usual address.\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Custom Shipping Address (Context-Dependent, Informal)",
+      "description": "The customer requests a quote for several items and specifies a shipping address that does not match any saved alternate shipping address. The shipping address provided is incomplete, requiring clarification before the quote can be created. The customer uses context-dependent references and informal language.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote request & shipping to new location",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the following?\r\n- 2x WonderWagon Pull-Along Train\r\n- 3x Soda - Large\r\n- 1x Rug (the one we ordered last time)\r\n\r\nThis time, please ship to our event space in Berlin. It's at Alexanderplatz, 10178 Berlin. Let me know if you need more details for the address.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Impatient Shipping Address Reference",
+      "description": "The customer requests a quote for several catalog items and specifies an alternate shipping address, but the address is incomplete and context-dependent, requiring clarification before the quote can be created. The tone is impatient and curt, and the customer relies on prior context rather than restating all details.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Quote ASAP – Ship to Alternate Location",
+        "body": "Just send me a quote for 10 T-Shirts (AITEM-0023) and 5 Rasta Coffee Beans. And make sure you ship to the warehouse in Eastfield, not the usual address. You should have the details from last time, but if not, it's the Eastfield warehouse – that's all you need. Don't waste time asking for the obvious.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "Sarah Johnson requests a quote for several catalog items and specifies a shipping address that does not match any saved alternate shipping address. The provided shipping address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request – Shipping to Alternate Location",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- 2 T-Shirts\r\n- 1 WonderWagon Pull-Along Train\r\n\r\nPlease ship these to our new branch in Riverside. The address is:\r\n\r\nRiverside Branch\r\n123 Main Street\r\nRiverside\r\n\r\nLet me know if you need any additional details.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "A goal-directed customer requests a quote for specific items and provides a shipping address that does not match any existing alternate shipping address, but the address is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Request – Shipping to New Address",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- WonderWagon Bicycle\r\n- Playlandia Colorful Play Mat\r\n\r\nPlease ship these to our new location at 1450 Oakridge, Springfield. This is not our usual address. Let me know if you need any additional information.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Custom Shipping Address (Incomplete Address)",
+      "description": "A goal-directed customer requests a quote for several catalog items and specifies a shipping address that does not match any saved alternate shipping address. The shipping address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request – Please Ship to Alternate Location",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following items?\r\n- 10 Mango\r\n- 5 Pizza (AITEM-0050)\r\n- 2 Rug (AITEM-0032)\r\n\r\nPlease ship the order to our new warehouse at 42 Riverside, Springfield. Let me know if you need anything else.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_custom_shipping__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Goal-Directed Quote Request with Impatient Shipping Address Specification",
+      "description": "A customer requests a quote for specific catalog items and demands shipping to a location that does not match any saved alternate shipping address. The shipping address provided is incomplete, requiring clarification before the quote can be created.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Need Quote – Ship to Alternate Address ASAP",
+        "body": "I want a quote for the following: 2 WonderWash Washing Machines and 10 Green Peppers. Do NOT ship to our usual address. Send everything to our warehouse in Springfield, near the old train depot. Get this sorted quickly.\r\n\r\nLyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_review_step_update",
+  "outcome_id": "quote_created_with_review_step_update",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Review Step Update",
+      "description": "A cooperative customer requests a quote for several catalog items, but the request is structured so that a review step will need to adjust quantities or units of measure before the final quote is created.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Quote – Playlandia Play Mat, T-Shirts, and Soda",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- Playlandia Colorful Play Mat – 1 pack\r\n- T-Shirt – 3\r\n- Soda – 2\r\n\r\nLet me know if you need any additional details. Thank you!\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Review Step Update",
+      "description": "A cooperative and polite customer requests a quote for several items, but the initial request contains line details (such as quantity or unit of measure) that will require adjustment during the internal review step before the final quote is generated.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Request for Quote on Toys and Apparel",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 1 box of SmartToys Jigsaw Puzzle Set\r\n- 10 T-Shirts\r\n- 2 WonderWagon Electric Train\r\n\r\nIf you need any more details, let me know. Thank you for your assistance!\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Cooperative quote request with review step adjustment",
+      "description": "A cooperative customer requests a quote for several catalog items in a single email, using informal language. The request is worded in a way that allows for a review step to adjust quantities or units of measure before the final quote is generated.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request for Toys and Groceries",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for the following?\r\n\r\n- JoySprout Toy Car Set, just one set\r\n- Pizza (Item No: AITEM-0050), 3 pizzas\r\n- Apples, a box\r\n- WonderWagon Bicycle, 2 units\r\n\r\nLet me know if you need any more info from me. Thanks!\r\n\r\nTom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Cooperative, Rude/Impatient Quote Request with Review Step Update",
+      "description": "A cooperative customer sends a curt, impatient quote request for multiple catalog items. The request is phrased in a way that requires a review step to adjust quantities or units of measure before the quote is finalized. The original requested values must be discarded and replaced with reviewed values in the final quote and email.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need a Quote ASAP",
+        "body": "I need a quote for the following, and please don't waste my time with unnecessary questions:\r\n\r\n- Generic Golden T-Shirt, 10 units\r\n- Rug, 3\r\n- Soda - Medium, just give me a price for a batch\r\n\r\nGet back to me quickly.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Review Step Adjustment",
+      "description": "Julie Smith requests a quote for several catalog items, but the request is phrased in a way that requires the review step to adjust quantities and units of measure before the final quote is generated. The initial request includes ambiguous or non-standard values that will be normalized during the review step.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- T-Shirt, a dozen\r\n- Rug, 3 pieces\r\n- WonderWagon Electric Train, just one\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Bakery requests quote with ambiguous quantity and unit of measure",
+      "description": "The customer requests a quote for several catalog items, but the quantity and unit of measure for at least one item are ambiguous or non-standard, requiring a review step to normalize and update the request before the quote is finalized. The customer is polite but uncooperative, providing only partial information and not clarifying ambiguous details.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Request for Bakery Supplies",
+        "body": "Hello,\r\n\r\nCould you please send me a quote for the following items:\r\n\r\n- Organic Carrot, a batch for our weekly production\r\n- Apples, 10\r\n- Rug (AITEM-0032), just one\r\n\r\nLet me know if you need anything else. Thank you!\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "WonderToys Co. quote request with review step update",
+      "description": "An uncooperative customer from WonderToys Co. requests a quote for several items, using informal language and providing ambiguous or under-specified details that require review step adjustment before the quote is finalized.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Need a quote for a few items",
+        "body": "Hey, can you send me a quote for some stuff? I need a bunch of T-Shirts (not sure how many, just give me a price for a bulk order), and also the Rug (I think it's the bigger one, but I don't remember the size). Throw in a couple of Screwdrivers too. Let me know what you need from me. Thanks,\r\n\r\nWonderToys Co.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Single-Turn Quote Request with Review Step Update",
+      "description": "An uncooperative, impatient customer requests a quote in a curt manner. The request is phrased in a way that will require the system to apply review step updates (such as changing quantity or unit of measure) before generating the final quote.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Need a Quote ASAP",
+        "body": "Send me a quote for T-Shirt and a few Screwdrivers. Don't waste my time with back-and-forth, just get it done.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with reviewable line details",
+      "description": "Sarah Johnson requests a quote for a few catalog items, using brief wording and under-specifying a detail that will require review and adjustment before the quote is finalized.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for: 5 T-Shirts, 1 Rug, and 10 Soda. Thanks, Sarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise quote request with review step adjustment",
+      "description": "A concise, polite customer requests a quote for several catalog items. The request is brief and direct, and will require a review step to adjust line details before the final quote is generated.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- 10 T-Shirts\r\n- 2 WonderWagon Electric Train\r\n- Mango, bulk\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise quote request with review step adjustment",
+      "description": "A brief, informal quote request that will require a review step to adjust quantities or units before finalizing the quote.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Need a quick quote",
+        "body": "Hi,\r\n\r\nCan you send me a quote for 1 box of AdventureCraft Building Blocks and 5 Soda - Large? Thanks!\r\n\r\nDanish Pastry\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Sarah Johnson",
+      "description": "A concise, impatient quote request for multiple items, phrased in a curt and brief manner, requiring a review step update before the final quote is generated.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for 10 Pizza and a Rug. Make it quick.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Super Retail",
+      "description": "Verbose customer requests a quote for multiple items, providing detailed context and explanations. The request wording is intentionally verbose and includes quantity and unit details that may require review step adjustment before final quote creation.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request for Multiple Items – Please Advise on Pricing and Availability",
+        "body": "Hello,\r\n\r\nWe are preparing for an upcoming promotional event and would like to request a sales quote for several items from your catalog. To ensure we have the right quantities and units for our needs, I am providing some initial details below. Please let us know if any clarification is needed or if you recommend adjustments based on standard packaging or availability.\r\n\r\n1. WonderWagon Bicycle – We would like to order 7 units for our display area. If there are any bulk pricing options or minimum order requirements, please include those in the quote.\r\n2. Generic Golden T-Shirt – Please quote for 50 packs. We are assuming each pack contains multiple shirts, but if your standard unit is individual shirts, kindly adjust accordingly and let us know.\r\n3. Soda - Medium – Requesting 24 bottles for our refreshment stand. If bottles are not the standard unit, please clarify what is typically supplied (e.g., cans, cases, etc.).\r\n\r\nIf you need any additional information or if there are recommended substitutions based on stock or packaging, please advise. We want to ensure the quote reflects the most accurate and practical units for our event.\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request for toys and apparel",
+      "description": "A verbose customer requests a quote for several items, providing detailed context and explanations. The request is intended to be reviewed and adjusted before the final quote is generated, with the review step potentially changing quantities or units of measure.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Request for Sales Quote – Toy Sets and Apparel",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am reaching out to request a formal sales quote for a selection of items we are considering for our upcoming promotional event. To provide some context, our team is preparing for a summer campaign and we are looking to source both toys and apparel that appeal to families and children. We anticipate needing a mix of products to cover different age groups and interests.\r\n\r\nHere is the list of items we would like quoted:\r\n\r\n1. JoySprout Toy Car Set – We are interested in this item for our younger audience. Please quote for 12 units. If there are any bundle options or packaging variations, kindly let us know.\r\n2. T-Shirt – We noticed there are several T-Shirts listed in your catalog (AITEM-0023, AITEM-0022, AITEM-0024, AITEM-0025). We are not sure which model would be most suitable for our event, so please advise or quote for the standard T-Shirt you typically recommend for bulk orders. We would like pricing for 50 shirts, preferably in assorted sizes if possible.\r\n3. WonderWagon Pull-Along Train – This item seems ideal for our interactive play area. Please quote for 5 units.\r\n\r\nIf you require any additional information regarding our intended use or event details, please let me know. We appreciate your assistance and look forward to receiving your quote.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "WonderToys Co. - Verbose Quote Request with Review Step Update",
+      "description": "A verbose, informal quote request from WonderToys Co. that will require a review step update before the final quote is generated. The initial request includes extra context and some noisy details, and the values will be adjusted during the review step.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request for Toys and Apparel – Please Advise",
+        "body": "Hi there,\r\n\r\nHope you’re having a great day! We’re planning for an upcoming event and need to get a quote for a few items. I’ll try to be as clear as possible, but let me know if anything needs clarification or if you have suggestions for quantities or packaging.\r\n\r\nHere’s what we’re looking for:\r\n\r\n- T-Shirts: We’d like to get 50 T-Shirts for our staff and volunteers. I noticed you have several T-Shirt options (AITEM-0022, AITEM-0023, AITEM-0024, AITEM-0025), but I’m not sure which would be best for a mix of adults and kids. Can you recommend the most suitable variant or let us know if we should split the order?\r\n- JoySprout Toy Car Set: Please quote us for 10 sets. We’re thinking these would be great for our activity tables.\r\n- WonderWagon Bicycle: We’d like 2 units for our prize giveaways. If there are any color or size options, please let us know.\r\n\r\nIf you need any more info or if there’s a better way to bundle these for pricing, just let me know. We’re flexible on quantities if it helps with bulk pricing or availability.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request with Review Step Adjustment",
+      "description": "A verbose and impatient customer from Toytopia requests a quote for several items, providing excessive context and detail. The request is intentionally wordy and includes quantity and unit specifications that are likely to be adjusted during the internal review step before the final quote is generated.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Urgent Quote Needed – Please Process ASAP",
+        "body": "Hello,\r\n\r\nI need a quote for the following items, and I expect this to be handled quickly. Please don't waste time with unnecessary back-and-forth. We're preparing for a big event and need to finalize our purchase as soon as possible, so accuracy and speed are critical. If you need clarification, just ask, but honestly, I expect you to get this right the first time.\r\n\r\nHere are the items:\r\n- WonderWagon Pull-Along Train: 12 units. We want these for our play area, so please make sure they're suitable for kids aged 3-7. If there's any difference in packaging or model, let me know, but I assume the standard version is fine.\r\n- T-Shirt: 50 packs. We need these for staff uniforms. I don't care about the color, but make sure they're comfortable and durable. If you have sizing options, just quote the most common size. (I see several T-Shirts in your catalog, so use whichever is best for bulk orders.)\r\n- SmartToys Building Blocks: 5 sets. These are for our activity tables. Please ensure they're the educational type, not just generic blocks.\r\n\r\nI expect a detailed quote with all fees and shipping included. If you can't handle this quickly, let me know so I can take my business elsewhere.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Review Step Update - Context Dependent",
+      "description": "A context-dependent customer requests a quote for several catalog items, referencing a prior context for one item and providing a quantity that will be updated during the internal review step. The initial request is clear but will be adjusted before the final quote is generated.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nCould you please send us a quote for the following items?\r\n\r\n- Rasta Coffee Grinder, 2 units\r\n- The same Rug we discussed last time, 1 piece\r\n- Kalamata Olive, 10 kg\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "WonderToys Co. - Quote Request with Context Reference",
+      "description": "A polite quote request from WonderToys Co. referencing prior context and requiring a review step adjustment before final quote creation.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request for Toys and Play Mats",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the same WonderWagon Electric Train we discussed previously, and also for Playlandia Colorful Play Mat? For the train, I believe we ordered a similar quantity last time, so please use that as a reference. For the play mat, we’ll need enough for our new store display, but I’m not sure about the exact unit—could you advise?\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Review Step Update - Context Dependent, Informal",
+      "description": "Jim Schrute requests a quote for several catalog items, referencing a prior context for one item and using informal, context-dependent language. The request is structured so that a review step will adjust quantities or units before the final quote is generated.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Need a Quote for a Few Items",
+        "body": "Hey team,\r\n\r\nCan you put together a quote for me? I need:\r\n- The same T-Shirt as last time (just one for now)\r\n- 2 of the WonderWagon Electric Train\r\n- A box of Mango (not sure how you package these, just the usual way)\r\n\r\nLet me know if you need anything else from me. Thanks!\r\n\r\nJim Schrute\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient quote request with context-dependent references and review step adjustment",
+      "description": "A customer sends a curt, impatient email requesting a quote, referencing prior context and not restating all details explicitly. The request is worded in a way that will require the system to apply review step updates (such as changing quantity or unit of measure) before generating the final quote.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need a quote ASAP",
+        "body": "Just send me a quote for the same Pizza as last time, and add a Rug—make sure it's the one we usually get. Don't waste time with back-and-forth, I need this fast.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Review Step Update",
+      "description": "A goal-directed customer requests a quote for several catalog items, but the initial request contains line details (such as quantity or unit of measure) that will require adjustment during the internal review step before the quote is finalized.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Request for Quote – Multiple Items",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Pizza (please quote for a box)\r\n- 2 T-Shirts (please include both available types)\r\n- Rug (I need a large one)\r\n\r\nIf you need any further details, please let me know.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Review Step Update",
+      "description": "A goal-directed customer requests a quote for several items, but the request is structured so that a review step will need to adjust the quantities or units of measure before the final quote is created.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Request for Sales Quote",
+        "body": "Dear Sales Team,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 1 Rug\r\n- 10 T-Shirts\r\n- Soda - Large, please quote for a case\r\n\r\nIf you need any further details, please let me know. Thank you in advance for your assistance.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Review Step Update",
+      "description": "A goal-directed customer requests a quote for several catalog items, but the request is phrased in a way that will require a review step to adjust quantities or units before the final quote is created.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Request for Quote – Bakery Supplies",
+        "body": "Hi there,\r\n\r\nWe'd like to get a quote for the following items for our next order:\r\n\r\n- Red Pepper, enough for about 3 weeks of daily sandwich prep (please estimate the quantity you think makes sense)\r\n- 2 boxes of Kalamata Olive\r\n- Carrot, 10 units\r\n- 1 pack of Black Olive\r\n\r\nIf you need any more info, just let us know. Thanks!\r\n\r\nBest,\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_review_step_update__quote_created_with_review_step_update__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Request with Review Step Update",
+      "description": "A goal-directed, impatient customer requests a quote for several items, but the request is worded in a way that will require the review step to adjust quantities or units before the final quote is created.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the following, and please don't waste my time with back-and-forth. I need a bunch of SmartToys Fast Car Sets (just give me a price for a case), 10 T-Shirts (doesn't matter which ones, just T-Shirts), and a Rug. Make it quick.\r\n\r\nChevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

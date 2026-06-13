@@ -1,0 +1,644 @@
+{
+  "scenario_id": "quote_request_create",
+  "outcome_id": "clarification_required",
+  "test_cases": [
+    {
+      "case_id": "quote_request_create__clarification_required__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Ambiguous T-Shirt Line",
+      "description": "Customer requests a quote for several items, but one line (T-Shirt) is missing a required detail, triggering a clarification.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Request for Quote on Multiple Items",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 2 JoySprout Toy Car Sets\r\n- 1 Rug (Item No: AITEM-0030)\r\n- 5 T-Shirts\r\n- 3 Mangoes\r\n\r\nPlease let me know if you need any additional information. I would appreciate delivery by the end of next week if possible.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Bakery - Multi-item Quote Request with Ambiguity",
+      "description": "A polite, cooperative customer requests a quote for several items, but one line is ambiguous due to missing variant information, requiring SOA clarification before proceeding.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Request for Sales Quote – Multiple Items",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n1. 10 units of Rug (Item No: AITEM-0032)\r\n2. 5 T-Shirts – could you please provide pricing for T-Shirts? (We are not sure which model would be most suitable for staff uniforms.)\r\n3. 2 Rasta Espresso Machines (Item No: AITEM-0029)\r\n4. 20 bottles of Soda - Medium (Item No: AITEM-0061)\r\n\r\nIf possible, please include estimated delivery times for each item. Let us know if you need any further details.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Ambiguous T-Shirt Line",
+      "description": "Sarah Johnson requests a quote for several items, but one T-Shirt line is under-specified, requiring clarification on variant or item number.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request for Toys, T-Shirts, and Soda",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the following?\r\n\r\n- 10 SmartToys Building Blocks\r\n- 5 Soda - Medium\r\n- 12 T-Shirts (I need a mix of sizes and colors, but didn't see the options listed—can you help?)\r\n- 2 JoySprout Toy Car Sets\r\n\r\nIf possible, please include estimated delivery times as well.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Cooperative customer requests quote with missing variant and ambiguous item reference",
+      "description": "A cooperative but impatient customer requests a quote for several items, including a T-Shirt without specifying which variant, and an ambiguous reference to 'WonderWagon Train' that could refer to multiple catalog items. The request is clear overall, but the SOA cannot safely create the quote without clarification.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Need Quote ASAP",
+        "body": "I need a quote for the following, and please don't waste time:\r\n\r\n- 50 T-Shirts (just put 'T-Shirt' on the quote, I don't care about the details)\r\n- 2 WonderWagon Train sets\r\n- 1 Rasta Drip Coffee Maker\r\n\r\nGet back to me quickly.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Multi-Item Quote Request with Missing Variant",
+      "description": "The customer requests a quote for several items, but one line refers to 'T-Shirt' without specifying which variant is needed, requiring clarification before the quote can be created.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Request for Quote – Multiple Items",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following items:\r\n\r\n- 100 Green Pepper\r\n- 50 T-Shirt\r\n- 200 Apples (delivery needed by end of next week)\r\n- 30 Rasta Espresso Machine\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Mario Adams",
+      "description": "Uncooperative customer requests a quote for multiple items, with one line missing a required detail, in a polite tone.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request for Several Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following:\r\n\r\n- 10 units of AdventureCraft Building Blocks\r\n- T-Shirt (I need a few, but please quote for the standard one)\r\n- 5 Soda - Medium\r\n- 2 Rugs (please quote for Rug, but I’m not sure which one fits best)\r\n\r\nIf possible, I’d like delivery by the end of next week.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Rachel Green - Multi-item Quote Request with Ambiguous Rug Reference",
+      "description": "Rachel Green requests a quote for several items, including a rug, but does not specify which rug variant she wants, creating a clarification gap. The request uses a mix of item names and item numbers, and the overall tone is informal and somewhat terse.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Quote Request",
+        "body": "Hey,\r\n\r\nCan you send me a quote for the following?\r\n\r\n- Rug (need 2, but just put 'rug' on the quote)\r\n- 10x WonderWagon Pull-Along Train (AITEM-0001)\r\n- 5 Soda - Medium\r\n- 1 JoySprout Toy Bicycle\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative, Rude/Impatient Quote Request with Missing Variant",
+      "description": "Gabriel Henry requests a quote for several items, but leaves one item line ambiguous by not specifying the variant for 'T-Shirt', requiring clarification before the quote can be created. The tone is impatient and curt, reflecting the uncooperative persona.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the following:\r\n\r\n- 10 Soda - Large\r\n- 5 Pizza (Item No: AITEM-0050)\r\n- T-Shirt, 20 units\r\n\r\nDon't waste time with unnecessary questions. I need this fast.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise Quote Request with Missing Variant",
+      "description": "A concise, polite customer requests a quote for several items, but omits the variant for one item (T-Shirt), requiring clarification before a quote can be created.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- 50 T-Shirts\r\n- 30 Mango (AITEM-0072)\r\n- 10 Green Olive, bulk pack\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "French Bakery",
+      "description": "A concise, informal quote request from French Bakery with one ambiguous item line requiring clarification.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quote Request",
+        "body": "Hi, can you send me a quote for the following?\r\n\r\n- 10 T-Shirts\r\n- 5 Pizza\r\n- 12 Olive\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Anders Nielsen",
+      "description": "A concise, impatient customer requests a quote for several items, but leaves one item underspecified, requiring clarification.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for the following:\r\n- 10 T-Shirts\r\n- Rug (need one, but don't care which)\r\n- 5 Screwdrivers, item AITEM-0040\r\n- Apples, 20 kg\r\nDon't waste time. Reply quickly.\r\n\r\nAnders Nielsen\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Danish Pastry - Verbose Quote Request with Ambiguous T-Shirt Line",
+      "description": "A verbose customer requests a quote for several items, including multiple T-Shirts, but one T-Shirt line is missing variant details, requiring clarification before the quote can be created.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Request for Sales Quote – Multiple Items",
+        "body": "Dear Sales Team,\r\n\r\nI am reaching out to request a detailed sales quote for a selection of items we are planning to purchase for our upcoming promotional event. Please see the list below, and let me know if you require any further information to process this request:\r\n\r\n1. 10 units of WonderWagon Pull-Along Train (Item No: AITEM-0001) – We need these delivered by the end of next month, if possible.\r\n2. 25 units of Soda - Medium (AITEM-0061), preferably in cans. If you offer different packaging options, please specify.\r\n3. 15 T-Shirts – We are looking for a mix of sizes and colors, but at this stage, please quote for 'T-Shirt' as listed in your catalog. We will confirm specifics after seeing your options.\r\n4. 5 units of SmartToys Fast Car Set (AITEM-0017).\r\n5. 12 units of MagicToyland Fairy Doll (AITEM-0004).\r\n\r\nIf there are any minimum order requirements or lead times for these products, kindly include those details in your reply. Also, please advise if you offer bulk pricing or any relevant discounts for larger quantities.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Sarah Johnson",
+      "description": "Verbose customer requests a quote for several items, with one item line missing a required variant detail, leading to clarification.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request for Multiple Items – Need Pricing Details",
+        "body": "Hi there,\r\n\r\nI'm reaching out to get a quote for a few products for our upcoming event. I want to make sure I provide all the info you need, but please let me know if anything is unclear or if you need more details!\r\n\r\nHere’s what I’d like pricing for:\r\n\r\n- 10 WonderWagon Bicycles (Item No: AITEM-0011) – please include delivery options if possible.\r\n- 25 T-Shirts – we’re looking for a mix of sizes, but I’m not sure which ones you have available. Can you quote for the standard T-Shirt? (I saw several listed, but didn’t see size or color details.)\r\n- 5 Playlandia Colorful Play Mats (Item No: AITEM-0007)\r\n- 20 Rasta Coffee Beans (Item No: AITEM-0026), ideally in 1kg bags if you offer them.\r\n\r\nIf you need more info on the T-Shirts or anything else, just let me know. We’d like delivery by the end of next month if possible.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Multi-Item Quote Request with Ambiguous T-Shirt Line",
+      "description": "A verbose customer requests a quote for several items, including an ambiguous T-Shirt line missing variant details, while expressing impatience and frustration with previous delays.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote Request – Please Process ASAP",
+        "body": "I need a quote for the following items, and frankly, I expect this to be handled quickly this time. Last time, your team took forever to get back to me, so let's not repeat that. Here are the items:\r\n\r\n- 10 units of JoySprout Toy Car Set (Item No: AITEM-0008). Please confirm if you have enough stock for immediate shipment.\r\n- 25 units of Screwdriver (AITEM-0042), standard size, for our maintenance department. Make sure you include the bulk pricing.\r\n- T-Shirt – I need a batch for our summer event, but your catalog lists several T-Shirts and it's not clear which is the regular one. Just quote me for 'T-Shirt' (no item number), size mix not specified yet, but I need to know the price per unit first. If you can't figure this out, let me know, but I don't have time to dig through your confusing catalog.\r\n- 5 Mango (AITEM-0072), fresh, delivered by end of next week.\r\n\r\nIf you need more info, ask, but please don't waste my time with unnecessary questions. I expect a prompt reply.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Context-dependent multi-item quote request with ambiguous reference",
+      "description": "A customer requests a quote for several items, including one line that refers to a product using a context-dependent reference ('the same T-Shirt as last time'), which requires clarification before the quote can be created.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- 30 units of Soda - Medium\r\n- 10 JoySprout Toy Bicycles\r\n- The same T-Shirt we ordered previously, 25 pieces\r\n- 5 Rasta Coffee Grinders\r\n\r\nLet me know if you need any additional details.\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jessica Stone",
+      "description": "Context-dependent, polite quote request with one ambiguous item reference requiring clarification.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Quote Request for Toys and T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 10 units of the SmartToys Fast Car Set\r\n- T-Shirts, same as the ones we ordered last month (quantity: 25)\r\n- 5 sets of GiggleGear Action Figures Set\r\n\r\nIf possible, please include estimated delivery times. Thank you very much!\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Rachel Green",
+      "description": "Context-dependent, informal quote request with one ambiguous item reference requiring clarification.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Quote Request – Toys & Apparel",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n\r\n- 10 AdventureCraft Building Blocks\r\n- T-Shirt (same style as last time, but in blue – not sure if you still have that one?)\r\n- 5 MagicToyland Adventure Doll\r\n- Generic Jeans (need these for the kids, usual size)\r\n\r\nLet me know if you need anything else from me!\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "German Cafe - Context-Dependent, Rude/Impatient Quote Request with Ambiguity",
+      "description": "A quote request from German Cafe that mixes clear and ambiguous item references, relying on prior context and expressing impatience. At least one line item is under-specified, requiring SOA clarification before quote creation.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote Needed ASAP",
+        "body": "Can you send me a quote for the following:\r\n\r\n- 10x Rasta Coffee Beans\r\n- T-Shirts, same as last time (need 20, but you should know which ones)\r\n- 5 Rug (the thicker one, not the cheap version)\r\n- Also, add the screwdriver we discussed previously.\r\n\r\nI don't have time to repeat details, so just get this sorted quickly.\r\n\r\nGerman Cafe\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Dunder Mifflin",
+      "description": "Goal-directed customer requests a quote for multiple items, with one line missing a required variant detail, triggering clarification.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request for Multiple Items",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following items:\r\n\r\n- 10 units of Rug\r\n- 5 MagicToyland Adventure Dolls\r\n- 20 T-Shirts (please include both men's and women's options)\r\n- 12 Soda - Medium\r\n\r\nLet me know if you need any additional information. We are looking to have these delivered by the end of next month.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Ambiguous T-Shirt Line",
+      "description": "A goal-directed customer requests a quote for several items, but one T-Shirt line is missing a required detail (variant or size), prompting the SOA to ask for clarification.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Request for Sales Quote – Multiple Items",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 10 units of JoySprout Toy Bicycle\r\n- 5 T-Shirts (please quote the available options)\r\n- 2 units of Rug (Item No: AITEM-0031)\r\n- 12 Green Pepper\r\n\r\nIf possible, please include estimated delivery times for each item. Let me know if you need any additional information.\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Informal Multi-Item Quote Request with Missing Variant",
+      "description": "A customer requests a quote for several items, clearly listing most products and quantities, but leaves out the variant detail for one item (T-Shirt), requiring clarification before the quote can be created.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Request for Toys, T-Shirts, and Soda",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n\r\n- 3 sets of SmartToys Building Blocks\r\n- 10 Soda - Medium\r\n- 5 T-Shirts (I need these for an event, but didn't specify color or style—let me know what options you have)\r\n- 2 WonderWagon Pull-Along Train\r\n\r\nIf possible, please include estimated delivery times. Thanks!\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_create__clarification_required__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Multi-Item Quote Request with Ambiguous T-Shirt Line",
+      "description": "A goal-directed customer from Fresh HelloFoods requests a quote for several products, but one T-Shirt line is under-specified, requiring clarification on which T-Shirt variant is needed.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Need Quote ASAP – Multiple Items",
+        "body": "Send me a quote for the following, and please don't waste time with unnecessary questions:\r\n\r\n- 50 Apples\r\n- 20 Pizza (AITEM-0052)\r\n- 10 T-Shirt (just the regular one)\r\n- 5 Rasta Coffee Grinders\r\n- 30 Carrot, organic\r\n\r\nI expect pricing and lead times by end of day. Get this moving.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "reply_to_soa_clarification",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "customer_follow_up_should_be_grounded_in_the_previous_soa_clarification",
+          "customer_follow_up_should_supply_missing_details_requested_by_soa",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    }
+  ]
+}

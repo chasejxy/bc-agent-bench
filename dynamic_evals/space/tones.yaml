@@ -1,0 +1,20 @@
+tones:
+  - tone_id: neutral
+    display_name: Neutral
+    description: >
+      Uses standard professional business wording without unusual emotional coloring.
+
+  - tone_id: polite
+    display_name: Polite
+    description: >
+      Uses courteous and professional phrasing, with soft and respectful wording.
+
+  - tone_id: informal
+    display_name: Informal
+    description: >
+      Uses casual but still business-relevant wording and a less formal greeting style.
+
+  - tone_id: rude_impatient
+    display_name: Rude / Impatient
+    description: >
+      Uses impatient, curt, or slightly rude wording while still expressing a business-relevant request.

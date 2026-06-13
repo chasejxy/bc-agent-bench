@@ -1,0 +1,299 @@
+scenarios:
+  - scenario_id: inquiry_item_suggestions
+    intent: product_inquiry
+    domain: inquiry
+    capability: recommend_matching_or_alternative_items
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: inquiry_with_item_suggestions
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer asks about products either by requesting items that may not
+      be fully matchable or by describing desired products using broad attributes.
+      The system must respond with a helpful email that suggests matching items
+      or alternative items, without creating a quote.
+
+    generation_constraints:
+      request_patterns:
+        - partial_item_match_with_alternatives
+        - descriptive_item_discovery
+      partial_item_match_with_alternatives:
+        request_contains:
+          - at_least_one_matchable_item
+          - at_least_one_unmatchable_item
+        response_behavior:
+          - confirm_matched_items
+          - suggest_alternatives_for_unmatched_items
+          - no_quote_creation
+          - no_attachments
+      descriptive_item_discovery:
+        request_contains:
+          - fuzzy_or_attribute_based_description
+        response_behavior:
+          - suggest_multiple_matching_items
+          - no_quote_creation
+          - no_attachments
+
+    variants:
+      - outcome_id: suggested_items_returned
+        description: |
+          The system responds with an email containing matching items
+          or alternative item suggestions, without creating a quote.
+        expected:
+          attachments: false
+          quoteCreated: false
+          suggestedItems: true
+          userIntervention: false
+
+  - scenario_id: inquiry_response_with_custom_signature
+    intent: product_inquiry
+    domain: inquiry
+    capability: respond_to_inquiry_with_custom_signature
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: inquiry_response_with_custom_signature
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer asks for product information without requesting a quote.
+      The system must respond with relevant item information and include the
+      configured custom email signature in the reply. The signature must preserve
+      the original content and, when applicable, the intended formatting or style.
+
+    generation_constraints:
+      request_patterns:
+        - broad_item_information_request
+        - product_family_inquiry
+        - non_quote_product_inquiry
+      signature_context:
+        - custom_email_template_present
+        - signature_must_be_appended_to_response
+        - signature_content_must_be_preserved
+      response_behavior:
+        - no_quote_creation
+        - no_attachments
+        - list_matching_items
+        - preserve_custom_signature
+
+    variants:
+      - outcome_id: inquiry_response_sent
+        description: |
+          The system responds to the inquiry with relevant item information
+          and includes the configured custom signature correctly.
+        expected:
+          allowQuote: false
+          attachments: false
+          inquiryResponse: true
+          signaturePreserved: true
+          userIntervention: false
+
+  - scenario_id: inquiry_product_information
+    intent: product_inquiry
+    domain: inquiry
+    capability: provide_matching_items_or_product_information
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: inquiry_with_product_information_response
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer asks about products using a category, product family,
+      broad attributes, filtered product criteria, or a list of requested item names.
+      The system must respond with helpful product information, availability details,
+      or matching items without creating a quote in the same turn. If some requested
+      items are not carried but others are available, the system should clearly state
+      which items are unavailable and which matching items can be offered.
+
+    generation_constraints:
+      request_patterns:
+        - category_or_family_inquiry
+        - broad_attribute_based_inquiry
+        - detailed_product_information_request
+        - filtered_product_information_request
+        - product_availability_inquiry
+        - ask_if_product_is_still_sold
+        - general_product_list_inquiry
+        - mixed_known_and_unknown_item_inquiry
+        - partial_catalog_match_request
+
+      response_behavior:
+        - list_matching_items
+        - include_relevant_product_information_when_requested
+        - clearly_state_unavailable_requested_items_when_partial_match_exists
+        - no_quote_creation_in_same_turn
+        - no_attachments
+        - do_not_create_annotation
+
+    variants:
+      - outcome_id: product_information_returned
+        description: |
+          The system responds with matching items and/or product details
+          without creating a quote. If only some requested items are available,
+          the response clearly distinguishes available items from unavailable ones.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: inquiry_then_quote_request
+    intent: product_inquiry
+    domain: inquiry
+    capability: continue_from_product_inquiry_to_quote_request
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: inquiry_response_then_customer_requests_quote
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer first asks for product information about a category or group
+      of items. The system responds with matching items. In a follow-up email,
+      the customer requests a quote for one or more of the items that were
+      presented in the previous system response. The system must create the quote
+      based on the selected items and quantities.
+
+    generation_constraints:
+      request_patterns:
+        - initial_product_information_inquiry
+        - follow_up_quote_request
+      follow_up_grounding:
+        - customer_follow_up_must_reference_items_listed_in_previous_soa_reply
+        - customer_follow_up_must_select_from_previously_offered_items
+        - customer_follow_up_should_preserve_thread_context
+      response_behavior:
+        - first_turn_returns_product_information_only
+        - second_turn_creates_quote
+        - no_user_intervention_required
+
+    variants:
+      - outcome_id: quote_created
+        description: |
+          The customer follows up on the initial inquiry by requesting a quote
+          for items that were offered in the previous system response, and the
+          system creates the quote successfully.
+        expected:
+          allowQuote: true
+          attachments: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: informational_business_inquiry
+    intent: product_inquiry
+    domain: inquiry
+    capability: respond_to_business_process_or_capability_inquiry
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: informational_business_inquiry
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer sends a business-relevant informational inquiry rather than
+      a direct quote or order request. The inquiry may ask what information is
+      required to place an order, what the sales order agent can or cannot do,
+      or other purchasing-process guidance. The system must not annotate the email
+      as irrelevant and should continue with a normal business-relevant response.
+
+    generation_constraints:
+      request_patterns:
+        - ordering_guidance_question
+        - capability_inquiry_related_to_ordering
+        - process_question_about_purchasing_or_ordering
+
+      response_behavior:
+        - do_not_create_annotation
+        - continue_normal_business_processing
+        - no_quote_creation_required
+        - no_sales_order_creation
+
+    variants:
+      - outcome_id: inquiry_response_sent
+        description: |
+          The inquiry is business-relevant and should not be annotated as unsupported.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          quotes: false
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: inquiry_unknown_item_intervention
+    intent: product_inquiry
+    domain: inquiry
+    capability: handle_unknown_item_inquiry_with_intervention
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: inquiry_for_unknown_item_requires_intervention
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer asks about an item or product that is not found in the system,
+      and no meaningful matching item can be offered. The system must not create
+      a quote and must instead request user intervention because the requested item
+      cannot be resolved or matched to the available catalog.
+
+    generation_constraints:
+
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - unknown_item_in_initial_inquiry
+        - nonexistent_product_in_initial_inquiry
+        - no_catalog_match_available
+        - no_meaningful_alternative_can_be_offered
+
+      request_patterns:
+        - inquiry_for_unknown_item
+        - inquiry_for_nonexistent_product
+        - no_catalog_match_available
+
+      response_behavior:
+        - do_not_create_quote
+        - do_not_create_annotation
+        - request_user_intervention_when_no_item_match_exists
+        - no_attachments
+
+    variants:
+      - outcome_id: intervention_required
+        description: |
+          The requested item is not found in the system and no meaningful product
+          information can be returned, so the system requests user intervention.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: false
+          attachments: false
+          clarification_email: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true

@@ -1,0 +1,726 @@
+{
+  "scenario_id": "quote_request_attribute_clarification",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Olives and Carrots (Attribute Clarification Needed)",
+      "description": "The customer requests a quote for olives and carrots, but does not specify the type or color for at least one item, requiring the sales agent to clarify which variant is needed before proceeding.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Request for Quote: Olives and Carrots",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Olives (please provide pricing for this item)\r\n- Carrot (please include this as well)\r\n\r\nIf you need any additional details, let us know. Thank you in advance for your assistance.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts and Rugs with Missing Attribute Details",
+      "description": "A cooperative customer requests a quote for T-Shirts and Rugs, specifying a preferred color for one T-Shirt but omitting color and size details for the other T-Shirts and Rugs. The request requires clarification on available colors and sizes for these items before a quote can be created.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Request for Quote: T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 2 T-Shirts (one in golden color, the other in a standard color)\r\n- 3 Rugs (please quote for different sizes or types if available)\r\n\r\nIf you need any additional information, please let me know. Thank you for your assistance.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for T-Shirts and Rugs with Unspecified Attributes",
+      "description": "A cooperative customer requests a quote for T-Shirts and Rugs, but does not specify required attributes such as color or size, resulting in a clarification gap that prevents the SOA from safely creating the quote without asking for more details.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Request: T-Shirts and Rugs",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the following items?\r\n\r\n- T-Shirts (we need a mix, but I haven’t decided on colors or sizes yet)\r\n- Rugs (please include options for different styles or materials if available)\r\n\r\nLet me know what choices you have for these so I can confirm the details. Thanks!\r\n\r\nBest,\r\nLyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Dunder Mifflin - Impatient Quote Request for T-Shirts and Rugs",
+      "description": "A customer from Dunder Mifflin requests a quote for T-Shirts and Rugs, but does not specify required attributes such as color or size, making it impossible for the SOA to create a quote without clarification. The tone is impatient and curt, reflecting the persona and tone requirements.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need Quote ASAP – T-Shirts and Rugs",
+        "body": "I need a quote for T-Shirts and Rugs. Send pricing for 50 T-Shirts and 10 Rugs. Don’t waste my time with unnecessary questions—just get this done quickly. And yes, I expect these to be standard, so don’t overcomplicate things. Dunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for T-Shirts and Rugs with Unspecified Attributes",
+      "description": "The customer requests a quote for T-Shirts and Rugs, but does not specify required attributes such as color or size, making it unclear which catalog items are intended. This requires the SOA to clarify available attribute options before proceeding.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quote Request: T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following items:\r\n- T-Shirts (need several, please include options)\r\n- Rugs (looking for something suitable for our shop)\r\n\r\nLet me know if you need more details.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts and Pizza (Attribute Clarification Needed)",
+      "description": "The customer requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt variant or which Pizza variant is desired, requiring the SOA to clarify which specific items are meant.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Quote: T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 20 T-Shirts and 5 Pizza? We need these for an upcoming event. Thank you in advance.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for T-Shirts and Rug",
+      "description": "Sarah Johnson requests a quote for T-Shirts and a Rug, but does not specify which T-Shirt variant or which Rug, requiring the SOA to clarify which item(s) are meant.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need a Quote for T-Shirts and Rug",
+        "body": "Hey,\r\n\r\nCan you send me a quote for 10 T-Shirts and 1 Rug? Just need the usual ones we get. Thanks!\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative quote request for attribute-based items",
+      "description": "A customer from Fresh HelloFoods requests a quote for multiple items with ambiguous or missing attribute details, using impatient and curt language. At least one item is under-specified, requiring clarification before a quote can be created.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for a Rug and a T-Shirt. I need two rugs, and three t-shirts. Don't waste time asking unnecessary questions—just get this done quickly. And make sure the t-shirts are the regular kind, whatever that means. Rugs should be standard size. Waiting for your reply.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Dunder Mifflin",
+      "description": "Concise quote request for T-Shirts with missing and ambiguous attribute details, requiring clarification before quote creation.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Please send a quote for two types of T-Shirts: one in golden color and one regular T-Shirt. Also, include pricing for Generic Jeans. Thanks.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise quote request for T-Shirts with missing attribute",
+      "description": "A concise and polite customer email requesting a quote for T-Shirts, but not specifying which T-Shirt variant or any attribute, requiring the SOA to clarify which T-Shirt is meant.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hello,\r\n\r\nPlease provide a quote for 30 T-Shirts. Also, include pricing for 10 pairs of Generic Jeans.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise attribute-based quote request for T-Shirts and Rug",
+      "description": "A concise customer email requesting a quote for T-Shirts with unspecified colors and a Rug, requiring clarification on attributes before a quote can be created.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Quote request for T-Shirts and Rug",
+        "body": "Hi, can you send me a quote for 10 T-Shirts (different colors) and 1 Rug? Thanks, Jim Schrute\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise quote request for T-Shirts with missing attribute",
+      "description": "Jakob Kuhs requests a quote for T-Shirts but does not specify which variant or color, requiring attribute clarification before a quote can be created.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote needed for T-Shirts",
+        "body": "Send me a quote for 30 T-Shirts. Also, add 10 Generic Jeans. Don't make me wait.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for T-Shirts and Rugs with Attribute Clarification Needed",
+      "description": "A verbose customer requests a quote for T-Shirts and Rugs, but does not specify the required attributes such as T-Shirt color or Rug size/material, necessitating clarification from the sales agent before a quote can be created.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Quote: T-Shirts and Rugs (Attribute Details Needed)",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for a few items for an upcoming event. Specifically, I am interested in ordering several T-Shirts as well as some Rugs. For the T-Shirts, I noticed there are multiple listings (Item No: AITEM-0022, AITEM-0023, AITEM-0024, AITEM-0025), but I am not sure what the differences are between them—are they different colors, sizes, or materials? I would like to get a quote for 30 T-Shirts, but I need more information about the available options so I can specify exactly which ones I want.\r\n\r\nSimilarly, I see there are several Rugs listed (Item No: AITEM-0030, AITEM-0031, AITEM-0032), but there are no details about their sizes, colors, or materials. Could you please provide clarification on the available variants for these Rugs? I am looking to order 5 rugs, but need to know the options before confirming.\r\n\r\nOnce I have the details on the available T-Shirt and Rug options, I will be able to specify my selections for the quote. Please let me know if you need any further information from my side.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request for T-Shirts with missing and ambiguous attributes",
+      "description": "Emily Parker requests a quote for several T-Shirts, specifying some colors and leaving others ambiguous or missing. The request includes detailed context and explanations, but at least one line item is under-specified, requiring clarification from the SOA before a quote can be created.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request for T-Shirts – Color and Size Clarification Needed",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for a selection of T-Shirts for an upcoming event at Playlandia. We are looking for a mix of colors and sizes, but I am not entirely sure which variants are available in your catalog. Here are the details:\r\n\r\n- 10 T-Shirts in golden yellow (if available; otherwise, please let me know what similar shades you offer)\r\n- 15 T-Shirts in standard white (I am not sure if you have a basic white option, so please clarify)\r\n- 8 T-Shirts in assorted colors (could you please specify which color options are currently in stock?)\r\n\r\nAdditionally, if there are any differences in material or fit (such as regular vs. slim), please let me know, as we want to ensure the best match for our team. I apologize if my request is a bit vague—I am hoping you can guide me through the available choices so we can finalize the order.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request for T-Shirts and Olives with missing and ambiguous attributes",
+      "description": "Emily Parker requests a quote for T-Shirts and Olives, but does not specify required attributes such as color or type, leading to ambiguity and requiring clarification from the sales agent. The request is verbose and includes extra context.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request: T-Shirts and Olives for Upcoming Event",
+        "body": "Hi there,\r\n\r\nI'm reaching out because we're organizing a themed event at Playlandia next month, and I'm in charge of sourcing some items for our staff and guests. I'd like to get a quote for T-Shirts—could you please let me know what options you have available? We want something fun and comfortable, but I'm not sure about the colors or styles you offer, so any info would be helpful. Also, we need olives for our snack tables, but I'm not certain which types you carry (green, black, or maybe others?). If you could provide pricing for T-Shirts and olives, that would be great. If you need more details from me, just let me know!\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Missing Attribute Details for T-Shirts and Rugs",
+      "description": "The customer requests a quote for T-Shirts and a Rug, but does not specify required attributes such as T-Shirt size or color, and provides an ambiguous description for the Rug, requiring the SOA to clarify which specific items or variants are needed before proceeding.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Needed – T-Shirts and Rug (Details Below)",
+        "body": "Hello,\r\n\r\nI need a quote as soon as possible for the following items, and frankly, I don't have time to go back and forth, so please just get this sorted quickly:\r\n\r\n- 10 T-Shirts. I don't care about the brand, just standard T-Shirts, but obviously I expect the usual sizes and colors you'd offer. Don't make me specify every little detail—just quote me for what you have.\r\n- 1 Rug. I want the regular one, not some fancy version, but your catalog is confusing and I can't tell which is which. Just quote the basic Rug.\r\n\r\nIf you need anything else, let me know, but please don't waste my time with unnecessary questions.\r\n\r\nJakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for T-Shirts and Rug (Attribute Clarification Needed)",
+      "description": "Julie Smith requests a quote for T-Shirts and a Rug, but does not specify required attributes such as color or size, making clarification necessary before a quote can be created.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote: T-Shirts and Rug",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 30 T-Shirts (same as the ones we discussed last time, but I need a mix of colors—please include the options you have available).\r\n- 1 Rug (the standard one you carry; let me know what sizes or patterns are available).\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts and Rugs with Attribute Clarification Needed",
+      "description": "The customer requests a quote for T-Shirts and Rugs, but does not specify required attributes such as color or size, leading to ambiguity that must be clarified by the SOA before proceeding.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Request for Quote: T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- T-Shirts (please include options for both men's and women's styles, if available)\r\n- Rugs (we need two, but could you let us know what sizes and colors are offered?)\r\n\r\nIf possible, please provide pricing for bulk quantities. Let me know if you need any further details.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Toytopia - Quote Request for T-Shirts and Rugs (Attribute Clarification Needed)",
+      "description": "Toytopia requests a quote for T-Shirts and Rugs, referencing items with shared base descriptions but omitting or ambiguously specifying required attributes such as color or size, prompting the SOA to clarify available options before proceeding.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request: T-Shirts & Rugs",
+        "body": "Hi there,\r\n\r\nCan you send us a quote for the following?\r\n\r\n- T-Shirts: We need 50, but please quote for both the regular ones and the golden ones (not sure if there are different colors or styles available, so let us know what you have).\r\n- Rugs: We’re looking for 10 rugs for our play area. Can you let us know the options? We don’t have a specific color or size in mind yet.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for T-Shirts and Rugs (Missing Attribute Details)",
+      "description": "The customer requests a quote for T-Shirts and Rugs but fails to specify required attributes such as color, size, or material, making it impossible for the SOA to create a quote without clarification. The request is curt and impatient, reflecting the selected persona and tone.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Need Quote – T-Shirts and Rugs",
+        "body": "Send me a quote for 50 T-Shirts and 10 Rugs. I don't have time to dig through your catalog, just use the usual ones. Make it quick.\r\n\r\n-Fresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for T-Shirts and Rugs with Attribute Clarification Needed",
+      "description": "The customer requests a quote for T-Shirts and Rugs, but does not specify required attributes such as size, color, or material, making it necessary for the SOA to clarify which variants are needed before proceeding.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Quote: T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 30 T-Shirts (please provide available options)\r\n- 5 Rugs (can you let me know what types or styles you have?)\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts and Olives with Attribute Clarification Needed",
+      "description": "A goal-directed, polite customer requests a quote for T-Shirts and olives, specifying attributes for some items but leaving others ambiguous, requiring the SOA to clarify available options before proceeding.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request for Quote: T-Shirts and Olives",
+        "body": "Dear Sales Team,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- T-Shirts: Please provide pricing for two types—one in golden color and another in a standard color. I am not sure which standard colors are available, so please advise.\r\n- Olives: I am interested in both green and black olives. Could you clarify the available varieties and packaging options for each?\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for T-Shirts and Rugs (Attribute Clarification Needed)",
+      "description": "Jean Dupont requests a quote for T-Shirts and Rugs, but does not specify the required attributes (such as color, size, or variant), making it necessary for the SOA to clarify which specific items are being requested before proceeding with the quote.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request for T-Shirts and Rugs",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for 10 T-Shirts and 3 Rugs? For the T-Shirts, I just need the standard ones, but I’m not sure which options you have. Same for the Rugs—can you let me know what types or colors are available?\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_attribute_clarification__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for T-Shirts and Rugs (Attribute Clarification Needed)",
+      "description": "The customer requests a quote for T-Shirts and Rugs, but does not specify required attributes such as color or size, making it impossible for the SOA to create a quote without clarification.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Need Quote for T-Shirts and Rugs ASAP",
+        "body": "I need a quote for 50 T-Shirts and 10 Rugs. Don't make me go back and forth—just send me the pricing. And no, I don't have time to look up item numbers or pick colors right now. Just get this moving.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": [
+          "turn_2_customer_reply_must_be_grounded_in_the_attribute_options_presented_by_soa_in_turn_1",
+          "turn_2_customer_reply_must_select_from_previously_offered_attribute_based_options",
+          "turn_2_customer_reply_should_preserve_thread_context",
+          "turn_2_customer_reply_must_not_introduce_unoffered_attributes_unless_explicitly_allowed"
+        ]
+      }
+    }
+  ]
+}

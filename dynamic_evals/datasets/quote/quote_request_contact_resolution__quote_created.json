@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_contact_resolution",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Ambiguous Contact Identity",
+      "description": "A cooperative customer requests a quote for several catalog items, but the contact identity is ambiguous due to a generic sender email and a signature that could match multiple customer records. The SOA must resolve the correct customer before proceeding.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request for Multiple Items",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following items:\r\n- T-Shirt (we have previously ordered this, but I am not sure which variant you have us down for)\r\n- WonderWagon Bicycle\r\n- Rasta Drip Coffee Maker\r\n\r\nThe quote should be addressed to Super Retail. Let me know if you need any further details.\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Ambiguous Contact Name",
+      "description": "A cooperative customer requests a quote for several catalog items. The sender's contact name (Jessica Stone) is shared across multiple customer records, but the sender email and company signature help disambiguate the correct customer identity. The SOA must resolve the customer identity before proceeding with the quote.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Request for Quote – Toytopia",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- JoySprout Toy Car Set\r\n- SmartToys Jigsaw Puzzle Set\r\n- Rug (please quote for the Rug, but I am not sure which one fits our needs best)\r\n\r\nPlease let me know if you need any additional information. My name is Jessica Stone and I am with Toytopia.\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Maxo Mart - Quote Request with Ambiguous Contact Identity",
+      "description": "A quote request from Maxo Mart where the sender's contact name could match multiple customers, but the sender email and company name help resolve the correct customer identity.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Request for Rugs and T-Shirts",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for a few items:\r\n- 2 Rugs (please quote both types you have)\r\n- 10 T-Shirts\r\n\r\nLet me know if you need anything else from me.\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Gabriel Henry",
+      "description": "A recognized customer sends an impatient quote request for multiple items, with curt wording and a signature that includes only the sender name. The request is business-relevant and references available catalog items, but does not provide any company information or context to help resolve the customer identity beyond the sender email.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Needed ASAP",
+        "body": "I need a quote for the following: 2 T-Shirts and 1 WonderWagon Pull-Along Train. Please send pricing immediately. Gabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Uncooperative Quote Request with Ambiguous Contact Identity",
+      "description": "The customer requests a quote for multiple catalog items but provides only a company name in the signature, with no personal contact name or additional identifying information. The sender email matches a recognized customer, but the lack of contact name and minimal context creates ambiguity for the SOA in mapping the request to the correct contact record.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Request",
+        "body": "Please send a quote for the following:\r\n\r\n- T-Shirt\r\n- Green Pepper\r\n- Rasta Coffee Beans\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Ambiguous Contact Identity",
+      "description": "The customer requests a quote for several catalog items, but the sender's contact name and email may match multiple customer records, requiring the SOA to resolve the correct customer identity before proceeding.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- 10 T-Shirts\r\n- 5 Screwdrivers (AITEM-0040)\r\n- 2 Rugs\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative quote request with ambiguous contact identity",
+      "description": "The customer requests a quote for several items, but provides only a contact name and company in the signature, which may be ambiguous due to multiple possible customer records. The sender email is recognized, but the uncooperative persona does not clarify identity details or provide extra context.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Need a quote",
+        "body": "Hey, can you send me a quote for a Rug and the JoySprout Toy Bicycle? Thanks.\r\n\r\nTom Martinez\r\nPlaylandia\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative Quote Request with Rude Tone and Identity Ambiguity",
+      "description": "A customer with an uncooperative persona and rude/impatient tone requests a quote for several catalog items. The email signature and sender address provide conflicting or ambiguous identity signals, requiring the SOA to resolve the correct customer before proceeding.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Just send me a quote for Rug and Soda - Medium. Don't waste my time with unnecessary questions. You already have my details.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with identity resolution required",
+      "description": "A brief quote request from Tom Martinez, where the sender's name and email may require the system to resolve customer identity before proceeding.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for 2 WonderWagon Bicycles and 5 T-Shirts. Thanks, Tom Martinez\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise quote request with ambiguous contact identity",
+      "description": "A concise and polite quote request from Fresh HelloFoods, where the sender's contact name is ambiguous and requires identity resolution before the quote can be created.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- Rasta Coffee Beans\r\n- Pizza (AITEM-0050)\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise quote request with identity signals for contact resolution",
+      "description": "A concise customer email requesting a quote for two items, with minimal context and an informal tone. The sender signature and email provide identity signals for contact resolution. The request is clear and catalog-grounded.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for a WonderWagon Bicycle and 3 T-Shirts? Thanks, Rasmus Delaney, KCF\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Contact Identity",
+      "description": "A concise, impatient customer requests a quote for multiple items. The sender's name and email could match multiple customer records, requiring the system to resolve the correct customer identity before quoting.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Need a quote ASAP",
+        "body": "Send me pricing for Rug and 10 T-Shirts. Don't waste time with back and forth. - Danish Pastry\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote request with explicit company context for identity resolution",
+      "description": "A verbose customer requests a quote for two catalog items, providing detailed context and explicitly referencing their company in the signature to help resolve customer identity. The sender email and signature both contain signals for disambiguation.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for Playlandia Product Line",
+        "body": "Hello,\r\n\r\nI am reaching out to request a formal quote for a couple of items that we are considering for our upcoming promotional event at Playlandia. To ensure clarity, let me provide some context: I am Tom Martinez, and I represent Playlandia's procurement team. Our company is planning to expand our toy offerings, and we are specifically interested in the following products:\r\n\r\n- Playlandia Colorful Play Mat (we would like pricing for 15 units)\r\n- JoySprout Toy Car Set (please quote for 10 units)\r\n\r\nIf you require any additional information regarding our company or my contact details to process this quote, please let me know. I am happy to provide whatever is needed to facilitate the request.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose Quote Request with Identity Signals",
+      "description": "A verbose and polite customer requests a quote for several catalog items, providing extra context and including both sender email and company name in the signature to enable customer identity resolution.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Request for Quote on Several Items",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am reaching out to request a formal quote for a few products that we are considering for our upcoming promotional event. To ensure we have all the necessary details for our procurement process, could you please provide pricing and availability for the following items?\r\n\r\n- WonderWagon Pull-Along Train (we are interested in 3 units for our toy drive initiative)\r\n- Pizza (we would like to compare options, so please include pricing for both Item No: AITEM-0050 and AITEM-0051, as we are not sure which one would be more suitable for our event catering)\r\n- T-Shirt (we are looking for 10 pieces, but we noticed there are several T-Shirt options in your catalog; could you please clarify the available colors and sizes, and include those details in the quote?)\r\n\r\nIf you require any additional information to process this request, please let me know. For your reference, my contact details are below, and this request is on behalf of Lanesra Merchandising.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with explicit company signature for identity resolution",
+      "description": "A verbose customer from Lanesra Merchs Inc. requests a quote for several catalog items, providing extra context and explicitly mentioning their company in the signature to help resolve their identity, as required for the quote creation workflow.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request for Toys and Apparel",
+        "body": "Hi there,\r\n\r\nHope your week is going well! I’m reaching out to get a quote for a few items we’re considering for our upcoming promotional event. We’re looking to get pricing and availability for the following:\r\n\r\n- 10 units of the JoySprout Toy Bicycle\r\n- 20 T-Shirts (we’re interested in the ones you have, but if there are different styles or colors under 'T-Shirt', please let us know what options are available)\r\n- 5 sets of the AdventureCraft Building Blocks\r\n\r\nJust to clarify, this is for Lanesra Merchs Inc. (sometimes our requests come from different team members, but I’m handling this one). If you need any more details to match our account, let me know. Please include estimated lead times and any bulk order discounts if applicable.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request with Identity Resolution Required",
+      "description": "A verbose and impatient customer from German Cafe requests a quote for several catalog items, providing excessive context and a curt tone. The email signature and sender address are both present, but the contact name may match multiple customers, requiring the SOA to resolve the correct customer using all available identity signals.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Need a Quote ASAP – German Cafe",
+        "body": "Hello,\r\n\r\nThis is German Cafe reaching out yet again. I don't have time for endless back-and-forth, so please get this right the first time. We need a quote for the following items, and I expect a prompt response:\r\n\r\n- 3x Pizza (and yes, I mean the regular Pizza, not some fancy variant)\r\n- 2x Rasta Espresso Machine\r\n- 1x WonderWagon Bicycle\r\n\r\nFor your records, this is for our main location in Berlin. The last time I requested a quote, there was confusion about which German Cafe account to use—let's not repeat that. My email is contact@germancafe.de, and the company is German Cafe (as in the signature below). If you need anything else, ask now, not later. I want this quote sorted out today.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Context-Dependent Identity Signals",
+      "description": "A context-dependent customer requests a quote for several catalog items, referencing prior context and including company information in the signature. The sender email and signature provide identity signals, but the contact name alone is ambiguous.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Request for Quote",
+        "body": "Hi,\r\n\r\nCould you please send us a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- T-Shirt (the same style as last time, but in a mix of sizes)\r\n- Rasta Coffee Beans (2 packs)\r\n\r\nLet me know if you need any other details.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Context-Dependent Identity Signals",
+      "description": "A context-dependent customer requests a quote for a few items, referencing prior context and including a signature that helps disambiguate their identity. The sender's email and signature provide enough information for the SOA to resolve the correct customer.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request for Toys and T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please send me a quote for the following items?\r\n\r\n- The SmartToys Building Blocks set (same one I asked about last time)\r\n- 3 T-Shirts (the usual ones)\r\n- 2 of the GiggleGear Action Figures Set\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Context-Dependent Identity Signals",
+      "description": "Julie Smith requests a quote for two items, referencing a prior context and including her company name in the signature. The email provides enough identity signals (sender email and company name) for the system to resolve the correct customer, even if there are multiple Julie Smiths in the system.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote request for toys and coffee gear",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for another SmartToys Fast Car Set and also the Rasta Coffee Grinder we talked about last time? Same shipping details as before.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "French Cafe - Impatient Quote Request with Contextual References",
+      "description": "The customer requests a quote for multiple items, referencing prior context and using impatient, curt language. The email is sent from French Cafe (contact@frenchcafe.fr), and relies on context-dependent phrasing rather than restating full details. The request is business-relevant and safe, but the SOA must resolve the customer identity using sender email and signature.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote Needed ASAP",
+        "body": "I need a quote for the WonderWagon Pull-Along Train and the same T-Shirt we ordered last time. Please send it quickly, I don't have time to repeat all the details. French Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Ambiguous Contact Identity",
+      "description": "A customer named Tom Martinez requests a quote for two catalog items. The sender's email and signature indicate 'Tom Martinez (Home)', but the contact name 'Tom Martinez' may exist across multiple customer records, requiring the SOA to resolve the correct customer identity before proceeding.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Request for Quote: Coffee Equipment and T-Shirts",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- 1 Rasta Coffee Grinder\r\n- 3 T-Shirts\r\n\r\nPlease send the quote to this email address. Let me know if you need any further information.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Explicit Company Identity",
+      "description": "A goal-directed, polite customer from Lanesra Merchs Inc. requests a quote for two catalog items, clearly stating the company name in the signature to help resolve customer identity.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Request for Quote: WonderWagon Bicycle and Rasta Coffee Beans",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- WonderWagon Bicycle\r\n- Rasta Coffee Beans\r\n\r\nPlease send the quote to this email address. If you need any additional information, let me know.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Sender Identity Resolution",
+      "description": "The customer requests a quote for multiple catalog items. The sender's name and email are both present, but the system must resolve the correct customer identity using available signals before proceeding.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Need a quote for a few items",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n- 10x T-Shirt\r\n- 2x WonderWagon Pull-Along Train\r\n- 1x Rasta Coffee Grinder\r\n\r\nLet me know if you need anything else from my side. Thanks!\r\n\r\nBest,\r\nChevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_contact_resolution__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Contact Identity",
+      "description": "The customer requests a quote for specific catalog items, but the sender's contact identity must be resolved due to possible ambiguity (e.g., same contact name across multiple customers). The sender's email and company domain provide disambiguation signals.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Need a Quote ASAP",
+        "body": "I don't have time for back-and-forth. Send me a quote for the following: 10 T-Shirts and 2 WonderWagon Bicycles. Make it quick.\r\n\r\nAnders Nielsen\r\nDanish Pastry\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "runtime_grounded_followup",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 1,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "scenario_id": "informational_business_inquiry",
+  "outcome_id": "inquiry_response_sent",
+  "test_cases": [
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Fresh HelloFoods",
+      "description": "A cooperative customer from Fresh HelloFoods sends a neutral, business-relevant inquiry asking for guidance on the ordering process and what information is required to place an order.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Inquiry Regarding Ordering Process and Requirements",
+        "body": "Hello,\r\n\r\nWe are interested in purchasing several items from your catalog, including products like Kalamata Olive and Soda - Medium. Before proceeding, could you please clarify what information you require from us to place an order? Are there any specific details or documents we should prepare for the ordering process? Additionally, are there any limitations or special procedures we should be aware of when ordering multiple items?\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Business Process Inquiry for Ordering",
+      "description": "A cooperative and polite customer requests information about the ordering process, specifically asking what details are needed to place an order for catalog items.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Inquiry About Ordering Process and Requirements",
+        "body": "Hello,\r\n\r\nI am interested in placing an order for some of your products, such as the WonderWagon Pull-Along Train and the Rasta Drip Coffee Maker. Before proceeding, could you please let me know what information you require from me to initiate an order? Are there any specific details or documents I should prepare in advance?\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "French Bakery - Informational Inquiry About Ordering Process",
+      "description": "A cooperative customer from French Bakery sends an informal email asking for guidance on how to place an order and what information is needed, reflecting a business-relevant informational inquiry.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quick question about ordering process",
+        "body": "Hi there,\r\n\r\nWe're interested in possibly ordering some items like WonderWagon Bicycle and Pizza for our bakery, but we're not sure what info you need from us to get started. Can you let us know what details you require for placing an order, and if there are any specific steps we should follow?\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Super Retail",
+      "description": "A recognized customer sends a curt, impatient business inquiry about the ordering process and requirements.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "What do you need to process orders?",
+        "body": "Can you just tell me what info you need to actually place an order for items like SmartToys Building Blocks or Pizza? I don't have time for back-and-forth. If you need something specific, list it out so I can send it all at once. Don't waste my time with unnecessary steps.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Gabriel Henry",
+      "description": "Gabriel Henry sends a neutral, business-relevant inquiry asking for guidance on the ordering process, reflecting an uncooperative persona by providing minimal context and not specifying any particular products or needs.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Ordering Process Information",
+        "body": "Can you tell me what information is needed to place an order with your company? Also, what exactly can you handle in terms of product requests and customizations? Please clarify the steps involved.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Informational Inquiry About Ordering Process",
+      "description": "Larry King sends a polite business inquiry asking for guidance on the ordering process and what information is required to place an order, reflecting an uncooperative persona by not specifying any particular product or order details.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Request for Ordering Process Information",
+        "body": "Hello,\r\n\r\nCould you please let me know what information is needed to place an order with your company? I would also appreciate details on how the ordering process works and what steps I should expect. Is there anything specific I should prepare before submitting a request?\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Jessica Stone",
+      "description": "Jessica sends a casual inquiry about the ordering process, seeking guidance on what information is needed to place an order, without directly requesting a quote or order.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Quick question about ordering",
+        "body": "Hey there,\r\n\r\nI was wondering what info you guys need if I want to order something like the WonderWagon Electric Train or maybe a few T-Shirts. Do I need to send item numbers or just the names? Anything else I should know before placing an order?\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Business Process Inquiry",
+      "description": "An uncooperative, impatient customer requests basic ordering guidance without providing much context or politeness.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Just tell me what I need to order",
+        "body": "Look, I don't have time for back-and-forth. What exactly do you need from me to place an order for your products? Don't make this complicated. Mario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise Inquiry About Ordering Process",
+      "description": "A concise, neutral inquiry from German Bakery asking for ordering process guidance, without requesting a quote or order.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Question About Ordering Process",
+        "body": "Hello,\r\n\r\nWhat information do you need from us to place an order for products like Kalamata Olive and Rug? Please advise on your ordering steps.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe",
+      "description": "A concise, polite business inquiry about ordering process requirements.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Ordering Process Information",
+        "body": "Hello,\r\n\r\nCould you please let me know what information is needed to place an order for items like Pizza or Soda? Also, are there any specific requirements or steps I should be aware of before ordering?\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Bakery",
+      "description": "A concise, informal inquiry from German Bakery about ordering process requirements.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quick question about ordering",
+        "body": "Hi, what info do you need from us to place an order for products like Carrot or Pizza? Anything specific we should prepare? Thanks, German Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise Rude Inquiry About Ordering Process",
+      "description": "A brief, impatient business inquiry from Jean Dupont asking for ordering guidance without requesting a quote or order.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Ordering Process Info Needed",
+        "body": "Just tell me what info you need to place an order for your products. Don’t waste my time with unnecessary details.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "French Bakery",
+      "description": "A verbose customer from French Bakery sends a detailed inquiry about the ordering process and what information is needed to place an order for catalog items.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Inquiry Regarding Ordering Process and Required Information",
+        "body": "Hello,\r\n\r\nWe are considering placing an order for several items from your catalog, including products such as the Organic Carrot and the WonderWash Washing Machine. Before proceeding, we would appreciate a comprehensive overview of your ordering process. Specifically, could you clarify what information is required from our side to initiate an order? For example, do you need item numbers, quantities, delivery preferences, or any other details? Additionally, are there any particular steps or documentation we should be aware of for business customers like ourselves? If there are minimum order quantities or special terms for items such as the Playlandia Colorful Play Mat or the Rasta Coffee Beans, please let us know. We want to ensure we provide all necessary information upfront to avoid delays.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Chevy Toys",
+      "description": "Verbose, polite inquiry about ordering process and requirements for placing an order.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Inquiry Regarding Ordering Process and Requirements",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am reaching out from Chevy Toys as we are considering placing an order for several items from your catalog, including the SmartToys Building Blocks and the WonderWagon Pull-Along Train. Before proceeding, I would greatly appreciate some guidance regarding your ordering process. Specifically, could you please provide detailed information about what documentation or information is required from our side to initiate an order? Are there any particular forms, account setup steps, or prerequisites we should be aware of? Additionally, I am curious to know if there are any minimum order quantities or special terms for business customers like us.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Fresh HelloFoods - Informational Inquiry About Ordering Process",
+      "description": "A verbose, informal business inquiry from Fresh HelloFoods asking for guidance on the ordering process, including what information is needed and how the agent handles product variants.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quick Question About Your Ordering Process",
+        "body": "Hey there,\r\n\r\nI hope you’re having a good day! I’m reaching out from Fresh HelloFoods because we’re looking to streamline our purchasing process and wanted to get a better understanding of how your ordering system works. Specifically, could you walk me through what information you need from us to place an order? For example, if we wanted to order items like your T-Shirts (I noticed you have several variants listed), do you need us to specify the item number every time, or is the product name enough? Also, are there any particular details you require for items like Soda (since you offer different sizes), or do you handle that clarification on your end?\r\n\r\nAny tips or best practices for submitting orders would be super helpful, especially if there are common mistakes to avoid or things that make the process smoother for both sides. We’re hoping to make things as efficient as possible!\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Inquiry About Ordering Process",
+      "description": "A verbose and impatient customer requests detailed information about the ordering process, including what information is needed to place an order and what the sales agent can or cannot do, while referencing available catalog items.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Ordering Process - What Do You Need?",
+        "body": "Hi, I need to know exactly what information you require from me to place an order for your products. I don’t have time to go back and forth, so please be specific. For example, if I want to order Pizza (I see you have several listed), do you need the item number, or is the product name enough? What about quantities, delivery details, or anything else? Also, can you handle special requests or modifications to items like the WonderWagon Pull-Along Train, or is it strictly catalog only? Please clarify all the steps and requirements upfront so I don’t have to waste time later. Jean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Playlandia",
+      "description": "A context-dependent customer from Playlandia sends a neutral business inquiry asking for guidance on the ordering process, referencing prior context without restating details.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Ordering Process Guidance",
+        "body": "Hello,\r\n\r\nCould you clarify what information you need from us to place an order for the items we discussed previously? Are there any specific requirements or steps we should be aware of before submitting a purchase request?\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Sarah Johnson",
+      "description": "Sarah Johnson sends a polite, context-dependent inquiry about the ordering process, referencing prior communication without restating all details.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Guidance on Placing an Order",
+        "body": "Hello,\r\n\r\nI hope you are well. I wanted to ask about the ordering process for items like the WonderWagon Bicycle and the same T-Shirts we discussed previously. Could you please let me know what information you need from me to proceed with an order, and if there are any specific requirements or steps I should be aware of?\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Informal Ordering Process Inquiry - Context-Dependent",
+      "description": "Larry King sends an informal, context-dependent inquiry about the ordering process, referencing prior context and asking what information is needed to place an order for items like T-Shirts and Adventure Kits.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quick question about ordering",
+        "body": "Hey there,\r\n\r\nI wanted to check what info you need from me to place an order for the stuff we talked about last time—mainly T-Shirts and the Adventure Kit. Is there anything specific I should include or watch out for when sending you the details? Just want to make sure I get it right.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Mario Adams",
+      "description": "Mario Adams sends a curt, impatient inquiry about the ordering process, referencing prior context and expecting a quick answer.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Ordering Process Clarification Needed",
+        "body": "Can you just tell me what info you need to actually place an order? I don't want to go through another round of back-and-forth like last time. If I want to order the same T-Shirt as before, what details do you need from me, and how fast can you process it? Please be clear this time.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Goal-Directed Informational Inquiry About Ordering Process",
+      "description": "A customer from Dunder Mifflin sends a clear, direct inquiry asking for guidance on the ordering process and requirements for placing an order, reflecting a goal-directed persona and neutral tone.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Inquiry Regarding Ordering Process and Requirements",
+        "body": "Hello,\r\n\r\nWe are interested in purchasing several items from your catalog, including the WonderWagon Bicycle and the Generic Golden T-Shirt. Could you please provide information on what details or documentation are required to place an order with your company? Additionally, are there any specific steps or procedures we should follow when submitting a purchase request?\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Dunder Mifflin",
+      "description": "A goal-directed, polite business inquiry about ordering process requirements and agent capabilities.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Inquiry Regarding Ordering Process and Requirements",
+        "body": "Dear Sales Team,\r\n\r\nI am interested in placing an order for several items, including T-Shirts and WonderWagon Electric Train. Before proceeding, could you please clarify what information is required from our side to initiate a purchase? Additionally, are there any specific steps or documentation needed for business customers like us? I would also appreciate knowing if your team can assist with product recommendations or provide guidance on available variants for items such as T-Shirts.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Toytopia asks about ordering process and requirements",
+      "description": "Toytopia sends an informal inquiry to understand what information is needed to place an order and what the process looks like for ordering products from the catalog.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quick question about ordering process",
+        "body": "Hi there,\r\n\r\nWe’re looking at your product list and are interested in placing an order soon, but wanted to check—what info do you need from us to get started? Is there a specific process or form we should use, and do you have any minimum order requirements? Would appreciate a quick rundown so we can prep everything on our end.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "informational_business_inquiry__inquiry_response_sent__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Inquiry About Ordering Process and Requirements",
+      "description": "A goal-directed, impatient customer asks for clear instructions on what is needed to place an order, expressing frustration with unclear processes.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "What Exactly Do I Need to Place an Order?",
+        "body": "Can you just tell me what information you actually need from me to place an order for items like Rasta Coffee Beans and Mango? I don't have time to go back and forth. Is there a form or something, or do I just email you a list? Please be specific and don't send me generic instructions.\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

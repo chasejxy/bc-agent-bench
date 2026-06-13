@@ -1,0 +1,726 @@
+{
+  "scenario_id": "quote_request_capable_to_promise_option_selection",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Quote Request for Pizza and T-Shirt",
+      "description": "Mario Adams requests a quote for Pizza and T-Shirt, but the request is ambiguous due to multiple candidate items for both product families and missing shipment or availability preferences. The SOA must clarify which Pizza and T-Shirt variants Mario wants, and whether he has any specific availability or shipment requirements.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request: Pizza and T-Shirt",
+        "body": "Hello,\r\n\r\nI would like to request a quote for Pizza and T-Shirt. Please let me know which options are available and when they could be shipped. I am interested in getting these as soon as possible, but I am not sure which variants you currently have in stock. Could you provide details on the available Pizza and T-Shirt options, including pricing and earliest shipment dates?\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous Quote Request for T-Shirts and Pizza",
+      "description": "The customer requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt variant or which Pizza type is needed, requiring the SOA to clarify before proceeding.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Request for Quote: T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 30 T-Shirts and 10 Pizza? We are planning for an upcoming event and would like to know the earliest possible shipment date for both items. Please let us know if you need any additional details.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Ambiguous Item Selection and Availability Preference",
+      "description": "The customer requests a quote for a 'Rug' and a 'T-Shirt', but does not specify which model or variant of each is desired, nor any preference regarding availability or shipment timing. This requires the SOA to clarify which specific item(s) and shipment options the customer wants before a quote can be created.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request for Rugs and T-Shirts",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for a Rug and a T-Shirt? I’m not too picky about the style, just need one of each. Also, if one of them isn’t available right away, let me know what my options are for delivery or shipment. Thanks!\r\n\r\nBest,\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Quote Request for T-Shirts and Rugs",
+      "description": "Customer requests a quote for T-Shirts and Rugs, but does not specify which T-Shirt or Rug variant is needed, creating ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Need Quote ASAP - T-Shirts and Rugs",
+        "body": "I need a quote for T-Shirts and Rugs. Send me pricing and availability right away. Don't waste time asking unnecessary questions. I want both items shipped as soon as possible. And yes, I need more than one T-Shirt and Rug, but you figure out what's available fastest. Anders Nielsen\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Quote Request for T-Shirts and Rugs",
+      "description": "The customer requests a quote for T-Shirts and Rugs, but does not specify which T-Shirt or Rug model, color, or size, despite multiple available variants. The request lacks a preferred shipment date or availability preference, requiring clarification before a quote can be created.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Quote Request: T-Shirts and Rugs",
+        "body": "Hi,\r\n\r\nPlease send me a quote for T-Shirts and Rugs. I need pricing and availability details. Let me know what you can ship soonest.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous Quote Request for Rug and Pizza",
+      "description": "Sarah Johnson requests a quote for a 'Rug' and 'Pizza', but does not specify which rug or which pizza, both of which have multiple variants in the catalog. The request lacks details needed for the SOA to create a quote without clarification.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Request for Quote: Rug and Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for a Rug and a Pizza? I would appreciate it if you could let me know the earliest possible shipment date as well. Thank you for your assistance.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Michael Reyes",
+      "description": "Uncooperative customer requests a quote for T-Shirts without specifying which variant or any shipment preference, and also requests a quote for Pizza, but does not clarify which Pizza item is needed.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Quote request",
+        "body": "Hey, can you send me a quote for T-Shirts? Also, I need some Pizza. Let me know how soon you can get these to me. Thanks, Michael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Quote Request for T-Shirts",
+      "description": "The customer requests a quote for T-Shirts without specifying which variant or size, and requests a rug without specifying which one. The email is curt and impatient, reflecting the uncooperative persona and rude/impatient tone. At least one requested item is ambiguous, requiring clarification before a quote can be created.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for T-Shirts, 50 units. Also add a rug to the quote. Don't waste time with unnecessary questions, just get it done.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise ambiguous quote request for T-Shirt and Rug",
+      "description": "Sarah Johnson requests a quote for a T-Shirt and Rug, but does not specify which T-Shirt or Rug variant, creating ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request: T-Shirt and Rug",
+        "body": "Please send me a quote for a T-Shirt and a Rug. Let me know which options are available and earliest shipment dates. Thanks.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts and Pizza",
+      "description": "Sarah Johnson requests a quote for T-Shirts and Pizza, but her request for T-Shirts is ambiguous due to multiple available variants and no specified model or quantity. She does not specify a preferred shipment date or variant for either item, requiring clarification before a quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request: T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for T-Shirts and Pizza? I need both items, but I’m not sure which T-Shirt options you have available, and I’d like to know about the earliest shipment dates for both. Thank you.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Fresh HelloFoods requests quote for ambiguous pizza item and olives",
+      "description": "A concise, informal quote request from Fresh HelloFoods for 'Pizza' and 'Olives', where the pizza item is ambiguous due to multiple catalog matches and no requested date is specified. The olives request is clear, but the pizza request requires clarification before a quote can be created.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Quote request: Pizza and Olives",
+        "body": "Hi, can you send me a quote for Pizza and Green Olive? Need both as soon as possible. Thanks, Fresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Quote Request with Ambiguous Item Selection",
+      "description": "Emily Parker requests a quote for a Rug, but does not specify which Rug variant is needed, creating ambiguity. The email is brief and impatient, reflecting the concise persona and rude/impatient tone. The ambiguity prevents the SOA from safely creating the quote without clarification.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for a Rug. Also, price out the WonderWagon Bicycle. Don't waste time, just get back to me quickly.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote request with ambiguous item selection and availability preference",
+      "description": "A verbose customer from Playlandia requests a quote for a 'T-Shirt' without specifying which of the multiple available T-Shirt items they want, and also asks about earliest possible shipment without providing a required date or indicating if partial shipments are acceptable. This requires the SOA to clarify both the item selection and shipment options before proceeding with a quote.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Request for Quote: T-Shirts and Shipping Options",
+        "body": "Hello,\r\n\r\nI am reaching out from Playlandia to request a quote for T-Shirts for an upcoming event. We are looking to purchase 50 T-Shirts, but I noticed that you seem to offer several different T-Shirt options in your catalog. Could you please let me know which T-Shirt models or variants are currently available for shipment, and what the earliest possible delivery dates would be for each? We are hoping to receive them as soon as possible, but I am not sure which specific T-Shirt would be best for our needs, so any details you can provide about the available options (such as sizing, colors, or any differences between the T-Shirts you offer) would be very helpful.\r\n\r\nAdditionally, if some T-Shirts are available to ship sooner than others, please let us know if it would be possible to split the order or prioritize the fastest available option. We are open to suggestions if there are any alternatives that could help us meet our timeline.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request for ambiguous T-Shirt and Pizza options",
+      "description": "A verbose and polite customer from KCF Sports requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt variant or which Pizza type, creating ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request for T-Shirts and Pizza – Availability and Shipment Options",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are preparing for an upcoming event and would like to request a quote for some items from your catalog. Specifically, we are interested in ordering T-Shirts and Pizza for our participants. However, I noticed that your catalog lists several T-Shirt options (with different item numbers) and multiple Pizza varieties as well. Since our requirements are somewhat flexible, could you please advise on the available T-Shirt models and Pizza types, along with their earliest possible shipment dates? We are aiming to have everything delivered before the event, but we can adjust our selection based on what is currently in stock or can be shipped soonest.\r\n\r\nFor reference, we would like to order:\r\n- 50 T-Shirts (please let us know which variants are available and their shipment timelines)\r\n- 10 Pizza (again, kindly clarify which types are available and when they could be shipped)\r\n\r\nIf there are any options that are available for immediate shipment, please highlight those as well. Once we have your feedback on the available choices and shipment possibilities, we will confirm our preferred items so you can proceed with the quote.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with ambiguous item selection and shipment timing",
+      "description": "Emily Parker requests a quote for a 'pizza' item, but does not specify which variant (multiple pizzas are available in the catalog), and also asks about earliest shipment options without providing a requested date. The email is verbose and informal, reflecting the selected persona and tone. The ambiguity requires SOA clarification before a quote can be created.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request for Pizza and Shipment Timing",
+        "body": "Hey there,\r\n\r\nI’m looking to get a quote for pizza for an upcoming team event at Playlandia. I noticed you have several pizza options listed, but I’m not totally sure which one would be best for us—could you let me know what’s available and if there are any differences between them? Also, we’re hoping to get the pizzas delivered as soon as possible, but I haven’t locked in a specific date yet. Can you tell me which options are available for earliest shipment, and what the lead times look like?\r\n\r\nIf you need more info from me, just let me know. Thanks a bunch!\r\n\r\nEmily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Quote Request for T-Shirts and Pizza",
+      "description": "The customer requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt or Pizza variant is needed, leading to ambiguity that prevents immediate quote creation.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need a Quote ASAP – T-Shirts and Pizza",
+        "body": "Can you send me a quote for 30 T-Shirts and 10 Pizza? I don't have time to dig through your endless catalog, so just get this moving. I expect you to handle the details and let me know what you can actually ship soonest. And don't waste my time with back-and-forth unless absolutely necessary.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Quote Request for T-Shirts and Pizza",
+      "description": "The customer requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt variant or which Pizza item is preferred, creating ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Request: T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for T-Shirts and Pizza for our upcoming event? We’ll need about 30 T-Shirts and 10 pizzas. Let me know which options are available and the earliest shipment dates. We’ve ordered T-Shirts before, so you can reference the previous style if that helps, but I’m open to other options as well. For the pizzas, please include any varieties you offer.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Request for Quote with Ambiguous Bicycle Selection and No Requested Date",
+      "description": "The customer requests a quote for a 'Kiddie Quest Bicycle' but does not specify which bicycle is meant, as there are multiple similarly named items in the catalog. The customer also does not provide a requested delivery date or clarify availability preferences, requiring the SOA to clarify which item and shipment option to proceed with.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request for Kiddie Quest Bicycle",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the Kiddie Quest Bicycle? We may also need a few JoySprout Toy Bicycles, so please include those as well. If you could let us know the earliest shipment options for these, that would be helpful. Thank you!\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Ambiguous Quote Request for Pizza and T-Shirts",
+      "description": "The customer requests a quote for 'Pizza' and 'T-Shirt', but both items have multiple variants in the catalog, making it unclear which specific item(s) are needed. No requested date or variant details are provided, requiring the SOA to clarify before quoting.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request for Pizza and T-Shirts",
+        "body": "Hey there,\r\n\r\nCan you send us a quote for some Pizza and T-Shirts? We’ll need a mix for an upcoming event, but not sure which ones you have available soonest. Just let us know what options you can do and when they could ship.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Mario Adams",
+      "description": "Context-dependent, impatient customer requesting a quote for ambiguous items and shipment options, requiring clarification before quote creation.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Need Quote ASAP",
+        "body": "Just send me a quote for T-Shirts and Pizza. I need them shipped as soon as possible, but don't waste my time with delays. For T-Shirts, I want the same kind as last time, but I don't remember which one it was—just check my previous order or figure it out. As for Pizza, I need a few, but you have multiple types listed, so quote whatever is available fastest. Don't bother asking me for more info unless absolutely necessary.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous T-Shirt Quote Request with Multiple Candidate Items",
+      "description": "The customer requests a quote for T-Shirts, but does not specify which variant or item number, leading to ambiguity since multiple T-Shirt items exist in the catalog. The request is clear and goal-directed, but requires clarification before a quote can be created.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request for T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nI would like to request a quote for 50 T-Shirts and 10 Pizza. Please let me know the earliest shipment options available for these items.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Tom Martinez",
+      "description": "A goal-directed customer requesting a quote for T-Shirts, but the request is ambiguous due to multiple available T-Shirt variants and no specified shipment timing.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for T-Shirts and Pizza",
+        "body": "Hello,\r\n\r\nI would like to request a quote for T-Shirts and Pizza for an upcoming event. Please include pricing and availability details. For T-Shirts, I am not sure which model is best, so please advise on the options you have. I will need 50 T-Shirts and 10 Pizzas, but I haven't finalized the event date yet—could you let me know which options are available soonest?\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Ambiguous Quote Request for Pizza and T-Shirts",
+      "description": "Mario Adams requests a quote for Pizza and T-Shirts, but does not specify which Pizza variant or which T-Shirt model, leading to ambiguity that requires clarification before a quote can be created.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Quote Request for Pizza and T-Shirts",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for 10 pizzas and 5 T-shirts for an upcoming event. Can you let me know what options are available and when you could ship them? I didn't see the details for the pizza types or T-shirt styles, so just let me know what's possible.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous T-Shirt Quote Request with No Date",
+      "description": "The customer requests a quote for T-Shirts, but does not specify which T-Shirt variant or a required delivery date, creating ambiguity that prevents the SOA from creating a quote without clarification.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Need Quote for T-Shirts ASAP",
+        "body": "I need a quote for 50 T-Shirts. Don't make me wait—just send me pricing and let me know when you can ship. And make sure they're available soon, I don't have time for delays. Emily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    }
+  ]
+}

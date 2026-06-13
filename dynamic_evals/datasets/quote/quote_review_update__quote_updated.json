@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_review_update",
+  "outcome_id": "quote_updated",
+  "test_cases": [
+    {
+      "case_id": "quote_review_update__quote_updated__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Cooperative quote review update request",
+      "description": "A recognized customer requests updates to item quantities and details during quote review, using clear and neutral business language.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Review Update Request",
+        "body": "Hello,\r\n\r\nI am reviewing the quote you sent and would like to request a few updates before finalization. Please update the quantity for the WonderWash Washing Machine to 2 units. Also, for the Organic Carrot, I would like to change the unit of measure to kilograms instead of pieces. Let me know if you need any additional information or clarification.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Quote Updates During Review",
+      "description": "The customer politely requests updates to item quantities and details on an existing quote during the review step, providing clear instructions for the sales order agent.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Requesting Quote Updates After Review",
+      "description": "The customer reviews their quote and requests updates to item quantities and details before finalization, using an informal and cooperative tone.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quick changes to our quote",
+        "body": "Hey there,\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Toytopia - Review Quote and Request Updates",
+      "description": "Toytopia sends a curt email to review the quote and requests updates to item quantities and unit of measure for specific products, expressing impatience but remaining professional.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Review - Update Quantities and Units",
+        "body": "Send me the quote for review ASAP. I need to update the quantities for the SmartToys Fast Car Set and change the unit for Soda - Medium. Make sure you actually adjust these this time, I don't want to see the same numbers again. Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Uncooperative quote review update request",
+      "description": "The customer requests updates to their quote during the review step, using neutral language and a direct style. The initial turn establishes the review context and requests updates, but does not specify ambiguous or unclear edit instructions yet, as clarification gaps are reserved for the follow-up turn.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Hello,\r\n\r\nI’ve received the quote for review. Please update the quantities for the Rug and the WonderWash Washing Machine as discussed. Also, I want to make sure the Soda - Large is included. Let me know once the changes are made.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jakob Kuhs - Review and Update Quote Request",
+      "description": "Jakob Kuhs politely requests a review of his quote and asks for updates to certain items, setting up the context for clarification in a later follow-up turn.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Review and Update Request",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative quote update request during review",
+      "description": "The customer requests a quote update during the review step, using informal and somewhat uncooperative language. The initial turn establishes the review context and requests a change, but does not yet specify the exact update details, leaving ambiguity for the follow-up turn.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Need to tweak my quote",
+        "body": "Hey, I just got the quote and I need to make some changes to the items before we finalize. Can you help me update the quantities and maybe switch something around? Let me know what you need from me.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "German Cafe requests quote review updates with impatient tone",
+      "description": "The customer, German Cafe, sends an impatient and curt email requesting updates to their quote during the review step. The email is direct and slightly rude, reflecting an uncooperative persona, but does not include ambiguous or under-specified edit instructions in the initial turn. The customer refers to available catalog items and requests clear changes.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Update my quote ASAP",
+        "body": "I need the quantity for Rasta Coffee Beans changed to 10, and update the unit for Rug (AITEM-0031) to square meters. Also, remove the Generic Jeans from the quote. Please do this quickly, I don't have time to wait around.\r\n\r\nGerman Cafe\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote review update request",
+      "description": "A concise customer requests updates to their quote during the review step, using brief wording and referencing specific items from the catalog. The initial turn establishes the update context without introducing ambiguity or missing details, as clarification gaps are reserved for the follow-up turn.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Quote Review - Update Request",
+        "body": "Please update the quote as follows:\r\n- Increase T-Shirt (AITEM-0023) quantity to 12.\r\n- Change Rug (AITEM-0032) unit of measure to 'piece'.\r\nLet me know when the revised quote is ready.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise polite quote review update request",
+      "description": "A concise and polite customer requests updates to their quote, focusing on quantity and unit of measure changes for specific items. The initial turn establishes the review context and requests clear updates, without introducing ambiguity or requiring clarification.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Review – Update Request",
+        "body": "Hello,\r\n\r\nPlease update the quote as follows:\r\n- Change the quantity for Pizza (AITEM-0052) to 12 units.\r\n- Adjust the unit of measure for Red Pepper (AITEM-1008) to kilograms.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise informal quote update request",
+      "description": "A concise, informal email from Lanesra Merchs Inc. requesting updates to a quote during the review step, establishing context for later clarification.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote review - need some changes",
+        "body": "Hey, can you update the quote for us? We need to adjust the quantities for a few items and maybe change the unit for the T-Shirt. Let me know what info you need. Thanks!\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Quote Review Update Request",
+      "description": "A concise and impatient customer requests updates to their quote during the review step, keeping the initial email brief and direct.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Update quote details ASAP",
+        "body": "Need to change the quantity for Generic Trousers. Also, adjust the unit for Organic Carrot. Let me know when this is fixed.\r\n\r\nRasmus Delaney\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "German Bakery - Quote Review Update Request",
+      "description": "A verbose customer email from German Bakery requesting updates to an existing quote, providing detailed context and specifying requested changes to item quantities and units of measure.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Review: Request for Updates Before Finalization",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Requesting Updates to Quote During Review",
+      "description": "The customer, Anders Nielsen, is reviewing an existing quote and requests updates to item quantities and details in a polite and verbose manner. The initial email establishes context and specifies the requested changes, but does not introduce ambiguity or require clarification at this stage.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Request for Updates to Quote During Review",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Requesting Quote Updates During Review",
+      "description": "The customer, Dunder Mifflin, is reviewing a quote and requests updates to item quantities and details in an informal, verbose style. The initial email provides context and specifies the items to be updated, but does not yet introduce any ambiguity or clarification gaps, as these are reserved for a follow-up turn.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quick Updates Needed on Our Quote Before Finalizing",
+        "body": "Hey there,\r\n\r\nHope you’re doing well! I’ve just had a chance to look over the quote you sent us, and before we move forward, I’d like to make a couple of changes to the items listed. For the SmartToys Building Blocks, can you please update the quantity to 12 units instead of what’s currently on the quote? Also, for the WonderWagon Pull-Along Train, we’d like to bump that up to 5 units. Everything else looks good on our end for now.\r\n\r\nLet me know if you need any more info from me or if there’s anything else I should double-check before you send the updated version. Thanks a ton for your help!\r\n\r\nBest,\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Review Update Request",
+      "description": "A verbose and impatient customer requests updates to their quote during the review step, providing excessive context and curt wording. The initial turn establishes the review context and requests specific changes, but does not introduce ambiguity or clarification gaps yet.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Review – Update Needed ASAP",
+        "body": "I’m reviewing the quote you sent over for our last order, and I need some changes made before you finalize it. Please update the quantities for the Rug (AITEM-0031) and the WonderWash Washing Machine (AITEM-0100) as discussed. Also, make sure the unit of measure for the SmartToys Fast Car Set (AITEM-0017) matches what we talked about previously. I don’t want any mistakes this time, so double-check everything and confirm once the updates are made. This is taking longer than it should, so please handle it quickly.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Request Quote Update During Review",
+      "description": "The customer replies during the quote review step to request updates to item quantities and unit of measure, referencing items contextually rather than restating all details.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Requested Changes to Quote",
+        "body": "Thank you for sending over the quote draft. Before we proceed, could you please update the quantity for the T-Shirts to 30 instead of what was listed? Also, for the rug we discussed, please change the unit to match our previous order. Let me know if you need anything else from my side.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jean Dupont - Review Quote Update Request",
+      "description": "Jean Dupont requests updates to the quote during the review step, referencing prior context and using polite language. The initial turn establishes the review context and requests changes, but does not specify ambiguous details yet, as clarification gaps are reserved for the follow-up turn.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Dear Sales Team,\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Review Update - Context-Dependent Informal Request",
+      "description": "Gabriel Henry requests updates to the quote during the review step, referencing prior context and using informal, context-dependent language. The initial turn establishes the review context and requests changes without specifying all details, setting up for clarification in the follow-up.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quick review before final quote",
+        "body": "Hey there,\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Review Update Request",
+      "description": "The customer, Dunder Mifflin, sends an impatient email during quote review, referencing prior context and requesting updates to item quantities and details without restating all specifics.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Review – Update Needed ASAP",
+        "body": "Can you update the quote already? Increase the quantity for the Rug, and change the unit for the Soda – Medium to packs instead of singles. I don’t have time to repeat all the details, so just fix it as discussed. Let me know when it’s done.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Goal-Directed Quote Review Update Request",
+      "description": "A customer from Fresh Foods North Europe sends a clear, neutral email requesting specific updates to their quote during the review step. The email establishes the business context and states the intended update action directly, without introducing ambiguity or requiring clarification in the initial turn.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Quote Review Update Request",
+        "body": "Dear Sales Team,\r\n\r\nWe are currently reviewing the quote you provided and would like to request the following updates:\r\n\r\n- Please update the quantity of Mango to 120 units.\r\n- Change the unit of measure for Green Olive to kilograms instead of pieces.\r\n- Adjust the quantity of Watermelon to 30 units.\r\n\r\nLet us know once these changes have been applied so we can proceed with the final review.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Goal-Directed Quote Review Update Request",
+      "description": "A polite, direct customer email from Jim Schrute requesting specific updates to an existing quote during the review step. The request clearly states the intended changes, making the customer's goal easy to identify.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Quote Review – Request for Updates",
+        "body": "Hello,\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Review Update Request - Goal-Directed, Informal",
+      "description": "A goal-directed customer from German Bakery requests updates to their quote during the review step, using informal language and clear instructions. The initial turn establishes the update context and requests specific changes to item quantities and units of measure.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Review - Update Needed",
+        "body": "Hi there,\r\n\r\nWe're reviewing the quote you sent and need a couple of changes before finalizing. Please update the quantity for Pizza (AITEM-0052) to 20 units, and switch the Soda - Medium (AITEM-0061) to cases instead of individual bottles. Let me know if you need anything else from us!\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_review_update__quote_updated__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Quote Update Request During Review",
+      "description": "A goal-directed, impatient customer requests changes to item quantities and units of measure during the quote review step, making the update request clear and direct.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Update My Quote – Urgent",
+        "body": "I need my quote updated right now. Change the quantity for the WonderWash Washing Machine to 3 units, and for the Soda - Large, make it 10 bottles instead of whatever you had before. Don’t waste time—send me the revised quote ASAP.\r\n\r\nJulie Smith\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

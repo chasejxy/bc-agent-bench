@@ -1,0 +1,186 @@
+{
+  "scenario_id": "quote_request_capable_to_promise_option_selection",
+  "outcome_id": "clarification_required",
+  "test_cases": [
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "German Cafe requests quote for ambiguous Rug item and clear Soda item",
+      "description": "A verbose customer email from German Cafe requesting a quote for a 'Rug' without specifying which of the multiple available Rug items, and also requesting a quote for Soda - Medium. The ambiguity in the Rug request requires clarification before a quote can be created.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote Request for Rug and Soda",
+        "body": "Hello,\r\n\r\nWe are looking to refresh some of our cafe decor and would like to request a quote for a rug suitable for our seating area. I noticed you offer several rugs, but I am not sure which would be best for our needs. Could you please provide pricing and availability details for your rug options? We are interested in something durable and easy to clean, but I do not have a specific model or item number in mind yet.\r\n\r\nAdditionally, please include a quote for 24 units of Soda - Medium, as listed in your catalog.\r\n\r\nIf there are any differences in shipment times or availability for the rugs, please let us know so we can plan accordingly.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with ambiguous item selection and missing shipment preference",
+      "description": "A verbose customer requests a quote for building blocks, but refers to multiple candidate items in the catalog without specifying which one, and also requests a pizza without specifying the preferred shipment date or option. The email includes extra context and explanations, but leaves key details ambiguous, requiring the SOA to clarify before proceeding.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Quote Request for Building Blocks and Pizza",
+        "body": "Hi there,\r\n\r\nI’m reaching out because we’re planning a small event for kids at our store next month, and I’d like to get a quote for a few items. First, we’re looking for some building blocks sets—something fun and educational, ideally suitable for kids aged 4-8. I noticed you carry both AdventureCraft Building Blocks and SmartToys Building Blocks, but I’m not sure which would be best for our needs. Could you let me know which one is more popular or recommended for group play? Also, if there are any differences in availability or shipment timing between the two, please let me know.\r\n\r\nAdditionally, we’d like to include pizza for the event. I saw you offer several types (Pizza, Item No: AITEM-0050, AITEM-0051, AITEM-0052), but I’m not sure which one would be available for delivery around the event date. Could you provide a quote for pizza as well, and let me know what shipment options are possible?\r\n\r\nIf you need more details, just ask! Thanks so much for your help.\r\n\r\nBest,\r\nJessica Stone\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Quote Request for T-Shirts and Pizza",
+      "description": "A verbose, impatient customer from Toytopia requests a quote for T-Shirts and Pizza, but does not specify which T-Shirt variant is needed, creating ambiguity that requires SOA clarification before proceeding.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Need Quote ASAP – T-Shirts and Pizza",
+        "body": "Hi,\r\n\r\nI need a quote as soon as possible for some items for an upcoming event, and I don't have time for back-and-forth. Please quote me for 50 T-Shirts. You have several T-Shirts listed, and frankly, I don't have the patience to dig through your catalog to figure out which is which—just give me a price for your T-Shirts. Also, add 20 Pizza to the quote (the regular kind, not sure if you have different types, but I just want Pizza). I expect a quick turnaround on this, so don't delay. If you need anything else, let me know, but please don't make this more complicated than it needs to be.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous T-Shirt Quote Request with Multiple Candidate Items",
+      "description": "A customer requests a quote for T-Shirts, referencing prior context and not specifying which T-Shirt variant or preferred shipment timing, requiring the SOA to clarify which item and shipment option to quote.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for T-Shirts and Play Mat",
+        "body": "Hi,\r\n\r\nCould you please send me a quote for T-Shirts (same as last time) and one Playlandia Colorful Play Mat? I need the T-Shirts in bulk, but I’m not sure which ones are available for earliest shipment right now. Let me know what options you have and the soonest you can ship.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "French Bakery requests quote for ambiguous Rug item and clear Pizza item",
+      "description": "A goal-directed customer from French Bakery requests a quote for 'Rug' without specifying which variant, and also requests a quote for 'Pizza', making the Rug request ambiguous and requiring clarification before the quote can be created.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quote Request for Rugs and Pizza",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Rug (please provide pricing and availability; we are interested in a standard size, but I see several options in your catalog)\r\n- Pizza (we need 10 units for an upcoming event)\r\n\r\nPlease let us know the earliest shipment dates and any options available for the rug. Thank you.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_request_capable_to_promise_option_selection__clarification_required__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Chevy Toys - Quote Request for Building Blocks and Toy Car Set",
+      "description": "Chevy Toys requests a quote for building blocks and a toy car set, but the request for building blocks is ambiguous due to multiple matching items in the catalog.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request: Building Blocks and Toy Car Set",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Building blocks (please advise on available options and earliest shipment dates)\r\n- JoySprout Toy Car Set\r\n\r\nIf you could also let us know which building blocks are currently available for prompt delivery, that would be helpful. Thank you in advance for your assistance.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_be_grounded_in_items_presented_by_soa_in_turn_1",
+          "customer_follow_up_must_select_from_previously_offered_options",
+          "customer_follow_up_may_split_the_requested_quantity_across_multiple_offered_items",
+          "customer_follow_up_should_preserve_thread_context"
+        ]
+      }
+    }
+  ]
+}

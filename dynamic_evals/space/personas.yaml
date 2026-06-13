@@ -1,0 +1,78 @@
+personas:
+  - persona_id: cooperative
+    display_name: Cooperative
+    description: >
+      Willingly answers clarification questions, follows the workflow,
+      and does not intentionally avoid the system's requests for information.
+    communication_style:
+      wording_style: neutral
+      context_amount: normal
+      directness: medium
+    interaction_style:
+      clarification_behavior: cooperative
+      context_usage: explicit
+
+  - persona_id: uncooperative
+    display_name: Uncooperative
+    description: >
+      May not directly answer clarification questions, may ignore parts of
+      the system's request, and may respond only partially.
+    communication_style:
+      wording_style: neutral
+      context_amount: normal
+      directness: medium
+    interaction_style:
+      clarification_behavior: uncooperative
+      context_usage: mixed
+
+  - persona_id: concise
+    display_name: Concise
+    description: >
+      Uses brief and compact wording, provides minimal context,
+      and tends to keep messages short.
+    communication_style:
+      wording_style: concise
+      context_amount: low
+      directness: medium
+    interaction_style:
+      clarification_behavior: neutral
+      context_usage: mixed
+
+  - persona_id: verbose
+    display_name: Verbose
+    description: >
+      Provides detailed explanations, includes additional context,
+      and may introduce extra noise along with useful information.
+    communication_style:
+      wording_style: verbose
+      context_amount: high
+      directness: medium
+    interaction_style:
+      clarification_behavior: neutral
+      context_usage: explicit
+
+  - persona_id: context_dependent
+    display_name: Context-Dependent
+    description: >
+      Relies on prior thread context, uses references such as
+      "that one" or "same as before", and does not always restate details explicitly.
+    communication_style:
+      wording_style: neutral
+      context_amount: normal
+      directness: low
+    interaction_style:
+      clarification_behavior: neutral
+      context_usage: context_dependent
+
+  - persona_id: goal_directed
+    display_name: Goal-Directed
+    description: >
+      Communicates the request clearly, states the intended action directly,
+      and makes the customer's goal easy to identify.
+    communication_style:
+      wording_style: clear
+      context_amount: normal
+      directness: high
+    interaction_style:
+      clarification_behavior: cooperative
+      context_usage: explicit

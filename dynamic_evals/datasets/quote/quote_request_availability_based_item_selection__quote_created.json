@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_availability_based_item_selection",
+  "outcome_id": "quote_created",
+  "test_cases": [
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Item Name with Availability-Based Selection",
+      "description": "The customer requests a quote for 'Carrot' in a quantity that only one of the matching catalog items can fulfill, using an ambiguous item name that matches multiple catalog entries.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Request for Quote: Carrot",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 50 units of Carrot? Let me know if you need any additional information.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous T-Shirt Quote Request with Specified Quantity",
+      "description": "A cooperative customer requests a quote for T-Shirts, specifying a quantity, but uses an ambiguous item name that matches multiple catalog items. The SOA must resolve which T-Shirt item can fulfill the requested quantity based on availability and create the quote without clarification.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hello,\r\n\r\nI would like to request a quote for 60 T-Shirts. Please let me know if you can provide this quantity and include pricing details.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Ambiguous Rug Quote Request Based on Availability",
+      "description": "The customer requests a quote for a rug, specifying a quantity but not clarifying which rug variant is desired. Multiple rug items exist in the catalog, so the system must select the only one that can fulfill the requested quantity based on availability.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request for Rugs",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for 4 rugs? Let me know if you need any more info.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Item Name with Quantity for Availability-Based Selection",
+      "description": "The customer requests a quote for 'Rug' with a specified quantity, but there are multiple catalog items named 'Rug'. The system must select the only one that can fulfill the requested quantity based on availability, without asking for clarification.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Need a Quote ASAP",
+        "body": "I need a quote for 12 rugs. Just send me the price and don't waste my time with back-and-forth. Emily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Item Quote Request Based on Availability",
+      "description": "Julie Smith requests a quote for an item using an ambiguous item name that matches multiple catalog entries, specifying a quantity. The request does not clarify which variant is needed, leaving the system to resolve the quote based on availability.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote Request for Screwdrivers",
+        "body": "Hello,\r\n\r\nPlease send me a quote for 15 screwdrivers. Let me know if you can supply that quantity.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous Pizza Quote Request with Quantity",
+      "description": "The customer requests a quote for 'Pizza' with a specified quantity, but does not clarify which Pizza item is desired. Multiple Pizza items exist in the catalog, so the system must resolve the request based on availability.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Quote Request for Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 15 units of Pizza? Let me know if you need anything else.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative ambiguous quote request for T-Shirt",
+      "description": "The customer requests a quote for 'T-Shirt' with a specified quantity, but does not clarify which variant is needed. There are multiple matching items in the catalog, so the SOA must resolve the request based on item availability.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request - T-Shirt",
+        "body": "Hey, can you send me a quote for 15 T-Shirts? Need them pretty soon. Thanks.\r\n\r\nKCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Rug Quote Request with Quantity",
+      "description": "Customer requests a quote for 'Rug' with a specified quantity, but does not clarify which of the multiple available 'Rug' items is meant.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Need a Quote for Rugs ASAP",
+        "body": "Send me a quote for 6 rugs. Don't waste my time with a bunch of questions, just get it done.\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request for ambiguous item with quantity",
+      "description": "A concise customer requests a quote for 'Pizza', specifying a quantity, but does not clarify which pizza variant is needed. Multiple catalog items match 'Pizza', but only one can fulfill the requested quantity. The system should resolve the ambiguity based on availability and create the quote.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request: Pizza",
+        "body": "Please send me a quote for 15 Pizza. Thanks.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous T-Shirt Quote Request with Specified Quantity",
+      "description": "A concise, polite customer email from Toytopia requesting a quote for 'T-Shirt' in a quantity that can only be fulfilled by one available item, but the item name is ambiguous and matches multiple catalog entries.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 60 T-Shirts?\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise ambiguous quote request for T-Shirt",
+      "description": "A concise customer email requesting a quote for 'T-Shirt' with a specified quantity, using an ambiguous item name that matches multiple catalog items. The SOA must resolve which T-Shirt can fulfill the requested quantity based on availability and create the quote without clarification.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote request for T-Shirt",
+        "body": "Hi, can you send me a quote for 30 T-Shirts? Thanks, Chevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Item Name with Quantity for Availability-Based Selection",
+      "description": "The customer requests a quote for 'T-Shirt' with a specified quantity, but does not clarify which of the multiple matching T-Shirt items is desired. The system must resolve the request by checking which T-Shirt item can fulfill the requested quantity and create the quote accordingly.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Needed – T-Shirt, 50 units",
+        "body": "Send me a quote for 50 T-Shirts. Don’t waste time asking which one—just get it done.\r\n\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose quote request for ambiguous item selection based on availability",
+      "description": "A verbose customer requests a quote for 'Rug' with a specified quantity, but the catalog contains multiple 'Rug' items. The request is ambiguous regarding which 'Rug' is intended, but only one candidate can fulfill the requested quantity, so the system resolves the ambiguity using availability and creates the quote without clarification.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote Request for Rugs – Availability Needed",
+        "body": "Hello,\r\n\r\nI am reaching out to request a quote for rugs for our upcoming event. We need 7 rugs in total, and it is important that they are all the same type for consistency. I noticed your catalog lists several rugs, but I am not sure which ones are currently available in the quantity we require. Could you please provide a quote for 7 rugs, selecting whichever option can actually be supplied in full? If you need any further information from me regarding the specifications or intended use, please let me know, but our main concern is availability for this order size.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for T-Shirts with Ambiguous Item Reference",
+      "description": "The customer requests a quote for 'T-Shirts' with a specified quantity, but the catalog contains multiple T-Shirt items, making the request ambiguous. The system must resolve which T-Shirt can fulfill the requested quantity based on availability and create the quote without clarification.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Request for Quote: T-Shirts (Bulk Order)",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am reaching out to request a quote for 60 T-Shirts for an upcoming company event. We are looking for standard T-Shirts, nothing too fancy, and would appreciate it if you could let us know the pricing and availability for this quantity. If you need any additional information from my side, please let me know, but ideally we would like to proceed with whatever T-Shirts you have in stock that can accommodate this order size.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Jean Dupont",
+      "description": "Verbose customer requests a quote for an item using an ambiguous item name that could match multiple catalog items, specifying a quantity. The email includes extra context and explanations, but does not clarify which item variant is intended.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hi there,\r\n\r\nI’m reaching out from French Bakery because we’re planning a small event for our staff and would like to order some T-shirts for everyone. I noticed you have several T-shirts listed in your catalog, but I’m not sure which one would be best for us. Could you please send me a quote for 25 T-shirts? We’re not picky about the style, but we do want to make sure you have enough in stock to cover the full quantity. If you need any more info about our event or the kind of T-shirt we’re looking for, let me know. We just want something comfortable and suitable for casual wear.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Ambiguous Item Name with Quantity - Availability-Based Selection",
+      "description": "The customer requests a quote for 'T-Shirt' with a specified quantity, but the catalog contains multiple items named 'T-Shirt'. The email is verbose and impatient, requiring the system to resolve which T-Shirt can fulfill the requested quantity based on availability.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Needed ASAP for T-Shirts",
+        "body": "Hello,\r\n\r\nI need a quote right away for 50 T-Shirts. Please don't waste my time with back-and-forth emails—I expect you to handle this efficiently. We have an event coming up and can't afford delays. Just send me the quote for 50 T-Shirts, and make sure they're available for immediate delivery. I don't care about the technicalities, just get it done. If you need more info, check your own records—I ordered T-Shirts from you before. This should be straightforward.\r\n\r\nKCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Ambiguous Item Name with Quantity for Availability-Based Quote",
+      "description": "Gabriel Henry requests a quote for 'Pizza', specifying a quantity, but does not clarify which of the multiple catalog Pizza items is desired. The system must select the only Pizza item that can fulfill the requested quantity based on availability.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Request for Quote – Pizza",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 30 units of Pizza? Let me know if you need any additional details.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous Item Name Quote Request with Availability-Based Selection",
+      "description": "The customer requests a quote for 'T-Shirt' in a specified quantity, using an ambiguous item name that matches multiple catalog items. The system must resolve which candidate item can fulfill the requested quantity and create the quote without clarification.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 60 T-Shirts? We need them for an upcoming event. Let me know if you need any further details.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Ambiguous Item Name and Quantity",
+      "description": "The customer requests a quote for 'T-Shirt', specifying a quantity, but does not clarify which of several similarly named items is desired. The system must resolve the ambiguity by checking which candidate item can fulfill the requested quantity and create the quote accordingly.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for 30 T-Shirts? Let me know if you need anything else from my side.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "French Bakery requests quote for ambiguous item based on availability",
+      "description": "The customer requests a quote for 'Rug' with a specified quantity, but does not clarify which of the multiple matching catalog items they want. The system must resolve the request based on which item can fulfill the requested quantity.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Need Quote for Rugs ASAP",
+        "body": "Just send me a quote for 10 rugs. I don't have time to dig through your catalog, so pick whatever you have in stock that can actually cover the quantity. Make it quick.\r\n\r\nFrench Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Carrots (Ambiguous Item Name, Quantity Specified)",
+      "description": "The customer requests a quote for 'carrots' with a specified quantity, but the catalog contains multiple items that could match this name (Organic Carrot, Carrot, Yellow Carrot). The system must select the only item that can fulfill the requested quantity based on availability.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Request for Quote: Carrots",
+        "body": "Hello,\r\n\r\nPlease provide a quote for 200 kg of carrots. We need delivery within the next two weeks. Let me know if you need any further details.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Ambiguous Building Blocks Quote Request",
+      "description": "The customer requests a quote for 'building blocks' with a specified quantity, but the item name is ambiguous and could refer to multiple catalog items. The system must resolve which item can fulfill the requested quantity and create the quote without clarification.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request for Building Blocks",
+        "body": "Hello,\r\n\r\nI would like to request a quote for 50 building blocks. Please let me know if you can fulfill this quantity and provide pricing details.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for T-Shirts (Ambiguous Item Name, Availability-Based Selection)",
+      "description": "Sarah Johnson requests a quote for T-Shirts, specifying a quantity, but uses an ambiguous item name that matches multiple catalog items. The SOA must resolve which T-Shirt item can fulfill the requested quantity based on availability and create the quote without clarification.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request for T-Shirts",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for 40 T-Shirts? Let me know if you need anything else from me.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_availability_based_item_selection__quote_created__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Carrots (Ambiguous Item Name, Availability-Based Selection)",
+      "description": "The customer requests a quote for 'carrots' with a specified quantity, but the catalog contains multiple items matching the ambiguous name ('Organic Carrot', 'Carrot', 'Yellow Carrot'). The system must resolve which item can fulfill the requested quantity and create the quote without clarification.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Need Quote for Carrots – Urgent",
+        "body": "I need a quote for 50 carrots. Just send me the price and availability, don't waste my time with questions. French Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

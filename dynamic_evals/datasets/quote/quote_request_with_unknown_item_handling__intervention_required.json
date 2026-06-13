@@ -1,0 +1,556 @@
+{
+  "scenario_id": "quote_request_with_unknown_item_handling",
+  "outcome_id": "intervention_required",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Maxo Mart",
+      "description": "Cooperative customer requests a quote for items that are not found in the catalog, triggering intervention.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Request for Product List",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Deluxe Rainbow Scooter\r\n- UltraSoft Plush Bear\r\n- Jumbo Fruit Basket\r\n\r\nPlease let me know if you need any additional information from my side.\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Tom Martinez",
+      "description": "A polite customer from Playlandia requesting a quote for items that are not found in the catalog, triggering an intervention.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request for Playlandia Exclusive Items",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Playlandia Deluxe Train Set\r\n- Rainbow Adventure Puzzle\r\n- Jumbo Plush Unicorn\r\n\r\nPlease let me know if you need any additional information. Thank you for your assistance!\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lanesra Merchs Inc.",
+      "description": "A cooperative customer from Lanesra Merchs Inc. requests a quote for items that are not found in the catalog, triggering intervention.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request for New Items",
+        "body": "Hi there,\r\n\r\nWe'd like to get a quote for the following products:\r\n- JoySprout Racing Helmet\r\n- WonderWagon Kids Scooter\r\n- MagicToyland Plush Unicorn\r\n\r\nLet me know if you need any more info or if you have these available. Thanks!\r\n\r\nBest,\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Unavailable Items",
+      "description": "The customer requests a quote for items that are not present in the available catalog, triggering an intervention as none of the requested items can be resolved.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Need a Quote ASAP",
+        "body": "I need pricing right away for the following: Deluxe Kids Mountain Bike, SuperWash Pro Laundry System, and the Jumbo Plush Bear. Please send me a quote without delay. Don’t make this complicated.\r\n\r\n-Larry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Gabriel Henry",
+      "description": "Customer requests a quote for items that are not found in the catalog, triggering intervention.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote Request for Product List",
+        "body": "Please send me a quote for the following items:\r\n\r\n- SuperTech Remote Control Truck\r\n- Fresh Blueberries (2 lbs)\r\n- UltraSoft Kids Pajama Set\r\n\r\nLet me know if you need anything else.\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe",
+      "description": "A polite quote request from German Cafe for items not found in the catalog, triggering intervention due to completely unresolved item set.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Request for Quote – Specialty Items",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Bavarian Pretzel Mix (bulk pack)\r\n- Traditional German Rye Bread (loaf)\r\n- Black Forest Cherry Syrup (bottle)\r\n\r\nPlease let us know pricing and availability at your earliest convenience.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Cafe",
+      "description": "German Cafe requests a quote for items that are not found in the catalog, triggering an intervention.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Quote Request for Coffee Supplies",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following items?\r\n- Barista Pro Coffee Machine\r\n- Premium Espresso Beans (Italian Roast)\r\n- Stainless Steel Milk Frothing Pitcher\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Non-Catalog Items (Intervention Required)",
+      "description": "The customer requests a quote for items that do not exist in the available catalog, triggering a required intervention as none of the requested items can be resolved.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for the following: 2 boxes of Danish Butter Cookies and 5 packs of Blueberry Muffins. Don't waste my time with questions, just get it done quickly.\r\n\r\n-Anders Nielsen\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Non-Catalog Items",
+      "description": "The customer requests a quote for items that do not exist in the available catalog, triggering a required intervention.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- Deluxe French Pastry Set\r\n- Mini Baguette Maker\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Non-Catalog Items",
+      "description": "The customer requests a quote for items that do not exist in the available catalog, requiring user intervention.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following:\r\n- ProFlex Sports Water Bottle\r\n- UltraGrip Tennis Racket\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Non-Catalog Items",
+      "description": "The customer requests a quote for items that do not exist in the available catalog, triggering an intervention as none of the requested items can be resolved.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for 10 boxes of Blueberry Muffins and 5 units of UltraClean Detergent. Don’t waste time asking for details, just get it done.\r\n\r\n-Maxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "French Bakery requests quote for non-catalog items",
+      "description": "A verbose customer email from French Bakery requesting a quote for items that are not present in the catalog, triggering intervention as none of the requested items can be resolved.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote: Bakery Equipment and Supplies",
+        "body": "Hello,\r\n\r\nWe are preparing for an expansion of our bakery and would like to request a quote for several items needed for our new location. To ensure we have everything required for our operations, please provide pricing and availability for the following:\r\n\r\n- Industrial Dough Mixer (preferably 20L capacity)\r\n- Commercial Bread Proofer\r\n- French Baguette Flour (bulk, 25kg bags)\r\n\r\nIf you require any additional information about the specifications or brands, please let us know. We are looking for reliable equipment and high-quality ingredients suitable for artisan bread production. Kindly include lead times and any relevant warranty details in your response.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unlisted Toy Items",
+      "description": "A verbose and polite customer requests a quote for items that are not present in the available catalog, triggering an intervention due to no catalog match for all requested items.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Request for Quote: ToyMaster Deluxe Train & Rainbow Racer Set",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am reaching out on behalf of Chevy Toys as we are in the process of expanding our product offerings and are currently sourcing new items for our upcoming collection. We are particularly interested in obtaining a detailed quote for the following products, which we have seen referenced in various industry publications and at recent trade shows:\r\n\r\n1. ToyMaster Deluxe Train Set (full set, including all track extensions and remote control features)\r\n2. Rainbow Racer Set (the version with interchangeable color panels and dual-speed modes)\r\n\r\nIf possible, please include any relevant information about bulk pricing, lead times, and available warranty or support options for these items. If you require additional details to process this request, please let me know. We are eager to review your quotation at your earliest convenience.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Sarah Johnson",
+      "description": "Verbose customer requests a quote for items that are not found in the catalog, providing extra context and details in an informal style.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request for New Items",
+        "body": "Hey there,\r\n\r\nI'm looking to get a quote for a few things we're hoping to stock for our upcoming summer event. I couldn't find these on your website, but maybe you carry them or can source them for us?\r\n\r\nHere's what we're after:\r\n- Rainbow Picnic Blanket (we need something large and waterproof, preferably with a carrying strap)\r\n- Eco-Friendly Water Bottles (ideally BPA-free, 500ml size, assorted colors)\r\n- Solar Lanterns for outdoor use (something compact, rechargeable, and bright)\r\n\r\nIf you need more info about specs or brands, just let me know. We're hoping to place a bulk order, so if you have volume pricing, that would be awesome too!\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote request for non-catalog items (verbose, impatient)",
+      "description": "A verbose and impatient customer requests a quote for items that are not found in the catalog, triggering intervention as none of the requested items can be resolved.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Urgent Quote Needed – Please Respond Quickly",
+        "body": "Hello,\r\n\r\nI need a quote as soon as possible for the following items:\r\n\r\n- 5 packs of French Butter Croissants (please make sure they're the authentic ones, not the generic kind)\r\n- 2 boxes of Parisian Almond Macarons (assorted flavors)\r\n- 1 case of Classic Baguette Mix (for bakery use)\r\n\r\nI don't want to waste time with substitutions or alternatives. These are standard bakery supplies, so I expect you to carry them. If you need more details, let me know, but honestly, I can't believe you wouldn't have these in stock. Please send the quote immediately, and don't delay with unnecessary questions.\r\n\r\nJean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Non-Catalog Items (Context-Dependent, Polite)",
+      "description": "A context-dependent, polite customer requests a quote for items that are not present in the available catalog, referencing products by names that cannot be matched, thus requiring user intervention.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Request for Quote – Items as Discussed Previously",
+        "body": "Hello,\r\n\r\nCould you please send me a quote for the following items:\r\n\r\n- The Nordic Pastry Display Stand we talked about last week\r\n- Classic Danish Dough Mixer (the standard model)\r\n\r\nLet me know if you need any more details. Thank you very much for your assistance.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Items Not in Catalog",
+      "description": "Customer requests a quote for items that do not exist in the available catalog, triggering a need for user intervention.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request for Sports Gear",
+        "body": "Hey team,\r\n\r\nCan you send me a quote for the following?\r\n- ProFlex Soccer Net (the same one we talked about last month)\r\n- UltraGrip Basketballs, set of 10\r\n\r\nLet me know if you need any more info. Thanks!\r\n\r\nKCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Super Retail requests quote for non-catalog items",
+      "description": "The customer requests a quote for items that are not present in the catalog, triggering a full intervention as none of the requested items can be resolved.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Quote Request – Urgent",
+        "body": "Send me a quote for the following ASAP:\r\n\r\n- Blue Denim Jacket (need 50 units)\r\n- SuperWidget Pro (100 units)\r\n\r\nThis should be straightforward. Don’t waste time with unnecessary questions.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "German Bakery",
+      "description": "A goal-directed customer from German Bakery requests a quote for items that are not found in the catalog, triggering an intervention requirement.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Request for Bakery Equipment",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Commercial Bread Mixer\r\n- Dough Proofer Cabinet\r\n- Artisan Rye Slicer\r\n\r\nPlease include pricing and availability for each. If you need additional information, let us know.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable Items",
+      "description": "The customer requests a quote for items that do not exist in the available catalog, requiring user intervention.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request for Quote: FreshBerry Yogurt and Blueberry Juice",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- FreshBerry Yogurt (12-pack)\r\n- Blueberry Juice (1L bottles, case of 6)\r\n\r\nPlease provide pricing and availability at your earliest convenience. Thank you for your assistance.\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Non-Catalog Produce Items",
+      "description": "A goal-directed customer requests a quote for items that are not found in the catalog, triggering an intervention requirement.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request for Quote: Fresh Produce Items",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for the following items:\r\n- Organic Roma Tomatoes (20 lbs)\r\n- Fresh Spinach (10 lbs)\r\n- Golden Pineapple (5 units)\r\n\r\nPlease let me know pricing and availability. Thanks!\r\n\r\nBest,\r\nMr. Fresh Foods\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__intervention_required__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Non-Catalog Items (Intervention Required)",
+      "description": "A goal-directed customer requests a quote for items that are not present in the available catalog, using curt and impatient language. The request cannot be fulfilled without intervention, as none of the requested items can be resolved.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the following: Deluxe Robo Crane and the SuperPlay Mega Garage Set. Don't waste my time with delays—just get it done.\r\n\r\n-Larry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

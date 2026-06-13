@@ -1,0 +1,606 @@
+{
+  "scenario_id": "inquiry_response_with_custom_signature",
+  "outcome_id": "inquiry_response_sent",
+  "test_cases": [
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Fresh HelloFoods",
+      "description": "A cooperative customer from Fresh HelloFoods requests general information about available olives and peppers, without asking for a quote.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Inquiry About Olive and Pepper Product Range",
+        "body": "Hello,\r\n\r\nWe are interested in learning more about your olive and pepper offerings. Could you please provide details on the types of olives and peppers you carry, including any relevant product information? This is just an initial inquiry—we are not requesting a quote at this time.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Request for Information on Play Mats and Building Blocks",
+      "description": "A polite inquiry from Playlandia requesting product information about play mats and building blocks, without asking for a quote. The customer expects a response with relevant item details and the company's custom email signature.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Inquiry About Play Mats and Building Blocks",
+        "body": "Hello,\r\n\r\nWe are interested in expanding our product offerings and would like more information about your play mats and building blocks. Could you please provide details on the different play mat options you have, as well as the building blocks available in your catalog? We are particularly interested in understanding the differences between the various building block sets.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Cooperative informal inquiry about toy product families",
+      "description": "A recognized customer sends an informal email asking for information about the different toy car sets and toy bicycles available, without requesting a quote. The request is broad and covers product families, inviting the SOA to list matching items and respond with relevant information.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Info on Toy Cars and Bicycles",
+        "body": "Hi there,\r\n\r\nI'm looking to get some details about the toy car sets and toy bicycles you carry. Could you let me know what options you have in those categories and maybe share a bit about what makes each one unique? No need for a quote yet, just want to see what's available.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Cooperative customer requests product information in a curt, impatient tone",
+      "description": "A recognized customer sends a curt and impatient email asking for information about several product families, without requesting a quote. The request is broad and expects a quick response, reflecting the rude/impatient tone. The sender is cooperative and provides explicit context.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Need info on your toy and rug products ASAP",
+        "body": "Can you send me details on all the SmartToys items you carry? Also, I want to know what types of rugs you have available. Don't waste time with a quote, just give me the product info. Jessica Stone\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Lyn Ventures",
+      "description": "Uncooperative customer inquiring about product families without requesting a quote.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Product Information Request",
+        "body": "Can you send me details about your T-Shirts and Rugs? I want to know what types you have and any basic info. Don't need a quote right now.\r\n\r\nLyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Product Family Inquiry from Uncooperative Customer",
+      "description": "A polite but uncooperative customer requests general information about a product family, without specifying details or requesting a quote. The inquiry is broad and does not clarify which specific variants are of interest.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Request for Information on T-Shirts",
+        "body": "Hello,\r\n\r\nCould you please provide me with information about the T-Shirts you offer? I am interested in learning more about the options available, but I don't need a quote at this time.\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Bakery",
+      "description": "German Bakery sends an informal, broad inquiry about available pizza options, without requesting a quote, and expects a response with item information.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Pizza options?",
+        "body": "Hey there,\r\n\r\nCan you tell me what kinds of pizza you have? Just looking for info, not ordering yet.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative, Rude/Impatient Product Family Inquiry",
+      "description": "Sarah Johnson sends a curt, impatient inquiry about T-Shirts and Rugs, requesting basic information but not a quote. The email is direct, omits pleasantries, and does not specify which T-Shirt or Rug variant is of interest, reflecting the uncooperative persona and rude/impatient tone.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Need info on T-Shirts and Rugs",
+        "body": "Just send me the details for your T-Shirts and Rugs. I don't want a quote, just basic info. Make it quick.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise Product Family Inquiry - Toys",
+      "description": "A concise customer email requesting information about available toy products, without asking for a quote. The customer uses brief wording and does not provide additional context.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Toy Product Information",
+        "body": "Please send details about your available toy sets and action figures. No quote needed.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "French Cafe - Concise Product Information Inquiry",
+      "description": "A concise and polite inquiry from French Cafe requesting information about available T-Shirts and Rugs, without requesting a quote.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Product Information: T-Shirts and Rugs",
+        "body": "Hello,\r\n\r\nCould you please provide details about the T-Shirts and Rugs you offer?\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Fresh Foods North Europe",
+      "description": "A concise, informal inquiry from a recognized customer asking for product information about olives and peppers, without requesting a quote.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Info on Olives and Peppers",
+        "body": "Hi, Can you send me some details about the olives and pepper products you carry? Just looking for basic info, not a quote. Thanks, Fresh Foods North Europe\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Product Information Request",
+      "description": "A brief, impatient inquiry from KCF Sports asking for information about T-Shirts and Rugs, without requesting a quote.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Need info on T-Shirts and Rugs",
+        "body": "Send me details on your T-Shirts and Rugs. Don't waste time with quotes. KCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose inquiry about available peppers and olives",
+      "description": "A customer sends a detailed inquiry requesting information about the available pepper and olive products, seeking clarification on varieties and options, but does not request a quote.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Inquiry Regarding Pepper and Olive Product Families",
+        "body": "Dear Sales Team,\r\n\r\nI am reaching out to request detailed information about your range of pepper and olive products. Specifically, I am interested in learning more about the different types of peppers you offer (such as green, red, chili, etc.) and the olive varieties available (including any distinctions between black, green, and Kalamata olives). Could you please provide a comprehensive overview of these items, including any relevant product details, packaging options, and typical use cases? I am not looking for a quote at this stage, just a thorough understanding of what is available within these product families.\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Michael Reyes",
+      "description": "A verbose, polite customer from Toytopia requesting detailed product information about a family of items, without asking for a quote.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Inquiry Regarding Toy Product Families and Details",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am reaching out from Toytopia to gather some comprehensive information about your toy product offerings. Specifically, I am interested in learning more about the various building block sets you carry, such as the SmartToys Building Blocks and AdventureCraft Building Blocks. Could you please provide detailed descriptions of these items, including any differences in features, recommended age ranges, and available variations? Additionally, if there are other related building block products in your catalog, I would appreciate an overview of those as well.\r\n\r\nI am not requesting a quote at this time, but would like to understand the options so I can make an informed decision for our upcoming inventory planning. If you have brochures or product sheets, a summary would be helpful.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose informal inquiry about product families and item details",
+      "description": "A verbose, informal customer email from Rasmus Delaney asking for detailed information about several product families and item options, without requesting a quote. The request covers multiple catalog items and seeks extra context, reflecting the verbose persona and informal tone.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Looking for info on your toys, bikes, and coffee products",
+        "body": "Hey there,\r\n\r\nI hope you’re having a good day! I’m doing some early research for a project and wanted to get a bit more info about a few of your product lines. I noticed you carry a bunch of different toys, bikes, and coffee-related items, but I’m not totally clear on what distinguishes the different options.\r\n\r\nCould you give me a rundown of the main differences between the MagicToyland dolls and the other toy sets like GiggleGear Action Figures Set and SmartyToys Educational Puzzle? Also, I saw you have several bicycles listed (WonderWagon Bicycle, Kiddie Quest Bicycle, JoySprout Toy Bicycle)—what are the key features or age ranges for each?\r\n\r\nOn the coffee side, I’m curious about the Rasta Drip Coffee Maker, Rasta Espresso Machine, and Rasta Coffee Grinder. Are these meant for home use or more for cafés? Any details on how they compare would be super helpful.\r\n\r\nNot looking for a quote just yet—just want to understand what’s available and how the products differ so I can figure out what might fit our needs. If there are any brochures or product sheets, feel free to send those along, but a quick summary is great too.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Inquiry About Toy Bicycles and Play Mats",
+      "description": "A verbose but impatient customer requests detailed information about all toy bicycles and play mats, making it clear they do not want a quote, and expects a prompt, thorough response.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Need Info on Toy Bicycles and Play Mats – ASAP",
+        "body": "Hi,\r\n\r\nLet’s not waste time. I need comprehensive details about all the toy bicycles you carry—features, differences, age recommendations, whatever specs you have. Don’t just send me a generic list; I want to know what sets each model apart, and if there are any notable accessories or bundles I should be aware of. Also, include information on your play mats—again, specifics, not just the name. I’m not asking for a quote right now, so don’t bother with pricing or attachments. Just send the info, and please don’t make me follow up for basic details that should be obvious.\r\n\r\nEmily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "WonderToys Co. - Toy Product Family Inquiry",
+      "description": "A context-dependent customer inquiry from WonderToys Co. asking for information about toy product families, referencing prior thread context and not explicitly requesting a quote.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Toy Product Information Request",
+        "body": "Hi,\r\n\r\nCould you please send me details about the toy bicycles and train sets you carry? I’m looking for information on the models similar to what we discussed last time, as well as any new additions in those categories. No quote needed yet—just product info.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Product Family Inquiry with Contextual Reference",
+      "description": "A context-dependent, polite inquiry from WonderToys Co. asking for information about a product family, referencing prior context rather than listing all details explicitly. The customer does not request a quote, but seeks information about available options.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Inquiry About T-Shirts and Related Options",
+        "body": "Hello,\r\n\r\nCould you please provide more information about the T-Shirts you carry? I believe we discussed these briefly in our last exchange, but I’d appreciate a summary of the available styles and any notable differences between them. We’re considering expanding our selection and want to understand what’s currently offered.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Broad Product Family Inquiry with Informal Context-Dependent Style",
+      "description": "The customer asks for information about all the T-Shirt options, referencing a previous conversation style, and does not request a quote. The inquiry is broad and context-dependent, fitting the informal tone and scenario requirements.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Info on your T-Shirts?",
+        "body": "Hey there,\r\n\r\nCould you send me some details on the T-Shirts you carry? I remember seeing a few different ones last time but didn’t get a chance to check them all out. Just want to know what styles and colors you’ve got these days. No quote needed yet, just info is fine.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Product Family Inquiry with Contextual Reference",
+      "description": "A context-dependent customer impatiently asks for information about T-Shirts, referencing a prior conversation and not specifying details, expecting the agent to provide a list of available options. The tone is curt and slightly rude, and the request is for information only, not a quote.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Need info on T-Shirts (again)",
+        "body": "Can you just send me the details for the T-Shirts you have? I asked about these before, so please don't make me repeat myself. I want to see all the options you carry—sizes, colors, whatever. Don't send a quote, just the info.\r\n\r\nTom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Broad Product Information Request for Cafe Menu Planning",
+      "description": "The customer requests information about available pizza and soda options for planning a new menu, without asking for a quote. The request is clear, direct, and goal-oriented.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Product Information: Pizza and Soda Options",
+        "body": "Hello,\r\n\r\nWe are currently updating our cafe menu and would like to know more about the pizza and soda products you offer. Could you please provide details on the different types of pizza and soda available, including any variations or sizes? We are particularly interested in understanding the range of options before making any decisions.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Inquiry About T-Shirts and Related Apparel",
+      "description": "A goal-directed customer politely requests information about all available T-Shirt options and related apparel, without asking for a quote. The inquiry is clear and direct, aiming to understand the product family offerings.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Request for Information on T-Shirts and Apparel Options",
+        "body": "Hello,\r\n\r\nI am interested in learning more about the T-Shirt options you have available, as well as any related apparel items such as jeans or trousers. Could you please provide me with details on the different T-Shirts you offer, including any variations or styles, and also let me know what other apparel products are in your catalog?\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Danish Pastry - Broad Product Inquiry (Informal, Goal-Directed)",
+      "description": "A goal-directed customer sends an informal inquiry asking for information about available toy products and pizza options, without requesting a quote. The request is clear and direct, making the customer's goal easy to identify.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Looking for info on toys and pizza options",
+        "body": "Hi there,\r\n\r\nI'm interested in learning more about the different toy sets and pizza products you offer. Could you send me some details about the various toy kits and car sets, as well as the types of pizza available? Not looking for a quote yet, just want to see what's out there.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_response_with_custom_signature__inquiry_response_sent__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Product Family Inquiry for T-Shirts and Pizza",
+      "description": "A goal-directed, impatient customer requests information about available T-Shirts and Pizza, making it clear they do not want a quote, only item details.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need info on your T-Shirts and Pizza ASAP",
+        "body": "Can you just send me a list of all the T-Shirts and Pizza you have? I don't want a quote, just the details. Please don't waste my time with extra questions or offers. Thanks.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

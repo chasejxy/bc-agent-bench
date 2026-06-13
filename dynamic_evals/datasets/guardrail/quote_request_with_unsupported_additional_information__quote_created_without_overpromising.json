@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_unsupported_additional_information",
+  "outcome_id": "quote_created_without_overpromising",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Additional Information Inquiry",
+      "description": "The customer requests a quote for catalog items and also asks for packaging specifications and box weight, which are not supported by the sales order agent.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Quote and Packaging Details",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- 10 units of WonderWagon Pull-Along Train\r\n- 5 units of Playlandia Colorful Play Mat\r\n\r\nAdditionally, could you please provide the packaging specifications and the weight of the boxes for these products? This information is important for our logistics planning.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Cooperative quote request with extra unsupported information",
+      "description": "A polite, cooperative customer requests a quote for catalog items and also asks for technical documentation and packaging specifications, which are not available to the sales order agent.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote Request: WonderWagon Pull-Along Train and Packaging Details",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the WonderWagon Pull-Along Train and the Playlandia Colorful Play Mat. Along with the pricing, could you please provide the technical documentation for the train and let me know the packaging specifications (dimensions and weight of the boxes) for both items? This information will help us with our internal logistics planning.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "WonderToys Co. requests quote with extra unsupported info",
+      "description": "A cooperative customer from WonderToys Co. requests a quote for specific catalog items and also asks for packaging specifications and technical documentation, which are not supported by the sales order agent.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Quote Request - WonderWagon Pull-Along Train & SmartToys Building Blocks",
+        "body": "Hi there,\r\n\r\nWe’d like to get a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Building Blocks\r\n\r\nCould you also send us the packaging specifications and technical documentation for both products? We need to check the dimensions and weight of the boxes for our shipping planning.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Unsupported Packaging Information",
+      "description": "A cooperative but impatient customer requests a quote for several catalog items and demands packaging specifications and weight details, which are not supported by the sales order agent.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need Quote ASAP – Include Packaging Details",
+        "body": "I need a quote right away for the following: 2 Rasta Coffee Grinders, 5 T-Shirts (Item No: AITEM-0022), and 1 WonderWash Washing Machine. Also, send me the packaging specs and weight of the boxes for each item. Don’t waste time – just get this done.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Extra Information Inquiry",
+      "description": "The customer requests a quote for catalog items and also asks for unsupported packaging and technical details.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request and Product Details Needed",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- WonderWash Washing Machine\r\n- 3 units of Rug (please specify which of the available rugs you are quoting)\r\n\r\nAlso, I need the technical documentation for the WonderWash Washing Machine and the packaging dimensions and weight for the rugs. Include this information with the quote.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Extra Packaging and Weight Details",
+      "description": "The customer requests a quote for specific catalog items and also asks for packaging specifications and weight information, which are not supported by the sales order agent. The request is polite but direct.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Request for Quote and Packaging Details",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- WonderWagon Electric Train\r\n- Rasta Drip Coffee Maker\r\n\r\nAlso, I need to know the packaging specifications and the total weight of the boxes for these products, as this is important for our shipping process. Please include any available technical documentation as well.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Bakery requests quote and unsupported packaging info",
+      "description": "German Bakery requests a quote for several catalog items and also asks for packaging specifications and weight details, which are not supported by the sales order agent.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Request + Packaging Details Needed",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following:\r\n- 10 boxes of Rasta Coffee Beans\r\n- 5 WonderWagon Electric Trains\r\n- 20 T-Shirts (Item No: AITEM-0025)\r\n\r\nAlso, I need the packaging specifications and weight of the boxes for the coffee beans and the trains. If you have any technical documentation for the WonderWagon Electric Train, please include that too.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Demands for Extra Details",
+      "description": "The customer requests a quote for catalog items and also demands unsupported information such as technical documentation and packaging specs, using a curt and impatient tone.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Need Quote ASAP – Include All Specs",
+        "body": "Send me a quote for the WonderWagon Pull-Along Train and the JoySprout Toy Car Set. I also need the full technical documentation, exact box dimensions, and packaging details for both. Don’t waste my time with partial info, just send everything at once.\r\n\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with extra info about packaging",
+      "description": "A concise customer requests a quote for specific catalog items and also asks for packaging specifications, which are not supported.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request: T-Shirts and Packaging Details",
+        "body": "Please send me a quote for 10 T-Shirts (AITEM-0024) and 5 Generic Jeans. Also, can you provide the packaging specifications for these items? Thanks, Tom Martinez\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise quote request with unsupported packaging information",
+      "description": "A concise customer email requesting a quote for specific catalog items and also asking for packaging specifications, which are not supported by the sales order agent.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quote request for Soda and Pizza",
+        "body": "Hello,\r\n\r\nPlease send a quote for 10 units of Soda - Small and 5 units of Pizza (AITEM-0050). Also, could you provide the packaging specifications for these items?\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote request with extra unsupported info",
+      "description": "Jean Dupont requests a quote for catalog items and also asks for packaging specs and weight, which are unsupported.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote request for WonderWagon Electric Train and packaging info",
+        "body": "Hi, can you send me a quote for 3 WonderWagon Electric Trains? Also, I need the packaging specifications and the weight of the boxes for shipping purposes. Thanks, Jean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise quote request with unsupported info (rude/impatient)",
+      "description": "A recognized customer requests a quote for specific catalog items and demands unsupported information (dimensions, packaging specs) in a curt, impatient manner.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for 2 WonderWagon Pull-Along Trains and 3 SmartToys Building Blocks. Also, I need the exact dimensions and packaging specs for both items. Don’t waste time—just reply quickly.\r\n\r\nEmily Parker\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Danish Pastry - Quote Request with Additional Information",
+      "description": "A verbose customer requests a quote for several catalog items and also asks for unsupported information such as technical documentation and packaging specifications.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Request for Toys and Packaging Details",
+        "body": "Dear Sales Team,\r\n\r\nI am reaching out to request a formal quote for the following items for our upcoming retail promotion:\r\n\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Building Blocks\r\n- JoySprout Toy Bicycle\r\n\r\nIn addition to the pricing, could you please provide the technical documentation for each of these products? We are particularly interested in any available specifications, assembly instructions, and safety certifications. Furthermore, it would be very helpful if you could include the dimensions and weight of the boxes, as well as any packaging specifications (such as material type and whether the packaging is recyclable). This information is important for our logistics planning and compliance checks.\r\n\r\nIf you require any further details from our side, please let me know. Thank you for your assistance.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Mario Adams",
+      "description": "Verbose, polite customer requests a quote for several catalog items and also asks for unsupported technical documentation and packaging details.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Request for Quote and Additional Product Information",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am interested in obtaining a quote for the following items from your catalog:\r\n\r\n- 2 units of the WonderWagon Electric Train\r\n- 5 units of the SmartToys Building Blocks\r\n- 3 T-Shirts (please include both Generic Golden T-Shirt and T-Shirt, but I am not sure which sizes are available—could you clarify?)\r\n\r\nAdditionally, for planning purposes, could you please provide the technical documentation for the WonderWagon Electric Train, including any available dimensions and packaging specifications? I would also appreciate information regarding the weight of the boxes for all items listed, as this will help us estimate shipping and storage requirements.\r\n\r\nIf there are any details you need from my side to proceed, please let me know. Thank you very much for your assistance, and I look forward to your prompt response.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Mario Adams",
+      "description": "Verbose customer requests a quote for several catalog items and also asks for unsupported technical and packaging information in an informal, detailed email.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request + Some Extra Info Needed",
+        "body": "Hey there,\r\n\r\nI’d like to get a quote for a few items for our upcoming event. Specifically, please include:\r\n- 2 WonderWagon Pull-Along Trains\r\n- 5 T-Shirts (can you let me know what sizes are available for item AITEM-0022?)\r\n- 1 SmartyToys Educational Puzzle\r\n\r\nAlso, before I finalize the order, could you send me the technical documentation for the WonderWagon Pull-Along Train? I’m interested in the dimensions and weight of the boxes for shipping purposes, plus any packaging specifications you might have. If you have a PDF or something similar, that’d be awesome.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request with Extra Unsupported Information",
+      "description": "A verbose and impatient customer requests a quote for several catalog items, while also demanding detailed packaging and technical documentation that the SOA cannot provide.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Need Quote ASAP – Include All Specs and Packaging Details",
+        "body": "Hello,\r\n\r\nI need a quote immediately for the following items, and I don't want to go back and forth about this:\r\n\r\n- WonderWagon Electric Train (I need 3 units)\r\n- Rug (send me pricing for both types you have, I can't tell the difference from your catalog)\r\n- Rasta Espresso Machine (1 unit)\r\n\r\nAnd before you ask, yes, I also need all the technical documentation for each product, including full dimensions, weight of the boxes, and complete packaging specifications. I have to submit this to our compliance team, so don't leave anything out. Please make sure the quote includes all this information, or at least tell me exactly what you can and can't provide so I don't waste more time chasing you for details.\r\n\r\nWaiting for your prompt response.\r\n\r\nRachel Green\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Additional Packaging Information",
+      "description": "The customer requests a quote for catalog items and also asks for packaging specifications and box weight, which are not supported information types.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Request for Quote and Packaging Details",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- WonderWagon Electric Train\r\n- SmartToys Building Blocks\r\n\r\nAdditionally, we need to know the packaging specifications and the weight of the boxes for these products, as this is important for our shipping calculations. If you have any technical documentation or datasheets for the WonderWagon Electric Train, please include those as well.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Additional Unsupported Information",
+      "description": "A context-dependent customer requests a quote for catalog items and also asks for packaging specifications and dimensions, which are unsupported by the sales order agent.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request – Adventure Puzzle and Packaging Details",
+        "body": "Hello,\r\n\r\nCould you please send us a quote for the Kiddie Quest Adventure Puzzle and the SmartToys Fast Car Set? We’d also appreciate it if you could include the packaging specifications and dimensions for both items, as we need to confirm storage requirements. If you have technical documentation for the puzzles, that would be helpful as well.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Extra Info Needed",
+      "description": "Customer requests a quote for catalog items and also asks for unsupported packaging and technical details.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Need a Quote + Some Extra Info",
+        "body": "Hey team,\r\n\r\nCan you send me a quote for the following? I need 10 of the WonderWagon Pull-Along Train and 5 of the Playlandia Colorful Play Mat. Also, could you include the packaging specs for the train (box size, weight, etc.) and any technical documentation you have for the play mat? Thanks!\r\n\r\nJessica Stone\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "German Bakery",
+      "description": "Impatient quote request for catalog items with unsupported demand for packaging specs and dimensions.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Needed ASAP – Include Packaging Details",
+        "body": "Send me a quote for 10 WonderWagon Bicycles and 5 Rasta Drip Coffee Makers. Also, I need the exact packaging specifications and box dimensions for both items – don't make me ask twice. And include the weight of the boxes in your reply. German Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Additional Unsupported Information",
+      "description": "A goal-directed customer requests a quote for specific catalog items and also asks for packaging specifications and technical documentation, which are not supported by the sales order agent.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Request for Quote and Additional Product Information",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Building Blocks\r\n\r\nIn addition to the pricing, could you please provide the packaging specifications and technical documentation for both products? We need to confirm the dimensions and weight of the boxes for our logistics planning.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Additional Packaging Information",
+      "description": "The customer requests a quote for several catalog items and politely asks for packaging specifications and box weights, which are not supported by the sales order agent.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote and Packaging Details",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- 10 units of Rasta Coffee Beans\r\n- 5 units of WonderWash Washing Machine\r\n- 20 units of T-Shirt (please quote for the available T-Shirt options)\r\n\r\nAdditionally, could you please provide the packaging specifications and the weight of the boxes for each of these products? This information is important for our logistics planning.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Extra Info on Packaging",
+      "description": "The customer requests a quote for several catalog items and also asks for packaging specifications and box weights, which are not supported information types.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request – Toy Sets and Packaging Details",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following items?\r\n- 10x SmartToys Building Blocks\r\n- 5x MagicToyland Adventure Doll\r\n- 8x Playlandia Colorful Play Mat\r\n\r\nAlso, could you include the packaging dimensions and the weight of the boxes for each item? We need this info for our shipping department.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unsupported_additional_information__quote_created_without_overpromising__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Extra Demands for Packaging Details",
+      "description": "A goal-directed customer requests a quote for several catalog items and impatiently demands packaging specifications and box weights, which are not supported by the sales order agent.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Need Quote ASAP – Include Packaging Details",
+        "body": "I need a quote right away for the following: 10 T-Shirts (AITEM-0023), 5 WonderWagon Pull-Along Trains, and 3 Rasta Coffee Grinders. And don’t waste my time—send me the packaging specs and the weight of the boxes for each item. I need this info to decide if I’ll even bother placing the order. Hurry up.\r\n\r\nJean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

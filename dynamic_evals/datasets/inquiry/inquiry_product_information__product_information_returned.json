@@ -1,0 +1,606 @@
+{
+  "scenario_id": "inquiry_product_information",
+  "outcome_id": "product_information_returned",
+  "test_cases": [
+    {
+      "case_id": "inquiry_product_information__product_information_returned__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Cooperative product information inquiry with partial catalog match",
+      "description": "A cooperative customer requests information about several products, including both catalog and non-catalog items, expecting the agent to clarify which are available and provide relevant details.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Product Information Request: Toys and Accessories",
+        "body": "Hello,\r\n\r\nI am interested in learning more about your range of children's toys and accessories. Could you provide details and availability for the following items:\r\n\r\n- GiggleGear Action Figures Set\r\n- Playlandia Colorful Play Mat\r\n- MagicToyland Princess Castle\r\n- JoySprout Toy Bicycle\r\n\r\nIf you have any similar products to the MagicToyland Princess Castle, please let me know. I would also appreciate information about the materials used and recommended age ranges for these items.\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Inquiry About Toy and Clothing Product Availability",
+      "description": "A cooperative customer politely requests information about several products, including both catalog and non-catalog items, and asks for details and availability. The request includes a mix of known and unknown items, requiring the system to clarify which products are available and which are not.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Product Information Request: Toys and Apparel",
+        "body": "Dear Team,\r\n\r\nI hope this message finds you well. I am interested in learning more about a few products for an upcoming event. Could you please provide me with information and availability for the following items?\r\n\r\n- Kiddie Quest Adventure Puzzle\r\n- WonderWagon Bicycle\r\n- Playlandia Soft Blocks\r\n- Generic Jeans\r\n- MagicToyland Fairy Doll\r\n- Classic Kids Hoodie\r\n\r\nIf possible, I would appreciate details on sizes, colors, and any relevant product specifications for these items. Please also let me know if any of these products are no longer available.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lyn Ventures - Mixed Product Availability Inquiry",
+      "description": "A cooperative customer from Lyn Ventures sends an informal email asking about the availability of several products, mixing known catalog items with one item that is not in the catalog. The request includes a broad inquiry about T-Shirts and a specific question about a product that may not be carried, prompting the system to clarify which items are available and which are not.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quick question about your product selection",
+        "body": "Hi there,\r\n\r\nI'm looking to get some info on a few items for an upcoming event. Can you let me know if you still carry the following?\r\n\r\n- Generic Golden T-Shirt\r\n- WonderWagon Pull-Along Train\r\n- Blueberry Jam (not sure if you have this one, but thought I'd ask)\r\n- Also, do you have any other T-Shirts in different colors or styles?\r\n\r\nWould appreciate details on what's available and any info on the options. Thanks!\r\n\r\nBest,\r\nLyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Product Information Request with Mixed Known and Unknown Items",
+      "description": "A customer impatiently requests information about several products, including both catalog and non-catalog items, and expects a clear distinction between available and unavailable products.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Info on Some Products ASAP",
+        "body": "Can you just tell me if you still carry the following: Pizza, MagicToyland Fairy Doll, and 'Super Deluxe Blender'? I don't have time to dig through your catalog, so just give me the details and availability for each. Don't make me wait for a quote, I just want to know what's in stock and what isn't.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Lyn Ventures - Mixed Product Inquiry with Partial Catalog Match",
+      "description": "Lyn Ventures requests information about several items, including both catalog and non-catalog products, in a neutral and somewhat uncooperative style. The inquiry includes a mix of known and unknown items, requiring the SOA to clarify which items are available and which are not.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Product Information Request",
+        "body": "Hello,\r\n\r\nI need details on the following items:\r\n- AdventureCraft Building Blocks\r\n- WonderWagon Electric Train\r\n- Playlandia Playhouse\r\n- Generic Golden T-Shirt\r\n- MagicToyland Fairy Doll\r\n\r\nAre these still available? Please send product information for each.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Tom Martinez",
+      "description": "Uncooperative customer politely inquires about a mix of known and unknown items, requesting product information and availability.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Product Information Request",
+        "body": "Hello,\r\n\r\nCould you let me know if you still carry Playlandia Colorful Play Mat and the WonderWagon series? Also, I'm interested in learning more about your latest toy trains and if you have anything similar to the AdventureCraft Deluxe Set. Please include details about availability and any relevant product information.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Uncooperative Product Information Inquiry with Mixed Known and Unknown Items",
+      "description": "Jakob Kuhs sends an informal, somewhat vague inquiry asking about the availability and details of several products, mixing catalog and non-catalog items, and not providing full details for some requests.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quick question about some products",
+        "body": "Hey,\r\n\r\nCan you tell me if you still carry the WonderWagon trains and also if you have any of those classic Playlandia mats? I’m also looking for info on your T-Shirts (not sure which ones you have now) and if you’ve got anything like a Deluxe Tool Kit. Just send me whatever details you’ve got, thanks.\r\n\r\nJakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Product Information Request with Mixed Known and Unknown Items",
+      "description": "Jakob Kuhs sends a curt, impatient email asking for information about several products, including both catalog and non-catalog items, and requests details about a product category. The request includes at least one item that does not exist in the catalog, requiring the system to clarify which items are available and which are not.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Need Info on Products ASAP",
+        "body": "Just send me the details for your T-Shirts and the Rug. Also, do you still sell the Super Deluxe Coffee Machine? And I want a list of all your toy cars, but don’t waste my time with anything else. Respond quickly.\r\n\r\nJakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise Product Information Inquiry with Mixed Known and Unknown Items",
+      "description": "A concise customer email asking for product information about several items, including both catalog and non-catalog products, requiring the SOA to clarify which items are available and which are not.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Product Information Request",
+        "body": "Please send details and availability for Organic Carrot, Kalamata Olive, and Sunburst Mango. Also, do you still carry the Classic Fruit Basket?\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Cafe - Concise Inquiry About Product Availability",
+      "description": "A concise, polite inquiry from German Cafe asking about the availability of several items, including both catalog and non-catalog products. The request mixes known and unknown items, requiring the SOA to distinguish between available and unavailable products.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Product Information Request",
+        "body": "Hello,\r\n\r\nCould you please let me know if you still carry Rug, Generic Golden T-Shirt, and Espresso Cups? Also, do you have any large pizzas available?\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Toytopia - Concise Product Information Request",
+      "description": "A concise, informal inquiry from Toytopia asking about the availability and details of several toys, including both catalog and non-catalog items, to trigger a partial catalog match response.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Toy info and availability",
+        "body": "Hi, Can you tell me if you still carry the MagicToyland Adventure Doll and the Playlandia Play Tunnel? Also, do you have any toy bicycles in stock? Thanks, Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Product Information Inquiry with Partial Catalog Match",
+      "description": "A customer sends a brief, impatient email asking about the availability of several items, mixing known catalog products with at least one item that does not exist in the catalog. The request is direct and curt, requiring the SOA to clarify which items are available and which are not.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Need info on these products ASAP",
+        "body": "Send me details and availability for SmartToys Building Blocks, WonderWash Washing Machine, and Playlandia Deluxe Playhouse. I don't have time for delays, so just tell me if you still carry these or not.\r\n\r\nTom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose Product Information Inquiry with Mixed Known and Unknown Items",
+      "description": "A verbose customer requests detailed information about several products, including both catalog and non-catalog items, and asks about product availability and specific features.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Inquiry Regarding Product Availability and Details",
+        "body": "Hello,\r\n\r\nI am reaching out to gather some comprehensive information about a few products for an upcoming event we are planning. We are particularly interested in a selection of toys and food items, and I would appreciate as much detail as possible regarding their availability, features, and any relevant specifications you can provide.\r\n\r\nFirst, could you let me know if you still carry the 'MagicToyland Adventure Doll'? We are also looking for building blocks suitable for children—do you have any options in that category, and could you elaborate on the differences between them if there are multiple types?\r\n\r\nAdditionally, I am interested in your pizza offerings. I see there are several pizzas listed, but could you clarify what distinguishes each one (e.g., size, toppings, or any other relevant attributes)?\r\n\r\nLastly, do you have any information on the 'SuperFun Robot Kit'? We are considering it for our event, but I am not sure if it is still available through your catalog.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose inquiry about toy products and availability",
+      "description": "A verbose customer requests detailed information about several toy items, including both catalog and non-catalog products, and asks about their current availability and features. The request includes a mix of known and unknown items, requiring the SOA to clarify which are available and which are not.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Inquiry Regarding Toy Product Availability and Details",
+        "body": "Hello,\r\n\r\nI hope this message finds you well. I am conducting a review of our upcoming inventory needs and would appreciate your assistance in providing detailed information about several toy products. Specifically, could you let me know if you still carry the 'MagicToyland Princess Castle' and the 'WonderWagon Pull-Along Train'? I am also interested in learning more about the 'SmartToys Fast Car Set'—could you provide specifications, recommended age range, and any notable features? Additionally, if you have any new adventure-themed kits or puzzles suitable for children ages 5-8, please share details and availability. If possible, please include information about packaging options and whether these items are currently in stock.\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose product information and availability inquiry with mixed known and unknown items",
+      "description": "A verbose customer email from Dunder Mifflin asking for detailed information and availability on a mix of catalog and non-catalog items, with extra context and informal tone.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Looking for info on some products (toys, olives, and more!)",
+        "body": "Hey there,\r\n\r\nHope you’re having a good week! I’m putting together a list of items for an upcoming event and wanted to check what you have available. Could you send me some details (like sizes, colors, and any special features) and let me know if these are in stock?\r\n\r\nHere’s what I’m looking for:\r\n- MagicToyland Adventure Doll\r\n- Kalamata Olive\r\n- Playlandia Giant Ball Pit (do you still carry this? I remember seeing it a while back but not sure if it’s still available)\r\n- Any kind of T-Shirt you have, especially if there are different styles or colors\r\n- WonderWagon Pull-Along Train\r\n\r\nIf you could also mention if there are any new arrivals or related products in the toy or snack categories, that would be awesome. I’m open to suggestions if you have something similar to the items above!\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Product Information Inquiry with Partial Catalog Match",
+      "description": "A verbose, impatient customer from Chevy Toys requests information about several products, mixing known catalog items with at least one item that is not carried, and expects a detailed response distinguishing available and unavailable items.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Need Product Info ASAP – Some Items May Not Be in Your Catalog",
+        "body": "Hi, I don't have time for back-and-forth, so please just send me detailed info on the following items, including availability, specs, and anything else relevant. I need to know if you still carry these or if they've been discontinued. List everything clearly, don't make me chase you for answers.\r\n\r\n- WonderWagon Electric Train\r\n- Generic Golden T-Shirt\r\n- Playlandia Colorful Play Mat\r\n- Super Deluxe Toy Castle (I couldn't find this on your site, but maybe you still have it?)\r\n- Soda – Medium\r\n\r\nIf any of these are no longer available, tell me straight up. And don't just send generic links or vague descriptions – I want specifics. Respond quickly.\r\n\r\nChevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Product Information Inquiry – Mixed Known and Unknown Items",
+      "description": "Customer requests information about a mix of catalog and non-catalog produce items, seeking details and availability, with some references relying on prior context.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Inquiry About Produce Availability and Details",
+        "body": "Hello,\r\n\r\nCould you please let me know which types of carrots you currently have available, and provide some details on each? Also, do you still carry the heirloom tomatoes we discussed last season? Additionally, I’d like information on your olives—specifically, what varieties are in stock and any differences between them.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Product Information Inquiry with Mixed Known and Unknown Items",
+      "description": "Sarah Johnson requests information about several products, including both catalog and non-catalog items, using context-dependent references and polite language. The inquiry includes a mix of broad category and specific product requests, with at least one item not present in the catalog.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Product Information Request",
+        "body": "Hello,\r\n\r\nCould you please provide me with details and availability for the following items? I’m looking for the same type of play mat you sent information about last quarter, as well as your current selection of T-Shirts (any colors or styles available). Also, do you still carry the EcoKids Wooden Train Set? I’d appreciate any product details and options you have for these.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Context-Dependent Product Information Inquiry with Partial Catalog Match",
+      "description": "A context-dependent customer requests information about several products, mixing catalog items with at least one unknown item, and uses informal, context-aware language. The request triggers a partial catalog match and requires the SOA to clarify which items are available and which are not.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quick question about some products",
+        "body": "Hi there,\r\n\r\nCould you send me info on the WonderWagon train (the one we talked about last time), and also let me know if you still carry the SuperFun Puzzle Kit? I’m also curious if you have any new types of soda in stock. Just looking to see what’s available before I decide.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Inquiry About T-Shirts and Play Mats",
+      "description": "The customer, Gabriel Henry, impatiently requests information about T-Shirts (without specifying which one) and Play Mats, relying on the agent to figure out the details. The request is context-dependent and curt, requiring the agent to clarify which T-Shirt is meant, as multiple are available.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Info on T-Shirts and Play Mats ASAP",
+        "body": "Can you just send me the details for your T-Shirts and that play mat you had before? I don’t have time to dig through your catalog. Are they still available or not? Make it quick.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Product Information Inquiry – Mixed Known and Unknown Items",
+      "description": "The customer requests information about several products, including both catalog items and at least one item that does not exist in the catalog, requiring the system to clarify which items are available and which are not.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Inquiry About Product Availability and Details",
+        "body": "Hello,\r\n\r\nWe are reviewing our product lineup and would like information on the following items:\r\n\r\n- Pizza (please let us know what varieties you currently offer)\r\n- Kalamata Olive\r\n- Rye Bread (is this still available?)\r\n- Soda (what sizes do you have in stock?)\r\n\r\nPlease provide details on availability and any relevant product information for each item. Thank you.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Goal-Directed Product Inquiry with Partial Catalog Match",
+      "description": "A polite, direct inquiry from Lanesra Merchs Inc. requesting information about several products, including both catalog and non-catalog items. The request is clear and goal-oriented, and includes a mixed known and unknown item inquiry to trigger a partial match response.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Product Information Request – Toys and Apparel",
+        "body": "Dear Sales Team,\r\n\r\nWe are looking to expand our offerings and would appreciate information on the following products:\r\n\r\n- GiggleGear Action Figures Set\r\n- MagicToyland Fairy Doll\r\n- WonderWagon Electric Train\r\n- SuperFun Plush Bear\r\n- Generic Golden T-Shirt\r\n\r\nCould you please confirm which of these items are currently available, provide relevant product details, and let us know if any are no longer carried?\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Product Information Inquiry with Mixed Known and Unknown Items",
+      "description": "Rachel Green sends an informal, direct inquiry asking for product information about a mix of known catalog items and at least one item that is not in the catalog. The request is clear and goal-oriented, and the email style is casual but business-appropriate.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Quick question about toys and puzzles you carry",
+        "body": "Hi there,\r\n\r\nI’m looking to get some info on a few products for an upcoming event. Can you tell me if you still carry the SmartToys Jigsaw Puzzle Set and the Kiddie Quest Adventure Puzzle? Also, do you have anything called the 'Mega Brain Teaser Cube'? I’ve heard about it but can’t find it on your site. If you have any other challenging puzzle games for kids, I’d love to hear about those too.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_product_information__product_information_returned__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Product Information Request with Partial Catalog Match",
+      "description": "A goal-directed, impatient customer requests information about several products, mixing catalog and non-catalog items, and expects a clear distinction between available and unavailable products.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need Info on Toy Trains and Play Rugs ASAP",
+        "body": "I don't have time for back and forth. Tell me if you still carry the WonderWagon Electric Train, the Playlandia Colorful Play Mat, and the 'SuperFun Express Train Set' (if you even have that). Also, what rugs do you have in stock right now? I need details, not just vague answers. Respond quickly.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

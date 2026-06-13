@@ -1,0 +1,702 @@
+{
+  "scenario_id": "localized_inquiry_quote_order_lifecycle",
+  "outcome_id": "default_language_lifecycle_completed",
+  "test_cases": [
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Availability Inquiry for Multiple Items",
+      "description": "The customer inquires about the availability of several catalog items, initiating the quote and order lifecycle in English. This is the first turn in a three-step process, following the required workflow for localized quote and order management.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Inquiry on Product Availability",
+        "body": "Hello,\r\n\r\nWe are interested in checking the availability of the following items for an upcoming promotion:\r\n\r\n- WonderWagon Electric Train\r\n- SmartToys Building Blocks\r\n- Rug (please confirm which designs or sizes are available)\r\n\r\nCould you please let us know if these items are currently in stock and available for ordering? If there are any minimum order quantities or lead times, please include those details as well.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Julie Smith",
+      "description": "A cooperative, polite customer inquiring about item availability in English, starting a lifecycle quote and order process.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Availability Inquiry for Several Items",
+        "body": "Hello,\r\n\r\nI would like to check the availability of a few items before requesting a quote. Could you please let me know if you currently have the following in stock:\r\n\r\n- WonderWagon Pull-Along Train\r\n- Organic Carrot\r\n- T-Shirt (I noticed there are several T-Shirts listed; could you clarify which styles or colors are available?)\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Availability Inquiry for Toys and Apparel",
+      "description": "The customer asks about the availability of several items, using the default English language. This is the first step in a localized quote and order lifecycle, with item descriptions remaining untranslated.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Checking Availability for a Few Items",
+        "body": "Hi there,\r\n\r\nI’d like to check if you have the following in stock:\r\n- Kiddie Quest Adventure Puzzle\r\n- T-Shirt (I’m not sure which one, but just looking for a basic T-Shirt from your catalog)\r\n- WonderWagon Electric Train\r\n\r\nCould you let me know if these are available? Thanks!\r\n\r\nBest,\r\nRachel Green\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Availability Inquiry for Multiple Items",
+      "description": "A curt, impatient customer inquires about the availability of several catalog items in English, initiating the localized quote/order lifecycle workflow.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Need Availability Info ASAP",
+        "body": "Hi,\r\n\r\nCan you tell me right away if you have the following in stock? I don't have time for delays. I need Generic Jeans, the WonderWagon Electric Train, and Pizza. Respond quickly.\r\n\r\nJim Schrute\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Maxo Mart",
+      "description": "Uncooperative customer inquiring about item availability in English, starting a quote/order lifecycle.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Availability Inquiry",
+        "body": "Can you tell me if you have Playlandia Colorful Play Mat and T-Shirt available? I need to know if both can be supplied. Thanks, Maxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "WonderToys Co. - Availability Inquiry for Multiple Items",
+      "description": "A polite, uncooperative customer from WonderToys Co. inquires about availability for several items, but leaves one item reference ambiguous, requiring clarification before proceeding to quote and order lifecycle.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Requesting Availability Information",
+        "body": "Hello,\r\n\r\nCould you please let me know if you have WonderWash Washing Machine and T-Shirt available? For the T-Shirt, I am not sure which one is currently in stock, so just let me know what you have. Also, I am interested in the JoySprout Toy Bicycle.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lyn Ventures",
+      "description": "Uncooperative customer inquiring about item availability in informal English, starting the quote/order lifecycle.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Checking stock for a few items",
+        "body": "Hi, can you tell me if you have Pizza and T-Shirt available right now? Also, I need a Rug but not sure which one you have. Let me know what’s in stock. Thanks, Lyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "KCF Sports - Impatient Availability Inquiry",
+      "description": "An impatient, uncooperative customer from KCF Sports inquires about item availability in English, referencing items from the catalog but using curt language.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Need Availability Info ASAP",
+        "body": "Just tell me if you have WonderWagon Pull-Along Train and T-Shirt in stock. Don't waste my time with extra details. Reply quickly.\r\n\r\nKCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Fresh Foods North Europe - Availability Inquiry",
+      "description": "A concise, neutral inquiry from Fresh Foods North Europe about the availability of several catalog items, starting the quote and order lifecycle in English.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Availability Inquiry",
+        "body": "Hello,\r\n\r\nPlease confirm if the following items are available:\r\n- Apples\r\n- Organic Carrot\r\n- Green Olive\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jean Dupont",
+      "description": "A concise, polite customer inquiring about item availability in English, starting a quote and order lifecycle.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Availability Inquiry",
+        "body": "Hello,\r\n\r\nCould you please let me know if you have Playlandia Colorful Play Mat and Pizza available? Thank you.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Fresh Foods North Europe",
+      "description": "Concise, informal inquiry about item availability in English, starting the quote/order lifecycle.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Quick check on item availability",
+        "body": "Hi, Can you let me know if you have Watermelon and Pizza in stock? Thanks, Fresh Foods North Europe\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise English Availability Inquiry, Rude/Impatient Tone",
+      "description": "A concise, impatient customer asks about availability of several items, using brief wording and minimal context. The email is in English, so item descriptions remain untranslated. This is the first turn in a lifecycle management flow.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Need stock info ASAP",
+        "body": "Are you actually in stock on WonderWagon Bicycle, Rasta Coffee Grinder, and T-Shirt? Reply quickly.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Toytopia - Initial Availability Inquiry for Quote Lifecycle",
+      "description": "A verbose customer email from Toytopia inquiring about the availability of several catalog items in English, establishing context for a quote and order lifecycle. The request is detailed, includes business context, and references specific catalog items using their display names. The email is neutral in tone and provides explicit context for the intended workflow.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Inquiry Regarding Product Availability for Upcoming Quote and Order",
+        "body": "Hello,\r\n\r\nThis is Toytopia reaching out to inquire about the current availability of several items, as we are planning to place an order soon and would like to request a quote based on your response. We are preparing for our upcoming seasonal inventory refresh, so timely information will help us coordinate our purchasing schedule.\r\n\r\nCould you please confirm whether the following products are available for immediate shipment:\r\n\r\n- WonderWagon Pull-Along Train\r\n- JoySprout Toy Car Set\r\n- SmartToys Jigsaw Puzzle Set\r\n- Generic Golden T-Shirt\r\n\r\nIf you could also provide any relevant details regarding lead times or minimum order quantities, that would be greatly appreciated. Once we have your availability confirmation, we will proceed to request a quote and finalize our order accordingly.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Fresh HelloFoods - Inquiry About Item Availability",
+      "description": "A verbose, polite customer from Fresh HelloFoods initiates an availability inquiry for several catalog items, providing extra context and requesting details for a potential quote/order lifecycle. The email is written in English, and item descriptions remain untranslated.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Inquiry Regarding Availability of Multiple Items for Upcoming Order",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are currently planning our next round of inventory replenishment and would like to inquire about the availability of several items listed in your catalog. Specifically, we are interested in the following:\r\n\r\n- T-Shirt (we noticed there are multiple T-Shirts in your catalog; could you please confirm which styles or variants are currently available?)\r\n- Organic Carrot\r\n- WonderWagon Bicycle\r\n- Pizza (we see multiple Pizza options; could you clarify which types are in stock?)\r\n\r\nWe would appreciate it if you could provide details regarding current stock levels, lead times, and any relevant information about these products. This will help us prepare for a quote request and subsequent order.\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose English Availability Inquiry for Multiple Items",
+      "description": "A verbose customer inquires about the availability of several catalog items in English, providing extra context and explanations, and using an informal tone.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Checking Availability for a Few Products",
+        "body": "Hey there,\r\n\r\nHope you're doing well! I'm planning a small event for our team and wanted to check on the availability of a few items before we move forward. Could you let me know if you currently have the following in stock and if there are any restrictions or lead times I should be aware of?\r\n\r\n- WonderWagon Electric Train (we're thinking of using this as a centerpiece for a kids' activity table)\r\n- Generic Golden T-Shirt (would love to know if you have a range of sizes, but for now just checking general availability)\r\n- Pizza (I see there are a couple listed—could you tell me if both are available, and if so, what the differences are?)\r\n\r\nIf you need any more details from my side, just let me know. Thanks a lot for your help!\r\n\r\nBest,\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Availability Inquiry for Multiple Items",
+      "description": "A verbose and impatient customer from German Cafe inquires about the availability of several items, providing extra context and expressing frustration with previous delays. The request is detailed and includes a clear expectation for a prompt response.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Availability Inquiry – Urgent Response Needed",
+        "body": "Hello,\r\n\r\nThis is German Cafe. I need to know, as soon as possible, whether you have the following items in stock and ready for immediate delivery. We have had issues with delayed responses in the past, so please don't waste time with unnecessary back-and-forth. I am listing the items below, and I expect a straightforward answer about their availability:\r\n\r\n- Pizza (I see there are several types, so just let me know which ones you actually have and how many are available – I don't have time to check item numbers myself)\r\n- Mango\r\n- T-Shirt (again, you seem to have more than one, so clarify which ones are in stock and what sizes you can offer)\r\n\r\nI need this information urgently for our next menu update and staff uniforms. Please reply promptly and don't make me chase you for basic details.\r\n\r\nGerman Cafe\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Toytopia - Availability Inquiry for Toy Sets and Puzzle",
+      "description": "Toytopia initiates an availability inquiry for several items, referencing catalog products by name and relying on standard English language. The request is context-dependent and neutral, setting up for a quote and order lifecycle.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Inquiry: Availability of Toy Sets and Puzzle",
+        "body": "Hello,\r\n\r\nCould you please let me know if the following items are currently available for purchase?\r\n\r\n- JoySprout Toy Car Set\r\n- SmartToys Fast Car Set\r\n- The educational puzzle from SmartToys (not sure if it's the Jigsaw Puzzle Set or another one—can you clarify which puzzle options are available?)\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Fresh Foods North Europe",
+      "description": "Polite English-language availability inquiry for multiple catalog items, context-dependent wording.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Inquiry on Item Availability",
+        "body": "Dear Sales Team,\r\n\r\nCould you please let us know if you currently have Apples and Watermelon available for shipment? Also, we are interested in your T-Shirt offering—could you confirm which styles or variants are in stock?\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Julie Smith",
+      "description": "Julie Smith is inquiring about item availability in English, using a context-dependent and informal style. She references items casually and expects the conversation to proceed in English with base item descriptions.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quick check on a few items",
+        "body": "Hi there,\r\n\r\nCan you let me know if you have the WonderWagon Pull-Along Train in stock? Also, I’m looking for T-Shirts—do you have any available right now? And if you have the JoySprout Toy Car Set, I’d like to know about that too.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Availability Inquiry for Multiple Items",
+      "description": "A context-dependent, impatient customer inquires about the availability of several items, referencing one ambiguously and expecting a quick response in English.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Need Availability Info ASAP",
+        "body": "Can you tell me right away if you have the WonderWagon Pull-Along Train and the T-Shirt in stock? I need the T-Shirt, but I’m not going to dig through your catalog to figure out which one—just the T-Shirt, you know which. Don’t make me wait for a long explanation, just let me know if you have these or not.\r\n\r\n-Lyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Availability Inquiry for Quote Lifecycle (English, Goal-Directed)",
+      "description": "A goal-directed customer inquires about the availability of specific catalog items in English, initiating the quote and order lifecycle. The request is clear and direct, using standard business language.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Availability Inquiry for Upcoming Order",
+        "body": "Hello,\r\n\r\nWe are preparing an order and would like to confirm the availability of the following items:\r\n\r\n- WonderWash Washing Machine\r\n- T-Shirt (please specify which styles are currently available)\r\n- Pizza\r\n\r\nPlease let us know if these items are in stock and can be quoted. Thank you.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "German Bakery",
+      "description": "A polite, goal-directed customer from German Bakery inquiring about item availability in English, beginning a quote and order lifecycle.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Inquiry Regarding Product Availability",
+        "body": "Dear Sales Team,\r\n\r\nWe are planning to refresh our bakery's menu and would like to inquire about the availability of the following items:\r\n\r\n- Pizza\r\n- Soda - Large\r\n- Apples\r\n\r\nCould you please confirm if these products are currently available for order? If so, we would appreciate details on pricing and lead times as well.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lanesra Merchs Inc. - Availability Inquiry for Toys and Apparel",
+      "description": "A goal-directed, informal initial inquiry from Lanesra Merchs Inc. about the availability of several catalog items, using clear product references and casual language. This sets up the lifecycle flow for quote and order, with item descriptions remaining in English as per the scenario.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Checking Availability for Toy and Apparel Items",
+        "body": "Hi there,\r\n\r\nWe’re looking to place an order soon and wanted to check if you currently have the following items in stock:\r\n\r\n- MagicToyland Fairy Doll\r\n- T-Shirt (can you let us know which styles or colors are available?)\r\n- GiggleGear Action Figures Set\r\n\r\nLet me know if these are ready to ship and any details we should know before requesting a quote.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    },
+    {
+      "case_id": "localized_inquiry_quote_order_lifecycle__default_language_lifecycle_completed__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Availability Inquiry for Multiple Items",
+      "description": "A goal-directed customer impatiently asks about the availability of several items, using curt language and making the business intent clear. The request is in English, and the customer expects a prompt response.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Need Availability Info ASAP",
+        "body": "I don't have time for back-and-forth. Tell me right now if you have the following in stock: Kiddie Quest Adventure Kit, Pizza, and T-Shirt. I need to know today. Respond quickly.\r\n\r\nTom Martinez\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "approve_existing_quote_or_order",
+        "trigger": "only_if_soa_requests_customer_followup",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "customer_follow_up_must_reference_items_offered_in_previous_soa_reply",
+          "customer_follow_up_should_use_same_language_as_previous_exchange",
+          "quote_and_order_emails_must_preserve_localized_item_descriptions"
+        ]
+      }
+    }
+  ]
+}

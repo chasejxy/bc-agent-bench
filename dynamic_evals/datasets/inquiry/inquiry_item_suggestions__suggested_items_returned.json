@@ -1,0 +1,606 @@
+{
+  "scenario_id": "inquiry_item_suggestions",
+  "outcome_id": "suggested_items_returned",
+  "test_cases": [
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Product Inquiry with Partial Match and Attribute-Based Request",
+      "description": "The customer requests a specific catalog item and also describes another desired product in general terms, prompting the SOA to suggest matching or alternative items.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Inquiry About T-Shirts and a Special Rug",
+        "body": "Hello,\r\n\r\nWe are interested in ordering some T-Shirts (please let us know what styles or colors you have available). Additionally, we are looking for a large, patterned rug suitable for a kids' play area—do you have anything like that? Please suggest any items that might fit these needs.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Toytopia",
+      "description": "A polite inquiry from Toytopia requesting suggestions for toys, including one item that cannot be matched directly to the catalog.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Inquiry About Toy Products and Suggestions",
+        "body": "Hello,\r\n\r\nWe are looking to expand our toy selection and would appreciate your recommendations. Specifically, we are interested in the GiggleGear Action Figures Set and also wondering if you carry any \"SuperHero Playsets\" suitable for ages 5-8. If you have other toy sets or play kits that are popular with this age group, please let us know.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Cooperative customer requests item suggestions with partial matches and descriptive inquiry",
+      "description": "A cooperative customer sends an informal email asking about specific items and also describes a desired product that cannot be directly matched to the catalog, prompting the SOA to suggest alternatives.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Looking for a few items and some suggestions",
+        "body": "Hi there,\r\n\r\nI'm putting together a list for our upcoming event and wanted to check if you can help me out. I'm interested in getting a few T-Shirts (not sure which style would be best, so any suggestions are welcome), and also looking for a play mat that's extra thick for kids' activities—do you have anything like that? If you could let me know what options you have for both, that'd be great!\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Rasmus Delaney",
+      "description": "Cooperative customer making an impatient inquiry about available items, including both catalog and non-catalog references, requiring item suggestions.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Need item suggestions ASAP",
+        "body": "I don't have time to dig through your catalog. I need a couple of things: First, send me options for a Rug—whatever you have, just list them. Second, do you carry any blue jeans? If so, tell me which ones. If not, suggest something similar. Hurry up and reply, please.\r\n\r\nRasmus Delaney\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "French Bakery",
+      "description": "French Bakery requests item suggestions, mentioning one catalog item and one unmatchable item.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Inquiry About Products for Bakery Supplies",
+        "body": "Hello,\r\n\r\nWe are looking for some items for our bakery. Could you let us know if you have any pizza dough available? Also, we need apples for our recipes—please confirm if you carry those and suggest similar fruits if possible.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Inquiry about toys and a non-catalog item",
+      "description": "The customer requests suggestions for a toy train and also asks about a 'Super Racer Car Set', which does not exist in the available catalog. The request is polite but does not provide enough detail for the system to create a quote, and includes an unmatchable item to trigger alternative suggestions.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Toy Recommendations Needed",
+        "body": "Hello,\r\n\r\nCould you please suggest some options for a toy train suitable for young children? Also, do you carry the Super Racer Car Set? I’m interested in seeing what you have available for both.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Jessica Stone",
+      "description": "Jessica sends an informal inquiry asking about a specific catalog item and also requests suggestions for a vaguely described product, reflecting an uncooperative persona.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Looking for a couple items and suggestions",
+        "body": "Hey, I wanted to ask if you have the WonderWagon Bicycle available. Also, do you carry any toys that are good for kids who like puzzles and building stuff? Not sure about the exact name, just looking for something fun in that area. Let me know what you have. Thanks, Jessica Stone\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "French Cafe - Impatient Product Inquiry with Partial Matches",
+      "description": "The customer requests information about products, mentioning one catalog item and one item that does not exist in the catalog, using impatient and curt wording. The request requires the system to suggest matching items and alternatives.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Need Product Info ASAP",
+        "body": "Just tell me if you have Apples and some kind of fresh croissants. I don't have time to dig through your catalog, so make it quick. French Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Toytopia - Concise Product Inquiry with Partial Match and Attribute-Based Request",
+      "description": "A concise customer email from Toytopia requesting suggestions for a toy bicycle and a 'classic train set', with one item matching the catalog and the other requiring alternative suggestions.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Product Suggestions Needed",
+        "body": "Please suggest options for a toy bicycle and a classic train set for kids. Looking for something durable and suitable for ages 5-8.\r\n\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise Product Inquiry with Partial Match and Attribute Description",
+      "description": "A concise and polite customer email requesting a specific catalog item and describing another desired item in general terms, triggering item suggestions.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Product Inquiry",
+        "body": "Hello,\r\n\r\nCould you provide details on the WonderWagon Bicycle? Also, do you have any eco-friendly cleaning supplies?\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise inquiry about toys and unavailable item",
+      "description": "A brief, informal request from Jim Schrute asking about a specific catalog toy and a non-catalog item, prompting the agent to confirm the match and suggest alternatives.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Toy options?",
+        "body": "Hey, can you tell me if you have the WonderWagon Electric Train and also any kind of remote control helicopter? Thanks, Jim\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Concise, Impatient Product Inquiry with Partial Match and Alternative Request",
+      "description": "A brief, impatient customer email requesting information about a specific catalog item and a non-catalog item, prompting the agent to suggest matching and alternative products.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Need info on toys ASAP",
+        "body": "Send details for SmartToys Fast Car Set. Also, do you have any remote control helicopters? Don’t waste time with long replies.\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Verbose inquiry for matching and alternative items",
+      "description": "A verbose customer email from Maxo Mart requesting information about specific items, including one that is not in the catalog and a descriptive request for a product based on attributes. The request includes detailed context and explanations, and requires the SOA to suggest matching and alternative items without creating a quote.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Product Inquiry: Carrots, Play Mats, and Specialty Olives",
+        "body": "Hello,\r\n\r\nI am reaching out to gather some information about a few products for our upcoming seasonal promotion. We are looking to feature a variety of items, and I would appreciate your recommendations based on the following:\r\n\r\n1. We are interested in purchasing carrots, specifically both the standard and organic varieties. I see you offer 'Carrot' and 'Organic Carrot'—could you clarify the differences between these two, and let me know if there are any other carrot options available, such as heirloom or rainbow carrots?\r\n\r\n2. For our children's section, we are searching for a colorful play mat that is durable and easy to clean. I noticed the 'Playlandia Colorful Play Mat' in your catalog, but if you have other mats or similar products with vibrant designs or additional features, please let us know.\r\n\r\n3. We would also like to include Kalamata olives in our gourmet food selection. However, we are specifically looking for a 'Mediterranean Olive Mix'—do you carry this, or can you suggest alternatives from your olive offerings?\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose inquiry for toy vehicles and alternatives",
+      "description": "A verbose, polite customer email from Toytopia requesting information about specific toy vehicles, including a matchable item and an unmatchable item, and asking for suggestions for alternatives. The request includes detailed context and explanations, reflecting the verbose persona.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Inquiry: Toy Vehicle Options and Suggestions",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are currently reviewing our inventory for the upcoming holiday season and are interested in expanding our selection of toy vehicles. Specifically, I would like to inquire about the WonderWagon Pull-Along Train, as it has been recommended to us by several customers for its durability and engaging design. Could you please provide more information about this item, such as its features, recommended age range, and any available variants?\r\n\r\nAdditionally, we are searching for a 'Toy Helicopter' to add to our assortment, but I was unable to locate this item in your catalog. If you do offer any toy helicopters or similar aerial vehicles, I would greatly appreciate details or suggestions for alternative products that might fulfill this need. Our goal is to provide a diverse range of transportation-themed toys, so any recommendations for items that fit this category would be very helpful.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose inquiry about toys and clothing with unclear item reference",
+      "description": "A verbose customer email from Super Retail requesting suggestions for a toy train and 'fun summer shirts', where the train request is ambiguous and the shirt request is descriptive, inviting item suggestions.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Looking for Toy Train Options & Fun Summer Shirts",
+        "body": "Hey there,\r\n\r\nI’m reaching out because we’re updating our kids’ section and want to add some new items. First off, we’re interested in getting a toy train for our display—something that’s colorful and engaging for younger children. I’m not sure about the exact brand or model, but ideally it would be something that’s interactive or maybe even battery-powered, if you have those. Could you let me know what options you have that fit the bill?\r\n\r\nAlso, we’re looking to stock up on some fun summer shirts for kids—bright colors, playful designs, that sort of thing. I’m not tied to a specific style or brand, just looking for shirts that would stand out for the summer season. If you could suggest a few options from your catalog, that would be awesome!\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Inquiry with Partial Item Match and Descriptive Request",
+      "description": "A verbose, impatient customer requests information about a specific item from the catalog and also describes another item in vague terms, requiring the agent to suggest alternatives.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Item Suggestions ASAP",
+        "body": "Hi,\r\n\r\nI don't have time to dig through your entire catalog, so let's make this quick. First, I want details on your WonderWagon Pull-Along Train—what's the deal with it, and is it actually worth considering? And, I need something like a 'kids play tent'—not sure if you even carry those, but I want something that can be used for indoor play, preferably colorful and easy to set up. If you don't have a tent, suggest whatever comes closest, but don't waste my time with irrelevant stuff.\r\n\r\nGive me clear info and options, and spare me the marketing fluff.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Michael Reyes",
+      "description": "Context-dependent customer requesting item suggestions, referencing prior context and using partial matches and descriptive requests.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Inquiry About Toy Vehicles and Play Mats",
+        "body": "Hi,\r\n\r\nI’m looking for the toy bicycle you mentioned previously, as well as a play mat similar to the one we discussed last month. Also, do you have any colorful toy cars for younger kids? Please let me know which options you have available for these items.\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Inquiry for Toy Recommendations and Alternatives",
+      "description": "Rachel Green asks for suggestions on a specific toy bicycle and a non-catalog item, relying on context and requesting alternatives for an unmatchable item.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Toy Bicycle and Train Set Recommendations",
+        "body": "Hello,\r\n\r\nCould you please let me know if you have the same type of toy bicycle we discussed last time? Also, I’m looking for a wooden train set suitable for toddlers—do you have anything like that or can you suggest alternatives?\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Playlandia",
+      "description": "Customer from Playlandia requests item suggestions, referencing prior context and using both partial matches and descriptive requests.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Looking for Toy Suggestions & Alternatives",
+        "body": "Hey there,\r\n\r\nWe’re looking to restock some toys and play items. Can you suggest options similar to the train set we got last time? Also, do you have any colorful mats or something like a play rug for kids? Not sure if the ones listed as 'Rug' are the same as what we had before, so would appreciate some recommendations.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient inquiry with vague and partial product references",
+      "description": "The customer, Michael Reyes, writes an impatient and curt email asking about a specific toy set by a partial name and also requests a generic 'kids adventure kit', which is ambiguous. The email references a matchable catalog item and an under-specified item, triggering the need for item suggestions and clarification.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Need info on toy sets ASAP",
+        "body": "Can you just tell me if you have the Fast Car Set in stock? Also, I need a kids adventure kit—whatever that one is called. Don’t make me wait for a long back-and-forth, just send me what matches.\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "WonderToys Co. - Product Inquiry with Partial Match and Attribute-Based Request",
+      "description": "A goal-directed customer from WonderToys Co. requests information about specific items, including one that is not in the catalog and another described by attributes, prompting the SOA to suggest matching and alternative items.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Inquiry: Toy Train and Educational Puzzle Recommendations",
+        "body": "Hello,\r\n\r\nWe are looking to expand our toy offerings and would like your suggestions. Specifically, we are interested in a pull-along toy train, and we noticed the 'WonderWagon Pull-Along Train' in your catalog. Could you provide more details about this item and any similar alternatives?\r\n\r\nAdditionally, we are searching for an educational puzzle set suitable for ages 3-6, preferably with colorful pieces and a focus on problem-solving. If you have any recommendations or options that fit this description, please let us know.\r\n\r\nLastly, do you carry a 'SmartToys Puzzle Board'? We couldn't find it in your catalog but would appreciate any comparable products you offer.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Jim Schrute",
+      "description": "A goal-directed customer politely inquires about available products, requesting suggestions for both a specific item and a broadly described item.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Product Inquiry: Rug and Play Mat Recommendations",
+        "body": "Hello,\r\n\r\nI am interested in purchasing a rug for a children's playroom. I noticed you have several rugs listed—could you please recommend which ones are best suited for kids? Additionally, I'm looking for a soft, colorful play mat for toddlers, but I couldn't find one specifically matching that description in your catalog. Could you suggest any available items or alternatives that would fit this need?\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Product Inquiry with Partial Match and Attribute-Based Request",
+      "description": "Rachel Green sends an informal email asking about a specific catalog item and also requests suggestions for a product described by attributes, which does not directly match any catalog item. The request is clear and direct, making her goal easy to identify.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Looking for a Rug and a Soft Play Mat",
+        "body": "Hi there,\r\n\r\nI'm interested in getting a Rug for our playroom—could you let me know which options you have available? Also, I'm looking for something soft and cushioned for kids to sit on, maybe a large play mat or something similar. If you have anything like that, please send me some suggestions.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "inquiry_item_suggestions__suggested_items_returned__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Request for Toy Car Set and Unmatched 'Super Racer Car'",
+      "description": "The customer requests a specific catalog item (JoySprout Toy Car Set) and also asks about a non-catalog item ('Super Racer Car'), expressing impatience and expecting suggestions for alternatives.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Need Toy Car Set and Info on Super Racer Car",
+        "body": "I need a quote for the JoySprout Toy Car Set. Also, do you carry the Super Racer Car or something similar? Don’t waste my time with irrelevant suggestions—just tell me what matches or comes close. Respond quickly.\r\n\r\nGabriel Henry\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

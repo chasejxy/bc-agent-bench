@@ -1,0 +1,606 @@
+{
+  "scenario_id": "direct_order_request",
+  "outcome_id": "order_request_received",
+  "test_cases": [
+    {
+      "case_id": "direct_order_request__order_request_received__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "KCF Sports - Direct Order Request for Toys and Delivery",
+      "description": "A cooperative customer from KCF Sports submits a direct order request for several catalog items, specifying quantities, a delivery date, and a PO number. The request is clear and business-relevant, reflecting a neutral tone and cooperative persona.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Order Request – Toys and Delivery Details",
+        "body": "Hello,\r\n\r\nWe would like to place an order for the following items:\r\n\r\n- 10 sets of JoySprout Toy Car Set\r\n- 5 units of WonderWagon Pull-Along Train\r\n- 8 sets of AdventureCraft Building Blocks\r\n\r\nPlease arrange delivery by July 15th, and reference PO number KCF-2024-07 in all documents.\r\n\r\nLet us know if you need any further information to process this order.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Direct Order Request with PO and Delivery Date",
+      "description": "A cooperative customer sends a polite direct order request, specifying quantities, a PO number, and a preferred delivery date.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Order Request – PO 45892, Delivery by June 20",
+        "body": "Dear Sales Team,\r\n\r\nI would like to place an order for the following items:\r\n\r\n- 3 units of WonderWagon Electric Train\r\n- 10 Mango\r\n- 2 sets of SmartToys Building Blocks\r\n\r\nPlease process this order under PO number 45892. If possible, I would appreciate delivery by June 20th. Let me know if you need any further details or if there are forms I should complete.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Direct Order Request for Toys and Play Mat",
+      "description": "A cooperative customer from Playlandia places a direct order for several catalog items, specifying quantities and a delivery date, and provides a PO number. The tone is informal and friendly.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Order Request – PO# 4589, Delivery Next Week",
+        "body": "Hi there,\r\n\r\nWe’d like to place an order for the following items:\r\n\r\n- 10x JoySprout Toy Car Set\r\n- 5x Playlandia Colorful Play Mat\r\n- 8x MagicToyland Adventure Doll\r\n\r\nPlease deliver these to our usual address by the end of next week if possible. Our PO number for this order is 4589.\r\n\r\nLet me know if you need anything else from our side!\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Toytopia Direct Order Request - Rude/Impatient",
+      "description": "A direct order request from Toytopia, written in a curt and impatient tone, specifying quantities, delivery date, and PO number for several catalog items.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Order Request - PO 2024-TOYTOPIA-17",
+        "body": "I need the following shipped by next Friday. PO number is 2024-TOYTOPIA-17. Don’t waste time with unnecessary emails, just process this ASAP:\r\n\r\n- 50 AdventureCraft Building Blocks\r\n- 30 JoySprout Toy Car Set\r\n- 20 SmartToys Jigsaw Puzzle Set\r\n\r\nSend confirmation when the order is placed. Toytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Chevy Toys direct order request for multiple items",
+      "description": "Chevy Toys submits a direct order request for several catalog items, specifying quantities, delivery date, and PO number. The request is business-relevant and does not require annotation.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Order Request – PO# 4827, Delivery by July 15",
+        "body": "Please process an order for the following items:\r\n\r\n- 10 units of JoySprout Toy Bicycle\r\n- 20 T-Shirts (please confirm available sizes)\r\n- 5 WonderWagon Bicycle\r\n\r\nPO number is 4827. We need delivery by July 15. Let me know if you need anything else.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Direct Order Request with Uncooperative Clarification Style",
+      "description": "Larry King sends a polite direct order request for several catalog items, including a T-shirt without specifying which variant, and requests delivery by a certain date with a PO number. The request is business-relevant and does not resolve ambiguity for the T-shirt line, reflecting the uncooperative persona.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Order Request – PO 4589, Delivery Needed by July 10",
+        "body": "Hello,\r\n\r\nPlease process an order for the following items:\r\n\r\n- T-Shirt, 20 units\r\n- JoySprout Toy Car Set, 5 units\r\n- Soda - Medium, 12 units\r\n\r\nWe need delivery by July 10. Our PO number is 4589.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "German Cafe direct order request with informal tone",
+      "description": "German Cafe sends a casual direct order request for several catalog items, including delivery date and PO number. The request is business-relevant and does not require annotation.",
+      "sender_name": "German Cafe",
+      "sender_email": "contact@germancafe.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germancafe.de",
+        "subject": "Order Request - PO 4589",
+        "body": "Hey, we’d like to place an order for the following:\r\n\r\n- 2 boxes of Rasta Coffee Beans\r\n- 1 WonderWagon Pull-Along Train\r\n- 10 T-Shirts (can you send the available styles?)\r\n\r\nPlease deliver by July 15th if possible. PO number is 4589. Let me know if you need anything else.\r\n\r\nBest regards,\r\nGerman Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Chevy Toys Direct Order Request - Rude/Impatient, Uncooperative",
+      "description": "Chevy Toys sends a curt, impatient direct order request for several items, including delivery date and PO number, with an uncooperative tone.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Order Request – PO 4527, Need Delivery Next Week",
+        "body": "Just place this order for us ASAP. PO number is 4527. We need delivery by next week, so don’t waste time. 10 units of AdventureCraft Building Blocks, 5 of Pizza (and yes, I mean the regular Pizza, figure it out), and 3 WonderWash Washing Machines. Make sure it’s processed quickly. Chevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Direct Order Request for Toys and Delivery Date",
+      "description": "A concise customer email requesting to place a direct order for specific catalog items, including quantities, a delivery date, and a PO number.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Order Request – PO 4589",
+        "body": "Please process an order for the following: 10x SmartToys Building Blocks, 5x Kiddie Quest Adventure Puzzle. Delivery needed by July 18. PO number is 4589.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise direct order request with polite tone",
+      "description": "A brief, polite email from Danish Pastry placing a direct order for multiple catalog items, including delivery date and PO number.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Order Request – PO 3478",
+        "body": "Hello,\r\n\r\nPlease process an order for the following:\r\n- 10 x WonderWagon Pull-Along Train\r\n- 20 x Pizza (AITEM-0050)\r\n- 15 x Apples\r\n\r\nDelivery requested by July 10. PO number: 3478.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Direct Order Request for Toys and Accessories",
+      "description": "A concise, informal direct order request email from Chevy Toys, specifying product names, quantities, a delivery date, and a PO number.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Order Request - PO 4567",
+        "body": "Hi,\r\n\r\nWe’d like to place an order:\r\n- 10x JoySprout Toy Car Set\r\n- 5x Playlandia Colorful Play Mat\r\n- 12x T-Shirt (please use the same style as last time)\r\n\r\nPlease deliver by July 12. PO number is 4567. Let me know if you need anything else.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Direct Order Request - Concise and Impatient",
+      "description": "A concise, impatient direct order request from KCF Sports, including quantities, PO number, and a delivery date.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Order Needed ASAP - PO 4521",
+        "body": "Send 10 WonderWagon Bicycles and 5 Rasta Coffee Grinders. PO 4521. Deliver by Friday. Don’t delay.\r\n\r\nKCF Sports\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Direct Order Request with Detailed Context",
+      "description": "A verbose customer sends a direct order request, including delivery timing and PO number, and provides extra context about their needs.",
+      "sender_name": "Jim Schrute",
+      "sender_email": "jim_s@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jim_s@lyn_ventures.us",
+        "subject": "Order Request for Multiple Items – PO# 4589, Delivery Needed by July 15",
+        "body": "Hello,\r\n\r\nI am writing to place a direct order for several items needed for our upcoming summer event. Please reference PO# 4589 for this purchase. We would appreciate delivery by July 15, as our team will be preparing the venue starting July 17.\r\n\r\nHere are the items we require:\r\n- 3 units of Kiddie Quest Bicycle\r\n- 5 Playlandia Colorful Play Mats (these will be used in our children's activity area)\r\n- 2 WonderWagon Pull-Along Trains\r\n- 10 T-Shirts (we need a mix of sizes for volunteers, but please let me know what sizes are available so we can specify)\r\n- 1 Rug (for the main entrance, please advise on available color options)\r\n\r\nIf there are any questions regarding the items or delivery timeline, please let me know. We are looking forward to your confirmation and any additional details you may need from our side.\r\n\r\nBest regards,\r\nJim Schrute"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Polite Verbose Direct Order Request with PO and Delivery Date",
+      "description": "A verbose and polite customer sends a direct order request via email, specifying products, quantities, a purchase order number, and a preferred delivery date, while providing additional business context and explanations.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Direct Order Request – PO #TT-2024-0612, Requested Delivery by July 5th",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. I am writing to place a direct order on behalf of Toytopia’s retail division, as we are preparing for our upcoming summer promotional event and need to replenish several of our fast-moving items. Please find the details of our order below:\r\n\r\n- MagicToyland Adventure Doll – 25 units\r\n- SmartToys Building Blocks – 15 units\r\n- T-Shirt – 40 units (We have previously ordered different styles from your catalog, so please include a mix of available options. If you need clarification on which T-Shirt variants are currently in stock or most suitable for children ages 6–10, please let me know.)\r\n- WonderWagon Pull-Along Train (Item No: AITEM-0001) – 10 units\r\n\r\nFor your reference, our internal purchase order number for this transaction is TT-2024-0612. We would greatly appreciate it if you could arrange delivery to our main warehouse by July 5th, as this will allow us sufficient time to prepare for the event launch. If there are any issues with the requested delivery timeline or if you require further details regarding product specifications, please do not hesitate to reach out.\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Direct Order Request with Delivery Date and PO Number",
+      "description": "A verbose, informal direct order request from Dunder Mifflin, specifying quantities, a delivery date, and a PO number for catalog items.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Placing an Order – PO 4589, Delivery Next Week",
+        "body": "Hey there,\r\n\r\nHope you’re doing well! We’re gearing up for a team event at the office and need to place an order directly (no need for a quote this time). Here’s what we’re looking for:\r\n\r\n- 3x Pizza (we’ll need a mix of types, so please include a variety if possible)\r\n- 2x Soda - Medium\r\n- 1x WonderWash Washing Machine (for the break room, finally upgrading!)\r\n\r\nWe’d like everything delivered by next Wednesday if that’s doable. Please use PO number 4589 for this order. If you need any more info or run into any issues with the delivery date, just let me know.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Direct Order Request for Multiple Items with Delivery Date and PO",
+      "description": "A verbose, impatient customer sends a direct order request for several catalog items, specifying quantities, a delivery date, and a PO number, while expressing frustration with delays and providing excessive context.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Placing an Order – Immediate Processing Required (PO 4589)",
+        "body": "I don't have time for endless back-and-forth, so let's get this order moving right away. Please process the following items under PO 4589 and confirm delivery by next Friday (June 14). This is for our Toytopia summer promo, which I already mentioned in my last three emails, so I expect you to have the details on file.\r\n\r\nOrder details:\r\n- 10 units of the WonderWagon Pull-Along Train\r\n- 15 T-Shirts (we need a mix of sizes, but just send what you have in stock – I can't waste more time specifying every detail)\r\n- 5 Rasta Drip Coffee Makers for the staff lounge\r\n\r\nIf you need anything else, keep it brief. I expect a confirmation and delivery schedule ASAP.\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Direct Order Request with Context Reference",
+      "description": "The customer sends a direct order request, referencing prior context for one item and providing standard order details, including a delivery date and PO number.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Order Request – PO 4589, Delivery by July 10",
+        "body": "Hello,\r\n\r\nWe would like to place an order as discussed previously. Please include the same type of Rug we ordered last time (quantity: 2), and add 5 units of the WonderWash Washing Machine. Delivery is needed by July 10. Our PO number for this order is 4589.\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Direct Order Request with Contextual Reference",
+      "description": "A polite, context-dependent direct order request referencing a previous conversation, including a PO number and delivery date.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Order Request – PO #KCF-2024-07",
+        "body": "Hello,\r\n\r\nFollowing up on our recent discussion, we would like to place an order for the same T-Shirts as before (the ones we ordered last quarter), quantity 60. Additionally, please include 10 units of the SmartToys Fast Car Set. We would appreciate delivery by July 15th if possible. Please use PO #KCF-2024-07 for this order.\r\n\r\nLet me know if you need any further details.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Direct Order Request with Contextual Reference",
+      "description": "A context-dependent customer sends a direct order request, referencing a previous conversation for one of the items and providing a PO number and delivery date.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Order for T-Shirts and Building Blocks",
+        "body": "Hey team,\r\n\r\nCan you please process an order for the same T-Shirts we got last time (need 30 of those), plus 10 sets of the SmartToys Building Blocks? Please deliver by next Friday if possible. PO number is 4589-LK.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Direct Order Request with Contextual Reference",
+      "description": "A customer sends a curt, impatient direct order request referencing prior context for one item and specifying delivery and PO details, but does not restate all item details explicitly.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@super-retail.net",
+        "subject": "Order Request – Need Fast Processing",
+        "body": "Just place the order already. I need another batch of the train we discussed last week—make sure it's the same one, not the other version. Also, add 10 SmartToys Fast Car Sets. Deliver by Friday, and use PO #SR-2024-07. Don't waste time asking for more details.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Direct Order Request for Multiple Items with Delivery Date and PO",
+      "description": "A goal-directed customer sends a clear, neutral email requesting to place an order for several catalog items, specifying quantities, a delivery date, and a PO number.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Order Request – PO FFNE-2024-06",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to place an order for the following items:\r\n\r\n- Organic Carrot: 200 kg\r\n- Green Olive: 50 kg\r\n- Apples: 100 kg\r\n\r\nPlease arrange delivery for June 20, 2024. Our purchase order number is FFNE-2024-06.\r\n\r\nLet us know if you need any further information.\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "French Cafe - Direct Order Request for Multiple Items",
+      "description": "A polite, goal-directed customer email from French Cafe requesting a direct order for several catalog items, specifying quantities, delivery date, and PO number.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Order Request – PO FC-2024-06",
+        "body": "Dear Sales Team,\r\n\r\nWe would like to place an order for the following items:\r\n\r\n- 20 units of Chili Pepper\r\n- 10 units of WonderWash Washing Machine\r\n- 15 units of SmartToys Fast Car Set\r\n\r\nPlease arrange delivery by June 20th, and reference our PO number FC-2024-06. If you require any further information, please let me know.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Goal-Directed Informal Direct Order Request",
+      "description": "A customer sends a clear, informal email requesting to place an order for specific catalog items, including delivery timing and PO number.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Order Request - Rugs and Pizza",
+        "body": "Hi there,\r\n\r\nI'd like to place an order for the following:\r\n- 2 Rugs (AITEM-0030)\r\n- 5 Pizza (AITEM-0051)\r\n\r\nPlease deliver by next Friday if possible. Our PO number is DP-2024-07.\r\nLet me know if you need anything else from me.\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "direct_order_request__order_request_received__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Impatient Direct Order Request for Produce and Delivery",
+      "description": "A goal-directed, impatient customer sends a curt email requesting a direct order for several produce items, specifies a delivery date and PO number, and expects fast processing.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Order Request – Immediate Processing Needed",
+        "body": "I need to place an order for the following: 50kg Apples, 30kg Carrot, 20kg Mango. Deliver everything by Friday, and use PO #FF-2024-07. Don’t waste time with unnecessary back-and-forth. Confirm ASAP.\r\n\r\nMr. Fresh Foods\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

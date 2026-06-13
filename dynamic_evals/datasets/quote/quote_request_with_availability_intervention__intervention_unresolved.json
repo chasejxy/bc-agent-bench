@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_availability_intervention",
+  "outcome_id": "intervention_unresolved",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Unavailable Item - Cooperative, Neutral",
+      "description": "A cooperative customer requests a quote for an item that is not in the catalog, triggering an intervention. The request is clear and professional, but includes a product that cannot be matched to the available items.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote: Ski Helmet and Adventure Doll",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Ski Helmet (adult size)\r\n- MagicToyland Adventure Doll\r\n\r\nPlease let me know if you need any additional information. Thank you!\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "The customer requests a quote for one available catalog item and one item that does not exist in the catalog, triggering an intervention due to the unresolvable item reference.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Request for Quote: Coffee Grinder and Deluxe Office Chair",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- Rasta Coffee Grinder\r\n- Deluxe Office Chair (ergonomic model, black)\r\n\r\nIf you need any further details, please let me know. Thank you for your assistance.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Unavailable and Available Items",
+      "description": "Customer requests a quote for one item not present in the catalog (triggers intervention) and another item that is available.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Quote Request for Items",
+        "body": "Hey there,\r\n\r\nCan you send me a quote for the following?\r\n- Fresh Dragonfruit (need 10 units)\r\n- Apples (20 units)\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Unavailable Item Quote Request - Intervention Unresolved",
+      "description": "A cooperative but impatient customer requests a quote for an item that is not in the catalog, triggering an intervention that cannot be resolved. The request also includes a valid catalog item for context.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request – Need Pricing ASAP",
+        "body": "Send me a quote for the WonderWagon Scooter and also for the Playlandia Colorful Play Mat. I need this handled quickly, so don’t waste time with unnecessary questions. If you can’t quote the scooter, let me know immediately.\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote request for unavailable and catalog items",
+      "description": "Sarah Johnson requests a quote for an item that is not present in the catalog, alongside a valid catalog item. The request for the unavailable item triggers an intervention, as it cannot be matched or quoted.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request: Toyland Deluxe Doll and MagicToyland Fairy Doll",
+        "body": "Hello,\r\n\r\nI would like a quote for the following items:\r\n- Toyland Deluxe Doll\r\n- MagicToyland Fairy Doll\r\n\r\nPlease include pricing and availability for both. Thank you.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable and Available Items",
+      "description": "Customer requests a quote for one item that is not in the available catalog (triggers intervention), along with a valid catalog item.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- Organic Pineapple (need 10 units)\r\n- Watermelon (5 units)\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Unavailable Item",
+      "description": "The customer requests a quote for an item that is not available in the catalog, triggering an intervention. The request is direct and informal, reflecting an uncooperative persona.",
+      "sender_name": "Rasmus Delaney",
+      "sender_email": "rd@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rd@kcf.com",
+        "subject": "Need a quote for Playlandia Deluxe Playhouse",
+        "body": "Hey, can you send me a quote for the Playlandia Deluxe Playhouse? Also, throw in a GiggleGear Action Figures Set. Thanks.\r\n\r\nRasmus Delaney\r\n\r\nBest regards,\r\nRasmus Delaney"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "The customer requests a quote for an item that is not in the catalog (triggers intervention), along with a valid catalog item. The tone is impatient and curt, and the customer is uncooperative.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the WonderWagon Deluxe Train and also add 2 units of Pizza. Don't waste time with back-and-forth, just get it done.\r\n\r\n-Maxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Unavailable Item",
+      "description": "Customer requests a quote for an item that is not in the available catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Request for Quote",
+        "body": "Please send me a quote for the WonderWagon Deluxe Train Set. Also, include pricing for the SmartToys Fast Car Set.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable Item (Intervention Required)",
+      "description": "A concise and polite customer requests a quote for an item that is not in the available catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for 2 units of the Deluxe Office Paper Shredder? Also, include pricing for 5 packs of Generic Jeans.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote request for unavailable and catalog item",
+      "description": "A concise customer requests a quote for one catalog item and one item that does not exist in the catalog, triggering an intervention due to the unavailability of the unknown item.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request",
+        "body": "Hi, can you send me a quote for the WonderWagon Mountain Bike and a T-Shirt (Item No: AITEM-0025)? Thanks, Tom Martinez (Home)\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Jakob Kuhs - Quote Request for Unavailable Item",
+      "description": "Jakob Kuhs requests a quote for an item that does not exist in the catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for your Deluxe Pizza Oven. Also, add 2 Pizza (Item No: AITEM-0052). Don’t waste time with unnecessary questions.\r\n\r\nJakob Kuhs\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "A verbose customer requests a quote for a mix of catalog items and at least one item that does not exist in the available catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Request for Quote: Toy Sets and Special Edition Train",
+        "body": "Hello,\r\n\r\nI am reaching out to request a formal quote for several items we are considering for our upcoming promotional event. For context, we are planning a themed giveaway and would like to include a variety of toys and related products. Please include pricing, availability, and estimated delivery times for the following:\r\n\r\n- 10 units of the SmartToys Building Blocks (these are always popular with our younger customers).\r\n- 5 units of the WonderWagon Pull-Along Train (Item No: AITEM-0001), as we have had good feedback on these in the past.\r\n- 3 units of the WonderWagon Deluxe Express Train – this is a special edition model we have seen referenced in some industry newsletters, but I do not see it listed in your standard catalog. If you have access to this version or can provide details on its availability, please include it in the quote.\r\n\r\nIf there are any minimum order quantities or special conditions for these items, please let me know. I look forward to your detailed response so we can finalize our selections.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "A verbose, polite customer requests a quote for a mix of catalog and non-catalog items, including an item that cannot be matched to the available catalog, thus triggering an intervention.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Quotation – Coffee Supplies and Accessories",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are in the process of updating our café’s inventory and would like to request a detailed quotation for several items. For our upcoming menu expansion, we are particularly interested in obtaining the following:\r\n\r\n- 2 units of the Rasta Coffee Grinder (we have previously used this model and found it reliable, so we would like to continue with the same if available).\r\n- 1 unit of the BaristaPro Milk Frother (this is a specific model we have seen at a recent trade show and would like to include in our equipment lineup; please provide pricing and availability details).\r\n- 5 packs of Rasta Coffee Beans.\r\n\r\nIf you require any further information regarding our preferences or specifications, please let us know. We would appreciate a prompt response, as we are aiming to finalize our procurement decisions by the end of the week.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request for unavailable item with intervention trigger",
+      "description": "A verbose customer requests a quote for an item that is not available in the catalog, triggering an intervention. The email includes extra context and references a non-catalog item, ensuring the quote cannot proceed without resolving the availability issue.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote Request – Special Toy Train and Play Mat",
+        "body": "Hey there,\r\n\r\nI’m reaching out from Chevy Toys to get a quote for a couple of items we’re looking to add to our store’s summer collection. First, we’re really interested in the WonderWagon Deluxe Train Set – I’ve heard from a few suppliers that it’s a popular model, but I couldn’t find it in your online catalog. If you have any info on availability or pricing for that, please let me know. We’re hoping to order at least 10 units if possible.\r\n\r\nAdditionally, could you include a quote for the Playlandia Colorful Play Mat (Item No: AITEM-0007)? We’ve had good feedback on similar mats and want to compare pricing.\r\n\r\nIf there are any minimum order requirements or lead times, just let me know. Thanks for your help!\r\n\r\nBest,\r\nLarry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "A verbose, impatient customer requests a quote for a mix of catalog and non-catalog items, with at least one item that cannot be matched to the available catalog, triggering an intervention.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Urgent Quote Needed – Please Respond Quickly",
+        "body": "Hello,\r\n\r\nI need a quote as soon as possible. Please include the following items:\r\n\r\n- 2 units of the SmartToys Jigsaw Puzzle Set (I believe this is the one with the animal shapes, Item No: AITEM-0015)\r\n- 1 box of the Playlandia Rainbow Blocks (this is the large set, not the mini version – if you can't find it under that name, check your inventory or let me know what you call it)\r\n- 3 T-Shirts (preferably the ones in blue, but if you only have one kind just quote whatever is standard)\r\n\r\nI don't have time to go back and forth, so please just get this done. If you can't quote the Rainbow Blocks for some reason, I need to know immediately why not, since this is a recurring problem with your system. Also, make sure the pricing is clear and includes any shipping fees.\r\n\r\nWaiting for your prompt reply,\r\n\r\nMichael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "Rachel Green requests a quote for a mix of catalog and non-catalog items, with at least one item reference that cannot be matched to the available catalog, triggering an intervention.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Request for Quote – Toy Train and Accessories",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- WonderWagon Deluxe Train Set (the same one we discussed last quarter)\r\n- 2 x WonderWagon Electric Train\r\n- 1 set of Playlandia Track Extensions\r\n\r\nLet me know if you need any more details.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Playlandia",
+      "description": "Polite quote request for an unavailable item, referencing prior context and catalog items.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Quote Request for Play Mats and Special Puzzle Set",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the Colorful Play Mat as before, and also for the SmartToys Puzzle Set Deluxe (the one we discussed last month)? We’re looking to order both for our upcoming event. Let me know if you need any additional details.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Lyn Ventures - Request for Quote Including Unavailable Item",
+      "description": "Customer requests a quote for a catalog item and an item that is not present in the catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Request – Same Rug as Last Time and WonderWagon Pull-Along Train",
+        "body": "Hi there,\r\n\r\nCould you send me a quote for the WonderWagon Pull-Along Train and also for the rug we ordered last quarter—the one with the geometric pattern? I don’t see it listed in your catalog now, but we’d like to get another. Let me know if you need more info.\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "The customer requests a quote for an item that is not in the available catalog, along with a valid item, using an impatient and context-dependent style.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Need a Quote ASAP",
+        "body": "Can you send me a quote for the WonderWagon Deluxe Train? Also add the JoySprout Toy Bicycle like last time. Please don't make me wait all day for this.\r\n\r\nFrench Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request for Non-Catalog and Catalog Items",
+      "description": "The customer requests a quote for an item that is not available in the catalog, alongside a valid catalog item, triggering an intervention due to the unresolvable item reference.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Request for Quote: Rug and Deluxe Espresso Machine",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- Deluxe Espresso Machine (commercial model, not the Rasta Espresso Machine)\r\n- Rug (please include options for the available models)\r\n\r\nPlease let me know pricing and availability for both. Thank you.\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request for Unavailable and Catalog Items",
+      "description": "The customer requests a quote for one available catalog item and one item that does not exist in the catalog, triggering an intervention due to unresolved item availability.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Request for Quote: Playlandia Mat and Deluxe Train Set",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- Playlandia Colorful Play Mat\r\n- WonderWagon Deluxe Train Set\r\n\r\nWe are looking to finalize our order soon, so your prompt response would be appreciated.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request for Unavailable Produce Item",
+      "description": "A goal-directed customer requests a quote for a produce item that is not available in the catalog, alongside catalog items, triggering an intervention for unresolved availability.",
+      "sender_name": "Fresh Foods North Europe",
+      "sender_email": "sales@freshfoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshfoods.com",
+        "subject": "Quote Request – Organic Purple Carrot and Other Produce",
+        "body": "Hi there,\r\n\r\nI'd like to get a quote for the following items:\r\n- Organic Purple Carrot (please confirm availability and pricing)\r\n- Organic Carrot\r\n- Green Olive\r\n\r\nLet me know if you need any more info. Thanks!\r\n\r\nBest,\r\nFresh Foods North Europe\r\n\r\nBest regards,\r\nFresh Foods North Europe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_availability_intervention__intervention_unresolved__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Lanesra Merchs Inc.",
+      "description": "Goal-directed, impatient quote request for an unavailable item, triggering intervention.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Needed – Urgent",
+        "body": "Send me a quote for 50 units of the Golden Hoodie ASAP. Also, add 100 Generic Golden T-Shirts to the quote. Don’t waste time with unnecessary questions – I need pricing now.\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

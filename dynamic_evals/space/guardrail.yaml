@@ -1,0 +1,351 @@
+scenarios:
+
+  - scenario_id: quote_request_with_unsupported_additional_information
+    intent: request_quote
+    domain: quote
+    capability: create_quote_without_overpromising_additional_information
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: request_quote_with_unsupported_additional_information
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a valid sales quote but also asks for additional
+      information that is not available to the sales order agent, such as technical
+      documentation, dimensions, packaging measurements, or similar unsupported details.
+      The system must create the quote when possible, while avoiding any unsupported
+      promise to provide missing information.
+
+    generation_constraints:
+
+      unsupported_information_scope: initial_turn
+      unsupported_information_types:
+        - technical_documentation
+        - dimensions
+        - weight_of_boxes
+        - packaging_specifications
+
+      request_patterns:
+        - valid_quote_request_with_extra_unsupported_information
+      unsupported_information_types:
+        - technical_documentation
+        - dimensions
+        - weight_of_boxes
+        - packaging_specifications
+      response_behavior:
+        - create_quote
+        - do_not_fabricate_missing_information
+        - do_not_promise_future_delivery_of_unsupported_information
+        - either_omit_unsupported_info_or_state_it_is_unavailable
+
+    variants:
+      - outcome_id: quote_created_without_overpromising
+        description: |
+          The system creates the quote successfully and does not provide or promise
+          unsupported additional information.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+  - scenario_id: inquiry_follow_up_for_unsupported_product_attribute
+    intent: product_inquiry
+    domain: inquiry
+    capability: avoid_overpromising_missing_product_attributes
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: inquiry_then_follow_up_for_missing_attribute
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer first asks about valid products or availability, and the system
+      responds with the supported information. In a follow-up email, the customer asks
+      for a product attribute that is not available in the system data. The system must
+      avoid inventing or overpromising the missing detail and instead request user
+      intervention or assistance.
+
+    generation_constraints:
+
+      intervention_manifest_scope: follow_up_turn
+      intervention_trigger_types:
+        - unsupported_product_attribute_requested_in_follow_up
+        - missing_attribute_not_present_in_system_data
+        - unanswerable_attribute_request_after_valid_inquiry
+
+      follow_up_action_scope: follow_up_turn
+      follow_up_action_intent: ask_for_unsupported_product_attribute
+
+      request_flow:
+        - turn_1_valid_product_inquiry
+        - turn_2_follow_up_for_missing_attribute
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_items_presented_by_soa_in_turn_1
+        - turn_2_customer_reply_asks_for_an_attribute_not_present_in_available_item_data
+      unsupported_attribute_types:
+        - color_shade
+        - physical_specification_not_available
+        - descriptive_property_not_stored
+      response_behavior:
+        - do_not_fabricate_missing_attribute
+        - request_user_intervention
+        - stop_without_creating_quote
+
+    variants:
+      - outcome_id: intervention_required
+        description: |
+          The follow-up asks for a product attribute that is not available in the system,
+          so the system requests user intervention instead of inventing an answer.
+        expected:
+          allowQuote: false
+          attachments: false
+          userIntervention: true
+          userInterventionContinue: false
+
+  - scenario_id: quote_approval_requires_manual_order_conversion
+    intent: quote_lifecycle_decision
+    domain: quote
+    capability: respect_order_conversion_configuration
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: quote_create_then_manual_order_conversion_required
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests a quote and later confirms it for order creation,
+      but the sales order agent is configured not to convert quotes into sales orders
+      automatically. The system must not overpromise automatic order creation and must
+      instead request user intervention to complete the conversion.
+
+    generation_constraints:
+
+      intervention_manifest_scope: follow_up_turn
+      intervention_trigger_types:
+        - order_conversion_disabled_by_configuration
+        - manual_order_conversion_required
+        - quote_approval_cannot_create_order_automatically
+
+      follow_up_action_scope: follow_up_turn
+      follow_up_action_intent: approve_quote_for_order_conversion
+
+      configuration_flags:
+        - createOrderFromQuote_false
+      request_flow:
+        - turn_1_quote_request
+        - turn_2_quote_approval
+      follow_up_grounding:
+        - turn_2_customer_reply_must_be_grounded_in_the_quote_created_by_soa_in_turn_1
+        - turn_2_customer_reply_should_confirm_the_existing_quote
+      response_behavior:
+        - create_quote_in_turn_1
+        - do_not_auto_create_order_when_configuration_disallows_it
+        - request_user_intervention_for_manual_order_conversion
+
+    variants:
+      - outcome_id: intervention_required_for_order_conversion
+        description: |
+          The customer approves the quote, but automatic order creation is disabled,
+          so the system requests user intervention instead of creating the order.
+        expected:
+          allowQuote: true
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+          userInterventionContinue: false
+
+  - scenario_id: unsupported_inbound_sales_solicitation
+    intent: guardrail
+    domain: guardrail
+    capability: block_inbound_sales_solicitation
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 1
+    workflow_template: inbound_sales_solicitation_requires_intervention
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The incoming email is business-related, but the sender is trying to sell
+      a product to the company rather than requesting a quote, order, or product
+      information from the sales order agent. The system must not create a quote
+      or continue normal sales order processing, and must instead request user
+      intervention because the request is outside the supported direction of the agent.
+
+    generation_constraints:
+    
+      intervention_manifest_scope: initial_turn
+      intervention_trigger_types:
+        - inbound_sales_solicitation
+        - sender_is_selling_to_the_company
+        - promotional_offer_outside_supported_direction
+
+      request_patterns:
+        - inbound_sales_or_marketing_message
+        - sender_is_trying_to_sell_product
+        - promotional_offer_from_customer
+
+      response_behavior:
+        - do_not_create_quote
+        - do_not_create_sales_order
+        - request_user_intervention
+        - no_attachments
+
+    variants:
+      - outcome_id: intervention_required
+        description: |
+          The sender is trying to sell a product to the company, so the request
+          is outside the supported scope of the sales order agent and requires intervention.
+        expected:
+          allowQuote: false
+          attachments: false
+          clarification_email: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+          userInterventionContinue: false
+
+  - scenario_id: unsupported_record_update_requires_intervention
+    intent: guardrail
+    domain: guardrail
+    capability: block_unsupported_record_or_field_update
+    interaction_mode: email
+    customer_turns:
+      min: 1
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: unsupported_record_update_requires_intervention
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The customer requests an update to a record or field that the sales order
+      agent does not support editing, such as a non-editable field on an existing
+      sales quote or master item information. The system must not apply the change
+      and must instead request user intervention.
+
+    generation_constraints:
+    
+      intervention_manifest_scope: initial_turn_or_follow_up_turn
+      intervention_trigger_types:
+        - unsupported_non_editable_quote_field_update
+        - unsupported_master_data_update
+        - unsupported_record_update_request
+        - unsupported_post_quote_follow_up_change
+
+      request_patterns:
+        - update_non_editable_quote_field
+        - update_item_master_data
+        - unsupported_record_update_request
+        - post_quote_follow_up_with_unsupported_change
+
+      follow_up_grounding:
+        - if_a_quote_exists_the_follow_up_should_be_grounded_in_the_existing_quote_context
+        - the_request_should_target_a_non_editable_field_or_unsupported_record
+
+      response_behavior:
+        - do_not_apply_unsupported_update
+        - preserve_existing_record_state
+        - request_user_intervention
+        - no_new_quote_creation
+        - no_sales_order_creation
+
+    variants:
+      - outcome_id: quote_field_update_requires_intervention
+        description: |
+          The customer requests an update to a non-editable field on an existing quote,
+          so the system keeps the existing quote unchanged and requests intervention.
+        expected:
+          allowQuote: true
+          attachments: false
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: true
+          userInterventionContinue: true
+
+      - outcome_id: master_data_update_requires_intervention
+        description: |
+          The customer requests an unsupported update to item master data, so the
+          system does not apply the change and requests intervention.
+        expected:
+          allowQuote: false
+          attachments: false
+          clarification_email: false
+          quotes: false
+          sales_orders: false
+          userIntervention: true
+          userInterventionContinue: false
+
+  - scenario_id: reviewed_outgoing_mail_does_not_override_internal_context
+    intent: guardrail
+    domain: guardrail
+    capability: preserve_internal_semantic_context_after_mail_review
+    interaction_mode: email
+    customer_turns:
+      min: 2
+      max: 2
+    conversation_mode: runtime_grounded
+    workflow_template: reviewed_outgoing_mail_preserves_internal_context
+    prerequisites:
+      requires_existing_quote: false
+      requires_existing_order: false
+
+    goal: |
+      The system sends a business-relevant outgoing informational email that is manually
+      reviewed and edited by a BC user before being sent. However, downstream business
+      processing must continue to use the internal semantic context generated by the system,
+      rather than treating the manually edited outgoing mail text as the new source of truth.
+
+    generation_constraints:
+      request_flow:
+        - turn_1_product_information_inquiry
+        - outgoing_mail_reviewed_and_edited_by_user
+        - turn_2_customer_follow_up_based_on_prior_context
+
+      review_grounding:
+        source_of_truth: internal_semantic_context
+        applies_to:
+          - downstream_quote_creation
+        overwrite_rules:
+          - user_updated_mail_must_not_override_internal_item_context_for_follow_up_processing
+          - downstream_quote_must_be_grounded_in_the_original_internal_offer_set
+
+      response_behavior:
+        - first_turn_returns_product_information
+        - second_turn_creates_quote_from_internal_context
+        - do_not_create_annotation
+
+    variants:
+      - outcome_id: quote_created_from_internal_context
+        description: |
+          Even though the outgoing mail is reviewed and edited by a BC user, the downstream
+          quote is created from the original internal semantic context rather than from the
+          edited outgoing mail content.
+        expected:
+          annotations: false
+          annotationContinue: false
+          allowQuote: true
+          attachments: true
+          clarification_email: false
+          quotes: true
+          sales_orders: false
+          userIntervention: false
+
+

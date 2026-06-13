@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_unknown_item_handling",
+  "outcome_id": "unknown_items_reported",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "A cooperative customer requests a quote for several items, including at least one item that is not found in the catalog. The request includes both known and unknown items, requiring the sales agent to clarify the unavailable items before proceeding.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Request for Quote: Toys and Accessories",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- GiggleGear Action Figures Set\r\n- Playlandia Deluxe Play Tunnel\r\n- WonderWagon Pull-Along Train\r\n\r\nPlease let me know if you need any additional information. Thank you.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "Chevy Toys requests a quote for several items, including one that is not found in the catalog, triggering the unknown_items_reported outcome.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request for Toy Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- JoySprout Toy Car Set\r\n- MagicToyland Fairy Doll\r\n- Playlandia Deluxe Castle Set\r\n\r\nIf you need any additional information, please let me know. Thank you for your assistance.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote request with mixed known and unknown items",
+      "description": "A cooperative customer requests a quote for several items, including one that is not found in the catalog. The request is casual and clear, but at least one item cannot be matched to the available catalog, triggering an unknown item intervention.",
+      "sender_name": "Danish Pastry",
+      "sender_email": "contact@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@danishpastry.dk",
+        "subject": "Quote Request for T-Shirts and Blueberry Soda",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for the following:\r\n- 10 T-Shirts (any style you have available)\r\n- 12 bottles of Blueberry Soda\r\n\r\nLet me know if you need any more info. Thanks!\r\n\r\nBest,\r\nDanish Pastry\r\n\r\nBest regards,\r\nDanish Pastry"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "A cooperative customer requests a quote for several items, including at least one item that is not found in the catalog. The email is curt and impatient, and at least one requested item cannot be matched to the available catalog, triggering an intervention.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need Quote ASAP – Several Items",
+        "body": "I need a quote right away for the following: 2 T-Shirts, 1 WonderWagon Bicycle, and 3 packs of SuperGrip Gloves. Don’t waste time – just send me the pricing. Mario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one that is not found in the catalog, triggering the system to report unknown items and not create a quote.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Request for Quote",
+        "body": "Hello,\r\n\r\nPlease send me a quote for the following:\r\n- Generic Golden T-Shirt\r\n- Blueberry Muffin (need 2 dozen)\r\n- WonderWagon Electric Train\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item that is not found in the catalog, triggering the system to report unavailable items and not create a quote.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request for Toy Items",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- JoySprout Toy Car Set\r\n- Playlandia Deluxe Train Set\r\n- MagicToyland Fairy Doll\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Unknown and Known Items",
+      "description": "Customer requests a quote for a mix of catalog and non-catalog items, triggering unknown item handling.",
+      "sender_name": "Jakob Kuhs",
+      "sender_email": "jakob@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jakob@germanbakery.de",
+        "subject": "Need a quote for a few items",
+        "body": "Hey,\r\n\r\nCan you send me a quote for the following?\r\n- Rug (just any standard one you have)\r\n- Blueberry Jam (2 jars)\r\n- WonderWagon Pull-Along Train (1 piece)\r\n- Magic Cleaning Paste (5 units)\r\n\r\nBest regards,\r\nJakob Kuhs"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "An impatient customer requests a quote for several items, including at least one item that does not exist in the catalog and at least one that does. The request is curt and uncooperative, requiring the SOA to clarify the unknown items before proceeding.",
+      "sender_name": "Michael Reyes",
+      "sender_email": "michael.reyes@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "michael.reyes@toytopia.com",
+        "subject": "Need Quote ASAP",
+        "body": "Send me a quote for the following: 2 T-Shirts, 1 PlayStation Console, and 5 MagicToyland Adventure Dolls. Don't waste time with unnecessary questions. Michael Reyes\r\n\r\nBest regards,\r\nMichael Reyes"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item that does not exist in the available catalog, triggering the system to report unknown items and not create a quote.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Request for Quote",
+        "body": "Please send me a quote for the following: WonderWash Washing Machine, Blueberry Jam, and Green Olive. Thank you.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Concise quote request with mixed known and unknown items",
+      "description": "A customer requests a quote for several items, including one known catalog item and one item that does not exist in the catalog, requiring the SOA to report the unknown item and not create a quote.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request",
+        "body": "Please provide a quote for SmartToys Building Blocks and a set of Deluxe Marble Racers. Thank you.\r\n\r\nLanesra Merchs Inc.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise quote request with mixed known and unknown items",
+      "description": "A concise customer email requesting a quote for one catalog item and one unknown item, triggering the unknown_items_reported outcome.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request",
+        "body": "Hi, can you send me a quote for SmartToys Building Blocks and the Playlandia Puzzle Cube? Thanks,\r\nChevy Toys\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "A concise, impatient quote request from French Bakery listing both catalog and non-catalog items, triggering an unknown item intervention.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Quote Request",
+        "body": "Send me a quote for Green Olive and two bags of Almond Flour. Also add a dozen Raspberry Croissants. Make it quick.\r\n\r\nFrench Bakery\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item that is not present in the available catalog, triggering the system to report unknown items and not create a quote.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Request for Quote: Toy Items and Accessories",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items for our upcoming event:\r\n\r\n- 2 x JoySprout Toy Car Set\r\n- 1 x Deluxe Play Tunnel\r\n- 3 x MagicToyland Fairy Doll\r\n- 4 x Rainbow Stacking Cups\r\n\r\nFor your reference, the JoySprout Toy Car Set and MagicToyland Fairy Doll are for our kids' activity area, while the Deluxe Play Tunnel and Rainbow Stacking Cups are intended for the toddler section. Please provide pricing and availability for all items listed above. If you need any further details, let me know.\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one that is not present in the available catalog, alongside at least one that is known. The email is verbose and polite, providing context and details, but includes a request for an unknown item that cannot be matched to the catalog.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Request for Quotation: Office Supplies and Miscellaneous Items",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are currently in the process of restocking our office supplies and would appreciate your assistance with a formal quotation. For our upcoming quarter, we are looking to purchase a variety of items to support both our administrative and breakroom needs. To ensure we are budgeting appropriately, could you please provide pricing and availability for the following:\r\n\r\n- 10 units of Screwdriver (we have previously ordered these, and they have worked well for our maintenance staff)\r\n- 5 packs of Premium Copy Paper (preferably 500 sheets per pack; this is a standard item we use, but if you have different brands or options, please let us know)\r\n- 2 boxes of Rasta Coffee Beans (our team really enjoys this blend, so we would like to continue with the same)\r\n\r\nIf you require any further details or clarification regarding the items listed, please do not hesitate to reach out. We are aiming to finalize our procurement by the end of next week, so a timely response would be greatly appreciated.\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with mixed known and unknown items",
+      "description": "A verbose customer requests a quote for several items, including both catalog and non-catalog products. The request contains detailed context and explanations, but at least one item is not found in the catalog, triggering an unknown item intervention.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Quote Request: T-Shirts and Special Items",
+        "body": "Hi there,\r\n\r\nI hope this finds you well! I'm reaching out because we're preparing for an upcoming event and need to get a quote for a few items. I want to make sure we have everything covered, so here's what we're looking for:\r\n\r\n- 20 T-Shirts (I noticed you have several variants, so please include the standard white T-Shirt from your catalog—if possible, item number AITEM-0025, but if that's not the right one, let me know)\r\n- 10 units of the 'Maxo Mart Exclusive Hoodie' (this is a product we've seen advertised elsewhere, but I couldn't find it in your catalog—please let me know if you carry it or if there's a similar alternative)\r\n- 5 packs of 'Glow-in-the-Dark Wristbands' (again, not sure if these are available through your store, but they're essential for our event)\r\n\r\nIf you need any more details or clarification, just ask! We're hoping to finalize this order soon, so a breakdown of pricing and availability would be super helpful. Thanks for your help!\r\n\r\nBest,\r\nMaxo Mart\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose quote request with mixed known and unknown items",
+      "description": "A verbose customer requests a quote for several items, including both catalog and non-catalog products. The request is impatient and curt, and at least one item is not found in the catalog, requiring clarification before a quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Quote Request – Need Pricing ASAP",
+        "body": "Hi,\r\n\r\nI need a quote for the following items, and please get back to me quickly because I don't have time to go back and forth on this:\r\n\r\n- 2 T-Shirts (I don't care which model, just send me the price for whatever you have in stock)\r\n- 1 pack of Blueberry Muffins (should be the standard bakery pack, but if you don't carry them, let me know)\r\n- 3 JoySprout Toy Car Sets\r\n- 1 box of Organic Strawberries (preferably fresh, not frozen)\r\n\r\nI expect a detailed breakdown and clear pricing. If you can't supply something, just say so, but don't waste my time with endless questions. I need this quote today.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item from the catalog and at least one item not found in the catalog. The request is context-dependent and does not restate all details explicitly.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote – Bakery Supplies",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n\r\n- Apples\r\n- French Butter (same brand as last time)\r\n- WonderWagon Pull-Along Train\r\n\r\nLet me know if you need any more details.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item that is not found in the catalog and at least one item that is available. The request references prior context for one item and introduces an unknown item, requiring the SOA to clarify the unavailable item(s) before proceeding.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Quote Request – Items for Upcoming Event",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items for our upcoming event?\r\n\r\n- Soda - Medium (same as last time)\r\n- French Roast Coffee Beans (we need two bags)\r\n- MagicToyland Adventure Doll\r\n\r\nLet me know if you need any further details.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "Toytopia requests a quote for several items, including both catalog and non-catalog products. At least one requested item cannot be matched to the available catalog, requiring the SOA to report the unknown items and not create a quote.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Quote Request – Toys and Accessories",
+        "body": "Hi there,\r\n\r\nCan you send us a quote for the following?\r\n\r\n- SmartToys Fast Car Set (same as last time)\r\n- Playlandia Plush Bear\r\n- WonderWagon Pull-Along Train\r\n- MagicToyland Rainbow Castle\r\n\r\nLet me know if you need more details. Thanks!\r\n\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for several items, including at least one item that is not found in the catalog and at least one that is known. The request is context-dependent and uses impatient, curt wording.",
+      "sender_name": "Jean Dupont",
+      "sender_email": "jean@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jean@frenchbakery.fr",
+        "subject": "Quote Request – Need Pricing ASAP",
+        "body": "Send me a quote for the Playlandia Colorful Play Mat and the 'French Rolling Pin' we discussed last week. Also, add the MagicToyland Adventure Doll. I don't have time to repeat myself, so just get this sorted quickly.\r\n\r\nJean Dupont\r\n\r\nBest regards,\r\nJean Dupont"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "A goal-directed customer requests a quote for several items, including at least one item from the catalog and at least one item that is not found in the catalog, requiring the SOA to report the unknown items and not create a quote.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote: Bakery Supplies",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n\r\n- Green Olive\r\n- French Butter Croissants (please quote for 50 units)\r\n- Rug\r\n\r\nPlease provide pricing and availability. Let us know if you need any additional information.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Chevy Toys - Mixed Quote Request with Unknown Items",
+      "description": "A goal-directed, polite quote request from Chevy Toys that includes both catalog and non-catalog items, requiring the SOA to report unknown items and not create a quote.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request: Toy Sets and Play Mat",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n\r\n- JoySprout Toy Car Set\r\n- Playlandia Colorful Play Mat\r\n- ChevyToys Deluxe Train Set\r\n\r\nPlease let me know pricing and availability. Thank you for your assistance.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for multiple items, including at least one item that is not found in the catalog, triggering the system to report the unknown item(s) and not create a quote.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Request for Quote: Toy Sets and Play Mat",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following items?\r\n\r\n- SmartToys Fast Car Set\r\n- Playlandia Colorful Play Mat\r\n- Rainbow Castle Playhouse\r\n\r\nLet me know if you need any more details. Thanks!\r\n\r\nBest,\r\nToytopia\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_unknown_item_handling__unknown_items_reported__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Mixed Known and Unknown Items",
+      "description": "The customer requests a quote for multiple items, including at least one item from the catalog and at least one item that is not found in the catalog. The request is direct and impatient, and the unknown item(s) are referenced in a way that cannot be resolved by the SOA.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Needed ASAP",
+        "body": "Send me a quote for the following: 2 Rasta Drip Coffee Makers and 5 packs of German Rye Flour. I don't have time for delays, so make it quick. If you need anything else, let me know, but I expect a fast response.\r\n\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

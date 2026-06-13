@@ -1,0 +1,606 @@
+{
+  "scenario_id": "quote_request_with_alternate_shipping",
+  "outcome_id": "quote_created_with_alternate_shipping",
+  "test_cases": [
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Alternate Shipping Address Reference",
+      "description": "The customer requests a quote for several catalog items and specifies shipping to an alternate address by referencing a location, but the reference is ambiguous and requires clarification to ensure the correct alternate shipping address is used.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Request for Quote – Ship to Alternate Location",
+        "body": "Hello,\r\n\r\nPlease provide a quote for the following items:\r\n- 10x JoySprout Toy Car Set\r\n- 5x Rug (please use the style we ordered last time)\r\n\r\nWe need this shipment sent to our \"East Warehouse\" location instead of our main address. Let me know if you need any further details.\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address",
+      "description": "A cooperative customer requests a quote for several catalog items and specifies an alternate shipping address using a location-based reference that is ambiguous, requiring clarification to ensure the correct ship-to address is applied.",
+      "sender_name": "Tom Martinez (Home)",
+      "sender_email": "t.martinez@contoso.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "t.martinez@contoso.com",
+        "subject": "Quote Request – Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nI’d like to request a quote for the following items:\r\n- 1 set of GiggleGear Action Figures\r\n- 2 Playlandia Colorful Play Mats\r\n\r\nPlease ship these to our branch office in downtown Springfield instead of my usual address. Let me know if you need any additional information.\r\n\r\nBest regards,\r\nTom Martinez (Home)"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Ambiguous Alternate Shipping Address",
+      "description": "Emily Parker requests a quote for several catalog items and specifies an alternate shipping address using a location-based reference that is ambiguous, requiring clarification to determine the exact ship-to address.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request - Alternate Shipping Address",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for the following items?\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Fast Car Set\r\n- Soda - Large\r\n\r\nFor shipping, I'd like these sent to our warehouse in Brooklyn instead of the usual address. Let me know if you need any details.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Alternate Shipping Address (Ambiguous Location Reference)",
+      "description": "A customer requests a quote for several catalog items and specifies shipping to an alternate location, but the shipping address reference is ambiguous and requires clarification before the quote can be created.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Need Quote – Ship to Our Lyon Location",
+        "body": "Send me a quote for 10 bags of Rasta Coffee Beans and 5 units of Rasta Espresso Machine. Make sure you ship to our Lyon location, not the usual address. And please hurry up, I don't want to waste time going back and forth.\r\n\r\nFrench Cafe\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Ambiguous Alternate Shipping Reference",
+      "description": "The customer requests a quote for several catalog items and asks for shipping to an alternate location, but refers to the shipping address only by a location nickname that could match multiple saved addresses or require clarification.",
+      "sender_name": "Super Retail",
+      "sender_email": "help@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "help@super-retail.net",
+        "subject": "Request for Quote – Alternate Shipping Location",
+        "body": "Please send me a quote for the following:\r\n- 10x Organic Carrot\r\n- 5x WonderWagon Pull-Along Train\r\n\r\nI need this shipped to our \"East Warehouse\" instead of the usual address. Let me know if you need anything else.\r\n\r\nSuper Retail\r\n\r\nBest regards,\r\nSuper Retail"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Ambiguous Alternate Shipping Reference",
+      "description": "Mario Adams requests a quote for several catalog items and specifies shipping to an alternate location using a vague reference, creating ambiguity about which saved alternate shipping address should be used.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request – Ship to Alternate Location",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- Rasta Drip Coffee Maker\r\n- Rug\r\n\r\nI need these shipped to our \"warehouse location\" instead of the usual address. Please make sure the quote reflects this shipping destination.\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Alternate Shipping Address Reference (Uncooperative, Informal)",
+      "description": "The customer requests a quote for several catalog items and asks for shipping to an alternate address, but refers to the shipping location in an ambiguous way that requires clarification to resolve which saved alternate address to use.",
+      "sender_name": "Fresh HelloFoods",
+      "sender_email": "sales@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@freshhellofoods.com",
+        "subject": "Need a quote, ship to the other place",
+        "body": "Hey, can you send me a quote for 10 Watermelon and 5 Rasta Coffee Beans? And don’t ship to our main spot—use the other warehouse we’ve used before. Thanks.\r\n\r\nFresh HelloFoods\r\n\r\nBest regards,\r\nFresh HelloFoods"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Uncooperative Quote Request with Alternate Shipping - Rude/Impatient",
+      "description": "A customer requests a quote for several items and specifies shipping to an alternate location using an ambiguous reference, displaying impatience and uncooperative behavior. The shipping address reference is unclear and requires clarification before proceeding.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Need Quote ASAP - Ship Elsewhere",
+        "body": "Send me a quote for 2 WonderWagon Electric Train and 5 SmartToys Building Blocks. And don't ship to the usual address, send it to the warehouse in Edison. You should already have that on file. Let's not waste time going back and forth. Larry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Concise quote request with alternate shipping address",
+      "description": "A customer requests a quote for several catalog items and specifies shipping to an alternate location using a brief location reference, requiring the SOA to resolve which saved alternate shipping address matches.",
+      "sender_name": "Anders Nielsen",
+      "sender_email": "anders@danishpastry.dk",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "anders@danishpastry.dk",
+        "subject": "Quote Request – Alternate Shipping",
+        "body": "Please send me a quote for the following:\r\n- WonderWagon Electric Train\r\n- Rug\r\nShip to our Copenhagen warehouse.\r\n\r\nBest regards,\r\nAnders Nielsen"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Alternate Shipping Address",
+      "description": "A concise, polite quote request for two catalog items, specifying shipment to an alternate shipping address using a location-based reference that matches an existing alternate address. The shipping location reference is ambiguous and requires clarification.",
+      "sender_name": "KCF Sports",
+      "sender_email": "sales@kcf.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@kcf.com",
+        "subject": "Quote Request – Ship to Training Center",
+        "body": "Hello,\r\n\r\nPlease send a quote for:\r\n- 10 T-Shirts\r\n- 5 JoySprout Toy Bicycle\r\n\r\nShip to our Training Center location instead of the usual address.\r\n\r\nBest regards,\r\nKCF Sports"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Ambiguous Alternate Shipping Reference",
+      "description": "A concise, informal quote request for Pizza and Soda - Medium, specifying shipment to 'our Berlin branch' without providing a full address, triggering clarification due to ambiguous shipping location reference.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote request – Pizza & Soda, ship to Berlin branch",
+        "body": "Hi, can you send me a quote for 10 Pizza (AITEM-0051) and 20 Soda - Medium? Please ship to our Berlin branch. Thanks! German Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Alternate Shipping (Concise, Rude/Impatient)",
+      "description": "A concise and impatient quote request for specific items, with a curt instruction to ship to an alternate address referenced by location, but with ambiguity about which saved alternate address is meant.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Need Quote – Ship to Alternate Address",
+        "body": "Send me a quote for 3 Rasta Drip Coffee Makers and 2 WonderWagon Electric Trains. Don’t ship to our usual address. Use the Berlin warehouse instead. Make it quick.\r\n\r\nGerman Bakery\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "WonderToys Co. - Quote Request with Alternate Shipping Address",
+      "description": "A verbose quote request from WonderToys Co. specifying an alternate shipping address that matches an existing alternate shipping location, but with an ambiguity in the address reference that requires the SOA to clarify which saved address is intended.",
+      "sender_name": "WonderToys Co.",
+      "sender_email": "hello@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@wondertoysco.com",
+        "subject": "Request for Quote – Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nI am reaching out from WonderToys Co. to request a quote for several items for our upcoming promotional event. We would like to include the following products:\r\n\r\n- 10 units of the MagicToyland Adventure Doll\r\n- 15 units of the SmartToys Building Blocks\r\n- 20 T-Shirts (please use the standard T-Shirt we have ordered previously)\r\n\r\nFor this order, we need the shipment to go to our alternate warehouse location, not our main office. Please ship to our \"Eastside Distribution Center\" as you have on previous orders. I believe this address is already saved in your system, but just to clarify, it's the one we use for bulk shipments. If you need any additional details, let me know.\r\n\r\nPlease confirm that the quote will reflect this alternate shipping address and not our default billing location. If you require any further information or need to verify which address I am referring to, please reach out.\r\n\r\nBest regards,\r\nWonderToys Co."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Verbose quote request with alternate shipping address (polite)",
+      "description": "A verbose and polite customer requests a quote for several catalog items and specifies an alternate shipping address using a location-based reference, but the reference is ambiguous and missing a key address component, requiring clarification before the quote can be created.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request for Multiple Items with Alternate Shipping Address",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are preparing for our upcoming promotional event and would like to request a quote for the following items:\r\n\r\n- 20 units of WonderWagon Bicycle\r\n- 15 units of SmartToys Fast Car Set\r\n- 30 units of T-Shirt (please include both AITEM-0022 and AITEM-0023 if possible)\r\n\r\nFor this order, we would like the shipment to be sent to our alternate warehouse location, which is the facility near the Riverside Industrial Park. This is the same location we used for our spring campaign deliveries, but I want to ensure you have the correct address on file. If you need any further details, please let me know. I believe the address is already saved in your system as our secondary shipping destination, but just in case, please confirm.\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Verbose quote request with alternate shipping address (location reference ambiguity)",
+      "description": "The customer requests a quote for several catalog items and specifies that the order should be shipped to their 'Downtown Branch' location, but does not provide the full address or clarify which alternate shipping address is intended. This requires the SOA to clarify which saved alternate shipping address matches the 'Downtown Branch' reference before proceeding.",
+      "sender_name": "German Bakery",
+      "sender_email": "contact@germanbakery.de",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@germanbakery.de",
+        "subject": "Quote Request – Please Ship to Our Downtown Branch",
+        "body": "Hey there,\r\n\r\nHope you’re having a good day! I’m reaching out from German Bakery because we’re looking to get a quote for a few things. Could you please quote us for:\r\n\r\n- 10x WonderWagon Bicycle\r\n- 5x Rasta Coffee Beans\r\n- 3x Rug\r\n\r\nHere’s the important part: we need this order shipped to our Downtown Branch, not our main bakery location. I know we’ve had a couple of addresses on file with you in the past (I think one is the main bakery and the other is the downtown spot), but just to be clear, this should go to the Downtown Branch. Let me know if you need any more info from my side or if you need me to confirm which address that is in your system.\r\n\r\nBest regards,\r\nGerman Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Verbose, Impatient Quote Request with Alternate Shipping Address (Ambiguous Location Reference)",
+      "description": "A verbose and impatient customer requests a quote for several catalog items and specifies shipping to an alternate address using a location-based reference that is ambiguous, requiring clarification before the quote can be created. The request includes excessive context and a curt tone.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Quote Request – Ship to Alternate Location (Read Carefully)",
+        "body": "I need a quote ASAP for the following items, and please don't waste my time with unnecessary delays. I want 3 T-Shirts (Item No: AITEM-0025), 2 WonderWagon Bicycles, and 1 Playlandia Colorful Play Mat. Make sure you include all taxes and fees upfront, because I don't have time to chase down hidden costs later.\r\n\r\nAnd, for the shipping, do NOT send to our usual billing address. I want these shipped to our \"East Warehouse\" – you should already have this on file from previous orders, so don't ask me for the full address again. If you can't find it, that's your problem, but I expect the quote to reflect the correct ship-to location, not the default. If you need to confirm anything, make it quick.\r\n\r\nTom Martinez\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Reference to Alternate Shipping Address",
+      "description": "Sarah Johnson requests a quote for several items and asks for the order to be shipped to an alternate address, referencing it by location rather than restating the full address. The reference is ambiguous and requires the SOA to clarify which saved alternate address is intended.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Quote Request – Alternate Shipping Location",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- Kiddie Quest Adventure Kit\r\n- WonderWagon Bicycle\r\n- T-Shirt (Item No: AITEM-0023)\r\n\r\nFor shipping, please send this order to our warehouse location instead of the usual address. Let me know if you need anything else from my side.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Playlandia Quote Request with Alternate Shipping (Context-Dependent, Polite)",
+      "description": "A context-dependent, polite quote request from Playlandia, referencing a prior alternate shipping address in a way that requires the SOA to resolve which saved address is intended. The request includes a clarification gap due to an ambiguous shipping location reference.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Quote Request – Alternate Shipping Address",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- Playlandia Colorful Play Mat\r\n- WonderWagon Pull-Along Train\r\n\r\nFor shipping, please use the same alternate address we used for our last order (the one in Springfield). Let me know if you need any further details.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Contextual Alternate Shipping Reference",
+      "description": "A customer requests a quote for several items and specifies shipping to an alternate address using a context-dependent reference, relying on prior thread or saved address context. The shipping location reference is ambiguous and requires clarification, as it is not fully specified in the email.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote Request – Ship to Alternate Location",
+        "body": "Hi,\r\n\r\nCan you send me a quote for the following:\r\n- WonderWagon Electric Train\r\n- MagicToyland Adventure Doll\r\n- Rug (AITEM-0030)\r\n\r\nPlease ship these to the same address we used for the last order (the warehouse, not the main office). Let me know if you need anything else.\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Ambiguous Alternate Shipping Reference",
+      "description": "Sarah Johnson requests a quote for several items and specifies shipping to an alternate address using a vague location reference, relying on prior context. The request is impatient and curt, and the shipping destination is ambiguously referenced, requiring clarification before the quote can be created.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sjohnson@super-retail.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sjohnson@super-retail.net",
+        "subject": "Need Quote ASAP – Ship to Alternate Address",
+        "body": "I need a quote for the following: 2 Pizza (AITEM-0051), 1 WonderWagon Pull-Along Train, and 3 Organic Carrot. Ship these to the same address as last time – the warehouse, not the main store. Don’t waste time asking for details, just use the alternate location we’ve used before. Let me know when it’s ready.\r\n\r\nSarah Johnson\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Quote Request with Alternate Shipping Address Reference",
+      "description": "The customer requests a quote for specific catalog items and asks for shipping to an alternate address, referencing it by location in a way that requires the SOA to clarify which saved address is intended.",
+      "sender_name": "Sarah Johnson",
+      "sender_email": "sarah_j@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sarah_j@maxomart.net",
+        "subject": "Request for Quote – Ship to Alternate Location",
+        "body": "Hello,\r\n\r\nI would like to request a quote for the following items:\r\n- 2x JoySprout Toy Bicycle\r\n- 1x SmartToys Jigsaw Puzzle Set\r\n\r\nPlease ship this order to our \"East Warehouse\" location instead of our main address. Let me know if you need any additional details.\r\n\r\nBest regards,\r\nSarah Johnson"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Quote Request with Alternate Shipping Address Reference",
+      "description": "The customer requests a quote for specific catalog items and clearly asks for shipping to an alternate address, referencing a known alternate shipping location by its common name rather than providing the full address. This requires the SOA to resolve the reference to the correct saved alternate shipping address.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Request for Quote – Ship to Alternate Address",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- 2 x WonderWagon Bicycle\r\n- 1 x Rasta Coffee Grinder\r\n\r\nI would like these shipped to our \"Downtown Warehouse\" location instead of our usual address. Please confirm that the quote will reflect this alternate shipping destination.\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Quote Request with Alternate Shipping Address (Ambiguous Location Reference)",
+      "description": "Rachel Green requests a quote for specific items and asks for shipping to an alternate location, referencing the destination by a location nickname rather than a full address. The request is clear and direct, but the shipping location reference is ambiguous and requires clarification to resolve which alternate address should be used.",
+      "sender_name": "Rachel Green",
+      "sender_email": "rachel.green@wondertoysco.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "rachel.green@wondertoysco.com",
+        "subject": "Quote Request – Shipping to Alternate Location",
+        "body": "Hi there,\r\n\r\nCould you please send me a quote for the following items:\r\n- WonderWagon Pull-Along Train\r\n- SmartToys Building Blocks\r\n\r\nI’d like these shipped to our \"East Warehouse\" instead of the usual address. Let me know if you need anything else from me.\r\n\r\nBest regards,\r\nRachel Green"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    },
+    {
+      "case_id": "quote_request_with_alternate_shipping__quote_created_with_alternate_shipping__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Quote Request with Alternate Shipping Address (Ambiguous Reference)",
+      "description": "The customer requests a quote for specific catalog items and instructs that the order be shipped to an alternate location, but refers to the shipping address in a way that is ambiguous and requires clarification to ensure the correct alternate address is used.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Need Quote – Ship to Warehouse",
+        "body": "I need a quote for the following ASAP:\r\n- 10 WonderWagon Pull-Along Train\r\n- 5 Rasta Espresso Machine\r\n\r\nAnd don’t send this to our usual address. Ship it to our warehouse instead. You should have that on file. Make sure the quote reflects that shipping location, not the main office. Don’t make me repeat myself.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "none",
+        "intent": "none",
+        "trigger": "never",
+        "outcome_manifest_stage": "initial_turn",
+        "max_additional_turns": 0,
+        "grounding_requirements": []
+      }
+    }
+  ]
+}

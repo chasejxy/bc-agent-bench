@@ -1,0 +1,726 @@
+{
+  "scenario_id": "quote_update_with_conversational_memory",
+  "outcome_id": "quote_updated_from_memory",
+  "test_cases": [
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__cooperative__neutral__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request for Bakery Supplies",
+      "description": "The customer from French Bakery is requesting a quote for several items, establishing the initial context for a later conversational update using shorthand references.",
+      "sender_name": "French Bakery",
+      "sender_email": "contact@frenchbakery.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchbakery.fr",
+        "subject": "Request for Quote: Bakery Supplies",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items for our bakery:\r\n- 3 T-Shirts (please let us know what options you have)\r\n- 2 Pizza\r\n- 1 WonderWash Washing Machine\r\n- 5 Soda - Large\r\n\r\nPlease provide pricing and availability for these items. If you need any further details, let us know.\r\n\r\nBest regards,\r\nFrench Bakery"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__cooperative__polite__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Lyn Ventures - Initial Quote Request for Toys and Rugs",
+      "description": "A cooperative and polite customer from Lyn Ventures requests a quote for several catalog items, establishing the initial context for later conversational memory-based updates.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Quote Request for Toys and Rugs",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- Kiddie Quest Adventure Puzzle\r\n- GiggleGear Action Figures Set\r\n- Rug (please include both available options)\r\n- Playlandia Colorful Play Mat\r\n\r\nIf you need any additional information, please let me know. Thank you for your assistance!\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__cooperative__informal__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Quote Request with Multiple Items",
+      "description": "Chevy Toys is requesting a quote for several items, setting up a context for later conversational-memory-based updates.",
+      "sender_name": "Chevy Toys",
+      "sender_email": "hello@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@chevytoys.com",
+        "subject": "Quote Request for Toys and Supplies",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n- 2x WonderWagon Bicycle\r\n- 3x SmartToys Fast Car Set\r\n- 5x Pizza (please include the different options you have)\r\n- 1x Playlandia Colorful Play Mat\r\n\r\nBest regards,\r\nChevy Toys"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__cooperative__rude_impatient__001",
+      "persona_id": "cooperative",
+      "persona_display_name": "Cooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Quote Request with Multiple Items for Later Update",
+      "description": "A rude/impatient customer requests a quote for several catalog items, setting up a context for later conversational-memory-based quote updates.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Need a Quote ASAP",
+        "body": "I don't have time for back and forth. Send me a quote for the following: 2x Pizza, 3x T-Shirt, and a Rug. Make it quick.\r\n\r\n-Mr. Fresh Foods\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__uncooperative__neutral__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request with Multiple Items",
+      "description": "The customer requests a quote for several items, setting up a context for later conversational shorthand updates.",
+      "sender_name": "Lanesra Merchs Inc.",
+      "sender_email": "sales@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "sales@lanesramerch.com",
+        "subject": "Quote Request",
+        "body": "Please send me a quote for the following:\r\n- T-Shirt (I need two, but not the same one)\r\n- Pizza (just one)\r\n- Rasta Coffee Grinder\r\n\r\nBest regards,\r\nLanesra Merchs Inc."
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__uncooperative__polite__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Larry King",
+      "description": "Larry King, a recognized customer, initiates a quote request for several catalog items. He provides a straightforward list of products, using neutral and polite language, but does not specify quantities or variants for some items. He does not include any conversational shorthand or implicit references yet, reserving those for later follow-up turns.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items:\r\n- WonderWagon Electric Train\r\n- Rug\r\n- Pizza\r\n- T-Shirt\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__uncooperative__informal__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Julie Smith",
+      "description": "Julie Smith initiates a quote request for several items, setting up context for later conversational memory-based updates. The request is direct and informal, with a neutral, uncooperative persona.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for the following? WonderWagon Electric Train, a Rug, and a couple of T-Shirts. Thanks, Julie\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__uncooperative__rude_impatient__001",
+      "persona_id": "uncooperative",
+      "persona_display_name": "Uncooperative",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Quote Request with Minimal Detail",
+      "description": "Larry King requests a quote for several items using curt, impatient wording, setting up the context for later conversational memory-based updates. The request is direct and lacks extra context, reflecting the uncooperative persona and rude/impatient tone.",
+      "sender_name": "Larry King",
+      "sender_email": "lk@chevytoys.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "lk@chevytoys.com",
+        "subject": "Quote Needed",
+        "body": "Send me a quote for Rug, MagicToyland Fairy Doll, and Pizza. Make it quick.\r\n\r\nLarry King\r\n\r\nBest regards,\r\nLarry King"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__concise__neutral__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request for Multiple Items",
+      "description": "A concise customer requests a quote for several catalog items, setting up context for later conversational-memory-based updates.",
+      "sender_name": "Mr. Fresh Foods",
+      "sender_email": "mrfresh.foods@freshhellofoods.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "mrfresh.foods@freshhellofoods.com",
+        "subject": "Request for Quote",
+        "body": "Please send a quote for the following: 2 Pizza, 1 Soda - Large, 1 Rug, and 3 T-Shirt. Thanks.\r\n\r\nMr. Fresh Foods\r\n\r\nBest regards,\r\nMr. Fresh Foods"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__concise__polite__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Julie Smith",
+      "description": "Julie initiates a concise, polite quote request for several catalog items, setting up context for later conversational memory-based updates.",
+      "sender_name": "Julie Smith",
+      "sender_email": "info@alpineski.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@alpineski.com",
+        "subject": "Quote Request",
+        "body": "Hello,\r\n\r\nCould you please send me a quote for the following:\r\n- WonderWagon Pull-Along Train\r\n- AdventureCraft Building Blocks\r\n- MagicToyland Fairy Doll\r\n\r\nBest regards,\r\nJulie Smith"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__concise__informal__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Concise initial quote request for conversational memory update scenario",
+      "description": "A concise customer email requesting a quote for a small set of catalog items, setting up context for later conversational shorthand updates.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote request",
+        "body": "Hi, can you send me a quote for 2 Pizza, 1 Soda - Large, and a Rug? Thanks.\r\n\r\nMario Adams\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__concise__rude_impatient__001",
+      "persona_id": "concise",
+      "persona_display_name": "Concise",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Quote Request with Minimal Context",
+      "description": "A concise and impatient customer requests a quote for several items using brief wording, setting up for later conversational memory-based updates.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Need a quote",
+        "body": "Send me pricing for Mango, Pizza, and a Screwdriver. Make it quick.\r\n\r\n-Dunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__verbose__neutral__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Tom Martinez",
+      "description": "Verbose customer initiates a quote request for several catalog items, providing detailed context and rationale for each selection, setting up a thread for later conversational memory-based quote updates.",
+      "sender_name": "Tom Martinez",
+      "sender_email": "tom.martinez@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "tom.martinez@playlandia.com",
+        "subject": "Request for Quote: Toys and Accessories for Upcoming Event",
+        "body": "Hello,\r\n\r\nI am organizing a children's activity event next month and would like to request a quote for several items from your catalog. To ensure a diverse and engaging experience, I am looking to include a mix of toys and accessories suitable for a range of ages. Specifically, please include the following in the quote:\r\n\r\n- 2 units of the MagicToyland Fairy Doll, as these seem popular for imaginative play.\r\n- 1 JoySprout Toy Bicycle, which I believe will be a hit with the older kids.\r\n- 3 SmartToys Building Blocks sets, since building activities are always well received.\r\n- 1 WonderWagon Pull-Along Train, for younger children who enjoy interactive toys.\r\n- 2 Soda - Large, to provide refreshments for the staff.\r\n\r\nIf you need any further information about the event or the intended use of these items, please let me know. I am hoping to finalize the quote soon so I can plan accordingly.\r\n\r\nBest regards,\r\nTom Martinez"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__verbose__polite__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Toytopia - Initial Quote Request for Toys and Accessories",
+      "description": "Verbose and polite initial quote request from Toytopia, establishing context for a future conversational memory-based update.",
+      "sender_name": "Toytopia",
+      "sender_email": "info@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "info@toytopia.com",
+        "subject": "Request for Quote: Toy Sets and Accessories",
+        "body": "Dear Sales Team,\r\n\r\nI hope this message finds you well. We are preparing for our upcoming seasonal promotion and would like to request a quote for several items from your catalog. To ensure we have a diverse selection for our customers, please include the following products:\r\n\r\n- MagicToyland Adventure Doll\r\n- GiggleGear Action Figures Set\r\n- JoySprout Toy Car Set\r\n- WonderWagon Bicycle\r\n- Playlandia Colorful Play Mat\r\n\r\nIf possible, please provide pricing for one unit of each item listed above. We are still finalizing quantities and may need to adjust the order once we review your quote. If any of these items have variants or bundle options, kindly let us know so we can make an informed decision. Additionally, please confirm availability and estimated delivery times for each product.\r\n\r\nBest regards,\r\nToytopia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__verbose__informal__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Playlandia initial quote request with verbose context",
+      "description": "A verbose, informal initial quote request from Playlandia, establishing context for later conversational memory-based updates.",
+      "sender_name": "Playlandia",
+      "sender_email": "contact@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@playlandia.com",
+        "subject": "Quote Request – Toys & Accessories for Upcoming Event",
+        "body": "Hey there,\r\n\r\nWe’re gearing up for a kids’ event next month and looking to get a quote for a few items. I want to make sure we have a good mix of toys and some accessories for the play area. Here’s what I’m thinking so far:\r\n\r\n- 2 WonderWagon Pull-Along Trains (these seem perfect for younger kids)\r\n- 3 Playlandia Colorful Play Mats (for the activity zones)\r\n- 1 Kiddie Quest Adventure Kit (I’m not sure if this is the same as the Adventure Puzzle or if there’s a difference—could you clarify?)\r\n- 5 T-Shirts (preferably assorted sizes, but let me know what’s available)\r\n\r\nIf you need more info about the event or our preferences, just ask. We’ll probably need to tweak quantities or swap items once we see the quote, so please keep this thread open for updates.\r\n\r\nBest regards,\r\nPlaylandia"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__verbose__rude_impatient__001",
+      "persona_id": "verbose",
+      "persona_display_name": "Verbose",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Initial Quote Request with Verbose and Impatient Tone",
+      "description": "A verbose, impatient customer from Dunder Mifflin requests a quote for several catalog items, providing excessive context and expressing frustration with the process. The email establishes the initial item set for later conversational memory-based updates.",
+      "sender_name": "Dunder Mifflin",
+      "sender_email": "contact@outlook.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@outlook.com",
+        "subject": "Quote Request – Please Respond Quickly",
+        "body": "I need a quote for several items, and frankly, I don't have time for delays or endless back-and-forth. Please include the following in your quote: SmartToys Building Blocks, WonderWagon Electric Train, and the Rug (I see you have multiple rugs, so quote all available options). Also, add a Pizza – I don't care which one, just pick from your catalog. If you need more info, don't waste my time with unnecessary questions, just send what you can. I expect a prompt reply.\r\n\r\nDunder Mifflin\r\n\r\nBest regards,\r\nDunder Mifflin"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__context_dependent__neutral__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request with Context-Dependent References",
+      "description": "Emily Parker requests a quote for several items, establishing the initial context for later conversational memory-based updates. She refers to products by their catalog names and sets up a thread where future shorthand references will be used.",
+      "sender_name": "Emily Parker",
+      "sender_email": "emily.parker@playlandia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "emily.parker@playlandia.com",
+        "subject": "Quote Request for Toys and Apparel",
+        "body": "Hello,\r\n\r\nI'd like to request a quote for the following items:\r\n- SmartyToys Educational Puzzle\r\n- JoySprout Toy Bicycle\r\n- T-Shirt (please include options available)\r\n- WonderWagon Electric Train\r\n\r\nPlease let me know if you need any additional information.\r\n\r\nBest regards,\r\nEmily Parker"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__context_dependent__polite__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "French Cafe - Initial Quote Request with Contextual Reference",
+      "description": "The customer initiates a quote request, mentioning several catalog items and using context-dependent phrasing. The email establishes the initial item set, setting up for later conversational memory-based updates.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Quote - Coffee Equipment and Related Items",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items for our cafe:\r\n- Rasta Coffee Grinder\r\n- Rasta Coffee Beans\r\n- Please include the coffee machine you usually recommend for small cafes.\r\n- Also, one of the rugs suitable for a cozy seating area.\r\n\r\nIf you need any further details, please let me know.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__context_dependent__informal__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Initial Quote Request with Multiple Items",
+      "description": "Gabriel Henry requests a quote for several items, setting up context for later conversational shorthand updates.",
+      "sender_name": "Gabriel Henry",
+      "sender_email": "gabriel_h@lanesramerch.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "gabriel_h@lanesramerch.com",
+        "subject": "Quote request for a few items",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n- 2 T-Shirts (please include both styles you have)\r\n- 1 Kiddie Quest Adventure Kit\r\n- 1 Rasta Coffee Grinder\r\n- 3 Mango\r\n\r\nBest regards,\r\nGabriel Henry"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__context_dependent__rude_impatient__001",
+      "persona_id": "context_dependent",
+      "persona_display_name": "Context-Dependent",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Lyn Ventures - Initial Quote Request with Context-Dependent, Impatient Tone",
+      "description": "The customer initiates a quote request, listing several items from the catalog in a curt and impatient manner, setting up context for later conversational memory-based updates.",
+      "sender_name": "Lyn Ventures",
+      "sender_email": "hello_support@lyn_ventures.us",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello_support@lyn_ventures.us",
+        "subject": "Need a quote ASAP",
+        "body": "Send me a quote for the following: Pizza, Rasta Coffee Beans, and a Rug. Make it quick, please. Lyn Ventures\r\n\r\nBest regards,\r\nLyn Ventures"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__goal_directed__neutral__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "neutral",
+      "tone_display_name": "Neutral",
+      "name": "Initial Quote Request for Multiple Items",
+      "description": "A goal-directed customer from French Cafe requests a quote for several catalog items, establishing the item set for later conversational memory-based updates.",
+      "sender_name": "French Cafe",
+      "sender_email": "contact@frenchcafe.fr",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "contact@frenchcafe.fr",
+        "subject": "Request for Quote – Multiple Items",
+        "body": "Hello,\r\n\r\nWe would like to request a quote for the following items:\r\n- 2 units of Rasta Espresso Machine\r\n- 3 units of Rasta Coffee Beans\r\n- 1 unit of WonderWash Washing Machine\r\n- 4 units of Rug\r\n\r\nPlease provide pricing and availability for these items. Let us know if you need any additional information.\r\n\r\nBest regards,\r\nFrench Cafe"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__goal_directed__polite__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "polite",
+      "tone_display_name": "Polite",
+      "name": "Initial Quote Request for Toys and Accessories",
+      "description": "A goal-directed, polite customer requests a quote for several items, establishing a clear context for later conversational-memory-based quote updates.",
+      "sender_name": "Maxo Mart",
+      "sender_email": "hello@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "hello@maxomart.net",
+        "subject": "Request for Quote on Toys and Accessories",
+        "body": "Hello,\r\n\r\nCould you please provide a quote for the following items?\r\n\r\n- 2 x WonderWagon Pull-Along Train\r\n- 1 x AdventureCraft Building Blocks\r\n- 3 x T-Shirt (please include a mix of available options)\r\n- 1 x JoySprout Toy Car Set\r\n\r\nBest regards,\r\nMaxo Mart"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__goal_directed__informal__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "informal",
+      "tone_display_name": "Informal",
+      "name": "Mario Adams",
+      "description": "A goal-directed customer requests a quote for several catalog items, setting up a context for later conversational memory-based updates.",
+      "sender_name": "Mario Adams",
+      "sender_email": "madams@maxomart.net",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "madams@maxomart.net",
+        "subject": "Quote Request for Multiple Items",
+        "body": "Hi there,\r\n\r\nCan you send me a quote for the following?\r\n- WonderWagon Bicycle\r\n- SmartToys Building Blocks\r\n- T-Shirt (please include both options you have)\r\n- Soda (I'd like a medium and a large)\r\n\r\nBest regards,\r\nMario Adams"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    },
+    {
+      "case_id": "quote_update_with_conversational_memory__quote_updated_from_memory__goal_directed__rude_impatient__001",
+      "persona_id": "goal_directed",
+      "persona_display_name": "Goal-Directed",
+      "tone_id": "rude_impatient",
+      "tone_display_name": "Rude / Impatient",
+      "name": "Jessica Stone",
+      "description": "A goal-directed, impatient customer requests an initial quote for several catalog items, setting up the context for later conversational memory-based updates.",
+      "sender_name": "Jessica Stone",
+      "sender_email": "jessica.stone@toytopia.com",
+      "sender_type": "recognized_valid_customer",
+      "initial_turn": {
+        "from_": "jessica.stone@toytopia.com",
+        "subject": "Need a quote ASAP",
+        "body": "I need a quote for the following: WonderWagon Pull-Along Train, SmartToys Fast Car Set, and two T-Shirts. Make this quick, please. Jessica Stone\r\n\r\nBest regards,\r\nJessica Stone"
+      },
+      "follow_up_plan": {
+        "mode": "runtime_grounded",
+        "intent": "request_clear_update_to_existing_quote",
+        "trigger": "after_existing_context_is_established",
+        "outcome_manifest_stage": "follow_up_turn",
+        "max_additional_turns": 2,
+        "grounding_requirements": [
+          "later_customer_turns_must_be_grounded_in_previously_mentioned_or_previously_quoted_items",
+          "customer_may_use_implicit_references_such_as_one_of_each_remove_one_add_another",
+          "quote_updates_may_depend_on_conversation_memory_not_only_current_quote_text",
+          "thread_context_must_be_preserved"
+        ]
+      }
+    }
+  ]
+}
